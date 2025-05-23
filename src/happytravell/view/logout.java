@@ -58,7 +58,7 @@ public class logout extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CancelButton);
-        CancelButton.setBounds(440, 180, 80, 30);
+        CancelButton.setBounds(440, 170, 80, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutPage/View/mm.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
