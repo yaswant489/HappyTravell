@@ -48,11 +48,11 @@ public class loginPage extends javax.swing.JFrame {
 
         emailLabel.setText("Email/Username:");
         getContentPane().add(emailLabel);
-        emailLabel.setBounds(330, 120, 90, 16);
+        emailLabel.setBounds(330, 120, 90, 20);
 
         passwordLabel.setText("Password:");
         getContentPane().add(passwordLabel);
-        passwordLabel.setBounds(370, 160, 53, 16);
+        passwordLabel.setBounds(370, 160, 53, 20);
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
