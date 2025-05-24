@@ -30,6 +30,7 @@ public class logout extends javax.swing.JFrame {
         LogoutButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -60,9 +61,13 @@ public class logout extends javax.swing.JFrame {
         getContentPane().add(CancelButton);
         CancelButton.setBounds(440, 170, 80, 30);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LogoutPage/View/mm.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/mm.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, -4, 640, 370);
+
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(140, 150, 37, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,5 +120,6 @@ public class logout extends javax.swing.JFrame {
     private javax.swing.JButton LogoutButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
