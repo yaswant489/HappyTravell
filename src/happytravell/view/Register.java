@@ -75,7 +75,7 @@ public class Register extends javax.swing.JFrame {
 
         phonenumberLabel.setText("Phone Number");
         getContentPane().add(phonenumberLabel);
-        phonenumberLabel.setBounds(336, 177, 79, 16);
+        phonenumberLabel.setBounds(336, 177, 81, 16);
 
         addressLabel.setText("Address");
         getContentPane().add(addressLabel);
@@ -87,7 +87,7 @@ public class Register extends javax.swing.JFrame {
 
         confirmpasswordLabel.setText("Confirm Password");
         getContentPane().add(confirmpasswordLabel);
-        confirmpasswordLabel.setBounds(320, 264, 95, 16);
+        confirmpasswordLabel.setBounds(320, 264, 97, 16);
 
         registerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         registerButton.setText("Register");
@@ -131,7 +131,7 @@ public class Register extends javax.swing.JFrame {
         getContentPane().add(confirmPasswordfield);
         confirmPasswordfield.setBounds(427, 261, 147, 22);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/happytravell/view/zz.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/register.png.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, -4, 640, 370);
