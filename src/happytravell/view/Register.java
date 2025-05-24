@@ -1,5 +1,6 @@
 package happytravell.view;
 
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -10,14 +11,18 @@ package happytravell.view;
  *
  * @author Acer
  */
+import happytravell.view.loginPage;
+import happytravell.controller.Importedclasses;
+import java.util.HashMap;
+import java.util.Map;
 public class Register extends javax.swing.JFrame {
 
     /**
      * Creates new form Register
      */
     public Register() {
-        initComponents();
-    }
+    initComponents();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,10 +146,65 @@ public class Register extends javax.swing.JFrame {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         // TODO add your handling code here:
+        String fname = firstnameTextfield.getText();
+    String lname = lastnameTextfield.getText();
+    String username = setusernameTextfield.getText();
+    String email = emailTextfield.getText();
+    String phone = phonenumberTextfield.getText();
+    String address = addressTextfield.getText();
+    String password = new String(setPasswordField.getPassword());
+    String confirmPassword = new String(confirmPasswordfield.getPassword());
+
+    // Validate required fields
+    if (fname.isEmpty() || lname.isEmpty() || username.isEmpty() ||
+        email.isEmpty() || phone.isEmpty() || address.isEmpty() ||
+        password.isEmpty() || confirmPassword.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please fill all fields.");
+        return;
+    }
+
+    if (!password.equals(confirmPassword)) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Passwords do not match.");
+        return;
+    }
+
+    // Check if username already exists
+    for (Map<String, String> user : Importedclasses.users) {
+        if (user.get("username").equalsIgnoreCase(username)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Username already taken.");
+            return;
+        }
+    }
+
+    // Store new user in memory
+    Map<String, String> newUser = new HashMap<>();
+    newUser.put("firstname", fname);
+    newUser.put("lastname", lname);
+    newUser.put("username", username);
+    newUser.put("email", email);
+    newUser.put("phone", phone);
+    newUser.put("address", address);
+    newUser.put("password", password); // For demo only (not secure)
+
+    Importedclasses.users.add(newUser);
+    javax.swing.JOptionPane.showMessageDialog(this, "Registration successful!");
+
+    // Clear form
+    firstnameTextfield.setText("");
+    lastnameTextfield.setText("");
+    setusernameTextfield.setText("");
+    emailTextfield.setText("");
+    phonenumberTextfield.setText("");
+    addressTextfield.setText("");
+    setPasswordField.setText("");
+    confirmPasswordfield.setText("");
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
+    loginPage login = new loginPage();
+    login.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void lastnameTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameTextfieldActionPerformed
@@ -179,10 +239,8 @@ public class Register extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Register().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Register().setVisible(true);
         });
     }
 
