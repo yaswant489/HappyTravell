@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package happytravell.view;
-
+import happytravell.view.Register;
 /**
  *
  * @author User
@@ -133,6 +133,9 @@ public class loginPage extends javax.swing.JFrame {
 
     private void createAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountButtonActionPerformed
         // TODO add your handling code here:
+    Register register = new Register();
+    register.setVisible(true);
+    this.dispose(); // optional: closes the login window
     }//GEN-LAST:event_createAccountButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed

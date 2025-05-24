@@ -8,6 +8,12 @@ package happytravell.controller;
  *
  * @author User
  */
-public class NewClass {jgkiugiukuyvk
-    
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+public class Importedclasses {
+    public static ArrayList<Map<String, String>> users = new ArrayList<>();
 }
+
+    
+
