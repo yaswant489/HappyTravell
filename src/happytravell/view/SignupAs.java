@@ -77,10 +77,9 @@ public class SignupAs extends javax.swing.JFrame {
         getContentPane().add(alreadyaccountLabel);
         alreadyaccountLabel.setBounds(400, 260, 135, 16);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/happytravell/view/mm.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/signupAs.png"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, -4, 640, 370);
+        jLabel4.setBounds(0, -20, 640, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
