@@ -52,7 +52,7 @@ public class loginPage extends javax.swing.JFrame {
 
         passwordLabel.setText("Password:");
         getContentPane().add(passwordLabel);
-        passwordLabel.setBounds(370, 160, 53, 16);
+        passwordLabel.setBounds(370, 160, 52, 16);
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +87,7 @@ public class loginPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(340, 310, 110, 20);
+        jButton2.setBounds(330, 310, 117, 20);
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 102, 255));
@@ -98,7 +98,7 @@ public class loginPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(490, 310, 100, 20);
+        jButton3.setBounds(490, 310, 120, 20);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
         getContentPane().add(jLabel4);
