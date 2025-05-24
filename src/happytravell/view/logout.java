@@ -74,10 +74,13 @@ public class logout extends javax.swing.JFrame {
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         // TODO add your handling code here:
+        new loginPage().setVisible(true); // loginPage import here
+    this.dispose();
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     /**
