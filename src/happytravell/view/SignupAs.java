@@ -10,6 +10,7 @@ package happytravell.view;
  *
  * @author Acer
  */
+import happytravell.view.loginPage;
 public class SignupAs extends javax.swing.JFrame {
 
     /**
@@ -28,13 +29,15 @@ public class SignupAs extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         signupLabel = new javax.swing.JLabel();
         typeaccountLabel = new javax.swing.JLabel();
         passengerButton = new javax.swing.JButton();
         adminButton = new javax.swing.JButton();
         LoginButton = new javax.swing.JButton();
         alreadyaccountLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/signupAs.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -70,16 +73,17 @@ public class SignupAs extends javax.swing.JFrame {
 
         LoginButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         LoginButton.setText("Login");
+        LoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LoginButton);
         LoginButton.setBounds(420, 280, 72, 27);
 
         alreadyaccountLabel.setText("Already have an account?");
         getContentPane().add(alreadyaccountLabel);
         alreadyaccountLabel.setBounds(400, 260, 135, 16);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/signupAs.png"))); // NOI18N
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, -20, 640, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -91,6 +95,14 @@ public class SignupAs extends javax.swing.JFrame {
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_adminButtonActionPerformed
+
+    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
+        // TODO add your handling code here:
+    System.out.println("Login button clicked");
+    loginPage login = new loginPage();
+    login.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_LoginButtonActionPerformed
 
     /**
      * @param args the command line arguments
