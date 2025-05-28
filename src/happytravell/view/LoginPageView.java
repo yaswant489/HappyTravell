@@ -3,19 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package happytravell.view;
-import happytravell.view.Register;
+
+
+
 /**
  *
  * @author User
  */
-public class loginPage extends javax.swing.JFrame {
+public class LoginPageView extends javax.swing.JFrame {
 
     /**
      * Creates new form login
      */
-    public loginPage() {
-    initComponents();
-}
+    public LoginPageView() {
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,29 +32,30 @@ public class loginPage extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        passwordShowToggleButton = new javax.swing.JToggleButton();
+        passwordField = new javax.swing.JPasswordField();
+        showButton = new javax.swing.JToggleButton();
         loginButton = new javax.swing.JButton();
-        forgotpasswordButton = new javax.swing.JButton();
+        forgetPasswordButton = new javax.swing.JButton();
         createAccountButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        wellcomeLabel.setFont(new java.awt.Font("Serif", 1, 23)); // NOI18N
-        wellcomeLabel.setForeground(new java.awt.Color(0, 153, 0));
+        wellcomeLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         wellcomeLabel.setText("Wellcome To Happy Travel");
         getContentPane().add(wellcomeLabel);
-        wellcomeLabel.setBounds(330, 30, 280, 34);
+        wellcomeLabel.setBounds(340, 50, 260, 34);
 
+        emailLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         emailLabel.setText("Email/Username:");
         getContentPane().add(emailLabel);
-        emailLabel.setBounds(330, 120, 90, 16);
+        emailLabel.setBounds(330, 120, 100, 16);
 
+        passwordLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         passwordLabel.setText("Password:");
         getContentPane().add(passwordLabel);
-        passwordLabel.setBounds(370, 160, 53, 16);
+        passwordLabel.setBounds(370, 163, 60, 16);
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,18 +64,20 @@ public class loginPage extends javax.swing.JFrame {
         });
         getContentPane().add(emailTextField);
         emailTextField.setBounds(430, 120, 170, 22);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(430, 160, 110, 22);
+        getContentPane().add(passwordField);
+        passwordField.setBounds(430, 160, 110, 22);
 
-        passwordShowToggleButton.setText("Show");
-        passwordShowToggleButton.addActionListener(new java.awt.event.ActionListener() {
+        showButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        showButton.setText("Show");
+        showButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordShowToggleButtonActionPerformed(evt);
+                showButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(passwordShowToggleButton);
-        passwordShowToggleButton.setBounds(540, 160, 59, 23);
+        getContentPane().add(showButton);
+        showButton.setBounds(540, 160, 60, 21);
 
+        loginButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,19 +85,19 @@ public class loginPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(loginButton);
-        loginButton.setBounds(430, 220, 90, 23);
+        loginButton.setBounds(440, 220, 90, 30);
 
-        forgotpasswordButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        forgotpasswordButton.setForeground(new java.awt.Color(0, 102, 255));
-        forgotpasswordButton.setText("Forget password ?");
-        forgotpasswordButton.setBorderPainted(false);
-        forgotpasswordButton.addActionListener(new java.awt.event.ActionListener() {
+        forgetPasswordButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        forgetPasswordButton.setForeground(new java.awt.Color(0, 102, 255));
+        forgetPasswordButton.setText("Forget password ?");
+        forgetPasswordButton.setBorderPainted(false);
+        forgetPasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                forgotpasswordButtonActionPerformed(evt);
+                forgetPasswordButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(forgotpasswordButton);
-        forgotpasswordButton.setBounds(340, 310, 110, 20);
+        getContentPane().add(forgetPasswordButton);
+        forgetPasswordButton.setBounds(340, 300, 120, 30);
 
         createAccountButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         createAccountButton.setForeground(new java.awt.Color(0, 102, 255));
@@ -103,7 +108,7 @@ public class loginPage extends javax.swing.JFrame {
             }
         });
         getContentPane().add(createAccountButton);
-        createAccountButton.setBounds(490, 310, 100, 20);
+        createAccountButton.setBounds(490, 300, 100, 30);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -116,46 +121,23 @@ public class loginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
-    private void passwordShowToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordShowToggleButtonActionPerformed
-        // TODO add your handling code here:
-        if (passwordShowToggleButton.isSelected()) {
-        jPasswordField1.setEchoChar((char) 0); // show password
-        passwordShowToggleButton.setText("Hide");
-    } else {
-        jPasswordField1.setEchoChar('●'); // hide password
-        passwordShowToggleButton.setText("Show");
-    }
-    }//GEN-LAST:event_passwordShowToggleButtonActionPerformed
+    private void showButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showButtonActionPerformed
+                // TODO add your handling code here:
+    }//GEN-LAST:event_showButtonActionPerformed
 
-    private void forgotpasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotpasswordButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_forgotpasswordButtonActionPerformed
+    private void forgetPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgetPasswordButtonActionPerformed
+        new ForgetView().setVisible(true);
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_forgetPasswordButtonActionPerformed
 
     private void createAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountButtonActionPerformed
-        // TODO add your handling code here:
-    Register register = new Register();
-    register.setVisible(true);
-    this.dispose(); // optional: closes the login window
+        new SignupAsView().setVisible(true);
+        dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_createAccountButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-                                              
-    String enteredUsername = emailTextField.getText();
-    String enteredPassword = new String(jPasswordField1.getPassword());
-
-    // Hardcoded valid credentials
-    String validUsername = "yaswant";
-    String validPassword = "1234";
-
-    if (enteredUsername.isEmpty() || enteredPassword.isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Please enter both username and password.");
-    } else if (enteredUsername.equals(validUsername) && enteredPassword.equals(validPassword)) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Login successful!");
-        // add Dashboard
-        // new Dashboard(
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(this, "Invalid username or password.");
-    }
+        new DashboardView().setVisible(true);
+        dispose();// TODO add your handling code here:
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
@@ -175,21 +157,23 @@ public class loginPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(loginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(loginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(loginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(loginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new loginPage().setVisible(true);
+                new LoginPageView().setVisible(true);
             }
         });
     }
@@ -198,12 +182,12 @@ public class loginPage extends javax.swing.JFrame {
     private javax.swing.JButton createAccountButton;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
-    private javax.swing.JButton forgotpasswordButton;
+    private javax.swing.JButton forgetPasswordButton;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JButton loginButton;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JToggleButton passwordShowToggleButton;
+    private javax.swing.JToggleButton showButton;
     private javax.swing.JLabel wellcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
