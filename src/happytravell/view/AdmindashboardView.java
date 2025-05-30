@@ -8,12 +8,12 @@ package happytravell.view;
  *
  * @author Acer
  */
-public class Admindashboard extends javax.swing.JFrame {
+public class AdmindashboardView extends javax.swing.JFrame {
 
     /**
      * Creates new form Admindashboard
      */
-    public Admindashboard() {
+    public AdmindashboardView() {
         initComponents();
     }
 
@@ -389,7 +389,7 @@ public class Admindashboard extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/happytravell/view/Untitled-9.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/notice.jpg"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Candara", 3, 12)); // NOI18N
         jLabel2.setText("Welcome to Happy Travels!");
@@ -550,20 +550,21 @@ public class Admindashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Admindashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmindashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Admindashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmindashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Admindashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmindashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Admindashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmindashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admindashboard().setVisible(true);
+                new AdmindashboardView().setVisible(true);
             }
         });
     }
