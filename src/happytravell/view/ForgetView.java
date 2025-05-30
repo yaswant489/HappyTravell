@@ -8,12 +8,12 @@ package happytravell.view;
  *
  * @author Administrator
  */
-public class forget extends javax.swing.JFrame {
+public class ForgetView extends javax.swing.JFrame {
 
     /**
      * Creates new form forget
      */
-    public forget() {
+    public ForgetView() {
         initComponents();
     }
 
@@ -62,10 +62,10 @@ public class forget extends javax.swing.JFrame {
         getContentPane().add(resetButton);
         resetButton.setBounds(520, 310, 70, 23);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("Forget Password?");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(370, 20, 210, 30);
+        jLabel2.setBounds(370, 30, 210, 30);
 
         emailLabel.setText("Email");
         getContentPane().add(emailLabel);
@@ -166,20 +166,21 @@ public class forget extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(forget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ForgetView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(forget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ForgetView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(forget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ForgetView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(forget.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ForgetView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new forget().setVisible(true);
+                new ForgetView().setVisible(true);
             }
         });
     }
