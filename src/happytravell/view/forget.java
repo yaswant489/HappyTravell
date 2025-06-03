@@ -35,7 +35,7 @@ public class forget extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jToggleButton1 = new javax.swing.JToggleButton();
         resetButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        forgetLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
         codeLabel = new javax.swing.JLabel();
@@ -67,10 +67,10 @@ public class forget extends javax.swing.JFrame {
         getContentPane().add(resetButton);
         resetButton.setBounds(520, 310, 70, 23);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Forget Password?");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(370, 20, 210, 30);
+        forgetLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        forgetLabel.setText("Forget Password?");
+        getContentPane().add(forgetLabel);
+        forgetLabel.setBounds(370, 20, 210, 30);
 
         emailLabel.setText("Email");
         getContentPane().add(emailLabel);
@@ -248,8 +248,8 @@ public class forget extends javax.swing.JFrame {
     private javax.swing.JPasswordField confirmPassword;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
+    private javax.swing.JLabel forgetLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JToggleButton jToggleButton1;
