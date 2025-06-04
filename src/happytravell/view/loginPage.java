@@ -48,11 +48,12 @@ public class loginPage extends javax.swing.JFrame {
 
         emailLabel.setText("Email/Username:");
         getContentPane().add(emailLabel);
-        emailLabel.setBounds(330, 120, 90, 16);
+        emailLabel.setBounds(330, 120, 90, 20);
 
         passwordLabel.setText("Password:");
         getContentPane().add(passwordLabel);
-        passwordLabel.setBounds(370, 160, 52, 16);
+        passwordLabel.setBounds(370, 160, 53, 20);
+
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,13 +80,8 @@ public class loginPage extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
         getContentPane().add(loginButton);
         loginButton.setBounds(430, 220, 90, 23);
-=======
-        getContentPane().add(jButton2);
-        jButton2.setBounds(330, 310, 117, 20);
->>>>>>> origin/ritika
 
         forgotpasswordButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         forgotpasswordButton.setForeground(new java.awt.Color(0, 102, 255));
@@ -96,7 +92,6 @@ public class loginPage extends javax.swing.JFrame {
                 forgotpasswordButtonActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
         getContentPane().add(forgotpasswordButton);
         forgotpasswordButton.setBounds(340, 310, 110, 20);
 
@@ -110,10 +105,7 @@ public class loginPage extends javax.swing.JFrame {
         });
         getContentPane().add(createAccountButton);
         createAccountButton.setBounds(490, 310, 100, 20);
-=======
-        getContentPane().add(jButton3);
-        jButton3.setBounds(490, 310, 120, 20);
->>>>>>> origin/ritika
+
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
         getContentPane().add(jLabel4);
