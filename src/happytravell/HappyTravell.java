@@ -4,20 +4,17 @@
  */
 package happytravell;
 
-import java.sql.*;
+/**
+ *
+ * @author User
+ */
 public class HappyTravell {
 
-    Connection con;
-    PreparedStatement pat;
-    
-    
-    
-   public static void main(String[] args) {
-      
-       
-       
-       
-       
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
     }
     
 }
