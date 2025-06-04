@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package happytravell.view;
-
+import happytravell.view.Register;
 /**
  *
  * @author User
@@ -14,8 +14,8 @@ public class loginPage extends javax.swing.JFrame {
      * Creates new form login
      */
     public loginPage() {
-        initComponents();
-    }
+    initComponents();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,10 +31,10 @@ public class loginPage extends javax.swing.JFrame {
         passwordLabel = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        passwordShowToggleButton = new javax.swing.JToggleButton();
+        loginButton = new javax.swing.JButton();
+        forgotpasswordButton = new javax.swing.JButton();
+        createAccountButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,6 +54,7 @@ public class loginPage extends javax.swing.JFrame {
         getContentPane().add(passwordLabel);
         passwordLabel.setBounds(370, 160, 53, 20);
 
+
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTextFieldActionPerformed(evt);
@@ -64,41 +65,47 @@ public class loginPage extends javax.swing.JFrame {
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(430, 160, 110, 22);
 
-        jToggleButton1.setText("Show");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        passwordShowToggleButton.setText("Show");
+        passwordShowToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                passwordShowToggleButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(540, 160, 59, 23);
+        getContentPane().add(passwordShowToggleButton);
+        passwordShowToggleButton.setBounds(540, 160, 59, 23);
 
-        jButton1.setText("Login");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(430, 220, 90, 23);
-
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 102, 255));
-        jButton2.setText("Forget password ?");
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(340, 310, 110, 20);
+        getContentPane().add(loginButton);
+        loginButton.setBounds(430, 220, 90, 23);
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 102, 255));
-        jButton3.setText("Create Account");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        forgotpasswordButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        forgotpasswordButton.setForeground(new java.awt.Color(0, 102, 255));
+        forgotpasswordButton.setText("Forget password ?");
+        forgotpasswordButton.setBorderPainted(false);
+        forgotpasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                forgotpasswordButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(490, 310, 100, 20);
+        getContentPane().add(forgotpasswordButton);
+        forgotpasswordButton.setBounds(340, 310, 110, 20);
+
+        createAccountButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        createAccountButton.setForeground(new java.awt.Color(0, 102, 255));
+        createAccountButton.setText("Create Account");
+        createAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAccountButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(createAccountButton);
+        createAccountButton.setBounds(490, 310, 100, 20);
+
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -111,17 +118,47 @@ public class loginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void passwordShowToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordShowToggleButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+        if (passwordShowToggleButton.isSelected()) {
+        jPasswordField1.setEchoChar((char) 0); // show password
+        passwordShowToggleButton.setText("Hide");
+    } else {
+        jPasswordField1.setEchoChar('●'); // hide password
+        passwordShowToggleButton.setText("Show");
+    }
+    }//GEN-LAST:event_passwordShowToggleButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void forgotpasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotpasswordButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_forgotpasswordButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void createAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    Register register = new Register();
+    register.setVisible(true);
+    this.dispose(); // optional: closes the login window
+    }//GEN-LAST:event_createAccountButtonActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+                                              
+    String enteredUsername = emailTextField.getText();
+    String enteredPassword = new String(jPasswordField1.getPassword());
+
+    // Hardcoded valid credentials
+    String validUsername = "yaswant";
+    String validPassword = "1234";
+
+    if (enteredUsername.isEmpty() || enteredPassword.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please enter both username and password.");
+    } else if (enteredUsername.equals(validUsername) && enteredPassword.equals(validPassword)) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Login successful!");
+        // add Dashboard
+        // new Dashboard(
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, "Invalid username or password.");
+    }
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,15 +197,15 @@ public class loginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createAccountButton;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton forgotpasswordButton;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JButton loginButton;
     private javax.swing.JLabel passwordLabel;
+    private javax.swing.JToggleButton passwordShowToggleButton;
     private javax.swing.JLabel wellcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
