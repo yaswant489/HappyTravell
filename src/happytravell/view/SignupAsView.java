@@ -4,6 +4,8 @@
  */
 package happytravell.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Acer
@@ -29,10 +31,9 @@ public class SignupAsView extends javax.swing.JFrame {
         signupLabel = new javax.swing.JLabel();
         whichaccountLabel = new javax.swing.JLabel();
         adminButton = new javax.swing.JButton();
-        passengerButton = new javax.swing.JButton();
+        travellerButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
         alreadyLabel = new javax.swing.JLabel();
-        backButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,16 +60,16 @@ public class SignupAsView extends javax.swing.JFrame {
         getContentPane().add(adminButton);
         adminButton.setBounds(400, 190, 129, 32);
 
-        passengerButton.setBackground(new java.awt.Color(239, 243, 243));
-        passengerButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        passengerButton.setText("Passenger");
-        passengerButton.addActionListener(new java.awt.event.ActionListener() {
+        travellerButton.setBackground(new java.awt.Color(239, 243, 243));
+        travellerButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        travellerButton.setText("Traveller");
+        travellerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passengerButtonActionPerformed(evt);
+                travellerButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(passengerButton);
-        passengerButton.setBounds(400, 140, 129, 32);
+        getContentPane().add(travellerButton);
+        travellerButton.setBounds(400, 140, 129, 32);
 
         loginButton.setBackground(new java.awt.Color(239, 243, 243));
         loginButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -86,17 +87,6 @@ public class SignupAsView extends javax.swing.JFrame {
         getContentPane().add(alreadyLabel);
         alreadyLabel.setBounds(410, 250, 127, 16);
 
-        backButton.setBackground(new java.awt.Color(239, 243, 243));
-        backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(backButton);
-        backButton.setBounds(330, 290, 70, 20);
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/signupAsBg.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
@@ -109,17 +99,13 @@ public class SignupAsView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_adminButtonActionPerformed
 
-    private void passengerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passengerButtonActionPerformed
+    private void travellerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passengerButtonActionPerformed
+    }//GEN-LAST:event_travellerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginButtonActionPerformed
-
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,11 +146,25 @@ public class SignupAsView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adminButton;
     private javax.swing.JLabel alreadyLabel;
-    private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton loginButton;
-    private javax.swing.JButton passengerButton;
     private javax.swing.JLabel signupLabel;
+    private javax.swing.JButton travellerButton;
     private javax.swing.JLabel whichaccountLabel;
     // End of variables declaration//GEN-END:variables
+public void adminNavigation(ActionListener listener){
+        adminButton.addActionListener(listener);
+    }
+     
+
+    public void travellerNavigation(ActionListener listener) {
+        travellerButton.addActionListener(listener);
+    }
+    
+    public void loginNavigation(ActionListener listener){
+        loginButton.addActionListener(listener);
+    }
+    
+
+
 }
