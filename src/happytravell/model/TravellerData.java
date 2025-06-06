@@ -8,21 +8,21 @@ package happytravell.model;
  *
  * @author User
  */
-public class UserData {
+public class TravellerData {
     private String firstName;
     private String lastName;
     private String username;
     private String email;
-    private String phone;
+    private String phoneNumber;
     private String address;
     private String password;
 
-    public UserData(String firstName, String lastName, String username, String email, String phone, String address, String password) {
+    public TravellerData(String firstName, String lastName, String username, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
-        this.phone = phone;
+        this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
     }
@@ -39,8 +39,8 @@ public class UserData {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phone) {
+        this.phoneNumber = phoneNumber;
     }
     public void setAddress(String address) {
         this.address = address;
@@ -62,8 +62,8 @@ public class UserData {
     public String getEmail() {
         return this.email;
     }
-    public String getPhone() {
-        return this.phone;
+    public String getPhoneNumber() {
+        return this.phoneNumber;
     }
     public String getAddress() {
         return this.address;

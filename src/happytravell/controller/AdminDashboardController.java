@@ -4,16 +4,13 @@
  */
 package happytravell.controller;
 
+
 /**
  *
- * @author User
+ * @author Acer
  */
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-public class RegisterController {
-    public static ArrayList<Map<String, String>> users = new ArrayList<>();
-}
+public class AdminDashboardController {
 
     
-
+    
+}

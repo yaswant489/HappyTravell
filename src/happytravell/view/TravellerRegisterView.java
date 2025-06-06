@@ -4,16 +4,18 @@
  */
 package happytravell.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Acer
  */
-public class RegisterView extends javax.swing.JFrame {
+public class TravellerRegisterView extends javax.swing.JFrame {
 
     /**
      * Creates new form Register
      */
-    public RegisterView() {
+    public TravellerRegisterView() {
         initComponents();
     }
 
@@ -28,9 +30,9 @@ public class RegisterView extends javax.swing.JFrame {
 
         jTextField2 = new javax.swing.JTextField();
         RegisterLabel = new javax.swing.JLabel();
-        LastnameTextField = new javax.swing.JTextField();
-        FirstnameTextField = new javax.swing.JTextField();
-        UsernameTextField = new javax.swing.JTextField();
+        lastnameTextField = new javax.swing.JTextField();
+        firstnameTextField = new javax.swing.JTextField();
+        usernameTextField = new javax.swing.JTextField();
         registerButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -42,11 +44,11 @@ public class RegisterView extends javax.swing.JFrame {
         setPassword = new javax.swing.JLabel();
         confirmpasswordlabel = new javax.swing.JLabel();
         firstnameLabel = new javax.swing.JLabel();
-        EmailTextField = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        emailTextField = new javax.swing.JTextField();
+        phoneNumberTextField = new javax.swing.JTextField();
+        addressTextField = new javax.swing.JTextField();
+        setPasswordField = new javax.swing.JPasswordField();
+        confirmPasswordField = new javax.swing.JPasswordField();
         setshowButton = new javax.swing.JButton();
         confirmshowButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -67,29 +69,29 @@ public class RegisterView extends javax.swing.JFrame {
         getContentPane().add(RegisterLabel);
         RegisterLabel.setBounds(440, 20, 94, 31);
 
-        LastnameTextField.addActionListener(new java.awt.event.ActionListener() {
+        lastnameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LastnameTextFieldActionPerformed(evt);
+                lastnameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(LastnameTextField);
-        LastnameTextField.setBounds(430, 100, 126, 22);
+        getContentPane().add(lastnameTextField);
+        lastnameTextField.setBounds(430, 100, 126, 22);
 
-        FirstnameTextField.addActionListener(new java.awt.event.ActionListener() {
+        firstnameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FirstnameTextFieldActionPerformed(evt);
+                firstnameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(FirstnameTextField);
-        FirstnameTextField.setBounds(430, 70, 126, 22);
+        getContentPane().add(firstnameTextField);
+        firstnameTextField.setBounds(430, 70, 126, 22);
 
-        UsernameTextField.addActionListener(new java.awt.event.ActionListener() {
+        usernameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameTextFieldActionPerformed(evt);
+                usernameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(UsernameTextField);
-        UsernameTextField.setBounds(430, 130, 126, 22);
+        getContentPane().add(usernameTextField);
+        usernameTextField.setBounds(430, 130, 126, 22);
 
         registerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         registerButton.setText("Register");
@@ -143,45 +145,45 @@ public class RegisterView extends javax.swing.JFrame {
         getContentPane().add(firstnameLabel);
         firstnameLabel.setBounds(370, 73, 55, 16);
 
-        EmailTextField.addActionListener(new java.awt.event.ActionListener() {
+        emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmailTextFieldActionPerformed(evt);
+                emailTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(EmailTextField);
-        EmailTextField.setBounds(430, 160, 126, 22);
+        getContentPane().add(emailTextField);
+        emailTextField.setBounds(430, 160, 126, 22);
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                phoneNumberTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(430, 190, 126, 22);
+        getContentPane().add(phoneNumberTextField);
+        phoneNumberTextField.setBounds(430, 190, 126, 22);
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        addressTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                addressTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(430, 220, 126, 22);
+        getContentPane().add(addressTextField);
+        addressTextField.setBounds(430, 220, 126, 22);
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        setPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                setPasswordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(430, 250, 126, 22);
+        getContentPane().add(setPasswordField);
+        setPasswordField.setBounds(430, 250, 126, 22);
 
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+        confirmPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
+                confirmPasswordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField2);
-        jPasswordField2.setBounds(430, 280, 126, 22);
+        getContentPane().add(confirmPasswordField);
+        confirmPasswordField.setBounds(430, 280, 126, 22);
 
         setshowButton.setText("Show");
         getContentPane().add(setshowButton);
@@ -202,41 +204,41 @@ public class RegisterView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void FirstnameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstnameTextFieldActionPerformed
+    private void firstnameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_FirstnameTextFieldActionPerformed
+    }//GEN-LAST:event_firstnameTextFieldActionPerformed
 
-    private void UsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTextFieldActionPerformed
+    private void usernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameTextFieldActionPerformed
+    }//GEN-LAST:event_usernameTextFieldActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void LastnameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastnameTextFieldActionPerformed
+    private void lastnameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LastnameTextFieldActionPerformed
+    }//GEN-LAST:event_lastnameTextFieldActionPerformed
 
-    private void EmailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailTextFieldActionPerformed
+    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EmailTextFieldActionPerformed
+    }//GEN-LAST:event_emailTextFieldActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void phoneNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_phoneNumberTextFieldActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void addressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_addressTextFieldActionPerformed
 
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
+    private void confirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField2ActionPerformed
+    }//GEN-LAST:event_confirmPasswordFieldActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void setPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setPasswordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_setPasswordFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,49 +257,85 @@ public class RegisterView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravellerRegisterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravellerRegisterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravellerRegisterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravellerRegisterView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegisterView().setVisible(true);
+                new TravellerRegisterView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField EmailTextField;
-    private javax.swing.JTextField FirstnameTextField;
-    private javax.swing.JTextField LastnameTextField;
     private javax.swing.JLabel RegisterLabel;
-    private javax.swing.JTextField UsernameTextField;
     private javax.swing.JLabel addressLabel;
+    private javax.swing.JTextField addressTextField;
     private javax.swing.JButton backButton;
+    private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JLabel confirmpasswordlabel;
     private javax.swing.JButton confirmshowButton;
     private javax.swing.JLabel emailLabel;
+    private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel firstnameLabel;
+    private javax.swing.JTextField firstnameTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lastnameLabel;
+    private javax.swing.JTextField lastnameTextField;
+    private javax.swing.JTextField phoneNumberTextField;
     private javax.swing.JLabel phonenumberLabel;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel setPassword;
+    private javax.swing.JPasswordField setPasswordField;
     private javax.swing.JLabel setUsernamelabel;
     private javax.swing.JButton setshowButton;
+    private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
+public void registerTraveller(ActionListener listener){
+        registerButton.addActionListener(listener);
+    }
+    public void mainpageBack(ActionListener listener){
+        backButton.addActionListener(listener);
+    }
+    
+    public javax.swing.JTextField getFirstNameTextField(){
+        return firstnameTextField;
+    }
+    public javax.swing.JTextField getLastNameTextField(){
+        return lastnameTextField;
+    }
+    public javax.swing.JTextField getUsernameTextField(){
+        return usernameTextField;
+    }
+    public javax.swing.JTextField getEmailTextField(){
+        return emailTextField;
+    }
+    public javax.swing.JTextField getAddressTextField(){
+        return addressTextField;
+    }
+    public javax.swing.JTextField getPhoneNumberTextField(){
+        return phoneNumberTextField;
+    }
+    public javax.swing.JPasswordField getSetPasswordTextField(){
+        return setPasswordField;
+    }
+    public javax.swing.JPasswordField getConfirmPasswordTextField(){
+        return confirmPasswordField;
+    }
+    
+
 }
+

@@ -4,6 +4,8 @@
  */
 package happytravell.view;
 
+import java.awt.event.ActionListener;
+
 
 
 /**
@@ -126,53 +128,20 @@ public class LoginPageView extends javax.swing.JFrame {
     }//GEN-LAST:event_showButtonActionPerformed
 
     private void forgetPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgetPasswordButtonActionPerformed
-        new ForgetView().setVisible(true);
-        dispose();        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_forgetPasswordButtonActionPerformed
 
     private void createAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountButtonActionPerformed
-        new SignupAsView().setVisible(true);
-        dispose();        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_createAccountButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        new DashboardView().setVisible(true);
-        dispose();// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginPageView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+    public static void main (String args[]){
+        java.awt.EventQueue.invokeLater(new Runnable(){
+            public void run (){
                 new LoginPageView().setVisible(true);
             }
         });
@@ -190,4 +159,13 @@ public class LoginPageView extends javax.swing.JFrame {
     private javax.swing.JToggleButton showButton;
     private javax.swing.JLabel wellcomeLabel;
     // End of variables declaration//GEN-END:variables
+  public javax.swing.JTextField getEmailTextField(){
+        return emailTextField;
+    }
+    public javax.swing.JPasswordField getPasswordField(){
+        return passwordField;
+    }
+    public void Login(ActionListener listener){
+        loginButton.addActionListener(listener);
+    }
 }
