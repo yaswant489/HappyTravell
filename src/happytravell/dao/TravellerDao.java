@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package happytravell.dao;
-import happytravell.database.MySqlConnection;
+import happytravell.database.MysqlConnection;
 import happytravell.model.TravellerData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ import happytravell.model.LoginRequest;
  * @author User
  */
 public class TravellerDao {
-    MySqlConnection mysql = new MySqlConnection();
+    MysqlConnection mysql = new MysqlConnection();
     public boolean Register(TravellerData traveller){
         String query = "INSERT INTO traveller (first_name, last_name, email, address, phone_number, username, password)"
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";

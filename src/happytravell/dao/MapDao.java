@@ -4,7 +4,7 @@
  */
 package happytravell.dao;
 
-import happytravell.database.MySqlConnection;
+import happytravell.database.MysqlConnection;
 import java.sql.PreparedStatement;
 import happytravell.model.TravellerData;
 import java.sql.*;
@@ -14,7 +14,7 @@ import java.sql.*;
  * @author Acer
  */
 public class MapDao {
-    MySqlConnection mySql = new MySqlConnection();
+    MysqlConnection mySql = new MysqlConnection();
     public boolean Register(TravellerData user){
         String query = "INSERT INTO route ( route_name,pickup_location,destination)"
                 + "VALUES (?,?,?)";
