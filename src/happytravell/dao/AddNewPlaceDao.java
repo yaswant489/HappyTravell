@@ -5,24 +5,25 @@
 package happytravell.dao;
 
 import happytravell.database.MysqlConnection;
-import java.sql.PreparedStatement;
 import happytravell.model.TravellerData;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 /**
  *
  * @author Acer
  */
-public class EmailDao {
+public class AddNewPlaceDao {
     MysqlConnection mySql = new MysqlConnection();
     public boolean Register(TravellerData user){
-        String query = "INSERT INTO login_email ( email,password)"
-                + "VALUES (?,?)";
+        String query = "INSERT INTO route ( place_name,description,route)"
+                + "VALUES (?,?,?)";
         Connection conn = mySql.openConnection();
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, user.getEmail());
-            stmt.setString(2, user.getPassword());
+            stmt.setString(1, user.getplace_name());
+            stmt.setString(2, user.getdescription());
+            stmt.setString(3, user.getroute());
 
             int result = stmt.executeUpdate();
             return result > 0;

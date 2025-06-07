@@ -4,7 +4,7 @@
  */
 package happytravell.dao;
 
-import happytravell.database.MySqlConnection;
+import happytravell.database.MysqlConnection;
 import happytravell.model.AdminData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +17,7 @@ import happytravell.model.LoginRequest;
  * @author Acer
  */
 public class AdminDao {
-    MySqlConnection mysql = new MySqlConnection();
+    MysqlConnection mysql = new MysqlConnection();
     public boolean Register(AdminData admin){
         String query = "INSERT INTO admin (first_name, last_name, email, address, phone_number, username, password)"
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
