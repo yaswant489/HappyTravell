@@ -21,9 +21,9 @@ public class AddNewPlaceDao {
         Connection conn = mySql.openConnection();
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, user.getplace_name());
-            stmt.setString(2, user.getdescription());
-            stmt.setString(3, user.getroute());
+//            stmt.setString(1, user.getplace_name());
+//            stmt.setString(2, user.getdescription());
+//            stmt.setString(3, user.getroute());
 
             int result = stmt.executeUpdate();
             return result > 0;

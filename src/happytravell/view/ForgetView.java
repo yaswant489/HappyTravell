@@ -4,6 +4,8 @@
  */
 package happytravell.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Administrator
@@ -41,6 +43,7 @@ public class ForgetView extends javax.swing.JFrame {
         confirmPassword = new javax.swing.JPasswordField();
         showButton = new javax.swing.JButton();
         show1Button = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
@@ -51,7 +54,7 @@ public class ForgetView extends javax.swing.JFrame {
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         resetButton.setText("Reset");
         resetButton.addActionListener(new java.awt.event.ActionListener() {
@@ -59,49 +62,39 @@ public class ForgetView extends javax.swing.JFrame {
                 resetButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(resetButton);
-        resetButton.setBounds(520, 310, 70, 23);
+        getContentPane().add(resetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 70, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("Forget Password?");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(370, 30, 210, 30);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 210, 30));
 
         emailLabel.setText("Email");
-        getContentPane().add(emailLabel);
-        emailLabel.setBounds(330, 80, 80, 16);
+        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 90, -1));
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(emailTextField);
-        emailTextField.setBounds(330, 100, 150, 22);
+        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 150, -1));
 
         codeLabel.setText("Verification Code");
-        getContentPane().add(codeLabel);
-        codeLabel.setBounds(330, 140, 110, 16);
-        getContentPane().add(codeTextField);
-        codeTextField.setBounds(330, 160, 150, 22);
+        getContentPane().add(codeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 120, -1));
+        getContentPane().add(codeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 150, -1));
 
         resetLabel.setText("Reset Password");
-        getContentPane().add(resetLabel);
-        resetLabel.setBounds(330, 190, 90, 20);
-        getContentPane().add(resetPassword);
-        resetPassword.setBounds(330, 220, 150, 22);
+        getContentPane().add(resetLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 120, 20));
+        getContentPane().add(resetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 150, -1));
 
         confirmLabel.setText("Confirm Password");
-        getContentPane().add(confirmLabel);
-        confirmLabel.setBounds(330, 246, 110, 20);
+        getContentPane().add(confirmLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 246, 120, 20));
 
         confirmPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(confirmPassword);
-        confirmPassword.setBounds(330, 270, 150, 22);
+        getContentPane().add(confirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 150, -1));
 
         showButton.setText("Show");
         showButton.addActionListener(new java.awt.event.ActionListener() {
@@ -109,8 +102,7 @@ public class ForgetView extends javax.swing.JFrame {
                 showButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(showButton);
-        showButton.setBounds(500, 220, 60, 23);
+        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 70, -1));
 
         show1Button.setText("Show");
         show1Button.addActionListener(new java.awt.event.ActionListener() {
@@ -118,13 +110,18 @@ public class ForgetView extends javax.swing.JFrame {
                 show1ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(show1Button);
-        show1Button.setBounds(500, 270, 60, 23);
+        getContentPane().add(show1Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 70, -1));
+
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 70, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 0, 640, 360);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 640, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,6 +145,10 @@ public class ForgetView extends javax.swing.JFrame {
     private void show1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show1ButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_show1ButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +187,7 @@ public class ForgetView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel codeLabel;
     private javax.swing.JTextField codeTextField;
     private javax.swing.JLabel confirmLabel;
@@ -203,4 +205,13 @@ public class ForgetView extends javax.swing.JFrame {
     private javax.swing.JButton show1Button;
     private javax.swing.JButton showButton;
     // End of variables declaration//GEN-END:variables
+
+    public void BackNav(ActionListener listener){
+        backButton.addActionListener(listener);
+    }
+    public void ResetNav(ActionListener listener){
+        resetButton.addActionListener(listener);
+    }
+
+
 }

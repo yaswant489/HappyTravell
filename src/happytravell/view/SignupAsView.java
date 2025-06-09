@@ -37,17 +37,15 @@ public class SignupAsView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         signupLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         signupLabel.setText("Sign Up");
-        getContentPane().add(signupLabel);
-        signupLabel.setBounds(420, 50, 100, 32);
+        getContentPane().add(signupLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 100, -1));
 
         whichaccountLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         whichaccountLabel.setText("Which type of account do you want to sign up?");
-        getContentPane().add(whichaccountLabel);
-        whichaccountLabel.setBounds(340, 110, 270, 16);
+        getContentPane().add(whichaccountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 270, -1));
 
         adminButton.setBackground(new java.awt.Color(239, 243, 243));
         adminButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -57,8 +55,7 @@ public class SignupAsView extends javax.swing.JFrame {
                 adminButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(adminButton);
-        adminButton.setBounds(400, 190, 129, 32);
+        getContentPane().add(adminButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 129, -1));
 
         travellerButton.setBackground(new java.awt.Color(239, 243, 243));
         travellerButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -68,8 +65,7 @@ public class SignupAsView extends javax.swing.JFrame {
                 travellerButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(travellerButton);
-        travellerButton.setBounds(400, 140, 129, 32);
+        getContentPane().add(travellerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 129, -1));
 
         loginButton.setBackground(new java.awt.Color(239, 243, 243));
         loginButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -79,18 +75,15 @@ public class SignupAsView extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(loginButton);
-        loginButton.setBounds(430, 280, 83, 32);
+        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 83, -1));
 
         alreadyLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         alreadyLabel.setText("Already have account?");
-        getContentPane().add(alreadyLabel);
-        alreadyLabel.setBounds(410, 250, 127, 16);
+        getContentPane().add(alreadyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 127, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/signupAsBg.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, -4, 640, 370);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 640, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

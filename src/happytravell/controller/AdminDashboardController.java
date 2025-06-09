@@ -4,13 +4,29 @@
  */
 package happytravell.controller;
 
+import happytravell.model.AdminData;
+import happytravell.view.AdmindashboardView;
+
 
 /**
  *
  * @author Acer
  */
 public class AdminDashboardController {
+    private AdmindashboardView admindashboardView = new AdmindashboardView();
+    public AdminDashboardController(AdmindashboardView admindashboardView){
+        
+    
+    }
 
-    
-    
+public void open(){
+    this.admindashboardView.setVisible(true);
+} 
+
+public void close(){
+    this.admindashboardView.dispose();
+} 
+
+
 }
+

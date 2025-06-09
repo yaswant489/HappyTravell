@@ -62,41 +62,36 @@ public class TravellerRegisterView extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         RegisterLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         RegisterLabel.setText("Register");
-        getContentPane().add(RegisterLabel);
-        RegisterLabel.setBounds(440, 20, 94, 31);
+        getContentPane().add(RegisterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 31));
 
         lastnameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(lastnameTextField);
-        lastnameTextField.setBounds(430, 100, 126, 22);
+        getContentPane().add(lastnameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 126, -1));
 
         firstnameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstnameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(firstnameTextField);
-        firstnameTextField.setBounds(430, 70, 126, 22);
+        getContentPane().add(firstnameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 126, -1));
 
         usernameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(usernameTextField);
-        usernameTextField.setBounds(430, 130, 126, 22);
+        getContentPane().add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 126, -1));
 
         registerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         registerButton.setText("Register");
-        getContentPane().add(registerButton);
-        registerButton.setBounds(450, 317, 90, 27);
+        getContentPane().add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 317, 90, -1));
 
         backButton.setBackground(new java.awt.Color(239, 243, 243));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -106,96 +101,78 @@ public class TravellerRegisterView extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton);
-        backButton.setBounds(350, 320, 70, 20);
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 70, 20));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 72, 0, 0);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 72, -1, -1));
 
         lastnameLabel.setText("Last name");
-        getContentPane().add(lastnameLabel);
-        lastnameLabel.setBounds(370, 103, 54, 16);
+        getContentPane().add(lastnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 103, 60, -1));
 
         setUsernamelabel.setText("Set Username");
-        getContentPane().add(setUsernamelabel);
-        setUsernamelabel.setBounds(350, 133, 80, 16);
+        getContentPane().add(setUsernamelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 133, 80, -1));
 
         emailLabel.setText("Email");
-        getContentPane().add(emailLabel);
-        emailLabel.setBounds(393, 163, 30, 16);
+        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 163, 40, -1));
 
         phonenumberLabel.setText("Phone number");
-        getContentPane().add(phonenumberLabel);
-        phonenumberLabel.setBounds(350, 193, 79, 16);
+        getContentPane().add(phonenumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 193, 79, -1));
 
         addressLabel.setText("Address");
-        getContentPane().add(addressLabel);
-        addressLabel.setBounds(380, 223, 42, 16);
+        getContentPane().add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 223, 50, -1));
 
         setPassword.setText("Set Password");
-        getContentPane().add(setPassword);
-        setPassword.setBounds(353, 253, 70, 16);
+        getContentPane().add(setPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 253, 80, -1));
 
         confirmpasswordlabel.setText("Confirm Password");
-        getContentPane().add(confirmpasswordlabel);
-        confirmpasswordlabel.setBounds(330, 280, 97, 16);
+        getContentPane().add(confirmpasswordlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 100, -1));
 
         firstnameLabel.setText("First name");
-        getContentPane().add(firstnameLabel);
-        firstnameLabel.setBounds(370, 73, 55, 16);
+        getContentPane().add(firstnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 73, 60, -1));
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(emailTextField);
-        emailTextField.setBounds(430, 160, 126, 22);
+        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 126, -1));
 
         phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneNumberTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(phoneNumberTextField);
-        phoneNumberTextField.setBounds(430, 190, 126, 22);
+        getContentPane().add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 126, -1));
 
         addressTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addressTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(addressTextField);
-        addressTextField.setBounds(430, 220, 126, 22);
+        getContentPane().add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 126, -1));
 
         setPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setPasswordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(setPasswordField);
-        setPasswordField.setBounds(430, 250, 126, 22);
+        getContentPane().add(setPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 126, -1));
 
         confirmPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmPasswordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(confirmPasswordField);
-        confirmPasswordField.setBounds(430, 280, 126, 22);
+        getContentPane().add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 126, -1));
 
         setshowButton.setText("Show");
-        getContentPane().add(setshowButton);
-        setshowButton.setBounds(560, 253, 60, 23);
+        getContentPane().add(setshowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 253, 60, -1));
 
         confirmshowButton.setText("Show");
-        getContentPane().add(confirmshowButton);
-        confirmshowButton.setBounds(560, 280, 60, 23);
+        getContentPane().add(confirmshowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 60, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/registerBg.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, -4, 640, 370);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, -1, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

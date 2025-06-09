@@ -9,6 +9,7 @@ import happytravell.view.SignupAsView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import happytravell.controller.AdminRegisterController;
+import happytravell.view.LoginPageView;
 import happytravell.view.TravellerRegisterView;
 /**
  *
@@ -21,6 +22,7 @@ public class SignupAsController {
         this.signupAsView = signupAsView;
         this.signupAsView.adminNavigation(new AdminNav());
         this.signupAsView.travellerNavigation(new TravellerNav());
+        this.signupAsView.loginNavigation(new LoginNav());
     }
     void open() {
         this.signupAsView.setVisible(true);
@@ -29,8 +31,8 @@ public class SignupAsController {
     void close() {
         this.signupAsView.dispose();
     }
-}
-class AdminNav implements ActionListener {
+
+    class AdminNav implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -42,7 +44,7 @@ class AdminNav implements ActionListener {
         }
     }
 
-class TravellerNav implements ActionListener {
+    class TravellerNav implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -53,3 +55,19 @@ class TravellerNav implements ActionListener {
         }
     }
 
+class LoginNav implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            LoginPageView loginView = new LoginPageView();
+            LoginController loginController = new LoginController(loginView);
+            loginController.open();
+            close();
+            
+        }
+    }
+
+
+
+
+}

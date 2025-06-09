@@ -14,8 +14,10 @@ import happytravell.model.LoginRequest;
 import happytravell.model.TravellerData;
 import happytravell.view.TravellerdashboardView;
 import happytravell.view.AdmindashboardView;
+import happytravell.view.ForgetView;
 
 import happytravell.view.LoginPageView;
+import happytravell.view.SignupAsView;
 /**
  *
  * @author Acer
@@ -24,8 +26,9 @@ public class LoginController {
     private LoginPageView loginView = new LoginPageView();
     public LoginController(LoginPageView view){
         this.loginView = view;
-        this.loginView.Login(new LoginTraveller());
-        this.loginView.Login(new LoginAdmin());
+        this.loginView.LoginUser(new LoginUser());
+        this.loginView.CreateAccountNav(new CreateAccountNav());
+        this.loginView.ForgetPasswordNav(new ForgetPasswordNav());
     }
     
     public void open(){
@@ -35,56 +38,120 @@ public class LoginController {
         this.loginView.dispose();
     }
     
-    class LoginTraveller implements ActionListener{
+    class CreateAccountNav implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            SignupAsView signupAsView = new SignupAsView();
+            SignupAsController signupAsController = new SignupAsController(signupAsView);
+            signupAsController.open();
+            
+        }
+        
+    }
+    
+    class ForgetPasswordNav implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           ForgetView forgetView = new ForgetView();
+           ForgetPasswordController forgetPasswordController = new ForgetPasswordController(forgetView);
+           forgetPasswordController.open();
+        }
+        
+    }
+
+    class LoginUser implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
          String email = loginView.getEmailTextField().getText();            
          String password = String.valueOf(loginView.getPasswordField().getPassword());
          if (email.isEmpty()||password.isEmpty()){
-                JOptionPane.showMessageDialog(loginView, "Fill in all the fields");
+            JOptionPane.showMessageDialog(loginView, "Fill in all the fields");
+            return;
             }
-         else {
-             TravellerDao travellerDao = new TravellerDao();
-             LoginRequest loginRequest = new LoginRequest(email,password);
-             TravellerData traveller = travellerDao.travellerLogin(loginRequest);
-             if (traveller == null){
-                    JOptionPane.showMessageDialog(loginView, "Incorrect username or password.Please try again!","Error",JOptionPane.ERROR_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(loginView, "Logged in successfully");
-                    TravellerdashboardView dashboardView = new TravellerdashboardView();
-                    TravellerDashboardController controller = new TravellerDashboardController(dashboardView, traveller);
-                    controller.open();
-                    close();
-                }
-         }
+         LoginRequest loginRequest = new LoginRequest(email,password);
+         
+         Object authenticatedUser = authenticateUser(loginRequest);
+            
+            if (authenticatedUser == null) {
+                JOptionPane.showMessageDialog(loginView, 
+                    "Incorrect username or password. Please try again!", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String userType = getUserType(authenticatedUser);
+                JOptionPane.showMessageDialog(loginView, 
+                    "Logged in successfully as " + userType);
+                
+                // Navigate to appropriate dashboard based on user type
+                navigateToUserDashboard(authenticatedUser, userType);
+            }
+        }
+        
+        private Object authenticateUser(LoginRequest loginRequest) {
+            // Try admin first
+            AdminDao adminDao = new AdminDao();
+            AdminData admin= adminDao.adminLogin(loginRequest);
+            if (admin != null) {
+                return admin;
+            }
+            
+            
+            
+            // Try traveller last
+            TravellerDao travellerDao = new TravellerDao();
+            TravellerData traveller = travellerDao.travellerLogin(loginRequest);
+            if (traveller != null) {
+                return traveller;
+            }
+            
+            // No user found
+            return null;
+        }
+        
+        private String getUserType(Object user) {
+            if (user instanceof AdminData) {
+                return "Admin";
+            
+            } else if (user instanceof TravellerData) {
+                return "Traveller";
+            }
+            return "Unknown";
+        }
+        
+        private void navigateToUserDashboard(Object user, String userType) {
+            // Close current login view
+            close();
+            
+            // Navigate based on user type
+            switch (userType) {
+                case "Admin":
+                    // Navigate to Admin dashboard Page
+                    AdmindashboardView adminDashboardView = new AdmindashboardView();
+                    AdminDashboardController admindashboardController = new AdminDashboardController(adminDashboardView);
+                    admindashboardController.open();
+                    break;
+                    
+               
+                case "Traveller":
+                    // Navigate to traveller database Page
+                    TravellerdashboardView travellerDashboardView = new TravellerdashboardView();
+                    TravellerDashboardController tarvellerdashboardController = new TravellerDashboardController(travellerDashboardView);
+                    tarvellerdashboardController.open();
+                    break;
+                    
+                    
+                    
+                   
+                    
+                default:
+                    JOptionPane.showMessageDialog(loginView, "Unknown user type");
+                    break;
+            
+             }
         
         }
     }
-    class LoginAdmin implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-         String email = loginView.getEmailTextField().getText();            
-         String password = String.valueOf(loginView.getPasswordField().getPassword());
-         if (email.isEmpty()||password.isEmpty()){
-                JOptionPane.showMessageDialog(loginView, "Fill in all the fields");
-            }
-         else {
-             AdminDao adminDao = new AdminDao();
-             LoginRequest loginRequest = new LoginRequest(email,password);
-             AdminData admin = adminDao.adminLogin(loginRequest);
-             if (admin == null){
-                    JOptionPane.showMessageDialog(loginView, "Incorrect username or password.Please try again!","Error",JOptionPane.ERROR_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(loginView, "Logged in successfully");
-                    AdmindashboardView dashboardView = new AdmindashboardView();
-                    AdminDashboardController controller = new AdminDashboardController(dashboardView, admin);
-                    AdminDashboardController.open();
-                    close();
-                }
-         }
-        
-        }
-    }
+    
 }
