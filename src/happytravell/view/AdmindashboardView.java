@@ -247,7 +247,7 @@ public class AdmindashboardView extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel17.setText("Most popular places among travelers.");
-        placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 211, -1));
+        placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 3, 211, -1));
 
         TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));
 
