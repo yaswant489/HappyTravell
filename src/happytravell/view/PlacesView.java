@@ -4,6 +4,9 @@
  */
 package happytravell.view;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Acer
@@ -11,363 +14,261 @@ package happytravell.view;
 public class PlacesView extends javax.swing.JFrame {
 
     /**
-     * Creates new form Admindashboard
+     * Creates new form AdmindashboardView
      */
     public PlacesView() {
         initComponents();
-    }
+        scaleImage1();
+        scaleImage2();
+        scaleImage3();
+        scaleImage4();
+        scaleImage5();
+        scaleImage6();
+        scaleImage7();
+        scaleImage8();
+        scaleImage9();
+        scaleImage10();
 
+    }
+    
+    public void scaleImage1(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/dashboard.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(dashboardIcon.getWidth(), dashboardIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        dashboardIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage2(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/booking.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(bookingIcon.getWidth(), bookingIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        bookingIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage3(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/directions.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(routeIcon.getWidth(), routeIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        routeIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage4(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/tickets.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(busTicketIcon.getWidth(), busTicketIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        busTicketIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage5(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/front-of-bus.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(vehiclesIcon.getWidth(), vehiclesIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        vehiclesIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage6(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/user.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(profileIcon.getWidth(), profileIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        profileIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage7(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/logout.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(logoutIcon.getWidth(), logoutIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        logoutIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage8(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/happy.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(logoIcon.getWidth(), logoIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        logoIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage9(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/ringing.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(notificationIcon.getWidth(), notificationIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        notificationIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage10(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/search.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(searchIcon.getWidth(), searchIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        searchIcon.setIcon(scaledIcon);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel11 = new javax.swing.JPanel();
-        jToolBar1 = new javax.swing.JToolBar();
         TravelerDetailsPanel = new javax.swing.JPanel();
         placePanel = new javax.swing.JPanel();
-        pokharaPanelButton = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        mustangPanelButton = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        kathmanduPanelButton = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        searchIcon = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
+        addPlacesButton = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
+        logoutIcon = new javax.swing.JLabel();
+        profileIcon = new javax.swing.JLabel();
+        vehiclesIcon = new javax.swing.JLabel();
+        busTicketIcon = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        routeIcon = new javax.swing.JLabel();
+        bookingIcon = new javax.swing.JLabel();
+        dashboardIcon = new javax.swing.JLabel();
         vehiclesDetailsButton = new javax.swing.JButton();
-        profileButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         busTicketsButton = new javax.swing.JButton();
         routeDetailsButton = new javax.swing.JButton();
         bookingDetailsButton = new javax.swing.JButton();
         dashboardButton = new javax.swing.JButton();
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jToolBar1.setRollover(true);
+        profileButton = new javax.swing.JButton();
+        logoIcon = new javax.swing.JLabel();
+        headingPlaces = new javax.swing.JPanel();
+        notificationIcon = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TravelerDetailsPanel.setBackground(new java.awt.Color(255, 242, 227));
+        TravelerDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         placePanel.setBackground(new java.awt.Color(200, 143, 75));
+        placePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, 490, 260));
 
-        pokharaPanelButton.setBackground(new java.awt.Color(222, 183, 154));
-        pokharaPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        pokharaPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pokhara.jpg"))); // NOI18N
-
-        jLabel19.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel19.setText("Pokhara");
-
-        jLabel23.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel23.setText("Pokhara is a city on Phewa ");
-
-        jLabel24.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel24.setText("Lake, in central Nepal.");
-
-        javax.swing.GroupLayout pokharaPanelButtonLayout = new javax.swing.GroupLayout(pokharaPanelButton);
-        pokharaPanelButton.setLayout(pokharaPanelButtonLayout);
-        pokharaPanelButtonLayout.setHorizontalGroup(
-            pokharaPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pokharaPanelButtonLayout.createSequentialGroup()
-                .addGroup(pokharaPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pokharaPanelButtonLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pokharaPanelButtonLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(pokharaPanelButtonLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pokharaPanelButtonLayout.setVerticalGroup(
-            pokharaPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pokharaPanelButtonLayout.createSequentialGroup()
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel19)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel24)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        mustangPanelButton.setBackground(new java.awt.Color(222, 183, 154));
-        mustangPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        mustangPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
-
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/mustang.jpg"))); // NOI18N
-
-        jLabel11.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel11.setText("Mustang");
-
-        jLabel26.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel26.setText("The district is home to ");
-
-        jLabel29.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel29.setText("Muktinath Temple.");
-
-        javax.swing.GroupLayout mustangPanelButtonLayout = new javax.swing.GroupLayout(mustangPanelButton);
-        mustangPanelButton.setLayout(mustangPanelButtonLayout);
-        mustangPanelButtonLayout.setHorizontalGroup(
-            mustangPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mustangPanelButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(mustangPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                    .addGroup(mustangPanelButtonLayout.createSequentialGroup()
-                        .addGroup(mustangPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addGroup(mustangPanelButtonLayout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel11))
-                            .addComponent(jLabel29))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        mustangPanelButtonLayout.setVerticalGroup(
-            mustangPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mustangPanelButtonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel29)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        kathmanduPanelButton.setBackground(new java.awt.Color(222, 183, 154));
-        kathmanduPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        kathmanduPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/kathmandu.jpg"))); // NOI18N
-
-        jLabel27.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel27.setText("Kathmandu");
-
-        jLabel28.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel28.setText("Kathmandu is best known");
-
-        jLabel30.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel30.setText("For its historical sights.");
-
-        javax.swing.GroupLayout kathmanduPanelButtonLayout = new javax.swing.GroupLayout(kathmanduPanelButton);
-        kathmanduPanelButton.setLayout(kathmanduPanelButtonLayout);
-        kathmanduPanelButtonLayout.setHorizontalGroup(
-            kathmanduPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kathmanduPanelButtonLayout.createSequentialGroup()
-                .addGroup(kathmanduPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kathmanduPanelButtonLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel30))
-                    .addGroup(kathmanduPanelButtonLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel27))
-                    .addGroup(kathmanduPanelButtonLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel28))
-                    .addGroup(kathmanduPanelButtonLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-        kathmanduPanelButtonLayout.setVerticalGroup(
-            kathmanduPanelButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kathmanduPanelButtonLayout.createSequentialGroup()
-                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel27)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel30)
-                .addGap(21, 21, 21))
-        );
-
-        javax.swing.GroupLayout placePanelLayout = new javax.swing.GroupLayout(placePanel);
-        placePanel.setLayout(placePanelLayout);
-        placePanelLayout.setHorizontalGroup(
-            placePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(placePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pokharaPanelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mustangPanelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(kathmanduPanelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        placePanelLayout.setVerticalGroup(
-            placePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, placePanelLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(placePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(kathmanduPanelButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                    .addComponent(mustangPanelButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                    .addComponent(pokharaPanelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
-                .addGap(18, 18, 18))
-        );
-
-        jButton1.setBackground(new java.awt.Color(252, 186, 107));
-        jButton1.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jButton1.setText("Add Place");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setBackground(new java.awt.Color(252, 186, 107));
-        jButton2.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jButton2.setText("Back");
-        jButton2.setPreferredSize(new java.awt.Dimension(80, 22));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
+        TravelerDetailsPanel.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 24, 20, 20));
 
         jTextField1.setBackground(new java.awt.Color(252, 186, 107));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        jTextField1.setText("  Search..........");
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField1.setText("Search");
+        TravelerDetailsPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 170, -1));
 
-        jLabel2.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        jLabel2.setText("Places");
+        backButton.setBackground(new java.awt.Color(252, 186, 107));
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        javax.swing.GroupLayout TravelerDetailsPanelLayout = new javax.swing.GroupLayout(TravelerDetailsPanel);
-        TravelerDetailsPanel.setLayout(TravelerDetailsPanelLayout);
-        TravelerDetailsPanelLayout.setHorizontalGroup(
-            TravelerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TravelerDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(placePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(828, 828, 828))
-            .addGroup(TravelerDetailsPanelLayout.createSequentialGroup()
-                .addGroup(TravelerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TravelerDetailsPanelLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton1))
-                    .addGroup(TravelerDetailsPanelLayout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        TravelerDetailsPanelLayout.setVerticalGroup(
-            TravelerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TravelerDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addGroup(TravelerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TravelerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(placePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
+        addPlacesButton.setBackground(new java.awt.Color(252, 186, 107));
+        addPlacesButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addPlacesButton.setText("Add Places");
+        addPlacesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPlacesButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(addPlacesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
 
-        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
+        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 36, 510, 330));
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
-        DashDetailsPanel.setLayout(null);
+        DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N
+        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, 15, 15));
+        logoutIcon.getAccessibleContext().setAccessibleName("");
+
+        profileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
+        profileIcon.setText("jLabel1");
+        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 255, 15, 15));
+
+        vehiclesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/front-of-bus.png"))); // NOI18N
+        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 15, 15));
+
+        busTicketIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tickets.png"))); // NOI18N
+        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 15, 15));
 
         jLabel4.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel4.setText("Happy Travels");
-        DashDetailsPanel.add(jLabel4);
-        jLabel4.setBounds(50, 10, 80, 15);
+        DashDetailsPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 80, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/dash.jpg"))); // NOI18N
-        DashDetailsPanel.add(jLabel1);
-        jLabel1.setBounds(0, 0, 50, 360);
+        routeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/directions.png"))); // NOI18N
+        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 135, 15, 15));
+
+        bookingIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/booking.png"))); // NOI18N
+        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 97, 15, 15));
+        bookingIcon.getAccessibleContext().setAccessibleName("");
+
+        dashboardIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/dashboard.png"))); // NOI18N
+        dashboardIcon.setText("jLabel1");
+        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, 15, 15));
 
         vehiclesDetailsButton.setBackground(new java.awt.Color(243, 219, 191));
         vehiclesDetailsButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        vehiclesDetailsButton.setText("Vehicles Details");
+        vehiclesDetailsButton.setText("          Vehicles Details");
         vehiclesDetailsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         vehiclesDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vehiclesDetailsButtonActionPerformed(evt);
             }
         });
-        DashDetailsPanel.add(vehiclesDetailsButton);
-        vehiclesDetailsButton.setBounds(40, 260, 90, 30);
+        DashDetailsPanel.add(vehiclesDetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 130, 30));
 
-        profileButton.setBackground(new java.awt.Color(243, 219, 191));
-        profileButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        profileButton.setText("Profile");
-        profileButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        profileButton.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setBackground(new java.awt.Color(243, 219, 191));
+        logoutButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        logoutButton.setText("               LogOut");
+        logoutButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logoutButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileButtonActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
-        DashDetailsPanel.add(profileButton);
-        profileButton.setBounds(0, 300, 130, 30);
+        DashDetailsPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 130, 30));
 
         busTicketsButton.setBackground(new java.awt.Color(243, 219, 191));
         busTicketsButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         busTicketsButton.setText("Bus Tickets");
         busTicketsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        DashDetailsPanel.add(busTicketsButton);
-        busTicketsButton.setBounds(20, 210, 110, 30);
+        DashDetailsPanel.add(busTicketsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 130, 30));
 
         routeDetailsButton.setBackground(new java.awt.Color(243, 219, 191));
         routeDetailsButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        routeDetailsButton.setText("Route Details");
+        routeDetailsButton.setText("     Route Details");
         routeDetailsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        DashDetailsPanel.add(routeDetailsButton);
-        routeDetailsButton.setBounds(30, 170, 100, 30);
+        routeDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                routeDetailsButtonActionPerformed(evt);
+            }
+        });
+        DashDetailsPanel.add(routeDetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 130, 30));
 
         bookingDetailsButton.setBackground(new java.awt.Color(243, 219, 191));
         bookingDetailsButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        bookingDetailsButton.setText("Booking Details");
+        bookingDetailsButton.setText("          Booking Details");
         bookingDetailsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        DashDetailsPanel.add(bookingDetailsButton);
-        bookingDetailsButton.setBounds(40, 130, 90, 30);
+        bookingDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bookingDetailsButtonActionPerformed(evt);
+            }
+        });
+        DashDetailsPanel.add(bookingDetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 30));
 
         dashboardButton.setBackground(new java.awt.Color(243, 219, 191));
         dashboardButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
@@ -378,10 +279,39 @@ public class PlacesView extends javax.swing.JFrame {
                 dashboardButtonActionPerformed(evt);
             }
         });
-        DashDetailsPanel.add(dashboardButton);
-        dashboardButton.setBounds(10, 80, 120, 30);
+        DashDetailsPanel.add(dashboardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 130, 30));
+
+        profileButton.setBackground(new java.awt.Color(243, 219, 191));
+        profileButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        profileButton.setText("               Profile");
+        profileButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        profileButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        profileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileButtonActionPerformed(evt);
+            }
+        });
+        DashDetailsPanel.add(profileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 130, 30));
+
+        logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/happy.png"))); // NOI18N
+        logoIcon.setFocusCycleRoot(true);
+        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-35, -5, 120, 50));
+        logoIcon.getAccessibleContext().setAccessibleName("");
 
         getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 360));
+
+        headingPlaces.setBackground(new java.awt.Color(255, 255, 255));
+        headingPlaces.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
+        headingPlaces.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 25, 25));
+        notificationIcon.getAccessibleContext().setAccessibleName("");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("Places");
+        headingPlaces.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 50, -1));
+
+        getContentPane().add(headingPlaces, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -390,21 +320,33 @@ public class PlacesView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_vehiclesDetailsButtonActionPerformed
 
-    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_profileButtonActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void dashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dashboardButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void routeDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routeDetailsButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_routeDetailsButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_profileButtonActionPerformed
+
+    private void bookingDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingDetailsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bookingDetailsButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void addPlacesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlacesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addPlacesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,35 +389,29 @@ public class PlacesView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
     private javax.swing.JPanel TravelerDetailsPanel;
+    private javax.swing.JButton addPlacesButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JButton bookingDetailsButton;
+    private javax.swing.JLabel bookingIcon;
+    private javax.swing.JLabel busTicketIcon;
     private javax.swing.JButton busTicketsButton;
     private javax.swing.JButton dashboardButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel dashboardIcon;
+    private javax.swing.JPanel headingPlaces;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JPanel kathmanduPanelButton;
-    private javax.swing.JPanel mustangPanelButton;
+    private javax.swing.JLabel logoIcon;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JLabel logoutIcon;
+    private javax.swing.JLabel notificationIcon;
     private javax.swing.JPanel placePanel;
-    private javax.swing.JPanel pokharaPanelButton;
     private javax.swing.JButton profileButton;
+    private javax.swing.JLabel profileIcon;
     private javax.swing.JButton routeDetailsButton;
+    private javax.swing.JLabel routeIcon;
+    private javax.swing.JLabel searchIcon;
     private javax.swing.JButton vehiclesDetailsButton;
+    private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 }
