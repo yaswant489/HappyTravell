@@ -27,7 +27,11 @@ public class TravellerBookingView extends javax.swing.JFrame {
         scaleImage7();
         scaleImage8();
         scaleImage9();
-
+        scaleImage10();
+        scaleImage11();
+        scaleImage12();
+        scaleImage13();
+        scaleImage14();
     }
     
     public void scaleImage1(){
@@ -102,6 +106,46 @@ public class TravellerBookingView extends javax.swing.JFrame {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         notificationIcon.setIcon(scaledIcon);
     }
+    public void scaleImage10(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/car.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(carIcon.getWidth(), carIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        carIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage11(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/jeep .png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(jeepIcon.getWidth(), jeepIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        jeepIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage12(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/taxi.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(taxiIcon.getWidth(), taxiIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        taxiIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage13(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/guide.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(guideIcon.getWidth(), guideIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        guideIcon.setIcon(scaledIcon);
+    }
+    public void scaleImage14(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/search.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(searchIcon.getWidth(), searchIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        searchIcon.setIcon(scaledIcon);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,15 +162,35 @@ public class TravellerBookingView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         notificationIcon = new javax.swing.JLabel();
         TravelerDetailsPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        guideIcon = new javax.swing.JLabel();
+        taxiIcon = new javax.swing.JLabel();
+        jeepIcon = new javax.swing.JLabel();
+        carIcon = new javax.swing.JLabel();
         travellersButton1 = new javax.swing.JButton();
         travellersButton2 = new javax.swing.JButton();
         travellersButton3 = new javax.swing.JButton();
         travellersButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jSpinner3 = new javax.swing.JSpinner();
+        jSpinner1 = new javax.swing.JSpinner();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        searchIcon = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jSpinner2 = new javax.swing.JSpinner();
+        jSpinner4 = new javax.swing.JSpinner();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -169,68 +233,181 @@ public class TravellerBookingView extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 6, 68, -1));
 
         notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        jPanel1.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 5, 25, 25));
+        jPanel1.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 5, 20, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 30));
 
         TravelerDetailsPanel.setBackground(new java.awt.Color(235, 189, 135));
         TravelerDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sedan (1).png"))); // NOI18N
-        TravelerDetailsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 20, 20));
+        guideIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/guide.png"))); // NOI18N
+        TravelerDetailsPanel.add(guideIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 35, 20));
 
-        travellersButton1.setBackground(new java.awt.Color(166, 124, 94));
+        taxiIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/taxi.png"))); // NOI18N
+        TravelerDetailsPanel.add(taxiIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 35, 20));
+
+        jeepIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/jeep .png"))); // NOI18N
+        TravelerDetailsPanel.add(jeepIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 40, 25));
+
+        carIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/car.png"))); // NOI18N
+        TravelerDetailsPanel.add(carIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, 48, 35));
+
+        travellersButton1.setBackground(new java.awt.Color(171, 106, 32));
         travellersButton1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        travellersButton1.setText("Guide");
+        travellersButton1.setText("           Guide");
+        travellersButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         travellersButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 travellersButton1ActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 115, 40));
+        TravelerDetailsPanel.add(travellersButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 23, 110, 35));
 
-        travellersButton2.setBackground(new java.awt.Color(166, 124, 94));
+        travellersButton2.setBackground(new java.awt.Color(171, 106, 32));
         travellersButton2.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        travellersButton2.setText("                Car");
+        travellersButton2.setText("              Car");
+        travellersButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         travellersButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 travellersButton2ActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 120, 40));
+        TravelerDetailsPanel.add(travellersButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 23, 110, 35));
 
-        travellersButton3.setBackground(new java.awt.Color(166, 124, 94));
+        travellersButton3.setBackground(new java.awt.Color(171, 106, 32));
         travellersButton3.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         travellersButton3.setText("            Jeep");
+        travellersButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        travellersButton3.setHideActionText(true);
         travellersButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 travellersButton3ActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 43, 115, 40));
+        TravelerDetailsPanel.add(travellersButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 23, 110, 35));
 
-        travellersButton4.setBackground(new java.awt.Color(166, 124, 94));
+        travellersButton4.setBackground(new java.awt.Color(171, 106, 32));
         travellersButton4.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         travellersButton4.setText("       Taxi");
+        travellersButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         travellersButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 travellersButton4ActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 115, 40));
+        TravelerDetailsPanel.add(travellersButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 23, 110, 35));
 
-        jLabel2.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel2.setText("Choose Service");
-        TravelerDetailsPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, -1));
+        TravelerDetailsPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 110, -1));
 
-        jLabel5.setText("jLabel5");
-        TravelerDetailsPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
+        jPanel2.setBackground(new java.awt.Color(248, 219, 164));
+        jPanel2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setText("jLabel6");
-        TravelerDetailsPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        jLabel3.setText("Booking Details");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        jLabel7.setText("jLabel7");
-        TravelerDetailsPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
+        jSpinner3.setModel(new javax.swing.SpinnerDateModel());
+        jSpinner3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jSpinner3.setFocusCycleRoot(true);
+        jPanel2.add(jSpinner3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 122, 24));
+
+        jSpinner1.setModel(new javax.swing.SpinnerDateModel());
+        jSpinner1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jSpinner1.setFocusCycleRoot(true);
+        jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, 24));
+
+        jTextField2.setBackground(new java.awt.Color(248, 219, 164));
+        jTextField2.setText("Return Date & Time");
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 23));
+
+        jTextField9.setBackground(new java.awt.Color(248, 219, 164));
+        jTextField9.setText("Pickup Address");
+        jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 18, 250, 23));
+
+        jTextField10.setBackground(new java.awt.Color(248, 219, 164));
+        jTextField10.setText("Drop Address");
+        jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 250, 23));
+
+        jTextField11.setBackground(new java.awt.Color(248, 219, 164));
+        jTextField11.setText("Departure Date & Time");
+        jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 250, 23));
+
+        jLabel5.setText("Number of passenger");
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 200, 22));
+
+        jComboBox1.setBackground(new java.awt.Color(248, 219, 164));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Payment Method", "Cash ", "E-sewa", "Mobile Banking" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 250, -1));
+
+        jComboBox2.setBackground(new java.awt.Color(248, 219, 164));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehicles Number", " ", " ", " " }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 250, -1));
+
+        jComboBox3.setBackground(new java.awt.Color(248, 219, 164));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Driver name" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 250, -1));
+
+        jScrollPane1.setViewportView(null);
+        jScrollPane1.setViewportView(jLabel6);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 210, 160));
+
+        jButton1.setBackground(new java.awt.Color(171, 106, 32));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setText(" Book");
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 70, -1));
+
+        jButton2.setBackground(new java.awt.Color(171, 106, 32));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setText("Booking Details");
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 120, -1));
+
+        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
+        jPanel2.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 27, 15, 15));
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jTextField1.setText("Search");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 180, -1));
+
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5, 1));
+        jSpinner2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jSpinner2.setFocusCycleRoot(true);
+        jPanel2.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 50, 24));
+
+        jSpinner4.setModel(new javax.swing.SpinnerDateModel());
+        jSpinner4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jSpinner4.setFocusCycleRoot(true);
+        jPanel2.add(jSpinner4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, 24));
+
+        TravelerDetailsPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 490, 260));
 
         getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 510, 330));
 
@@ -390,6 +567,22 @@ public class TravellerBookingView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_travellersButton4ActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -435,18 +628,36 @@ public class TravellerBookingView extends javax.swing.JFrame {
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel busTicketIcon;
     private javax.swing.JButton busTicketsButton;
+    private javax.swing.JLabel carIcon;
     private javax.swing.JButton dashboardButton;
     private javax.swing.JLabel dashboardIcon;
+    private javax.swing.JLabel guideIcon;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinner4;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel jeepIcon;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel logoutIcon;
@@ -455,6 +666,8 @@ public class TravellerBookingView extends javax.swing.JFrame {
     private javax.swing.JLabel profileIcon;
     private javax.swing.JButton routeDetailsButton;
     private javax.swing.JLabel routeIcon;
+    private javax.swing.JLabel searchIcon;
+    private javax.swing.JLabel taxiIcon;
     private javax.swing.JButton travellersButton1;
     private javax.swing.JButton travellersButton2;
     private javax.swing.JButton travellersButton3;
