@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package happytravell.view;
+
 import happytravell.view.Register;
 /**
  *
@@ -117,6 +118,7 @@ public class loginPage extends javax.swing.JFrame {
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextFieldActionPerformed
+
 
     private void passwordShowToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordShowToggleButtonActionPerformed
         // TODO add your handling code here:
