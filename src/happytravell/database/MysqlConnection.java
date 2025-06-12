@@ -6,7 +6,7 @@ package happytravell.database;
  */
 
 
-import happytravell.database.DbConnection;
+
 import java.sql.*;
 import java.sql.Connection;
 
@@ -14,17 +14,17 @@ import java.sql.Connection;
  *
  * @author Acer
  */
+
 public class MysqlConnection implements DbConnection{
 
     @Override
     public Connection openConnection() {
         try{
             String username="root";
-            String password="Wj28@krhps";
+            String password="admin123";
             String database="happytravel";
-            Class.forName("com.mysql.jdbc.Driver");
-           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306"+
-                    database,username,password);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+ database,username,password);
             return conn;
            
         }

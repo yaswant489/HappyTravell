@@ -16,21 +16,34 @@ import happytravell.model.LoginRequest;
 public class TravellerDao {
     MysqlConnection mysql = new MysqlConnection();
     public boolean Register(TravellerData traveller){
-        String query = "INSERT INTO traveller (first_name, last_name, email, address, phone_number, username, password)"
-                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
         Connection conn = mysql.openConnection();
-         try {
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setString(1, traveller.getFirstName());
-        stmt.setString(2, traveller.getLastName());
-        stmt.setString(3, traveller.getEmail());
-        stmt.setString(4, traveller.getAddress());
-        stmt.setString(5, traveller.getPhoneNumber());
-        stmt.setString(6, traveller.getUsername());
-        stmt.setString(7, traveller.getPassword());
+        String createTableSQL = "CREATE TABLE IF NOT EXISTS traveller("
+                    + "traveller_ID INT AUTO_INCREMENT PRIMARY KEY,"
+                    + "first_name VARCHAR(100) NOT NULL,"
+                    + "last_name VARCHAR(100) NOT NULL,"
+                    + "username VARCHAR(100) NOT NULL,"
+                    + "phone_number VARCHAR(15) NOT NULL,"
+                    + "address VARCHAR(100) NOT NULL,"
+                    + "email VARCHAR(100) UNIQUE NOT NULL,"
+                    + "password VARCHAR(100) NOT NULL"
+                + ")";
+         String insertQuery = "INSERT INTO traveller (first_name, last_name, email, address, phone_number, username, password) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+         try {   
+                PreparedStatement createTable= conn.prepareStatement(createTableSQL);
+                createTable.executeUpdate();
+                PreparedStatement stmt = conn.prepareStatement(insertQuery);
+                createTable.executeUpdate();
+                stmt.setString(1, traveller.getFirstName() != null ? traveller.getFirstName() : "");
+                stmt.setString(2, traveller.getLastName() != null ? traveller.getLastName() : "");
+                stmt.setString(3, traveller.getEmail() != null ? traveller.getEmail() : "");
+                stmt.setString(4, traveller.getAddress() != null ? traveller.getAddress() : "");
+                stmt.setString(5, traveller.getPhoneNumber() != null ? traveller.getPhoneNumber() : "");
+                stmt.setString(6, traveller.getUsername() != null ? traveller.getUsername() : "");
+                stmt.setString(7, traveller.getPassword() != null ? traveller.getPassword() : "");
 
-        int result = stmt.executeUpdate();
-        return result > 0;
+                int result = stmt.executeUpdate();
+                return result > 0;
     } catch (Exception e) {
         e.printStackTrace();
         return false;

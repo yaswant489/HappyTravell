@@ -62,6 +62,12 @@ public class LoginPageView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 170, -1));
+
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
         getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 110, -1));
 
         showButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
@@ -129,6 +135,10 @@ public class LoginPageView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_loginButtonActionPerformed
 
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
+
     public static void main (String args[]){
         java.awt.EventQueue.invokeLater(new Runnable(){
             public void run (){
@@ -150,14 +160,14 @@ public class LoginPageView extends javax.swing.JFrame {
     private javax.swing.JLabel wellcomeLabel;
     // End of variables declaration//GEN-END:variables
     
-    
-    
-    
     public javax.swing.JTextField getEmailTextField(){
         return emailTextField;
     }
     public javax.swing.JPasswordField getPasswordField(){
         return passwordField;
+    }
+    public javax.swing.JToggleButton getShowButton() {
+    return showButton;
     }
     public void LoginUser(ActionListener listener){
         loginButton.addActionListener(listener);
@@ -167,5 +177,8 @@ public class LoginPageView extends javax.swing.JFrame {
     }
     public void ForgetPasswordNav(ActionListener listener){
         forgetPasswordButton.addActionListener(listener);
+    }
+    public void TogglePasswordVisibility(ActionListener listener) {
+    showButton.addActionListener(listener);
     }
 }

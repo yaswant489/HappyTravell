@@ -4,7 +4,6 @@
  */
 package happytravell.controller;
 
-import happytravell.dao.AdminDao;
 import happytravell.dao.TravellerDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,16 +22,18 @@ import happytravell.view.LoginPageView;
 public class TravellerRegisterController {
     private TravellerRegisterView travellerRegisterView = new TravellerRegisterView ();
     private TravellerData travellerData;
+    private boolean isPasswordVisible = false;
     public TravellerRegisterController(TravellerRegisterView travellerRegisterView) {
         this.travellerRegisterView = travellerRegisterView;
-        this.travellerData = travellerData;
+        this.travellerData = new TravellerData();
         this.travellerRegisterView.registerTraveller(new TravellerRegisterController.TravellerRegister());
         this.travellerRegisterView.mainpageBack(new TravellerRegisterController.MainpageBack());
-        
+        this.travellerRegisterView.toggleSetPasswordVisibility(new TogglePasswordVisibility());
+        this.travellerRegisterView.toggleConfirmPasswordVisibility(new ToggleConfirmPasswordVisibility());
     }
     public void open(){
         this.travellerRegisterView.setVisible(true);
-
+    
     }
     public void close(){
         this.travellerRegisterView.dispose();
@@ -48,6 +49,40 @@ public class TravellerRegisterController {
             close();
         }
         
+    }
+    
+    class TogglePasswordVisibility implements ActionListener{
+           
+        @Override
+            public void actionPerformed(ActionEvent e) {
+                if (isPasswordVisible) {
+                    travellerRegisterView.getSetPasswordTextField().setEchoChar('•'); 
+                    travellerRegisterView.getShowButton().setText("Show");
+                } 
+                else{
+                     travellerRegisterView.getSetPasswordTextField().setEchoChar((char) 0);
+                     travellerRegisterView.getShowButton().setText("Hide");
+                    }
+                isPasswordVisible = !isPasswordVisible;
+            }
+           
+    }
+    
+    class ToggleConfirmPasswordVisibility implements ActionListener{
+           
+        @Override
+            public void actionPerformed(ActionEvent e) {
+                if (isPasswordVisible) {
+                    travellerRegisterView.getConfirmPasswordTextField().setEchoChar('•');
+                    travellerRegisterView.getConfirmShowButton().setText("Show");
+                } 
+                else{
+                     travellerRegisterView.getConfirmPasswordTextField().setEchoChar((char) 0); 
+                     travellerRegisterView.getConfirmShowButton().setText("Hide");
+                    }
+                isPasswordVisible = !isPasswordVisible;
+            }
+           
     }
     
     class TravellerRegister implements ActionListener{
@@ -92,16 +127,15 @@ public class TravellerRegisterController {
             
             boolean success = new TravellerDao().Register(travellerData);
             if (success){
-                JOptionPane.showMessageDialog(travellerRegisterView,"Registered successfully. Please Login to continue!");
+                JOptionPane.showMessageDialog(travellerRegisterView,"Registered sucessfully.Please Login to continue!");
                 LoginPageView loginView = new LoginPageView();
                 LoginController loginController = new LoginController(loginView);
                 loginController.open();
                 close();
-            } else {
-                JOptionPane.showMessageDialog(travellerRegisterView,"Registered failed. Please try again!");
-            }
-                        
-            
+            }else{
+                        JOptionPane.showMessageDialog(travellerRegisterView, "Register failed. Please try again!");
+                }
+         
         }
     }
     
