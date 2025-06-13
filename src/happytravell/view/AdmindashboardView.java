@@ -5,6 +5,7 @@
 package happytravell.view;
 
 import java.awt.Image;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 
 /**
@@ -543,4 +544,11 @@ public class AdmindashboardView extends javax.swing.JFrame {
     private javax.swing.JButton vehiclesDetailsButton;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
+
+public void LogOutNavigation(ActionListener listener){
+        logoutButton.addActionListener(listener);
+    }    
+public void PlacesNavigation(ActionListener listener){
+        placesButton.addActionListener(listener);
+    }
 }
