@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package happytravell.view;
+
 import happytravell.view.Register;
 /**
  *
@@ -52,8 +53,12 @@ public class loginPage extends javax.swing.JFrame {
 
         passwordLabel.setText("Password:");
         getContentPane().add(passwordLabel);
+<<<<<<< HEAD
+        passwordLabel.setBounds(370, 160, 52, 16);
+=======
         passwordLabel.setBounds(370, 160, 53, 20);
 
+>>>>>>> 7a3ce8b8b89a45fd6512d7e121ad187091f8c213
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +88,10 @@ public class loginPage extends javax.swing.JFrame {
         getContentPane().add(loginButton);
         loginButton.setBounds(430, 220, 90, 23);
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7a3ce8b8b89a45fd6512d7e121ad187091f8c213
         forgotpasswordButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         forgotpasswordButton.setForeground(new java.awt.Color(0, 102, 255));
         forgotpasswordButton.setText("Forget password ?");
@@ -106,6 +115,10 @@ public class loginPage extends javax.swing.JFrame {
         getContentPane().add(createAccountButton);
         createAccountButton.setBounds(490, 310, 100, 20);
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7a3ce8b8b89a45fd6512d7e121ad187091f8c213
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -117,6 +130,7 @@ public class loginPage extends javax.swing.JFrame {
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextFieldActionPerformed
+
 
     private void passwordShowToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordShowToggleButtonActionPerformed
         // TODO add your handling code here:
