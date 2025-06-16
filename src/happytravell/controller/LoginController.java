@@ -24,11 +24,15 @@ import happytravell.view.SignupAsView;
  */
 public class LoginController {
     private LoginPageView loginView = new LoginPageView();
+
+    private boolean isPasswordVisible = false;
     public LoginController(LoginPageView view){
         this.loginView = view;
         this.loginView.LoginUser(new LoginUser());
         this.loginView.CreateAccountNav(new CreateAccountNav());
         this.loginView.ForgetPasswordNav(new ForgetPasswordNav());
+
+        this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
     }
     
     public void open(){
@@ -49,7 +53,8 @@ public class LoginController {
         }
         
     }
-    
+
+
     class ForgetPasswordNav implements ActionListener{
 
         @Override
@@ -60,6 +65,21 @@ public class LoginController {
         }
         
     }
+
+
+   class TogglePasswordVisibility implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (isPasswordVisible) {
+            loginView.getPasswordField().setEchoChar('•'); // or '*'
+            loginView.getShowButton().setText("Show");
+        } else {
+            loginView.getPasswordField().setEchoChar((char) 0); // show password
+            loginView.getShowButton().setText("Hide");
+        }
+        isPasswordVisible = !isPasswordVisible;
+    }
+}
 
     class LoginUser implements ActionListener{
 

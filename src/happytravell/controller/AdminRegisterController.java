@@ -20,12 +20,14 @@ import happytravell.view.LoginPageView;
 public class AdminRegisterController {
     private AdminRegisterView adminRegisterView = new AdminRegisterView ();
     private AdminData adminData;
+    private boolean isPasswordVisible = false;
     public AdminRegisterController(AdminRegisterView adminRegisterView) {
         this.adminRegisterView = adminRegisterView;
-        this.adminData = adminData;
+        this.adminData = new AdminData();
         this.adminRegisterView.registerAdmin(new AdminRegister());
         this.adminRegisterView.mainpageBack(new MainpageBack());
-        
+        this.adminRegisterView.toggleSetPasswordVisibility(new TogglePasswordVisibility());
+        this.adminRegisterView.toggleConfirmPasswordVisibility(new ToggleConfirmPasswordVisibility());    
     }
     public void open(){
         this.adminRegisterView.setVisible(true);
@@ -44,7 +46,40 @@ public class AdminRegisterController {
             signupAsController.open();
             close();
         }
-        
+    }
+    class TogglePasswordVisibility implements ActionListener{
+           
+        @Override
+            public void actionPerformed(ActionEvent e) {
+                if (isPasswordVisible) {
+                    adminRegisterView.getSetPasswordTextField().setEchoChar('•'); 
+                    adminRegisterView.getShowButton().setText("Show");
+                } 
+                else{
+                     adminRegisterView.getSetPasswordTextField().setEchoChar((char) 0);
+                     adminRegisterView.getShowButton().setText("Hide");
+                    }
+                isPasswordVisible = !isPasswordVisible;
+            }
+           
+    }
+    
+    class ToggleConfirmPasswordVisibility implements ActionListener{
+           
+        @Override
+            public void actionPerformed(ActionEvent e) {
+                if (isPasswordVisible) {
+                    adminRegisterView.getConfirmPasswordTextField().setEchoChar('•');
+                    adminRegisterView.getConfirmShowButton().setText("Show");
+                } 
+                else{
+                     adminRegisterView.getConfirmPasswordTextField().setEchoChar((char) 0); 
+                     adminRegisterView.getConfirmShowButton().setText("Hide");
+                    }
+                isPasswordVisible = !isPasswordVisible;
+            }
+           
+
     }
     
     

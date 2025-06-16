@@ -15,7 +15,9 @@ import java.sql.*;
  */
 public class MapDao {
     MysqlConnection mySql = new MysqlConnection();
-    public boolean Register(TravellerData user){
+
+    public boolean route(TravellerData user){
+
         String query = "INSERT INTO route ( route_name,pickup_location,destination)"
                 + "VALUES (?,?,?)";
         Connection conn = mySql.openConnection();

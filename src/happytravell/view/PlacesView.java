@@ -6,6 +6,8 @@ package happytravell.view;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 
 /**
  *
@@ -124,7 +126,7 @@ public class PlacesView extends javax.swing.JFrame {
         TravelerDetailsPanel = new javax.swing.JPanel();
         placePanel = new javax.swing.JPanel();
         searchIcon = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        searchField = new javax.swing.JTextField();
         backButton = new javax.swing.JButton();
         addPlacesButton = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
@@ -161,9 +163,11 @@ public class PlacesView extends javax.swing.JFrame {
         searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
         TravelerDetailsPanel.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 24, 20, 20));
 
-        jTextField1.setBackground(new java.awt.Color(252, 186, 107));
-        jTextField1.setText("Search");
-        TravelerDetailsPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 170, -1));
+
+        searchField.setBackground(new java.awt.Color(252, 186, 107));
+        searchField.setText("Search");
+        TravelerDetailsPanel.add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 170, -1));
+
 
         backButton.setBackground(new java.awt.Color(252, 186, 107));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -400,7 +404,6 @@ public class PlacesView extends javax.swing.JFrame {
     private javax.swing.JPanel headingPlaces;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel logoutIcon;
@@ -410,8 +413,32 @@ public class PlacesView extends javax.swing.JFrame {
     private javax.swing.JLabel profileIcon;
     private javax.swing.JButton routeDetailsButton;
     private javax.swing.JLabel routeIcon;
+
+    private javax.swing.JTextField searchField;
+
     private javax.swing.JLabel searchIcon;
     private javax.swing.JButton vehiclesDetailsButton;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
+
+
+public JButton getAddPlacesButton(){
+    return addPlacesButton;
+}
+public javax.swing.JTextField getSearchField(){
+        return searchField;
+    }
+
+    public void filterPlaces(String query) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void showAllPlaces() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void refreshPlacesList() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }
