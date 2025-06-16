@@ -6,7 +6,9 @@ package happytravell.view;
 
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -136,7 +138,7 @@ public class AdmindashboardView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         reviewsButton = new javax.swing.JButton();
-        travelllersButton = new javax.swing.JButton();
+        travellersButton = new javax.swing.JButton();
         travellingButton = new javax.swing.JButton();
         placesButton = new javax.swing.JButton();
         notificationIcon = new javax.swing.JLabel();
@@ -145,18 +147,18 @@ public class AdmindashboardView extends javax.swing.JFrame {
         profileIcon = new javax.swing.JLabel();
         vehiclesIcon = new javax.swing.JLabel();
         busTicketIcon = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        happyTravelLabel = new javax.swing.JLabel();
         routeIcon = new javax.swing.JLabel();
         bookingIcon = new javax.swing.JLabel();
         dashboardIcon = new javax.swing.JLabel();
-        vehiclesDetailsButton = new javax.swing.JButton();
-        logoutButton = new javax.swing.JButton();
-        busTicketsButton = new javax.swing.JButton();
-        routeDetailsButton = new javax.swing.JButton();
-        bookingDetailsButton = new javax.swing.JButton();
-        dashboardButton = new javax.swing.JButton();
-        profileButton = new javax.swing.JButton();
         logoIcon = new javax.swing.JLabel();
+        dashboardLabel = new javax.swing.JLabel();
+        bookingDetailsLabel = new javax.swing.JLabel();
+        routeDetailsLabel = new javax.swing.JLabel();
+        busTicketsLabel = new javax.swing.JLabel();
+        vehiclesDetailsLabel = new javax.swing.JLabel();
+        profileLabel = new javax.swing.JLabel();
+        logOutLabel = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -270,15 +272,15 @@ public class AdmindashboardView extends javax.swing.JFrame {
         });
         TravelerDetailsPanel.add(reviewsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 115, 53));
 
-        travelllersButton.setBackground(new java.awt.Color(166, 124, 94));
-        travelllersButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        travelllersButton.setText("Travellers");
-        travelllersButton.addActionListener(new java.awt.event.ActionListener() {
+        travellersButton.setBackground(new java.awt.Color(166, 124, 94));
+        travellersButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        travellersButton.setText("Travellers");
+        travellersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travelllersButtonActionPerformed(evt);
+                travellersButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travelllersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 301, 115, 53));
+        TravelerDetailsPanel.add(travellersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 301, 115, 53));
 
         travellingButton.setBackground(new java.awt.Color(173, 98, 44));
         travellingButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
@@ -310,149 +312,79 @@ public class AdmindashboardView extends javax.swing.JFrame {
         DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N
-        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, 15, 15));
+        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, 18, 18));
         logoutIcon.getAccessibleContext().setAccessibleName("");
 
         profileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
         profileIcon.setText("jLabel1");
-        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 255, 15, 15));
+        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 255, 18, 18));
 
         vehiclesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/front-of-bus.png"))); // NOI18N
-        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 15, 15));
+        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 18, 18));
 
         busTicketIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tickets.png"))); // NOI18N
-        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 15, 15));
+        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 18, 18));
 
-        jLabel4.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel4.setText("Happy Travels");
-        DashDetailsPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 80, -1));
+        happyTravelLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        happyTravelLabel.setText("Happy Travels");
+        DashDetailsPanel.add(happyTravelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 80, -1));
 
         routeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/directions.png"))); // NOI18N
-        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 135, 15, 15));
+        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 18, 18));
 
         bookingIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/booking.png"))); // NOI18N
-        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 97, 15, 15));
+        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 97, 18, 18));
         bookingIcon.getAccessibleContext().setAccessibleName("");
 
         dashboardIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/dashboard.png"))); // NOI18N
         dashboardIcon.setText("jLabel1");
-        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, 15, 15));
-
-        vehiclesDetailsButton.setBackground(new java.awt.Color(243, 219, 191));
-        vehiclesDetailsButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        vehiclesDetailsButton.setText("          Vehicles Details");
-        vehiclesDetailsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        vehiclesDetailsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehiclesDetailsButtonActionPerformed(evt);
-            }
-        });
-        DashDetailsPanel.add(vehiclesDetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 130, 30));
-
-        logoutButton.setBackground(new java.awt.Color(243, 219, 191));
-        logoutButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        logoutButton.setText("               LogOut");
-        logoutButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        logoutButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
-            }
-        });
-        DashDetailsPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 130, 30));
-
-        busTicketsButton.setBackground(new java.awt.Color(243, 219, 191));
-        busTicketsButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        busTicketsButton.setText("Bus Tickets");
-        busTicketsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        DashDetailsPanel.add(busTicketsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 130, 30));
-
-        routeDetailsButton.setBackground(new java.awt.Color(243, 219, 191));
-        routeDetailsButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        routeDetailsButton.setText("     Route Details");
-        routeDetailsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        routeDetailsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                routeDetailsButtonActionPerformed(evt);
-            }
-        });
-        DashDetailsPanel.add(routeDetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 130, 30));
-
-        bookingDetailsButton.setBackground(new java.awt.Color(243, 219, 191));
-        bookingDetailsButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        bookingDetailsButton.setText("          Booking Details");
-        bookingDetailsButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        bookingDetailsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookingDetailsButtonActionPerformed(evt);
-            }
-        });
-        DashDetailsPanel.add(bookingDetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 30));
-
-        dashboardButton.setBackground(new java.awt.Color(243, 219, 191));
-        dashboardButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        dashboardButton.setText("Dashboard");
-        dashboardButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        dashboardButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashboardButtonActionPerformed(evt);
-            }
-        });
-        DashDetailsPanel.add(dashboardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 130, 30));
-
-        profileButton.setBackground(new java.awt.Color(243, 219, 191));
-        profileButton.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        profileButton.setText("               Profile");
-        profileButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        profileButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        profileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileButtonActionPerformed(evt);
-            }
-        });
-        DashDetailsPanel.add(profileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 130, 30));
+        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, 18, 18));
 
         logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/happy.png"))); // NOI18N
         logoIcon.setFocusCycleRoot(true);
         DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-35, -5, 120, 50));
         logoIcon.getAccessibleContext().setAccessibleName("");
 
+        dashboardLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        dashboardLabel.setText("  Dashboard");
+        DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 80, -1));
+
+        bookingDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        bookingDetailsLabel.setText("  Booking Details");
+        DashDetailsPanel.add(bookingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
+
+        routeDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        routeDetailsLabel.setText("  Route Details");
+        DashDetailsPanel.add(routeDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, 20));
+
+        busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        busTicketsLabel.setText("Bus Tickets");
+        DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 182, 60, -1));
+
+        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        vehiclesDetailsLabel.setText("  Vehicles Details");
+        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
+
+        profileLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        profileLabel.setText("Profile");
+        DashDetailsPanel.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 50, -1));
+
+        logOutLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        logOutLabel.setText("LogOut");
+        DashDetailsPanel.add(logOutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
         getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void vehiclesDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehiclesDetailsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vehiclesDetailsButtonActionPerformed
-
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutButtonActionPerformed
-
-    private void dashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dashboardButtonActionPerformed
-
-    private void routeDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routeDetailsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_routeDetailsButtonActionPerformed
-
-    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_profileButtonActionPerformed
-
-    private void bookingDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingDetailsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookingDetailsButtonActionPerformed
-
     private void reviewsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewsButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_reviewsButtonActionPerformed
 
-    private void travelllersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travelllersButtonActionPerformed
+    private void travellersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellersButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_travelllersButtonActionPerformed
+    }//GEN-LAST:event_travellersButtonActionPerformed
 
     private void travellingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellingButtonActionPerformed
         // TODO add your handling code here:
@@ -501,12 +433,13 @@ public class AdmindashboardView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
     private javax.swing.JPanel TravelerDetailsPanel;
-    private javax.swing.JButton bookingDetailsButton;
+    private javax.swing.JLabel bookingDetailsLabel;
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel busTicketIcon;
-    private javax.swing.JButton busTicketsButton;
-    private javax.swing.JButton dashboardButton;
+    private javax.swing.JLabel busTicketsLabel;
     private javax.swing.JLabel dashboardIcon;
+    private javax.swing.JLabel dashboardLabel;
+    private javax.swing.JLabel happyTravelLabel;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -522,33 +455,88 @@ public class AdmindashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel kathmanduPanelButton;
+    private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
-    private javax.swing.JButton logoutButton;
     private javax.swing.JLabel logoutIcon;
     private javax.swing.JPanel mustangPanelButton;
     private javax.swing.JLabel notificationIcon;
     private javax.swing.JPanel placePanel;
     private javax.swing.JButton placesButton;
     private javax.swing.JPanel pokharaPanelButton;
-    private javax.swing.JButton profileButton;
     private javax.swing.JLabel profileIcon;
+    private javax.swing.JLabel profileLabel;
     private javax.swing.JButton reviewsButton;
-    private javax.swing.JButton routeDetailsButton;
+    private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
+    private javax.swing.JButton travellersButton;
     private javax.swing.JButton travellingButton;
-    private javax.swing.JButton travelllersButton;
-    private javax.swing.JButton vehiclesDetailsButton;
+    private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 
-public void LogOutNavigation(ActionListener listener){
-        logoutButton.addActionListener(listener);
-    }    
-public void PlacesNavigation(ActionListener listener){
+    
+    public void PlacesNavigation(ActionListener listener){
         placesButton.addActionListener(listener);
     }
+    public void TravellersNavigation(ActionListener listener){
+        travellersButton.addActionListener(listener);
+    }
+    public void TravellingNavigation(ActionListener listener){
+        travellingButton.addActionListener(listener);
+    }
+    public void ReviewsNavigation(ActionListener listener){
+        reviewsButton.addActionListener(listener);
+    }
+    public void DashboardNavigation(MouseListener listener){
+        dashboardLabel.addMouseListener(listener);
+    }
+    public JLabel getDashboardlabel(){
+        return dashboardLabel;
+    }
+    public void BookingDetailsNavigation(MouseListener listener){
+        bookingDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getBookingDetailslabel(){
+        return bookingDetailsLabel;
+    }
+    public void RouteDetailsNavigation(MouseListener listener){
+        routeDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getRouteDetailslabel(){
+        return routeDetailsLabel;
+    }
+    public void BusTicketsNavigation(MouseListener listener){
+        busTicketsLabel.addMouseListener(listener);
+    }
+    public JLabel getBusTicketslabel(){
+        return busTicketsLabel;
+    }
+    public void VehiclesDetailsNavigation(MouseListener listener){
+        vehiclesDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getVehiclesDetailslabel(){
+        return vehiclesDetailsLabel;
+    }
+    public void ProfileNavigation(MouseListener listener){
+        profileLabel.addMouseListener(listener);
+    }
+    public JLabel getProfilelabel(){
+        return profileLabel;
+    }
+    public void LogOutNavigation(MouseListener listener){
+        logOutLabel.addMouseListener(listener);
+    }
+    public JLabel getLogOutlabel(){
+        return logOutLabel;
+    }
+    
+    
+    
+    
+
+    
+
 }

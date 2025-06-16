@@ -14,10 +14,14 @@ import happytravell.model.LoginRequest;
 import happytravell.model.TravellerData;
 import happytravell.view.TravellerdashboardView;
 import happytravell.view.AdmindashboardView;
-import happytravell.view.ForgetView;
-
+import happytravell.view.ForgetPasswordView;
 import happytravell.view.LoginPageView;
 import happytravell.view.SignupAsView;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JLabel;
 /**
  *
  * @author Acer
@@ -28,8 +32,9 @@ public class LoginController {
     public LoginController(LoginPageView view){
         this.loginView = view;
         this.loginView.LoginUser(new LoginUser());
-        this.loginView.CreateAccountNav(new CreateAccountNav());
-        this.loginView.ForgetPasswordNav(new ForgetPasswordNav());
+        this.loginView.signUpNavigation(new SignUpNav(loginView.getSignUplabel()));
+        this.loginView.ForgetPasswordNavigation(new ForgetPasswordNav(loginView.getForgetPasswordLabel()));
+        
         this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
 
         
@@ -42,29 +47,76 @@ public class LoginController {
         this.loginView.dispose();
     }
     
-    class CreateAccountNav implements ActionListener{
-
+    
+    class SignUpNav implements MouseListener{
+        
+        private JLabel signUpLabel;
+        
+        public SignUpNav(JLabel label){
+            this.signUpLabel = label;
+        }
+        
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void mouseClicked(MouseEvent e) {
             SignupAsView signupAsView = new SignupAsView();
-            SignupAsController signupAsController = new SignupAsController(signupAsView);
+            SignupAsController signupAsController= new SignupAsController(signupAsView);
             signupAsController.open();
-            
+            close();
         }
         
-    }
-    
-    
-    class ForgetPasswordNav implements ActionListener{
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
 
         @Override
-        public void actionPerformed(ActionEvent e) {
-           ForgetView forgetView = new ForgetView();
-           ForgetPasswordController forgetPasswordController = new ForgetPasswordController(forgetView);
-           forgetPasswordController.open();
+        public void mouseEntered(MouseEvent e) {
+            signUpLabel.setForeground(Color.BLUE);
+            signUpLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            signUpLabel.setForeground(Color.BLACK);
+            signUpLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+    class ForgetPasswordNav implements MouseListener{
+        
+        private JLabel forgetPasswordLabel;
+        
+        public ForgetPasswordNav(JLabel label){
+            this.forgetPasswordLabel = label;
         }
         
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            ForgetPasswordView forgetPasswordView = new ForgetPasswordView();
+            ForgetPasswordController forgetPasswordController= new ForgetPasswordController(forgetPasswordView);
+            forgetPasswordController.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            forgetPasswordLabel.setForeground(Color.BLUE);
+            forgetPasswordLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            forgetPasswordLabel.setForeground(Color.BLACK);
+            forgetPasswordLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
     }
+    
+
 
    class TogglePasswordVisibility implements ActionListener {
     @Override
@@ -138,6 +190,8 @@ public class LoginController {
             }
             return "Unknown";
         }
+        
+        
         
         private void navigateToUserDashboard(Object user, String userType) {
             // Close current login view
