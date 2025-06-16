@@ -11,12 +11,12 @@ import javax.swing.ImageIcon;
  *
  * @author Acer
  */
-public class PlacesView extends javax.swing.JFrame {
+public class AdmindashboardView extends javax.swing.JFrame {
 
     /**
      * Creates new form AdmindashboardView
      */
-    public PlacesView() {
+    public AdmindashboardView() {
         initComponents();
         scaleImage1();
         scaleImage2();
@@ -27,7 +27,6 @@ public class PlacesView extends javax.swing.JFrame {
         scaleImage7();
         scaleImage8();
         scaleImage9();
-        scaleImage10();
 
     }
     
@@ -103,14 +102,6 @@ public class PlacesView extends javax.swing.JFrame {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         notificationIcon.setIcon(scaledIcon);
     }
-    public void scaleImage10(){
-        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/search.png"));
-        //scaling image to fit in the hlabel.
-        Image img1 = icon1.getImage();
-        Image imgScale = img1.getScaledInstance(searchIcon.getWidth(), searchIcon.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(imgScale);
-        searchIcon.setIcon(scaledIcon);
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,12 +112,33 @@ public class PlacesView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel11 = new javax.swing.JPanel();
+        jToolBar1 = new javax.swing.JToolBar();
         TravelerDetailsPanel = new javax.swing.JPanel();
         placePanel = new javax.swing.JPanel();
-        searchIcon = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        backButton = new javax.swing.JButton();
-        addPlacesButton = new javax.swing.JButton();
+        pokharaPanelButton = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        mustangPanelButton = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        kathmanduPanelButton = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        reviewsButton = new javax.swing.JButton();
+        travelllersButton = new javax.swing.JButton();
+        travellingButton = new javax.swing.JButton();
+        placesButton = new javax.swing.JButton();
+        notificationIcon = new javax.swing.JLabel();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -144,9 +156,19 @@ public class PlacesView extends javax.swing.JFrame {
         dashboardButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
         logoIcon = new javax.swing.JLabel();
-        headingPlaces = new javax.swing.JPanel();
-        notificationIcon = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,36 +178,132 @@ public class PlacesView extends javax.swing.JFrame {
 
         placePanel.setBackground(new java.awt.Color(200, 143, 75));
         placePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, 490, 260));
 
-        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
-        TravelerDetailsPanel.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 24, 20, 20));
+        pokharaPanelButton.setBackground(new java.awt.Color(222, 183, 154));
+        pokharaPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pokharaPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
+        pokharaPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(252, 186, 107));
-        jTextField1.setText("Search");
-        TravelerDetailsPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 170, -1));
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pokhara.jpg"))); // NOI18N
+        pokharaPanelButton.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, 126));
 
-        backButton.setBackground(new java.awt.Color(252, 186, 107));
-        backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel19.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        jLabel19.setText("Pokhara");
+        pokharaPanelButton.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 140, 43, -1));
+
+        jLabel23.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel23.setText("Pokhara is a city on Phewa ");
+        pokharaPanelButton.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 156, 139, -1));
+
+        jLabel24.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel24.setText("Lake, in central Nepal.");
+        pokharaPanelButton.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 177, 139, -1));
+
+        placePanel.add(pokharaPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 155, 214));
+
+        mustangPanelButton.setBackground(new java.awt.Color(222, 183, 154));
+        mustangPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        mustangPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
+        mustangPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/mustang.jpg"))); // NOI18N
+        mustangPanelButton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, 135));
+
+        jLabel11.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        jLabel11.setText("Mustang");
+        mustangPanelButton.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 149, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel26.setText("The district is home to ");
+        mustangPanelButton.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 170, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel29.setText("Muktinath Temple.");
+        mustangPanelButton.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 191, -1, -1));
+
+        placePanel.add(mustangPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 21, 155, 214));
+
+        kathmanduPanelButton.setBackground(new java.awt.Color(222, 183, 154));
+        kathmanduPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        kathmanduPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
+        kathmanduPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/kathmandu.jpg"))); // NOI18N
+        kathmanduPanelButton.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 2, -1, -1));
+
+        jLabel27.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        jLabel27.setText("Kathmandu");
+        kathmanduPanelButton.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 146, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel28.setText("Kathmandu is best known");
+        kathmanduPanelButton.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 167, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel30.setText("For its historical sights.");
+        kathmanduPanelButton.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 188, -1, -1));
+
+        placePanel.add(kathmanduPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 21, 161, 214));
+
+        jLabel17.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        jLabel17.setText("Most popular places among travelers.");
+        placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 3, 211, -1));
+
+        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Candara", 3, 12)); // NOI18N
+        jLabel2.setText("Welcome to Happy Travels!");
+        TravelerDetailsPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 153, -1));
+
+        jLabel3.setFont(new java.awt.Font("Candara", 3, 12)); // NOI18N
+        jLabel3.setText("Lets travel the world together.");
+        TravelerDetailsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 27, -1, -1));
+
+        reviewsButton.setBackground(new java.awt.Color(168, 116, 55));
+        reviewsButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        reviewsButton.setText("Reviews");
+        reviewsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+                reviewsButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        TravelerDetailsPanel.add(reviewsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 115, 53));
 
-        addPlacesButton.setBackground(new java.awt.Color(252, 186, 107));
-        addPlacesButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        addPlacesButton.setText("Add Places");
-        addPlacesButton.addActionListener(new java.awt.event.ActionListener() {
+        travelllersButton.setBackground(new java.awt.Color(166, 124, 94));
+        travelllersButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        travelllersButton.setText("Travellers");
+        travelllersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPlacesButtonActionPerformed(evt);
+                travelllersButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(addPlacesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        TravelerDetailsPanel.add(travelllersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 301, 115, 53));
 
-        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 36, 510, 330));
+        travellingButton.setBackground(new java.awt.Color(173, 98, 44));
+        travellingButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        travellingButton.setText("Travelling");
+        travellingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                travellingButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(travellingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 300, 115, 53));
+
+        placesButton.setBackground(new java.awt.Color(173, 77, 44));
+        placesButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        placesButton.setText("Places");
+        placesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                placesButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 300, 115, 53));
+
+        notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
+        TravelerDetailsPanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 5, 25, 25));
+        notificationIcon.getAccessibleContext().setAccessibleName("");
+
+        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
         DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -300,19 +418,6 @@ public class PlacesView extends javax.swing.JFrame {
 
         getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 360));
 
-        headingPlaces.setBackground(new java.awt.Color(255, 255, 255));
-        headingPlaces.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        headingPlaces.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 25, 25));
-        notificationIcon.getAccessibleContext().setAccessibleName("");
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Places");
-        headingPlaces.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 50, -1));
-
-        getContentPane().add(headingPlaces, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 40));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -340,13 +445,21 @@ public class PlacesView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bookingDetailsButtonActionPerformed
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+    private void reviewsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewsButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_backButtonActionPerformed
+    }//GEN-LAST:event_reviewsButtonActionPerformed
 
-    private void addPlacesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlacesButtonActionPerformed
+    private void travelllersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travelllersButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addPlacesButtonActionPerformed
+    }//GEN-LAST:event_travelllersButtonActionPerformed
+
+    private void travellingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellingButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_travellingButtonActionPerformed
+
+    private void placesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_placesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,23 +478,21 @@ public class PlacesView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PlacesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmindashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PlacesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmindashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PlacesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmindashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PlacesView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmindashboardView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PlacesView().setVisible(true);
+                new AdmindashboardView().setVisible(true);
             }
         });
     }
@@ -389,28 +500,46 @@ public class PlacesView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
     private javax.swing.JPanel TravelerDetailsPanel;
-    private javax.swing.JButton addPlacesButton;
-    private javax.swing.JButton backButton;
     private javax.swing.JButton bookingDetailsButton;
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel busTicketIcon;
     private javax.swing.JButton busTicketsButton;
     private javax.swing.JButton dashboardButton;
     private javax.swing.JLabel dashboardIcon;
-    private javax.swing.JPanel headingPlaces;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JPanel kathmanduPanelButton;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel logoutIcon;
+    private javax.swing.JPanel mustangPanelButton;
     private javax.swing.JLabel notificationIcon;
     private javax.swing.JPanel placePanel;
+    private javax.swing.JButton placesButton;
+    private javax.swing.JPanel pokharaPanelButton;
     private javax.swing.JButton profileButton;
     private javax.swing.JLabel profileIcon;
+    private javax.swing.JButton reviewsButton;
     private javax.swing.JButton routeDetailsButton;
     private javax.swing.JLabel routeIcon;
-    private javax.swing.JLabel searchIcon;
+    private javax.swing.JButton travellingButton;
+    private javax.swing.JButton travelllersButton;
     private javax.swing.JButton vehiclesDetailsButton;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables

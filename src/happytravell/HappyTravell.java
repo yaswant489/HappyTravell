@@ -4,17 +4,18 @@
  */
 package happytravell;
 
-/**
- *
- * @author User
- */
-public class HappyTravell {
+import happytravell.controller.LoginController;
+import happytravell.view.LoginPageView;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+
+public class HappyTravell {
+   public static void main(String[] args) {
+      
+       LoginPageView view = new LoginPageView();
+       LoginController controller = new LoginController(view);
+       controller.open();
+       
+        
     }
     
 }
