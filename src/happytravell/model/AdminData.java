@@ -11,6 +11,7 @@ package happytravell.model;
 
 
     
+
 public class AdminData {
     private String id;
     private String firstName;
@@ -25,6 +26,7 @@ public class AdminData {
         
     }
 
+
     public AdminData(String firstName, String lastName, String username, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,6 +36,7 @@ public class AdminData {
         this.address = address;
         this.password = password;
     }
+
      public AdminData( String id,String firstName, String lastName, String username, String email) {
         this.id =id;
         this.firstName = firstName;
@@ -49,6 +52,7 @@ public class AdminData {
      public void setId(String firstName) {
         this.id = id;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -62,6 +66,7 @@ public class AdminData {
         this.email = email;
     }
     public void setPhoneNumber(String phone) {
+
         this.phoneNumber = phoneNumber;
     }
     public void setAddress(String address) {
@@ -72,6 +77,7 @@ public class AdminData {
     }
 
     // Getters
+
     public String getId() {
         return this.id;
     }

@@ -4,7 +4,9 @@
  */
 package happytravell.view;
 
+
 import happytravell.controller.AdminRegisterController;
+
 import java.awt.event.ActionListener;
 
 /**
@@ -52,6 +54,7 @@ public class AdminRegisterView extends javax.swing.JFrame {
         confirmPasswordField = new javax.swing.JPasswordField();
         showButton = new javax.swing.JToggleButton();
         confirmshowButton = new javax.swing.JToggleButton();
+
         jLabel1 = new javax.swing.JLabel();
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -171,6 +174,7 @@ public class AdminRegisterView extends javax.swing.JFrame {
         });
         getContentPane().add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 126, -1));
 
+
         showButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         showButton.setText("Show");
         showButton.addActionListener(new java.awt.event.ActionListener() {
@@ -191,6 +195,7 @@ public class AdminRegisterView extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/register.png.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
+
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -239,6 +244,7 @@ public class AdminRegisterView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_registerButtonActionPerformed
 
+
     private void showButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_showButtonActionPerformed
@@ -246,6 +252,7 @@ public class AdminRegisterView extends javax.swing.JFrame {
     private void confirmshowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmshowButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmshowButtonActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -296,7 +303,9 @@ public class AdminRegisterView extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JLabel confirmpasswordlabel;
+
     private javax.swing.JToggleButton confirmshowButton;
+
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel firstnameLabel;
@@ -312,7 +321,9 @@ public class AdminRegisterView extends javax.swing.JFrame {
     private javax.swing.JLabel setPassword;
     private javax.swing.JPasswordField setPasswordField;
     private javax.swing.JLabel setUsernamelabel;
+
     private javax.swing.JToggleButton showButton;
+
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 public void registerAdmin(ActionListener listener){
@@ -327,6 +338,7 @@ public void registerAdmin(ActionListener listener){
     public javax.swing.JToggleButton getConfirmShowButton() {
     return confirmshowButton;
     }
+
     public javax.swing.JTextField getFirstNameTextField(){
         return firstnameTextField;
     }
@@ -357,6 +369,7 @@ public void registerAdmin(ActionListener listener){
     public void toggleConfirmPasswordVisibility(ActionListener listener) {
     confirmshowButton.addActionListener(listener);
     }
+
 
     
 

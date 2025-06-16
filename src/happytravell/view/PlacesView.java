@@ -8,6 +8,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+
 /**
  *
  * @author Acer
@@ -162,9 +163,11 @@ public class PlacesView extends javax.swing.JFrame {
         searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
         TravelerDetailsPanel.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 24, 20, 20));
 
+
         searchField.setBackground(new java.awt.Color(252, 186, 107));
         searchField.setText("Search");
         TravelerDetailsPanel.add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 170, -1));
+
 
         backButton.setBackground(new java.awt.Color(252, 186, 107));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -410,11 +413,14 @@ public class PlacesView extends javax.swing.JFrame {
     private javax.swing.JLabel profileIcon;
     private javax.swing.JButton routeDetailsButton;
     private javax.swing.JLabel routeIcon;
+
     private javax.swing.JTextField searchField;
+
     private javax.swing.JLabel searchIcon;
     private javax.swing.JButton vehiclesDetailsButton;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
+
 
 public JButton getAddPlacesButton(){
     return addPlacesButton;
@@ -434,4 +440,5 @@ public javax.swing.JTextField getSearchField(){
     public void refreshPlacesList() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 }

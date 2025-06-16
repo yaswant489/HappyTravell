@@ -9,7 +9,9 @@ package happytravell.model;
  * @author User
  */
 public class TravellerData {
+
     private String id;
+
     private String firstName;
     private String lastName;
     private String username;
@@ -17,10 +19,12 @@ public class TravellerData {
     private String phoneNumber;
     private String address;
     private String password;
+
     
     public TravellerData(){
         
     }
+
 
     public TravellerData(String firstName, String lastName, String username, String email) {
         this.firstName = firstName;
@@ -68,7 +72,7 @@ public class TravellerData {
         this.password = password;
     }
 
-    // Getters
+    // Getter
     public String getId() {
         return this.id;
     }

@@ -127,31 +127,37 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lastnameLabel">
       <Properties>
+
         <Property name="text" type="java.lang.String" value=" Last name"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="360" y="103" width="70" height="-1"/>
+
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="setUsernamelabel">
       <Properties>
+
         <Property name="text" type="java.lang.String" value=" Set Username"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="340" y="133" width="90" height="-1"/>
+
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="emailLabel">
       <Properties>
+
         <Property name="text" type="java.lang.String" value=" Email"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="383" y="163" width="50" height="-1"/>
+
         </Constraint>
       </Constraints>
     </Component>
@@ -161,27 +167,33 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+
           <AbsoluteConstraints x="339" y="193" width="90" height="-1"/>
+
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="addressLabel">
       <Properties>
+
         <Property name="text" type="java.lang.String" value=" Address"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="370" y="223" width="60" height="-1"/>
+
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="setPassword">
       <Properties>
+
         <Property name="text" type="java.lang.String" value=" Set Password"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="343" y="253" width="90" height="-1"/>
+
         </Constraint>
       </Constraints>
     </Component>
@@ -191,17 +203,21 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+
           <AbsoluteConstraints x="320" y="280" width="110" height="-1"/>
+
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="firstnameLabel">
       <Properties>
+
         <Property name="text" type="java.lang.String" value=" First name"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="360" y="73" width="70" height="-1"/>
+
         </Constraint>
       </Constraints>
     </Component>
@@ -255,6 +271,7 @@
         </Constraint>
       </Constraints>
     </Component>
+
     <Component class="javax.swing.JToggleButton" name="confirmShowButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -291,11 +308,14 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/image/register.png.png"/>
+
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+
           <AbsoluteConstraints x="0" y="0" width="640" height="360"/>
+
         </Constraint>
       </Constraints>
     </Component>
