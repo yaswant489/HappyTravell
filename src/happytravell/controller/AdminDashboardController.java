@@ -34,7 +34,6 @@ import javax.swing.JOptionPane;
 public class AdminDashboardController {
     private AdmindashboardView admindashboardView = new AdmindashboardView();
     public AdminDashboardController(AdmindashboardView admindashboardView){
-//        this.admindashboardView.LogOutNavigation(new LogOutNav());
         this.admindashboardView.PlacesNavigation(new PlacesNav());
         this.admindashboardView.TravellersNavigation(new TravellerNav());
         this.admindashboardView.TravellingNavigation(new TravellingNav());
@@ -60,6 +59,7 @@ public class AdminDashboardController {
     class BookingDetailsNav implements MouseListener{
         
         private JLabel bookingDetailsLabel;
+        
         public BookingDetailsNav(JLabel label){
             this.bookingDetailsLabel = label;
         }
@@ -77,7 +77,7 @@ public class AdminDashboardController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            bookingDetailsLabel.setForeground(Color.WHITE);
+            bookingDetailsLabel.setForeground(Color.RED);
             bookingDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
@@ -213,7 +213,7 @@ public class AdminDashboardController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            profileLabel.setForeground(Color.WHITE);
+            profileLabel.setForeground(Color.RED);
             profileLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 

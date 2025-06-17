@@ -4,16 +4,20 @@
  */
 package happytravell.dao;
 import happytravell.database.MysqlConnection;
+import happytravell.model.BookingData;
 import happytravell.model.TravellerData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import happytravell.model.LoginRequest;
 import happytravell.model.ResetPasswordRequest;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author User
  */
+
 public class TravellerDao {
     MysqlConnection mysql = new MysqlConnection();
     public boolean Register(TravellerData traveller){
@@ -35,7 +39,8 @@ public class TravellerDao {
                 createTable.executeUpdate();
                 PreparedStatement stmt = conn.prepareStatement(insertQuery);
                 createTable.executeUpdate();
-                stmt.setString(1, traveller.getFirstName() != null ? traveller.getFirstName() : "");
+                ResultSet resultSet = stmt.executeQuery();
+                stmt.setString(1, traveller.getFirstName(resultSet.getString("first_name")) != null ? traveller.getFirstName(resultSet.getString("first_name")) : "");
                 stmt.setString(2, traveller.getLastName() != null ? traveller.getLastName() : "");
                 stmt.setString(3, traveller.getEmail() != null ? traveller.getEmail() : "");
                 stmt.setString(4, traveller.getAddress() != null ? traveller.getAddress() : "");
@@ -53,6 +58,26 @@ public class TravellerDao {
     }
     }
     
+    public List<BookingData>getAllBookingDetailsWithImage(){
+        List<BookingData> booking =new ArrayList<>();
+        String query= "SELECT id as traveller_ID, first_name, image FROM traveller WHERE image IS NOT NULL"
+                +"SELECT id as booking_ID,drop_address,departure_date_time FROM bookingDetails" ;
+        Connection conn = mysql.openConnection();
+        try(
+                PreparedStatement stmnt = conn. prepareStatement(query);
+                ResultSet resultSet = stmnt.executeQuery()){
+            while(resultSet.next()){
+                TravellerData traveller = new TravellerData();
+                BookingData booking1 = new BookingData();
+                traveller.setTravellerID(resultSet.getInt("TravellerID"));
+                traveller.getFirstName(resultSet.getString("first_name"));
+                traveller.getImage(resultSet.getBytes("image"));
+                booking1.getDropAddress(resultSet.getString("drop_address"));
+            }
+        }
+    } 
+        
+            
      public TravellerData travellerLogin(LoginRequest travellerLoginData){
         String query= "SELECT * FROM traveller WHERE email=? and password=?";
         Connection conn= mysql.openConnection();
@@ -84,7 +109,7 @@ public class TravellerDao {
             mysql.closeConnection(conn);
         }   
         
-    }
+     }
     public boolean checkEmail(String email) {
         String query = "SELECT * FROM traveller WHERE email=?";
         Connection conn = mysql.openConnection();

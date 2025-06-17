@@ -10,7 +10,7 @@ package happytravell.model;
  */
 public class TravellerData {
 
-    private String id;
+    private String travellerID;
 
     private String firstName;
     private String lastName;
@@ -19,6 +19,7 @@ public class TravellerData {
     private String phoneNumber;
     private String address;
     private String password;
+    private byte[] image;
 
     
     public TravellerData(){
@@ -34,9 +35,10 @@ public class TravellerData {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
+        this.image= image;
     }
-     public TravellerData( String id,String firstName, String lastName, String username, String email) {
-        this.id =id;
+     public TravellerData( String travellerID,String firstName, String lastName, String username, String email) {
+        this.travellerID =travellerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -44,11 +46,12 @@ public class TravellerData {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
+        this.image= image;
     }
     
 // Setters
-     public void setId(String firstName) {
-        this.id = id;
+     public void setTravellerID(String travellerID) {
+        this.travellerID = travellerID;
     }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -71,12 +74,15 @@ public class TravellerData {
     public void setPassword(String password) {
         this.password = password;
     }
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     // Getter
-    public String getId() {
-        return this.id;
+    public String getTravellerID() {
+        return this.travellerID;
     }
-    public String getFirstName() {
+    public String getFirstName(String string) {
         return this.firstName;
     }
     public String getLastName() {
@@ -96,6 +102,9 @@ public class TravellerData {
     }
     public String getPassword() {
         return this.password;
+    }
+    public byte[] getImage(byte[] bytes) {
+        return this.image;
     }
 }
 

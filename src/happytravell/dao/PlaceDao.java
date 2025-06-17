@@ -6,7 +6,6 @@ package happytravell.dao;
 
 import happytravell.database.MysqlConnection;
 import happytravell.model.PlaceData;
-import java.awt.MenuItem;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
