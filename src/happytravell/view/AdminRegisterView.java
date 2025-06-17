@@ -54,8 +54,7 @@ public class AdminRegisterView extends javax.swing.JFrame {
         confirmPasswordField = new javax.swing.JPasswordField();
         showButton = new javax.swing.JToggleButton();
         confirmshowButton = new javax.swing.JToggleButton();
-
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField2.setText("  Set Username");
@@ -69,8 +68,9 @@ public class AdminRegisterView extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         RegisterLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        RegisterLabel.setText("Register");
-        getContentPane().add(RegisterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 31));
+        RegisterLabel.setForeground(new java.awt.Color(204, 102, 0));
+        RegisterLabel.setText("Admin Registration");
+        getContentPane().add(RegisterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, 31));
 
         lastnameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,14 +93,15 @@ public class AdminRegisterView extends javax.swing.JFrame {
         });
         getContentPane().add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 126, -1));
 
-        registerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        registerButton.setBackground(new java.awt.Color(255, 153, 51));
+        registerButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         registerButton.setText("Register");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 317, 90, -1));
+        getContentPane().add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 126, -1));
 
         backButton.setBackground(new java.awt.Color(239, 243, 243));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -110,7 +111,7 @@ public class AdminRegisterView extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 70, 20));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 323, 70, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 72, -1, -1));
@@ -122,13 +123,13 @@ public class AdminRegisterView extends javax.swing.JFrame {
         getContentPane().add(setUsernamelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 133, 90, -1));
 
         emailLabel.setText("     Email");
-        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 163, 50, -1));
+        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 163, 60, -1));
 
         phonenumberLabel.setText(" Phone number");
         getContentPane().add(phonenumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 193, 90, -1));
 
         addressLabel.setText(" Address");
-        getContentPane().add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 223, 50, -1));
+        getContentPane().add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 223, 60, -1));
 
         setPassword.setText("     Set Password");
         getContentPane().add(setPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 253, 100, -1));
@@ -174,27 +175,24 @@ public class AdminRegisterView extends javax.swing.JFrame {
         });
         getContentPane().add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 126, -1));
 
-
-        showButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         showButton.setText("Show");
         showButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 60, -1));
+        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 65, 20));
 
-        confirmshowButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         confirmshowButton.setText("Show");
         confirmshowButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmshowButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(confirmshowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 60, -1));
+        getContentPane().add(confirmshowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 65, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/register.png.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
 
         pack();
@@ -310,8 +308,8 @@ public class AdminRegisterView extends javax.swing.JFrame {
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel firstnameLabel;
     private javax.swing.JTextField firstnameTextField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lastnameLabel;
     private javax.swing.JTextField lastnameTextField;

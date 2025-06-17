@@ -10,7 +10,11 @@ package happytravell.controller;
 
 import happytravell.dao.PlaceDao;
 import happytravell.model.PlaceData.Place;
-import happytravell.view.PlacesView;
+import happytravell.view.AdminPlacesView;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -33,11 +37,11 @@ import javax.swing.SwingConstants;
  *
  * @author Acer
  */
-public class PlacesController {
-     private PlacesView placesView;
+public class AdminPlacesController {
+     private AdminPlacesView placesView;
     private PlaceDao placeDao;
     
-    public PlacesController(PlacesView view) {
+    public AdminPlacesController(AdminPlacesView view) {
         this.placesView = view;
         this.placeDao = new PlaceDao();
         initializeEventHandlers();
@@ -79,7 +83,7 @@ public class PlacesController {
         JDialog dialog = new JDialog();
         dialog.setTitle("Add Places");
         dialog.setModal(true);
-        dialog.setSize(450, 400);
+        dialog.setSize(400, 300);
         dialog.setLocationRelativeTo(placesView);
         dialog.setResizable(false);
         
@@ -87,44 +91,63 @@ public class PlacesController {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        
+        mainPanel.setBackground(new java.awt.Color(252,186,107));
         // Photo section
         JPanel photoPanel = new JPanel();
         photoPanel.setLayout(new BoxLayout(photoPanel, BoxLayout.Y_AXIS));
         photoPanel.setBorder(BorderFactory.createTitledBorder("Photo"));
         
         JButton addPhotoButton = new JButton("Add Photo");
-        addPhotoButton.setPreferredSize(new java.awt.Dimension(200, 100));
+        addPhotoButton.setPreferredSize(new java.awt.Dimension(200,100));
         addPhotoButton.setBackground(java.awt.Color.LIGHT_GRAY);
         
         JLabel selectedPhotoLabel = new JLabel("No photo selected");
         selectedPhotoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        
+//        
         photoPanel.add(addPhotoButton);
-        photoPanel.add(Box.createVerticalStrut(10));
-        photoPanel.add(selectedPhotoLabel);
+//        photoPanel.add(Box.createVerticalStrut(10));
+//        photoPanel.add(selectedPhotoLabel);
         
         // Name section
-        JPanel namePanel = new JPanel();
-        namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.Y_AXIS));
+        JPanel namePanel = new JPanel(new GridBagLayout());
         JLabel nameLabel = new JLabel("Name:");
-        nameLabel.setFont(nameLabel.getFont().deriveFont(14f));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.anchor = GridBagConstraints.WEST;
+        
+        gbc.gridx =-5; gbc.gridy =2 ;
+        namePanel.setBackground(new java.awt.Color(252,186,107));
+        nameLabel.setFont(nameLabel.getFont().deriveFont(12f));
         JTextField nameField = new JTextField();
-        nameField.setPreferredSize(new java.awt.Dimension(300, 30));
+        namePanel.add(nameLabel,gbc);
+        
+        nameField.setPreferredSize(new java.awt.Dimension(200,20));
         
         namePanel.add(nameLabel);
         namePanel.add(Box.createVerticalStrut(5));
         namePanel.add(nameField);
         
         // Description section
-        JPanel descPanel = new JPanel();
-        descPanel.setLayout(new BoxLayout(descPanel, BoxLayout.Y_AXIS));
+        JPanel descPanel = new JPanel(new GridBagLayout());
         JLabel descLabel = new JLabel("Description:");
-        descLabel.setFont(descLabel.getFont().deriveFont(14f));
-        JTextArea descArea = new JTextArea(4, 25);
+        GridBagConstraints gbc2 = new GridBagConstraints();
+        gbc2.anchor = GridBagConstraints.WEST;
+        gbc2.gridx =-5; gbc2.gridy =2 ;
+        descPanel.setBackground(new java.awt.Color(252,186,107));
+        descLabel.setFont(descLabel.getFont().deriveFont(12f));
+        
+        JTextArea descArea = new JTextArea(3, 20);
         descArea.setLineWrap(true);
         descArea.setWrapStyleWord(true);
         JScrollPane descScrollPane = new JScrollPane(descArea);
+      
+        
+//        gbc.gridx = 1; gbc.fill = GridBagConstraints.BOTH;
+//        JTextArea descArea = new JTextArea(3, 20);
+//        descArea.setFont(new Font("Arial", Font.PLAIN, 14));
+//        descArea.setBorder(BorderFactory.createCompoundBorder(
+//            BorderFactory.createLineBorder(new Color(227, 143, 11), 2),
+//            BorderFactory.createEmptyBorder(5, 5, 5, 5)
+//      
         
         descPanel.add(descLabel);
         descPanel.add(Box.createVerticalStrut(5));
@@ -132,28 +155,31 @@ public class PlacesController {
         
         // Button panel
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(new java.awt.Color(252,186,107));
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
         
         JButton addButton = new JButton("Add");
-        addButton.setBackground(new java.awt.Color(204, 153, 102)); // Orange color from UI
-        addButton.setForeground(java.awt.Color.WHITE);
+        addButton.setBackground(new java.awt.Color(173,98,44)); // Orange color from UI
+        addButton.setForeground(java.awt.Color.BLACK);
         addButton.setPreferredSize(new java.awt.Dimension(80, 35));
         
         JButton cancelButton = new JButton("Cancel");
         cancelButton.setPreferredSize(new java.awt.Dimension(80, 35));
+        cancelButton.setBackground(new java.awt.Color(173,98,44));
+        cancelButton.setForeground(java.awt.Color.BLACK);
         
         buttonPanel.add(Box.createHorizontalGlue());
         buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(10));
+        buttonPanel.add(Box.createHorizontalStrut(5));
         buttonPanel.add(addButton);
         
         // Add components to main panel
         mainPanel.add(photoPanel);
-        mainPanel.add(Box.createVerticalStrut(15));
+        mainPanel.add(Box.createVerticalStrut(5));
         mainPanel.add(namePanel);
-        mainPanel.add(Box.createVerticalStrut(15));
+        mainPanel.add(Box.createVerticalStrut(5));
         mainPanel.add(descPanel);
-        mainPanel.add(Box.createVerticalStrut(20));
+        mainPanel.add(Box.createVerticalStrut(10));
         mainPanel.add(buttonPanel);
         
         dialog.add(mainPanel);

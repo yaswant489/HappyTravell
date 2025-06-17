@@ -5,12 +5,15 @@
 package happytravell.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JLabel;
 
 /**
  *
  * @author Acer
  */
 public class TravellerRegisterView extends javax.swing.JFrame {
+
+    private JLabel jLabel1;
 
     /**
      * Creates new form Register
@@ -52,7 +55,7 @@ public class TravellerRegisterView extends javax.swing.JFrame {
 
         confirmShowButton = new javax.swing.JToggleButton();
         showButton = new javax.swing.JToggleButton();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -67,8 +70,9 @@ public class TravellerRegisterView extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         RegisterLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        RegisterLabel.setText("Register");
-        getContentPane().add(RegisterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 31));
+        RegisterLabel.setForeground(new java.awt.Color(204, 102, 0));
+        RegisterLabel.setText("Traveller Registration");
+        getContentPane().add(RegisterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, 31));
 
         lastnameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,9 +95,10 @@ public class TravellerRegisterView extends javax.swing.JFrame {
         });
         getContentPane().add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 126, -1));
 
-        registerButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        registerButton.setBackground(new java.awt.Color(255, 153, 51));
+        registerButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         registerButton.setText("Register");
-        getContentPane().add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 317, 90, -1));
+        getContentPane().add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 317, 126, -1));
 
         backButton.setBackground(new java.awt.Color(239, 243, 243));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -103,7 +108,7 @@ public class TravellerRegisterView extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 70, 20));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 318, 70, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 72, -1, -1));
@@ -169,26 +174,24 @@ public class TravellerRegisterView extends javax.swing.JFrame {
         });
         getContentPane().add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 126, -1));
 
-        confirmShowButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         confirmShowButton.setText("Show");
         confirmShowButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmShowButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(confirmShowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 60, -1));
+        getContentPane().add(confirmShowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 65, 20));
 
-        showButton.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         showButton.setText("Show");
         showButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 60, -1));
+        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 251, 65, 20));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/register.png.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 360));
 
 
         pack();

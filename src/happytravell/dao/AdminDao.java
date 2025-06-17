@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import happytravell.model.LoginRequest;
+import happytravell.model.ResetPasswordRequest;
 
 
 /**
@@ -56,7 +57,7 @@ public class AdminDao {
     }
     }
     
-     public AdminData adminLogin(LoginRequest adminLoginData){
+    public AdminData adminLogin(LoginRequest adminLoginData){
         String query= "SELECT * FROM admin WHERE email=? and password=?";
         Connection conn= mysql.openConnection();
         try{
@@ -89,4 +90,44 @@ public class AdminDao {
         }   
         
     }
+    
+     public boolean checkEmail(String email) {
+        String query = "SELECT * FROM admin WHERE email=?";
+        Connection conn = mysql.openConnection();
+        try {
+            PreparedStatement stmnt = conn.prepareStatement(query);
+            stmnt.setString(1, email);
+            ResultSet result = stmnt.executeQuery();
+            // return result.next();
+            if (result.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public boolean resetPassword(ResetPasswordRequest reset) {
+        String query = "UPDATE admin SET password=? WHERE email=?";
+        Connection conn = mysql.openConnection();
+        try {
+            PreparedStatement stmnt = conn.prepareStatement(query);
+            stmnt.setString(1, reset.getPassword());
+            stmnt.setString(2, reset.getEmail());
+            int result = stmnt.executeUpdate();
+            return result > 0;
+        } catch (Exception e) {
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    
+    
+     
 }
