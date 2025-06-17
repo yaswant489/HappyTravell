@@ -5,12 +5,15 @@
 package happytravell.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JLabel;
 
 /**
  *
  * @author Acer
  */
 public class TravellerRegisterView extends javax.swing.JFrame {
+
+    private JLabel jLabel1;
 
     /**
      * Creates new form Register
