@@ -93,7 +93,7 @@ public class AdminBookingDetailsController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            dashboardLabel.setForeground(Color.RED);
+            dashboardLabel.setForeground(Color.WHITE);
             dashboardLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
@@ -107,7 +107,7 @@ public class AdminBookingDetailsController {
     public class BookingDetailsPopup extends JDialog {
     private BookingData bookingData;
     private TravellerData travellerData;
-    private JLabel customerImageLabel;
+    private JLabel imageLabel;
     private JLabel nameValueLabel;
     private JLabel destinationValueLabel;
     private JLabel pickupAddressValueLabel;

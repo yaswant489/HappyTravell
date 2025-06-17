@@ -332,41 +332,5 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
     public JLabel getDashboardlabel(){
         return dashboardLabel;
     }
-    public void BookingDetailsNavigation(MouseListener listener){
-        bookingDetailsLabel.addMouseListener(listener);
-    }
-    public JLabel getBookingDetailslabel(){
-        return bookingDetailsLabel;
-    }
-    public void RouteDetailsNavigation(MouseListener listener){
-        routeDetailsLabel.addMouseListener(listener);
-    }
-    public JLabel getRouteDetailslabel(){
-        return routeDetailsLabel;
-    }
-    public void BusTicketsNavigation(MouseListener listener){
-        busTicketsLabel.addMouseListener(listener);
-    }
-    public JLabel getBusTicketslabel(){
-        return busTicketsLabel;
-    }
-    public void ProfileNavigation(MouseListener listener){
-        profileLabel.addMouseListener(listener);
-    }
-    public JLabel getProfilelabel(){
-        return profileLabel;
-    }
-    public void LogOutNavigation(MouseListener listener){
-        logOutLabel.addMouseListener(listener);
-    }
-    public JLabel getLogOutlabel(){
-        return logOutLabel;
-    }
-    
-    
-    
-    
-
-    
 
 }
