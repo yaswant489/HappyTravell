@@ -264,10 +264,13 @@
         </Constraint>
       </Constraints>
     </Component>
+
     <Component class="javax.swing.JToggleButton" name="showButton">
+
       <Properties>
         <Property name="text" type="java.lang.String" value="Show"/>
       </Properties>
+
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showButtonActionPerformed"/>
       </Events>
@@ -278,12 +281,15 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JToggleButton" name="confirmshowButton">
+
       <Properties>
         <Property name="text" type="java.lang.String" value="Show"/>
       </Properties>
+
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmshowButtonActionPerformed"/>
       </Events>
+
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="560" y="280" width="65" height="20"/>

@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package happytravell.controller;
-
 import happytravell.dao.TravellerDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,6 +33,7 @@ public class TravellerRegisterController {
     public void open(){
         this.travellerRegisterView.setVisible(true);
     
+
     }
     public void close(){
         this.travellerRegisterView.dispose();
@@ -50,8 +50,7 @@ public class TravellerRegisterController {
         }
         
     }
-    
-    class TogglePasswordVisibility implements ActionListener{
+        class TogglePasswordVisibility implements ActionListener{
            
         @Override
             public void actionPerformed(ActionEvent e) {
@@ -85,6 +84,7 @@ public class TravellerRegisterController {
            
     }
     
+
     class TravellerRegister implements ActionListener{
 
         @Override
@@ -128,6 +128,7 @@ public class TravellerRegisterController {
             boolean success = new TravellerDao().Register(travellerData);
             if (success){
                 JOptionPane.showMessageDialog(travellerRegisterView,"Registered sucessfully.Please Login to continue!");
+
                 LoginPageView loginView = new LoginPageView();
                 LoginController loginController = new LoginController(loginView);
                 loginController.open();
@@ -136,6 +137,7 @@ public class TravellerRegisterController {
                         JOptionPane.showMessageDialog(travellerRegisterView, "Register failed. Please try again!");
                 }
          
+
         }
     }
     

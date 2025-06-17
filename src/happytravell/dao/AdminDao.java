@@ -13,7 +13,6 @@ import happytravell.model.LoginRequest;
 import happytravell.model.ResetPasswordRequest;
 
 
-
 /**
  *
  * @author Acer
@@ -49,6 +48,7 @@ public class AdminDao {
 
                 int result = stmt.executeUpdate();
                 return result > 0;
+
     } catch (Exception e) {
         e.printStackTrace();
         return false;
@@ -73,6 +73,7 @@ public class AdminDao {
 //                retrieving value from resultset
                 String name = result.getString("first_name"); // use the name of column in database
                 String id = result.getString("admin_ID");
+
                 String email = result.getString("email");
                 String password = result.getString("password");
 //                wrapping the data in model

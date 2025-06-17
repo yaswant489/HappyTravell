@@ -28,6 +28,7 @@ import javax.swing.JLabel;
  */
 public class LoginController {
     private LoginPageView loginView = new LoginPageView();
+
     private boolean isPasswordVisible = false;
     public LoginController(LoginPageView view){
         this.loginView = view;
@@ -37,7 +38,7 @@ public class LoginController {
         
         this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
 
-        
+        this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
     }
     
     public void open(){
@@ -116,6 +117,7 @@ public class LoginController {
         } 
     }
     
+
 
 
    class TogglePasswordVisibility implements ActionListener {

@@ -165,15 +165,18 @@ public class LoginPageView extends javax.swing.JFrame {
     private javax.swing.JLabel wellcomeLabel;
     // End of variables declaration//GEN-END:variables
     
+
     public javax.swing.JTextField getEmailTextField(){
         return emailTextField;
     }
     public javax.swing.JPasswordField getPasswordField(){
         return passwordField;
     }
+
     public javax.swing.JToggleButton getShowButton() {
     return showButton;
     }
+
     public void LoginUser(ActionListener listener){
         loginButton.addActionListener(listener);
     }
