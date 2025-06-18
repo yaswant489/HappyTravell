@@ -5,6 +5,12 @@
 package happytravell.controller;
 
 import happytravell.view.AdminVehiclesDetailsView;
+import happytravell.view.AdmindashboardView;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JLabel;
 
 /**
  *
@@ -14,11 +20,45 @@ public class AdminVehiclesDetailsController {
     private AdminVehiclesDetailsView VehiclesDetailsView;
     public AdminVehiclesDetailsController(AdminVehiclesDetailsView adminVehiclesDetailsView) {
         this.VehiclesDetailsView = adminVehiclesDetailsView;
+        this.VehiclesDetailsView.DashboardNavigation(new AdminVehiclesDetailsController.DashboardNav(adminVehiclesDetailsView.getDashboardlabel()));
     }
     public void open(){
     this.VehiclesDetailsView.setVisible(true);
     } 
     public void close(){
     this.VehiclesDetailsView.dispose();
+    }
+    
+//    Dashboard Navigation
+    class DashboardNav implements MouseListener{
+        
+        private JLabel dashboardLabel;
+        
+        public DashboardNav(JLabel label){
+            this.dashboardLabel = label;
+        }
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdmindashboardView admindashboardView = new AdmindashboardView();
+            AdminDashboardController AdminDashboard= new AdminDashboardController(admindashboardView);
+            AdminDashboard.open();
+            close();
+        }
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            dashboardLabel.setForeground(Color.WHITE);
+            dashboardLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            dashboardLabel.setForeground(Color.BLACK);
+            dashboardLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
     }
 }
