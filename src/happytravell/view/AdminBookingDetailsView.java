@@ -4,11 +4,25 @@
  */
 package happytravell.view;
 
+import happytravell.UI.AdminBookingDetailsCardPanel;
+import happytravell.model.BookingData;
+import happytravell.model.TravellerData;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -121,7 +135,7 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
         notificationIcon = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollPane = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
@@ -137,7 +151,7 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
         bookingDetailsLabel = new javax.swing.JLabel();
         routeDetailsLabel = new javax.swing.JLabel();
         busTicketsLabel = new javax.swing.JLabel();
-        vehiclesDatailsLabel = new javax.swing.JLabel();
+        vehiclesDetailsLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
         logOutLabel = new javax.swing.JLabel();
 
@@ -173,14 +187,14 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
 
         TravelerDetailsPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 30));
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         jPanel2.setBackground(new java.awt.Color(255, 242, 227));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jScrollPane1.setViewportView(jPanel2);
+        scrollPane.setViewportView(jPanel2);
 
-        TravelerDetailsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 510, 330));
+        TravelerDetailsPanel.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 510, 330));
 
         getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
 
@@ -237,9 +251,9 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
         busTicketsLabel.setText("Bus Tickets");
         DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 182, 60, -1));
 
-        vehiclesDatailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        vehiclesDatailsLabel.setText("  Vehicles Details");
-        DashDetailsPanel.add(vehiclesDatailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
+        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        vehiclesDetailsLabel.setText("  Vehicles Details");
+        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
 
         profileLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         profileLabel.setText("Profile");
@@ -310,7 +324,6 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
@@ -320,17 +333,111 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
     private javax.swing.JLabel profileLabel;
     private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
-    private javax.swing.JLabel vehiclesDatailsLabel;
+    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 
     
+    public void scrollToTop() {
+        SwingUtilities.invokeLater(() -> {
+            scrollPane.getVerticalScrollBar().setValue(0);
+        });
+    }
     
+    public void displayBooking(List<BookingData> booking) {
+    TravellerData traveller = new TravellerData();
+
+    jPanel2.removeAll();
+
+    jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
+    
+    for (int i = 0; i < booking.size(); i++) {
+        BookingData bookingDetails = booking.get(i);
+
+        try {
+            AdminBookingDetailsCardPanel cardPanel = new AdminBookingDetailsCardPanel(bookingDetails);
+           
+            cardPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+            cardPanel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    // TODO: Navigate to menu page
+                    System.out.println("Restaurant selected: " + traveller.getFirstName());
+                }
+                
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    cardPanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                    cardPanel.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 2));
+                }
+                
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    cardPanel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+                    cardPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+                }
+            });
+
+            jPanel2.add(cardPanel);
+            
+            if (i < booking.size() - 1) {
+                jPanel2.add(Box.createVerticalStrut(15));
+            }
+            
+        } catch (Exception e) {
+        }
+    }
+    
+    jPanel2.add(Box.createVerticalGlue());
+    
+    jPanel2.revalidate();
+    jPanel2.repaint();
+    
+    scrollToTop();
+}
+
+    private JPanel createBookingCard(BookingData bookingDetails) {
+        return new AdminBookingDetailsCardPanel(bookingDetails);
+    }
+
+    
+//    navigation
     public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);
     }
     public JLabel getDashboardlabel(){
         return dashboardLabel;
     }
-
+    public void RouteDetailsNavigation(MouseListener listener){
+        routeDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getRouteDetailslabel(){
+        return routeDetailsLabel;
+    }
+    public void BusTicketsNavigation(MouseListener listener){
+        busTicketsLabel.addMouseListener(listener);
+    }
+    public JLabel getBusTicketslabel(){
+        return busTicketsLabel;
+    }
+    public void VehiclesDetailsNavigation(MouseListener listener){
+        vehiclesDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getVehiclesDetailslabel(){
+        return vehiclesDetailsLabel;
+    }
+    public void ProfileNavigation(MouseListener listener){
+        profileLabel.addMouseListener(listener);
+    }
+    public JLabel getProfilelabel(){
+        return profileLabel;
+    }
+    public void LogOutNavigation(MouseListener listener){
+        logOutLabel.addMouseListener(listener);
+    }
+    public JLabel getLogOutlabel(){
+        return logOutLabel;
+    }    
 }

@@ -11,7 +11,7 @@ package happytravell.model;
 public class BookingData {
     private int bookingId;   
     private String pickupAddress;
-    private String dropAddress;
+    public String dropAddress;
     private String departureDateTime;
     private String returnDateTime;
     private int  passengerCount;
@@ -54,7 +54,7 @@ public class BookingData {
         return departureDateTime;
     }
     
-    public void setDepartureDate(String departureDateTime) {
+    public void setDepartureDateTime(String departureDateTime) {
         this.departureDateTime = departureDateTime;
     }
     

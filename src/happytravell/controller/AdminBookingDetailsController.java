@@ -8,7 +8,12 @@ import happytravell.dao.TravellerDao;
 import happytravell.model.BookingData;
 import happytravell.model.TravellerData;
 import happytravell.view.AdminBookingDetailsView;
+import happytravell.view.AdminBusTicketsView;
+import happytravell.view.AdminProfileView;
+import happytravell.view.AdminRouteDetailsView;
+import happytravell.view.AdminVehiclesDetailsView;
 import happytravell.view.AdmindashboardView;
+import happytravell.view.LoginPageView;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -31,6 +36,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
@@ -46,11 +52,16 @@ public class AdminBookingDetailsController {
     
     public AdminBookingDetailsController(AdminBookingDetailsView adminBookingDetailsView) {
         this.bookingView.DashboardNavigation(new AdminBookingDetailsController.DashboardNav(adminBookingDetailsView.getDashboardlabel()));
-//        this.bookingView = adminBookingDetailsView;
+        this.bookingView.BusTicketsNavigation(new AdminBookingDetailsController.BusTicketsNav(adminBookingDetailsView.getBusTicketslabel()));
+        this.bookingView.RouteDetailsNavigation(new AdminBookingDetailsController.RouteDetailsNav(adminBookingDetailsView.getRouteDetailslabel()));
+        this.bookingView.VehiclesDetailsNavigation(new AdminBookingDetailsController.VehiclesDetailsNav(adminBookingDetailsView.getVehiclesDetailslabel()));
+        this.bookingView.ProfileNavigation(new AdminBookingDetailsController.ProfileNav(adminBookingDetailsView.getProfilelabel()));
+        this.bookingView.LogOutNavigation(new AdminBookingDetailsController.LogOutNav(adminBookingDetailsView.getLogOutlabel()));
+        this.bookingView = adminBookingDetailsView;
         
         this.allBooking = new ArrayList<>();
         this.filteredBooking = new ArrayList<>();
-        
+        loadBooking();
         
     }
     public void open(){
@@ -59,17 +70,6 @@ public class AdminBookingDetailsController {
     public void close(){
     this.bookingView.dispose();
     } 
-    
-    
-    private void loadRestaurants() {
-        try {
-            TravellerDao travellerDao = new TravellerDao();
-            allBooking = travellerDao.getImage();
-            filteredBooking = new ArrayList<>(allBookingWithImage);
-            displayAllRestaurants();
-        } catch (Exception e) {
-        }
-    }
     
     //    Dashboard Navigation
     class DashboardNav implements MouseListener{
@@ -95,7 +95,7 @@ public class AdminBookingDetailsController {
         public void mouseEntered(MouseEvent e) {
             dashboardLabel.setForeground(Color.WHITE);
             dashboardLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        }
+        }       
 
         @Override
         public void mouseExited(MouseEvent e) {
@@ -104,22 +104,212 @@ public class AdminBookingDetailsController {
         } 
     }
     
+//  Route Details Navigation
+    class RouteDetailsNav implements MouseListener{
+        
+        private JLabel routeDetailsLabel;      
+        public RouteDetailsNav(JLabel label){
+            this.routeDetailsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminRouteDetailsView adminRouteDetailsView = new AdminRouteDetailsView();
+            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView);
+            AdminRouteDetails.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            routeDetailsLabel.setForeground(Color.WHITE);
+            routeDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            routeDetailsLabel.setForeground(Color.BLACK);
+            routeDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+//  Bus Ticket Navigation  
+    class BusTicketsNav implements MouseListener{
+        
+        private JLabel busTicketsLabel;
+        public BusTicketsNav(JLabel label){
+            this.busTicketsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminBusTicketsView adminBusTicketsView = new AdminBusTicketsView();
+            AdminBusTicketsController AdminBusTickets= new AdminBusTicketsController(adminBusTicketsView);
+            AdminBusTickets.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            busTicketsLabel.setForeground(Color.WHITE);
+            busTicketsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            busTicketsLabel.setForeground(Color.BLACK);
+            busTicketsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+//  Vehicles Details Navigation
+    class VehiclesDetailsNav implements MouseListener{
+        
+        private JLabel vehiclesDetailsLabel;
+        public VehiclesDetailsNav(JLabel label){
+            this.vehiclesDetailsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminVehiclesDetailsView adminVehiclesDetailsView = new AdminVehiclesDetailsView();
+            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView);
+            AdminVehiclesDetails.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.WHITE);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.BLACK);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+//    Profile Navigation
+    class ProfileNav implements MouseListener{
+        
+        private JLabel profileLabel;
+        public ProfileNav(JLabel label){
+            this.profileLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminProfileView adminProfileView = new AdminProfileView();
+            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView );
+            AdminProfile.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            profileLabel.setForeground(Color.RED);
+            profileLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            profileLabel.setForeground(Color.BLACK);
+            profileLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+//    LogOut Navigation
+    class LogOutNav implements MouseListener{
+        
+        private JLabel logOutLabel;
+        public LogOutNav(JLabel label){
+            this.logOutLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Logout",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            if (response == JOptionPane.YES_OPTION) {
+                bookingView.dispose();
+
+                LoginPageView loginView = new LoginPageView();
+                LoginController loginController = new LoginController(loginView);
+                loginController.open();
+            }
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            logOutLabel.setForeground(Color.WHITE);
+            logOutLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            logOutLabel.setForeground(Color.BLACK);
+            logOutLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+
+    
+
+    
+    private void loadBooking() {
+        try {
+            TravellerDao travellerDao = new TravellerDao();
+            allBooking = travellerDao.getAllBookingDetailsWithImage();
+            filteredBooking = new ArrayList<>(allBooking);
+            displayAllBooking();
+        } catch (Exception e) {
+            
+        }
+    }
+
+    private void displayAllBooking() {
+        bookingView.displayBooking(filteredBooking);
+    }
+    
     public class BookingDetailsPopup extends JDialog {
     private BookingData bookingData;
     private TravellerData travellerData;
     private JLabel imageLabel;
     private JLabel nameValueLabel;
-    private JLabel destinationValueLabel;
     private JLabel pickupAddressValueLabel;
     private JLabel dropAddressValueLabel;
-    private JLabel departureDateValueLabel;
-    private JLabel departureTimeValueLabel;
-    private JLabel returnDateValueLabel;
-    private JLabel returnTimeValueLabel;
+    private JLabel departureDateTimeValueLabel;
+    private JLabel returnDateTimeValueLabel;
     private JLabel passengerCountValueLabel;
     private JLabel vehicleNumberValueLabel;
     private JLabel driverNameValueLabel;
-    private JLabel statusValueLabel;
     private JButton showRouteButton;
     private JButton closeButton;
     
@@ -141,27 +331,24 @@ public class AdminBookingDetailsController {
         setSize(800, 600);
         setBackground(new Color(255, 248, 235));
         
-        customerImageLabel = new JLabel();
-        customerImageLabel.setPreferredSize(new Dimension(120, 120));
-        customerImageLabel.setBorder(BorderFactory.createLineBorder(new Color(241, 215, 184), 3));
-        customerImageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        customerImageLabel.setVerticalAlignment(SwingConstants.CENTER);
-        customerImageLabel.setBackground(Color.WHITE);
-        customerImageLabel.setOpaque(true);
+        imageLabel = new JLabel();
+        imageLabel.setPreferredSize(new Dimension(120, 120));
+        imageLabel.setBorder(BorderFactory.createLineBorder(new Color(241, 215, 184), 3));
+        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        imageLabel.setVerticalAlignment(SwingConstants.CENTER);
+        imageLabel.setBackground(Color.WHITE);
+        imageLabel.setOpaque(true);
         
         // Initialize value labels
         nameValueLabel = createValueLabel();
-        destinationValueLabel = createValueLabel();
         pickupAddressValueLabel = createValueLabel();
         dropAddressValueLabel = createValueLabel();
-        departureDateValueLabel = createValueLabel();
-        departureTimeValueLabel = createValueLabel();
-        returnDateValueLabel = createValueLabel();
-        returnTimeValueLabel = createValueLabel();
+        departureDateTimeValueLabel = createValueLabel();
+        returnDateTimeValueLabel = createValueLabel();
         passengerCountValueLabel = createValueLabel();
         vehicleNumberValueLabel = createValueLabel();
         driverNameValueLabel = createValueLabel();
-        statusValueLabel = createValueLabel();
+     
         
         showRouteButton = new JButton("Show Route");
         showRouteButton.setBackground(new Color(241, 215, 184));
@@ -226,7 +413,7 @@ public class AdminBookingDetailsController {
         
         JPanel imagePanel = new JPanel();
         imagePanel.setBackground(new Color(255, 248, 235));
-        imagePanel.add(customerImageLabel);
+        imagePanel.add(imageLabel);
         
         customerPanel.add(imagePanel, BorderLayout.CENTER);
         customerPanel.setPreferredSize(new Dimension(200, 300));
@@ -248,17 +435,14 @@ public class AdminBookingDetailsController {
         
         // Add fields to details panel
         addField(detailsPanel, "Name:", nameValueLabel, gbc, 0);
-        addField(detailsPanel, "Destination:", destinationValueLabel, gbc, 1);
-        addField(detailsPanel, "Pickup Address:", pickupAddressValueLabel, gbc, 2);
-        addField(detailsPanel, "Drop Address:", dropAddressValueLabel, gbc, 3);
-        addField(detailsPanel, "Departure Date:", departureDateValueLabel, gbc, 4);
-        addField(detailsPanel, "Departure Time:", departureTimeValueLabel, gbc, 5);
-        addField(detailsPanel, "Return Date:", returnDateValueLabel, gbc, 6);
-        addField(detailsPanel, "Return Time:", returnTimeValueLabel, gbc, 7);
-        addField(detailsPanel, "Passengers:", passengerCountValueLabel, gbc, 8);
-        addField(detailsPanel, "Vehicle Number:", vehicleNumberValueLabel, gbc, 9);
-        addField(detailsPanel, "Driver Name:", driverNameValueLabel, gbc, 10);
-        addField(detailsPanel, "Status:", statusValueLabel, gbc, 11);
+        addField(detailsPanel, "Pickup Address:", pickupAddressValueLabel, gbc, 1);
+        addField(detailsPanel, "Drop Address:", dropAddressValueLabel, gbc, 2);
+        addField(detailsPanel, "Departure DateTime:", departureDateTimeValueLabel, gbc, 3);
+        addField(detailsPanel, "Return DateTime:", returnDateTimeValueLabel, gbc, 4);
+        addField(detailsPanel, "Passengers:", passengerCountValueLabel, gbc, 5);
+        addField(detailsPanel, "Vehicle Number:", vehicleNumberValueLabel, gbc, 6);
+        addField(detailsPanel, "Driver Name:", driverNameValueLabel, gbc, 7);
+       
         
         mainPanel.add(customerPanel, BorderLayout.WEST);
         mainPanel.add(detailsPanel, BorderLayout.CENTER);
@@ -288,16 +472,17 @@ public class AdminBookingDetailsController {
     }
     
     private void populateData() {
-        if (bookingData != null) {
-            nameValueLabel.setText(travellerData.getFirstName(resultSet.getString("first_name")) != null ? 
-                                 travellerData.getFirstName(resultSet.getString("first_name")) : "Not specified");
-            destinationValueLabel.setText(bookingData.getDropAddress(resultSet.getString("drop_address")) != null ? 
-                                        bookingData.getDropAddress(resultSet.getString("drop_address")) : "Not specified");
+        if (bookingData != null)
+            {
+            nameValueLabel.setText(travellerData.getFirstName() != null ? 
+                                     travellerData.getFirstName() : "Not specified");
+            dropAddressValueLabel.setText(bookingData.getDropAddress() != null ? 
+                                           bookingData.getDropAddress() : "Not specified");
             pickupAddressValueLabel.setText(bookingData.getPickupAddress() != null ? 
                                           bookingData.getPickupAddress() : "Not specified");
-            dropAddressValueLabel.setText(bookingData.getDepartureDateTime() != null ? 
+            departureDateTimeValueLabel.setText(bookingData.getDepartureDateTime() != null ? 
                                         bookingData.getDepartureDateTime() : "Not specified");
-            departureDateValueLabel.setText(bookingData.getReturnDateTime() != null ? 
+            returnDateTimeValueLabel.setText(bookingData.getReturnDateTime() != null ? 
                                           bookingData.getReturnDateTime() : "Not specified");
             passengerCountValueLabel.setText(String.valueOf(bookingData.getPassengerCount()));
             vehicleNumberValueLabel.setText(bookingData.getVehicleNumber() != null ? 
@@ -316,8 +501,8 @@ public class AdminBookingDetailsController {
                         Image scaledImage = originalIcon.getImage().getScaledInstance(
                             110, 110, Image.SCALE_SMOOTH);
                         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-                        customerImageLabel.setIcon(scaledIcon);
-                        customerImageLabel.setText("");
+                        imageLabel.setIcon(scaledIcon);
+                        imageLabel.setText("");
                     } else {
                         setDefaultCustomerImage();
                     }
@@ -332,10 +517,10 @@ public class AdminBookingDetailsController {
     }
     
     private void setDefaultCustomerImage() {
-        customerImageLabel.setText("👤");
-        customerImageLabel.setFont(new Font("Arial", Font.PLAIN, 40));
-        customerImageLabel.setForeground(new Color(158, 158, 158));
-        customerImageLabel.setIcon(null);
+        imageLabel.setText("👤");
+        imageLabel.setFont(new Font("Arial", Font.PLAIN, 40));
+        imageLabel.setForeground(new Color(158, 158, 158));
+        imageLabel.setIcon(null);
     }
     
     private void setupEventHandlers() {
@@ -351,7 +536,6 @@ public class AdminBookingDetailsController {
             public void actionPerformed(ActionEvent e) {
                 // Implement route showing functionality here
                 System.out.println("Show route for booking: " + travellerData.getFirstName(resultSet.getString("first_name")));
-                // You can integrate with map API or route display functionality
             }
         });
         
@@ -393,9 +577,5 @@ public class AdminBookingDetailsController {
     public BookingData getBookingData() {
         return bookingData;
     }
-
-    
-    
-    
 }
 }

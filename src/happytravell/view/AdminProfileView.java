@@ -266,8 +266,8 @@ public class AdminProfileView extends javax.swing.JFrame {
         jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 120, 30));
 
         adminNameLabel.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        adminNameLabel.setText("Admin Name");
-        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 80, -1));
+        adminNameLabel.setText("admin");
+        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 90, 20));
         jPanel2.add(adminPhotoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
 
         profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 250));
