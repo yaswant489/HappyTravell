@@ -185,7 +185,7 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jScrollPane1.setViewportView(jPanel2);
 
-        vehiclesDetailsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 32, 510, 330));
+        vehiclesDetailsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 72, 510, 290));
 
         getContentPane().add(vehiclesDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
 

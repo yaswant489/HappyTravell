@@ -117,31 +117,27 @@ public class AdminProfileView extends javax.swing.JFrame {
 
         jPanel11 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
-        TravelerDetailsPanel = new javax.swing.JPanel();
+        profilePanel = new javax.swing.JPanel();
         placePanel = new javax.swing.JPanel();
-        pokharaPanelButton = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        mustangPanelButton = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        kathmanduPanelButton = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        reviewsButton = new javax.swing.JButton();
-        travellersButton = new javax.swing.JButton();
-        travellingButton = new javax.swing.JButton();
-        placesButton = new javax.swing.JButton();
         notificationIcon = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        firstNameLabel = new javax.swing.JLabel();
+        addressTextField = new javax.swing.JTextField();
+        lastNameLabel = new javax.swing.JLabel();
+        firstNameTextField = new javax.swing.JTextField();
+        lastNameTextField = new javax.swing.JTextField();
+        usernameTextField = new javax.swing.JTextField();
+        phoneNumberTextField = new javax.swing.JTextField();
+        emailTextField = new javax.swing.JTextField();
+        usernamelabel = new javax.swing.JLabel();
+        phoneNumberLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        addressLabel = new javax.swing.JLabel();
+        updateProfileButton = new javax.swing.JButton();
+        adminNameLabel = new javax.swing.JLabel();
+        adminPhotoLabel = new javax.swing.JLabel();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -176,137 +172,107 @@ public class AdminProfileView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TravelerDetailsPanel.setBackground(new java.awt.Color(255, 242, 227));
-        TravelerDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        profilePanel.setBackground(new java.awt.Color(248, 206, 157));
+        profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         placePanel.setBackground(new java.awt.Color(200, 143, 75));
         placePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pokharaPanelButton.setBackground(new java.awt.Color(222, 183, 154));
-        pokharaPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        pokharaPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
-        pokharaPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pokhara.jpg"))); // NOI18N
-        pokharaPanelButton.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, 126));
-
-        jLabel19.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel19.setText("Pokhara");
-        pokharaPanelButton.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 140, 43, -1));
-
-        jLabel23.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel23.setText("Pokhara is a city on Phewa ");
-        pokharaPanelButton.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 156, 139, -1));
-
-        jLabel24.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel24.setText("Lake, in central Nepal.");
-        pokharaPanelButton.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 177, 139, -1));
-
-        placePanel.add(pokharaPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 155, 214));
-
-        mustangPanelButton.setBackground(new java.awt.Color(222, 183, 154));
-        mustangPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        mustangPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
-        mustangPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/mustang.jpg"))); // NOI18N
-        mustangPanelButton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, 135));
-
-        jLabel11.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel11.setText("Mustang");
-        mustangPanelButton.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 149, -1, -1));
-
-        jLabel26.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel26.setText("The district is home to ");
-        mustangPanelButton.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 170, -1, -1));
-
-        jLabel29.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel29.setText("Muktinath Temple.");
-        mustangPanelButton.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 191, -1, -1));
-
-        placePanel.add(mustangPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 21, 155, 214));
-
-        kathmanduPanelButton.setBackground(new java.awt.Color(222, 183, 154));
-        kathmanduPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        kathmanduPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
-        kathmanduPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/kathmandu.jpg"))); // NOI18N
-        kathmanduPanelButton.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 2, -1, -1));
-
-        jLabel27.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel27.setText("Kathmandu");
-        kathmanduPanelButton.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 146, -1, -1));
-
-        jLabel28.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel28.setText("Kathmandu is best known");
-        kathmanduPanelButton.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 167, -1, -1));
-
-        jLabel30.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel30.setText("For its historical sights.");
-        kathmanduPanelButton.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 188, -1, -1));
-
-        placePanel.add(kathmanduPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 21, 161, 214));
-
-        jLabel17.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel17.setText("Most popular places among travelers.");
-        placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 3, 211, -1));
-
-        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Candara", 3, 12)); // NOI18N
-        jLabel2.setText("Welcome to Happy Travels!");
-        TravelerDetailsPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 153, -1));
-
-        jLabel3.setFont(new java.awt.Font("Candara", 3, 12)); // NOI18N
-        jLabel3.setText("Lets travel the world together.");
-        TravelerDetailsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 27, -1, -1));
-
-        reviewsButton.setBackground(new java.awt.Color(168, 116, 55));
-        reviewsButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        reviewsButton.setText("Reviews");
-        reviewsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reviewsButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(reviewsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 115, 53));
-
-        travellersButton.setBackground(new java.awt.Color(166, 124, 94));
-        travellersButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        travellersButton.setText("Travellers");
-        travellersButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travellersButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(travellersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 301, 115, 53));
-
-        travellingButton.setBackground(new java.awt.Color(173, 98, 44));
-        travellingButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        travellingButton.setText("Travelling");
-        travellingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travellingButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(travellingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 300, 115, 53));
-
-        placesButton.setBackground(new java.awt.Color(173, 77, 44));
-        placesButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        placesButton.setText("Places");
-        placesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placesButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 300, 115, 53));
+        profilePanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));
 
         notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        TravelerDetailsPanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 5, 25, 25));
+        profilePanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 5, 25, 25));
         notificationIcon.getAccessibleContext().setAccessibleName("");
 
-        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
+        jLabel1.setText("Profile");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 0, 69, 40));
+
+        profilePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 40));
+
+        jPanel2.setBackground(new java.awt.Color(251, 245, 205));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        firstNameLabel.setText("First Name");
+        jPanel2.add(firstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 70, 20));
+
+        addressTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 115, -1));
+
+        lastNameLabel.setText("Last Name");
+        jPanel2.add(lastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 70, 20));
+
+        firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(firstNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 115, -1));
+
+        lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(lastNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 115, -1));
+
+        usernameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 115, -1));
+
+        phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneNumberTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 115, -1));
+
+        emailTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel2.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 115, -1));
+
+        usernamelabel.setText("Username");
+        jPanel2.add(usernamelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 60, 20));
+
+        phoneNumberLabel.setText("Phone Number");
+        jPanel2.add(phoneNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, 20));
+
+        emailLabel.setText("Email");
+        jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 40, 20));
+
+        addressLabel.setText("Address");
+        jPanel2.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 70, 20));
+
+        updateProfileButton.setBackground(new java.awt.Color(241, 171, 89));
+        updateProfileButton.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
+        updateProfileButton.setText("Update Profile");
+        updateProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateProfileButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 120, 30));
+
+        adminNameLabel.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        adminNameLabel.setText("Admin Name");
+        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 80, -1));
+        jPanel2.add(adminPhotoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
+
+        profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 250));
+
+        getContentPane().add(profilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
         DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -378,21 +344,33 @@ public class AdminProfileView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void reviewsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewsButtonActionPerformed
+    private void addressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_reviewsButtonActionPerformed
+    }//GEN-LAST:event_addressTextFieldActionPerformed
 
-    private void travellersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellersButtonActionPerformed
+    private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_travellersButtonActionPerformed
+    }//GEN-LAST:event_firstNameTextFieldActionPerformed
 
-    private void travellingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellingButtonActionPerformed
+    private void lastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_travellingButtonActionPerformed
+    }//GEN-LAST:event_lastNameTextFieldActionPerformed
 
-    private void placesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placesButtonActionPerformed
+    private void usernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_placesButtonActionPerformed
+    }//GEN-LAST:event_usernameTextFieldActionPerformed
+
+    private void phoneNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneNumberTextFieldActionPerformed
+
+    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailTextFieldActionPerformed
+
+    private void updateProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProfileButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateProfileButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -434,105 +412,53 @@ public class AdminProfileView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
-    private javax.swing.JPanel TravelerDetailsPanel;
+    private javax.swing.JLabel addressLabel;
+    private javax.swing.JTextField addressTextField;
+    private javax.swing.JLabel adminNameLabel;
+    private javax.swing.JLabel adminPhotoLabel;
     private javax.swing.JLabel bookingDetailsLabel;
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel busTicketIcon;
     private javax.swing.JLabel busTicketsLabel;
     private javax.swing.JLabel dashboardIcon;
     private javax.swing.JLabel dashboardLabel;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JTextField emailTextField;
+    private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel happyTravelLabel;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JPanel kathmanduPanelButton;
+    private javax.swing.JLabel lastNameLabel;
+    private javax.swing.JTextField lastNameTextField;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
-    private javax.swing.JPanel mustangPanelButton;
     private javax.swing.JLabel notificationIcon;
+    private javax.swing.JLabel phoneNumberLabel;
+    private javax.swing.JTextField phoneNumberTextField;
     private javax.swing.JPanel placePanel;
-    private javax.swing.JButton placesButton;
-    private javax.swing.JPanel pokharaPanelButton;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
-    private javax.swing.JButton reviewsButton;
+    private javax.swing.JPanel profilePanel;
     private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
-    private javax.swing.JButton travellersButton;
-    private javax.swing.JButton travellingButton;
+    private javax.swing.JButton updateProfileButton;
+    private javax.swing.JTextField usernameTextField;
+    private javax.swing.JLabel usernamelabel;
     private javax.swing.JLabel vehiclesDatailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 
     
-    public void PlacesNavigation(ActionListener listener){
-        placesButton.addActionListener(listener);
-    }
-    public void TravellersNavigation(ActionListener listener){
-        travellersButton.addActionListener(listener);
-    }
-    public void TravellingNavigation(ActionListener listener){
-        travellingButton.addActionListener(listener);
-    }
-    public void ReviewsNavigation(ActionListener listener){
-        reviewsButton.addActionListener(listener);
-    }
+    
     public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);
     }
     public JLabel getDashboardlabel(){
         return dashboardLabel;
     }
-    public void BookingDetailsNavigation(MouseListener listener){
-        bookingDetailsLabel.addMouseListener(listener);
-    }
-    public JLabel getBookingDetailslabel(){
-        return bookingDetailsLabel;
-    }
-    public void RouteDetailsNavigation(MouseListener listener){
-        routeDetailsLabel.addMouseListener(listener);
-    }
-    public JLabel getRouteDetailslabel(){
-        return routeDetailsLabel;
-    }
-    public void BusTicketsNavigation(MouseListener listener){
-        busTicketsLabel.addMouseListener(listener);
-    }
-    public JLabel getBusTicketslabel(){
-        return busTicketsLabel;
-    }
-    public void ProfileNavigation(MouseListener listener){
-        profileLabel.addMouseListener(listener);
-    }
-    public JLabel getProfilelabel(){
-        return profileLabel;
-    }
-    public void LogOutNavigation(MouseListener listener){
-        logOutLabel.addMouseListener(listener);
-    }
-    public JLabel getLogOutlabel(){
-        return logOutLabel;
-    }
-    
-    
-    
-    
-
-    
-
 }
