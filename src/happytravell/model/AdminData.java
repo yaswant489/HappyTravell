@@ -8,10 +8,6 @@ package happytravell.model;
  *
  * @author Acer
  */
-
-
-    
-
 public class AdminData {
     private String id;
     private String firstName;
@@ -21,13 +17,18 @@ public class AdminData {
     private String phoneNumber;
     private String address;
     private String password;
+    private byte[] profilePicture;
     
-    public AdminData(){
-        
+    // Fixed constructor - removed unused parameters and corrected parameter usage
+    public AdminData(String id, String firstName, String lastName, String email, String password){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
     }
 
-
-    public AdminData(String firstName, String lastName, String username, String email) {
+    public AdminData(String firstName, String lastName, String username, String email, String phoneNumber, String address, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -37,8 +38,8 @@ public class AdminData {
         this.password = password;
     }
 
-     public AdminData( String id,String firstName, String lastName, String username, String email) {
-        this.id =id;
+    public AdminData(String id, String firstName, String lastName, String username, String email, String phoneNumber, String address, String password) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -48,61 +49,77 @@ public class AdminData {
         this.password = password;
     }
     
-// Setters
-     public void setId(String firstName) {
+    // Setters - Fixed setId method parameter and logic
+    public void setId(String id) {
         this.id = id;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+    
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    
     public void setUsername(String username) {
         this.username = username;
     }
+    
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPhoneNumber(String phone) {
-
+    
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    
     public void setAddress(String address) {
         this.address = address;
     }
+    
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public void setProfilePicture(byte[] profilePicture){
+        this.profilePicture = profilePicture;
+    }
 
     // Getters
-
     public String getId() {
         return this.id;
     }
+    
     public String getFirstName() {
         return this.firstName;
     }
+    
     public String getLastName() {
         return this.lastName;
     }
+    
     public String getUsername() {
         return this.username;
     }
+    
     public String getEmail() {
         return this.email;
     }
+    
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
+    
     public String getAddress() {
         return this.address;
     }
+    
     public String getPassword() {
         return this.password;
     }
+    
+    public byte[] getProfilePicture(){
+        return this.profilePicture;
+    }
 }
-
-
-

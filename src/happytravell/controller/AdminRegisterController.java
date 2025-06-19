@@ -23,7 +23,7 @@ public class AdminRegisterController {
     private boolean isPasswordVisible = false;
     public AdminRegisterController(AdminRegisterView adminRegisterView) {
         this.adminRegisterView = adminRegisterView;
-        this.adminData = new AdminData();
+//        this.adminData = new AdminData(id, firstName, lastName, email, password, username, password);
         this.adminRegisterView.registerAdmin(new AdminRegister());
         this.adminRegisterView.mainpageBack(new MainpageBack());
         this.adminRegisterView.toggleSetPasswordVisibility(new TogglePasswordVisibility());

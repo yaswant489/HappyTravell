@@ -7,15 +7,17 @@ package happytravell.view;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Acer
  */
 public class AdminProfileView extends javax.swing.JFrame {
-
+    File selectedProfileFile;
     /**
      * Creates new form AdmindashboardView
      */
@@ -30,6 +32,7 @@ public class AdminProfileView extends javax.swing.JFrame {
         scaleImage7();
         scaleImage8();
         scaleImage9();
+        scaleImage10();
 
     }
     
@@ -105,6 +108,15 @@ public class AdminProfileView extends javax.swing.JFrame {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         notificationIcon.setIcon(scaledIcon);
     }
+    public void scaleImage10(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/add-user.png"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(profileIcon.getWidth(), profileIcon.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        profileIcon.setIcon(scaledIcon);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -137,7 +149,8 @@ public class AdminProfileView extends javax.swing.JFrame {
         addressLabel = new javax.swing.JLabel();
         updateProfileButton = new javax.swing.JButton();
         adminNameLabel = new javax.swing.JLabel();
-        adminPhotoLabel = new javax.swing.JLabel();
+        profileAddIcon = new javax.swing.JLabel();
+        adminProfile = new javax.swing.JLabel();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -152,7 +165,7 @@ public class AdminProfileView extends javax.swing.JFrame {
         bookingDetailsLabel = new javax.swing.JLabel();
         routeDetailsLabel = new javax.swing.JLabel();
         busTicketsLabel = new javax.swing.JLabel();
-        vehiclesDatailsLabel = new javax.swing.JLabel();
+        vehiclesDetailsLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
         logOutLabel = new javax.swing.JLabel();
 
@@ -266,9 +279,14 @@ public class AdminProfileView extends javax.swing.JFrame {
         jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 120, 30));
 
         adminNameLabel.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        adminNameLabel.setText("admin");
-        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 90, 20));
-        jPanel2.add(adminPhotoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
+        adminNameLabel.setText("Admin Name");
+        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, 20));
+
+        profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add-user.png"))); // NOI18N
+        jPanel2.add(profileAddIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 20, 20));
+
+        adminProfile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(adminProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
 
         profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 250));
 
@@ -327,9 +345,9 @@ public class AdminProfileView extends javax.swing.JFrame {
         busTicketsLabel.setText("Bus Tickets");
         DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 182, 60, -1));
 
-        vehiclesDatailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        vehiclesDatailsLabel.setText("  Vehicles Details");
-        DashDetailsPanel.add(vehiclesDatailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
+        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        vehiclesDetailsLabel.setText("  Vehicles Details");
+        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
 
         profileLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         profileLabel.setText("Profile");
@@ -415,7 +433,7 @@ public class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTextField;
     private javax.swing.JLabel adminNameLabel;
-    private javax.swing.JLabel adminPhotoLabel;
+    private javax.swing.JLabel adminProfile;
     private javax.swing.JLabel bookingDetailsLabel;
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel busTicketIcon;
@@ -441,6 +459,7 @@ public class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JTextField phoneNumberTextField;
     private javax.swing.JPanel placePanel;
+    private javax.swing.JLabel profileAddIcon;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JPanel profilePanel;
@@ -449,7 +468,7 @@ public class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JButton updateProfileButton;
     private javax.swing.JTextField usernameTextField;
     private javax.swing.JLabel usernamelabel;
-    private javax.swing.JLabel vehiclesDatailsLabel;
+    private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 
@@ -461,4 +480,104 @@ public class AdminProfileView extends javax.swing.JFrame {
     public JLabel getDashboardlabel(){
         return dashboardLabel;
     }
+    public void BookingDetailsNavigation(MouseListener listener){
+        bookingDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getBookingDetailslabel(){
+        return bookingDetailsLabel;
+    }
+    public void RouteDetailsNavigation(MouseListener listener){
+        routeDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getRouteDetailslabel(){
+        return routeDetailsLabel;
+    }
+    public void BusTicketsNavigation(MouseListener listener){
+        busTicketsLabel.addMouseListener(listener);
+    }
+    public JLabel getBusTicketslabel(){
+        return busTicketsLabel;
+    }
+    public void VehiclesDetailsNavigation(MouseListener listener){
+        vehiclesDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getVehiclesDetailslabel(){
+        return vehiclesDetailsLabel;
+    }
+    
+    public void LogOutNavigation(MouseListener listener){
+        logOutLabel.addMouseListener(listener);
+    }
+    public JLabel getLogOutlabel(){
+        return logOutLabel;
+    }
+    
+    public JTextField getFirstNameTextField() {
+        return firstNameTextField;
+    }
+    public JTextField getLastNameTextField() {
+        return lastNameTextField;
+    }
+    public JTextField getUsernameTextField() {
+        return usernameTextField;
+    }
+    public JTextField getAddressTextField() {
+        return addressTextField;
+    }
+    public JTextField getPhoneNumberTextField() {
+        return phoneNumberTextField;
+    }
+    public JTextField getEmailTextField() {
+        return emailTextField;
+    }
+    
+    public void setUpdateProfileButtonAction(ActionListener listener) {
+        updateProfileButton.addActionListener(listener);
+    }
+    
+    public void uploadProfilePicture(MouseListener listener){
+        profileAddIcon.addMouseListener(listener);
+    }
+    
+    public JLabel getUploadProfile(){
+        return profileAddIcon;
+    }
+    
+    public void selectedProfileFile(File file){
+        this.selectedProfileFile = file;
+    }
+    public void setDefaultProfileImage() {
+        try {
+            ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/path/to/default-profile.png"));
+
+            if (defaultIcon.getIconWidth() == -1) {
+                adminProfile.setText("No Image");
+                adminProfile.setIcon(null);
+            } else {
+                Image scaledImage = defaultIcon.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
+                adminProfile.setIcon(new ImageIcon(scaledImage));
+                adminProfile.setText("");
+            }
+        } catch (Exception e) {
+            adminProfile.setText("No Image");
+            adminProfile.setIcon(null);
+        }
+    }
+    public void displayProfileImage(byte[] imageData) {
+        try {
+            if (imageData != null && imageData.length > 0) {
+                ImageIcon originalIcon = new ImageIcon(imageData);
+                Image scaledImage = originalIcon.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
+                ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+                adminProfile.setIcon(scaledIcon);
+                adminProfile.setText("");
+            } else {
+                setDefaultProfileImage();
+            }
+        } catch (Exception e) {
+            setDefaultProfileImage();
+        }
+    }
+    
 }

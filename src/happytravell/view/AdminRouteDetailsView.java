@@ -138,7 +138,7 @@ public class AdminRouteDetailsView extends javax.swing.JFrame {
         bookingDetailsLabel = new javax.swing.JLabel();
         routeDetailsLabel = new javax.swing.JLabel();
         busTicketsLabel = new javax.swing.JLabel();
-        vehiclesDatailsLabel = new javax.swing.JLabel();
+        vehiclesDetailsLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
         logOutLabel = new javax.swing.JLabel();
 
@@ -242,9 +242,9 @@ public class AdminRouteDetailsView extends javax.swing.JFrame {
         busTicketsLabel.setText("Bus Tickets");
         DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 182, 60, -1));
 
-        vehiclesDatailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        vehiclesDatailsLabel.setText("  Vehicles Details");
-        DashDetailsPanel.add(vehiclesDatailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
+        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        vehiclesDetailsLabel.setText("  Vehicles Details");
+        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
 
         profileLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         profileLabel.setText("Profile");
@@ -322,7 +322,7 @@ public class AdminRouteDetailsView extends javax.swing.JFrame {
     private javax.swing.JLabel profileLabel;
     private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
-    private javax.swing.JLabel vehiclesDatailsLabel;
+    private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 
@@ -338,4 +338,30 @@ public class AdminRouteDetailsView extends javax.swing.JFrame {
     public JLabel getBookingDetailslabel(){
         return bookingDetailsLabel;
     }
+    
+    public void BusTicketsNavigation(MouseListener listener){
+        busTicketsLabel.addMouseListener(listener);
+    }
+    public JLabel getBusTicketslabel(){
+        return busTicketsLabel;
+    }
+    public void VehiclesDetailsNavigation(MouseListener listener){
+        vehiclesDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getVehiclesDetailslabel(){
+        return vehiclesDetailsLabel;
+    }
+    public void ProfileNavigation(MouseListener listener){
+        profileLabel.addMouseListener(listener);
+    }
+    public JLabel getProfilelabel(){
+        return profileLabel;
+    }
+    public void LogOutNavigation(MouseListener listener){
+        logOutLabel.addMouseListener(listener);
+    }
+    public JLabel getLogOutlabel(){
+        return logOutLabel;
+    }
+    
 }

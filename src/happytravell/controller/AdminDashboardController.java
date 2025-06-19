@@ -200,10 +200,10 @@ public class AdminDashboardController {
         
         @Override
         public void mouseClicked(MouseEvent e) {
-            AdminProfileView adminProfileView = new AdminProfileView();
-            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView );
-            AdminProfile.open();
-            close();
+//            AdminProfileView adminProfileView = new AdminProfileView();
+//            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView );
+//            AdminProfile.open();
+//            close();
         }
         
         @Override

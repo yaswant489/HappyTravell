@@ -216,10 +216,10 @@ public class AdminBookingDetailsController {
         
         @Override
         public void mouseClicked(MouseEvent e) {
-            AdminProfileView adminProfileView = new AdminProfileView();
-            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView );
-            AdminProfile.open();
-            close();
+//            AdminProfileView adminProfileView = new AdminProfileView();
+//            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView );
+//            AdminProfile.open();
+//            close();
         }
         
         @Override
@@ -493,7 +493,7 @@ public class AdminBookingDetailsController {
             
             
             // Set customer image
-            byte[] imageData = travellerData.getImage(resultSet.getBytes("image"));
+            byte[] imageData = travellerData.getImage();
             if (imageData != null && imageData.length > 0) {
                 try {
                     ImageIcon originalIcon = new ImageIcon(imageData);
@@ -535,7 +535,7 @@ public class AdminBookingDetailsController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Implement route showing functionality here
-                System.out.println("Show route for booking: " + travellerData.getFirstName(resultSet.getString("first_name")));
+                System.out.println("Show route for booking: " + travellerData.getFirstName());
             }
         });
         
