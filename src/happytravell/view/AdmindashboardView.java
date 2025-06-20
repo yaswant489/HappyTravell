@@ -533,10 +533,5 @@ public class AdmindashboardView extends javax.swing.JFrame {
         return logOutLabel;
     }
     
-    
-    
-    
-
-    
-
+  
 }

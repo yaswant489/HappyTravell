@@ -44,7 +44,7 @@ public class ForgetPasswordView extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         resetPasswordShowButton = new javax.swing.JToggleButton();
         confirmPasswordShowButton = new javax.swing.JToggleButton();
-        jLabel3 = new javax.swing.JLabel();
+        sendCodeButton = new javax.swing.JButton();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -123,8 +123,8 @@ public class ForgetPasswordView extends javax.swing.JFrame {
         });
         getContentPane().add(confirmPasswordShowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 65, 20));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, -1));
+        sendCodeButton.setText("send Code");
+        getContentPane().add(sendCodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -202,19 +202,19 @@ public class ForgetPasswordView extends javax.swing.JFrame {
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton resetButton;
     private javax.swing.JLabel resetLabel;
     private javax.swing.JPasswordField resetPassword;
     private javax.swing.JToggleButton resetPasswordShowButton;
+    private javax.swing.JButton sendCodeButton;
     // End of variables declaration//GEN-END:variables
 
-    public void BackNav(ActionListener listener){
+    public void addBackListener(ActionListener listener){
         backButton.addActionListener(listener);
     }
-    public void ResetNav(ActionListener listener){
+    public void addResetListener(ActionListener listener){
         resetButton.addActionListener(listener);
     }
      public javax.swing.JPasswordField getResetSetPasswordField(){
@@ -235,6 +235,8 @@ public class ForgetPasswordView extends javax.swing.JFrame {
     public void toggleConfirmPasswordVisibility(ActionListener listener) {
     confirmPasswordShowButton.addActionListener(listener);
     }
-    
+    public void addSendCodeListener(ActionListener listener) { 
+        sendCodeButton.addActionListener(listener); 
+    }
 
 }

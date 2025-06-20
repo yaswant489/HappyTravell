@@ -32,12 +32,11 @@ public class LoginController {
     private boolean isPasswordVisible = false;
     public LoginController(LoginPageView view){
         this.loginView = view;
+        
         this.loginView.LoginUser(new LoginUser());
         this.loginView.signUpNavigation(new SignUpNav(loginView.getSignUplabel()));
-        this.loginView.ForgetPasswordNavigation(new ForgetPasswordNav(loginView.getForgetPasswordLabel()));
+//        this.loginView.ForgetPasswordNavigation(new ForgetPasswordNav(loginView.getForgetPasswordLabel()));
         
-        this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
-
         this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
     }
     
@@ -56,7 +55,6 @@ public class LoginController {
         public SignUpNav(JLabel label){
             this.signUpLabel = label;
         }
-        
         @Override
         public void mouseClicked(MouseEvent e) {
             SignupAsView signupAsView = new SignupAsView();
@@ -83,39 +81,39 @@ public class LoginController {
         } 
     }
     
-    class ForgetPasswordNav implements MouseListener{
-        
-        private JLabel forgetPasswordLabel;
-        
-        public ForgetPasswordNav(JLabel label){
-            this.forgetPasswordLabel = label;
-        }
-        
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            ForgetPasswordView forgetPasswordView = new ForgetPasswordView();
-            ForgetPasswordController forgetPasswordController= new ForgetPasswordController(forgetPasswordView);
-            forgetPasswordController.open();
-            close();
-        }
-        
-        @Override
-        public void mousePressed(MouseEvent e) {}
-        @Override
-        public void mouseReleased(MouseEvent e) {}
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            forgetPasswordLabel.setForeground(Color.BLUE);
-            forgetPasswordLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            forgetPasswordLabel.setForeground(Color.BLACK);
-            forgetPasswordLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        } 
-    }
+//    class ForgetPasswordNav implements MouseListener{
+//        
+//        private JLabel forgetPasswordLabel;
+//        
+//        public ForgetPasswordNav(JLabel label){
+//            this.forgetPasswordLabel = label;
+//        }
+//        
+//        @Override
+//        public void mouseClicked(MouseEvent e) {
+//            ForgetPasswordView forgetPasswordView = new ForgetPasswordView();
+//            ForgetPasswordController forgetPasswordController= new ForgetPasswordController(forgetPasswordView);
+//            forgetPasswordController.open();
+//            close();
+//        }
+//        
+//        @Override
+//        public void mousePressed(MouseEvent e) {}
+//        @Override
+//        public void mouseReleased(MouseEvent e) {}
+//
+//        @Override
+//        public void mouseEntered(MouseEvent e) {
+//            forgetPasswordLabel.setForeground(Color.BLUE);
+//            forgetPasswordLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+//        }
+//
+//        @Override
+//        public void mouseExited(MouseEvent e) {
+//            forgetPasswordLabel.setForeground(Color.BLACK);
+//            forgetPasswordLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+//        } 
+//    }
     
 
 
@@ -204,7 +202,7 @@ public class LoginController {
                 case "Admin":
                     // Navigate to Admin dashboard Page
                     AdmindashboardView adminDashboardView = new AdmindashboardView();
-                    AdminDashboardController admindashboardController = new AdminDashboardController(adminDashboardView);
+                    AdminDashboardController admindashboardController = new AdminDashboardController(adminDashboardView, ((AdminData)user).getId());
                     admindashboardController.open();
                     break;
                     

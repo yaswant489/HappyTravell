@@ -8,37 +8,21 @@ package happytravell.model;
  *
  * @author Acer
  */
-public class PlaceData {
-
-    public PlaceData(int aInt, String string, String string1, byte[] bytes) {
-    }
-
-    public String getPlaceName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public String getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public byte[] getPlaceImage() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    public class Place {
+public class PlaceData{
     private int id;
     private String placeName;
     private String description;
     private byte[] placeImage;
   
     // Constructor without ID (for new places)
-    public Place(String placeName, String description, byte[] placeImage) {
+    public PlaceData(String placeName, String description, byte[] placeImage) {
         this.placeName = placeName;
         this.description = description;
         this.placeImage = placeImage;
     }
     
     // Constructor with ID (for existing places from database)
-    public Place(int id, String placeName, String description, String photoPath) {
+    public PlaceData(int id, String placeName, String description, byte[] placeImage) {
         this.id = id;
         this.placeName = placeName;
         this.description = description;
@@ -54,7 +38,7 @@ public class PlaceData {
         this.id = id;
     }
     
-    public String getPlaceName() {
+   public String getPlaceName() {
         return placeName;
     }
     
@@ -85,7 +69,7 @@ public class PlaceData {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         
-        Place place = (Place) obj;
+        PlaceData place = (PlaceData) obj;
         return id == place.id && 
                placeName != null ? placeName.equals(place.placeName) : place.placeName == null;
     }
@@ -93,4 +77,4 @@ public class PlaceData {
     
     
 }
-}
+

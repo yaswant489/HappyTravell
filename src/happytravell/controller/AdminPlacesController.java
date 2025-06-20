@@ -9,7 +9,7 @@ package happytravell.controller;
 
 
 import happytravell.dao.PlaceDao;
-import happytravell.model.PlaceData.Place;
+import happytravell.model.PlaceData;
 import happytravell.view.AdminPlacesView;
 import java.awt.Color;
 import java.awt.GridBagConstraints;

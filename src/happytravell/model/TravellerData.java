@@ -10,33 +10,31 @@ package happytravell.model;
  */
 public class TravellerData {
 
-    private String id;
-
-    private String firstName;
+    private int travellerID;
+    public String firstName; // Changed from public to private for consistency
     private String lastName;
     private String username;
     private String email;
     private String phoneNumber;
     private String address;
     private String password;
-
+    private byte[] profilePicture;
     
-    public TravellerData(){
-        
-    }
+    
 
-
+    // Constructor with basic fields
     public TravellerData(String firstName, String lastName, String username, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.password = password;
+        // Removed initialization of null fields - they will be null by default
     }
-     public TravellerData( String id,String firstName, String lastName, String username, String email) {
-        this.id =id;
+    
+    // Constructor with all fields
+    public TravellerData(int travellerID, String firstName, String lastName, String username, 
+                        String email, String phoneNumber, String address, String password, byte[] profilePicture) {
+        this.travellerID = travellerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -44,59 +42,85 @@ public class TravellerData {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
+        this.profilePicture = profilePicture;
+    }
+
+    // Default constructor
+    public TravellerData() {
+        
     }
     
-// Setters
-     public void setId(String firstName) {
-        this.id = id;
+    // Setters
+    public void setTravellerID(int travellerID) {
+        this.travellerID = travellerID;
     }
+    
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+    
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    
     public void setUsername(String username) {
         this.username = username;
     }
+    
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPhoneNumber(String phone) {
+    
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    
     public void setAddress(String address) {
         this.address = address;
     }
+    
     public void setPassword(String password) {
         this.password = password;
     }
-
-    // Getter
-    public String getId() {
-        return this.id;
+    
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
     }
-    public String getFirstName() {
+
+    // Getters - FIXED: Removed incorrect parameters
+    public int getTravellerID() {
+        return this.travellerID;
+    }
+    
+    public String getFirstName() { // Removed incorrect String parameter
         return this.firstName;
     }
+    
     public String getLastName() {
         return this.lastName;
     }
+    
     public String getUsername() {
         return this.username;
     }
+    
     public String getEmail() {
         return this.email;
     }
+    
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
+    
     public String getAddress() {
         return this.address;
     }
+    
     public String getPassword() {
         return this.password;
     }
+    
+    public byte[] getProfilePicture() { // Removed incorrect byte[] parameter
+        return this.profilePicture;
+    }
 }
-
-

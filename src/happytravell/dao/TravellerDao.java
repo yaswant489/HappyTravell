@@ -4,55 +4,106 @@
  */
 package happytravell.dao;
 import happytravell.database.MysqlConnection;
+import happytravell.model.BookingData;
 import happytravell.model.TravellerData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import happytravell.model.LoginRequest;
 import happytravell.model.ResetPasswordRequest;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author User
  */
+
 public class TravellerDao {
     MysqlConnection mysql = new MysqlConnection();
+
     public boolean Register(TravellerData traveller){
         Connection conn = mysql.openConnection();
         String createTableSQL = "CREATE TABLE IF NOT EXISTS traveller("
-                    + "traveller_ID INT AUTO_INCREMENT PRIMARY KEY,"
-                    + "first_name VARCHAR(100) NOT NULL,"
-                    + "last_name VARCHAR(100) NOT NULL,"
-                    + "username VARCHAR(100) NOT NULL,"
-                    + "phone_number VARCHAR(15) NOT NULL,"
-                    + "address VARCHAR(100) NOT NULL,"
-                    + "email VARCHAR(100) UNIQUE NOT NULL,"
-                    + "password VARCHAR(100) NOT NULL"
-                + ")";
-         String insertQuery = "INSERT INTO traveller (first_name, last_name, email, address, phone_number, username, password) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";
-         try {   
-                PreparedStatement createTable= conn.prepareStatement(createTableSQL);
-                createTable.executeUpdate();
-                PreparedStatement stmt = conn.prepareStatement(insertQuery);
-                createTable.executeUpdate();
-                stmt.setString(1, traveller.getFirstName() != null ? traveller.getFirstName() : "");
-                stmt.setString(2, traveller.getLastName() != null ? traveller.getLastName() : "");
-                stmt.setString(3, traveller.getEmail() != null ? traveller.getEmail() : "");
-                stmt.setString(4, traveller.getAddress() != null ? traveller.getAddress() : "");
-                stmt.setString(5, traveller.getPhoneNumber() != null ? traveller.getPhoneNumber() : "");
-                stmt.setString(6, traveller.getUsername() != null ? traveller.getUsername() : "");
-                stmt.setString(7, traveller.getPassword() != null ? traveller.getPassword() : "");
-
-                int result = stmt.executeUpdate();
-                return result > 0;
+                + "traveller_ID INT AUTO_INCREMENT PRIMARY KEY,"
+                + "first_name VARCHAR(100) NOT NULL,"
+                + "last_name VARCHAR(100) NOT NULL,"
+                + "username VARCHAR(100) NOT NULL,"
+                + "phone_number VARCHAR(15) NOT NULL,"
+                + "address VARCHAR(100) NOT NULL,"
+                + "email VARCHAR(100) UNIQUE NOT NULL,"
+                + "password VARCHAR(100) NOT NULL,"
+                + "profile_picture MEDIUMBLOB"
+            + ")";
+            
+    String insertQuery = "INSERT INTO traveller (first_name, last_name, email, address, phone_number, username, password, image) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                
+    try {   
+        // Create table first
+        PreparedStatement createTable = conn.prepareStatement(createTableSQL);
+        createTable.executeUpdate();
+        createTable.close(); // Close the statement after use
+        
+        // Insert data
+        PreparedStatement stmt = conn.prepareStatement(insertQuery);
+        stmt.setString(1, traveller.getFirstName() != null ? traveller.getFirstName() : "");
+        stmt.setString(2, traveller.getLastName() != null ? traveller.getLastName() : "");
+        stmt.setString(3, traveller.getEmail() != null ? traveller.getEmail() : "");
+        stmt.setString(4, traveller.getAddress() != null ? traveller.getAddress() : "");
+        stmt.setString(5, traveller.getPhoneNumber() != null ? traveller.getPhoneNumber() : "");
+        stmt.setString(6, traveller.getUsername() != null ? traveller.getUsername() : "");
+        stmt.setString(7, traveller.getPassword() != null ? traveller.getPassword() : "");
+        stmt.setBytes(8, traveller.getProfilePicture() != null ? traveller.getProfilePicture() : null);
+        
+        int result = stmt.executeUpdate();
+        stmt.close(); // Close the statement after use
+        
+        return result > 0;
+        
     } catch (Exception e) {
         e.printStackTrace();
         return false;
     } finally {
         mysql.closeConnection(conn);
     }
+}
+
+
+    public List<BookingData> getAllBookingDetailsWithImage(){
+        List<BookingData> bookingList = new ArrayList<>();
+       
+        String query = "SELECT t.traveller_ID, t.first_name, t.image, b.booking_ID, b.drop_address, b.departure_date_time " +
+                      "FROM traveller t " +
+                      "LEFT JOIN bookingDetails b ON t.traveller_ID = b.traveller_ID " +
+                      "WHERE t.image IS NOT NULL";
+        
+        Connection conn = mysql.openConnection();
+        try (PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet resultSet = stmt.executeQuery()) {
+            
+            while(resultSet.next()){
+                TravellerData traveller = new TravellerData();
+                BookingData booking = new BookingData();
+                               
+                traveller.setTravellerID(resultSet.getInt("traveller_ID"));
+                traveller.setFirstName(resultSet.getString("first_name"));
+                traveller.setProfilePicture(resultSet.getBytes("profile_picture"));   
+                booking.setBookingId(resultSet.getInt("booking_ID"));
+                booking.setDropAddress(resultSet.getString("drop_address"));
+                booking.setDepartureDateTime(resultSet.getString("departure_date_time"));
+                
+                // Add to the list
+                bookingList.add(booking);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        
+        return bookingList; 
     }
-    
+            
      public TravellerData travellerLogin(LoginRequest travellerLoginData){
         String query= "SELECT * FROM traveller WHERE email=? and password=?";
         Connection conn= mysql.openConnection();
@@ -84,7 +135,7 @@ public class TravellerDao {
             mysql.closeConnection(conn);
         }   
         
-    }
+     }
     public boolean checkEmail(String email) {
         String query = "SELECT * FROM traveller WHERE email=?";
         Connection conn = mysql.openConnection();
@@ -119,6 +170,36 @@ public class TravellerDao {
         } finally {
             mysql.closeConnection(conn);
         }
+    }
+
+    public TravellerData getTravellerById(int travellerId) {
+        String query = "SELECT * FROM treveller WHERE traveller_ID = ?";
+        Connection conn = mysql.openConnection();
+        try {
+            PreparedStatement stmnt = conn.prepareStatement(query);
+            stmnt.setInt(1, travellerId);
+            ResultSet result = stmnt.executeQuery();
+            if (result.next()) {
+                int id = result.getInt("traveller_ID");
+                String firstName = result.getString("first_name");
+                String lastName = result.getString("restaurant_name");
+                String phoneNumber = result.getString("phone_number");
+                String address = result.getString("address");
+                String email = result.getString("email");
+                String username = result.getString("username");
+                String password = result.getString("password");
+                byte[] profilePicture = result.getBytes("profile_picture");
+                
+                TravellerData traveller = new TravellerData(id, firstName, lastName, phoneNumber, address, email, username, password,profilePicture);
+                traveller.setProfilePicture(profilePicture);
+                return traveller;
+            }
+        } catch (Exception e) {
+            return null;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return null;
     }
  
 }
