@@ -55,8 +55,8 @@ public class AdminProfileController {
         loadExistingProfilePicture();     
     }
     private void loadAdminData() {
-        if (currentAdminId != -1) {
-            
+    if (currentAdminId != -1) {
+        try {
             AdminData admin = adminDao.getAdminById(currentAdminId);
             if (admin != null) {
                 firstName = admin.getFirstName() != null ? admin.getFirstName() : "";
@@ -74,55 +74,63 @@ public class AdminProfileController {
                 profileView.getAddressTextField().setText(address);
             } else {
                 JOptionPane.showMessageDialog(profileView, 
-                    "Unable to load admin data. Please try logging in again.", 
+                    "Admin account not found. Please contact system administrator.", 
                     "Error", 
-                    JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.ERROR_MESSAGE);
+                // Redirect to login page
+                redirectToLogin();
             }
-       }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(profileView, 
+                "Database error: " + e.getMessage(), 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+            // Redirect to login page
+            redirectToLogin();
+        }
+    } else {
+        JOptionPane.showMessageDialog(profileView, 
+            "Invalid session. Please login again.", 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+        // Redirect to login page
+        redirectToLogin();
     }
+}
+
+private void redirectToLogin() {
+    profileView.dispose();
+    LoginPageView loginView = new LoginPageView();
+    LoginController loginController = new LoginController(loginView);
+    loginController.open();
+}
     
-    private void handleUpdateProfile() {
-        if (currentAdminId == -1) {
-            JOptionPane.showMessageDialog(profileView, 
-                "Error: Admin ID not set. Please login again.", 
-                "Error", 
-                JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        String changedFirstName = profileView.getFirstNameTextField().getText().trim();
-        String changedLastName = profileView.getLastNameTextField().getText().trim();
-        String changedUsername = profileView.getUsernameTextField().getText().trim();
-        String changedPhoneNumber = profileView.getPhoneNumberTextField().getText().trim();
-        String changedEmail = profileView.getEmailTextField().getText().trim();
-        String changedAddress = profileView.getAddressTextField().getText().trim();
-        
-        
-        if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || phoneNumber.isEmpty() || email.isEmpty() || address.isEmpty())  {
-            JOptionPane.showMessageDialog(profileView, 
-                "Please fill in all fields", 
-                "Error", 
-                JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        boolean hasChanges = !changedFirstName.equals(firstName) ||
-                           !changedLastName.equals(lastName) ||
-                           !changedUsername.equals(username) ||
-                           !changedPhoneNumber.equals(phoneNumber) ||
-                           !changedEmail.equals(email) ||
-                           !changedAddress.equals(address);
-        
-        if (!hasChanges) {
-            JOptionPane.showMessageDialog(profileView, 
-                "No changes made to update.", 
-                "Message", 
-                JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-        
-        
-        AdminDao adminDao = new AdminDao();
+   private void handleUpdateProfile() {
+    if (currentAdminId == -1) {
+        JOptionPane.showMessageDialog(profileView, 
+            "Error: Admin ID not set. Please login again.", 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+        redirectToLogin();
+        return;
+    }
+    String changedFirstName = profileView.getFirstNameTextField().getText().trim();
+    String changedLastName = profileView.getLastNameTextField().getText().trim();
+    String changedUsername = profileView.getUsernameTextField().getText().trim();
+    String changedPhoneNumber = profileView.getPhoneNumberTextField().getText().trim();
+    String changedEmail = profileView.getEmailTextField().getText().trim();
+    String changedAddress = profileView.getAddressTextField().getText().trim();
+    
+    // Validate required fields
+    if (changedFirstName.isEmpty() || changedLastName.isEmpty() || changedUsername.isEmpty() || 
+        changedPhoneNumber.isEmpty() || changedEmail.isEmpty()) {
+        JOptionPane.showMessageDialog(profileView, 
+            "Please fill in all required fields (First Name, Last Name, Username, Phone, Email)", 
+            "Error", 
+            JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+         AdminDao adminDao = new AdminDao();
         boolean success = adminDao.updateAdminProfile(currentAdminId, 
                                             changedFirstName, 
                                             changedLastName, 
@@ -210,7 +218,7 @@ public class AdminProfileController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdmindashboardView admindashboardView = new AdmindashboardView();
-            AdminDashboardController AdminDashboard= new AdminDashboardController(admindashboardView);
+            AdminDashboardController AdminDashboard= new AdminDashboardController(admindashboardView, currentAdminId);
             AdminDashboard.open();
             close();
         }
@@ -243,7 +251,7 @@ public class AdminProfileController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminBookingDetailsView adminBookingDetailsView = new AdminBookingDetailsView();
-            AdminBookingDetailsController AdminBookingDetails= new AdminBookingDetailsController(adminBookingDetailsView);
+            AdminBookingDetailsController AdminBookingDetails= new AdminBookingDetailsController(adminBookingDetailsView, currentAdminId);
             AdminBookingDetails.open();
             close();
         }
@@ -254,7 +262,7 @@ public class AdminProfileController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            bookingDetailsLabel.setForeground(Color.RED);
+            bookingDetailsLabel.setForeground(Color.WHITE);
             bookingDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
@@ -276,7 +284,7 @@ public class AdminProfileController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminRouteDetailsView adminRouteDetailsView = new AdminRouteDetailsView();
-            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView);
+            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView,currentAdminId);
             AdminRouteDetails.open();
             close();
         }
@@ -310,7 +318,7 @@ public class AdminProfileController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminBusTicketsView adminBusTicketsView = new AdminBusTicketsView();
-            AdminBusTicketsController AdminBusTickets= new AdminBusTicketsController(adminBusTicketsView);
+            AdminBusTicketsController AdminBusTickets= new AdminBusTicketsController(adminBusTicketsView, currentAdminId);
             AdminBusTickets.open();
             close();
         }
@@ -344,7 +352,7 @@ public class AdminProfileController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminVehiclesDetailsView adminVehiclesDetailsView = new AdminVehiclesDetailsView();
-            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView);
+            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView, currentAdminId);
             AdminVehiclesDetails.open();
             close();
         }

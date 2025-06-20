@@ -71,8 +71,7 @@ public class AdminDao {
         
         // Result returns row if email and password match, else it returns empty
         if (result.next()){
-            // Retrieving values from resultset - use correct column names
-            String id = result.getString("admin_ID");
+            int id = result.getInt("admin_ID");
             String firstName = result.getString("first_name");
             String lastName = result.getString("last_name"); // Fixed: was using "first_name" twice
             String email = result.getString("email");
@@ -139,7 +138,7 @@ public boolean checkEmail(String email) {
         
         if (result.next()) {
             // Fixed: Get ID as String to match AdminData field type
-            String id = result.getString("admin_ID");
+            int id = result.getInt("admin_ID");
             
             // Fixed: Split full_name or use separate first_name and last_name columns
             String firstName = result.getString("first_name"); // Changed from "full_name"
@@ -149,7 +148,7 @@ public boolean checkEmail(String email) {
             String email = result.getString("email");
             String username = result.getString("username");
             String password = result.getString("password");
-            byte[] profilePicture = result.getBytes("image");
+            byte[] profilePicture = result.getBytes("profile_picture");
             
             // Fixed: Use correct constructor with proper parameter order
             AdminData admin = new AdminData(id, firstName, lastName, username, email, phoneNumber, address, password);

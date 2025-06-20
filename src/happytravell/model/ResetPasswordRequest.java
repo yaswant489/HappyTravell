@@ -28,3 +28,4 @@ public class ResetPasswordRequest {
         return password;
     }
 }
+

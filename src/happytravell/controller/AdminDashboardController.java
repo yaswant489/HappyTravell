@@ -33,7 +33,10 @@ import javax.swing.JOptionPane;
  */
 public class AdminDashboardController {
     private AdmindashboardView admindashboardView = new AdmindashboardView();
-    public AdminDashboardController(AdmindashboardView admindashboardView){
+    private int currentAdminId;
+    public AdminDashboardController(AdmindashboardView admindashboardView, int adminId){
+        this.currentAdminId = adminId;
+        this.admindashboardView = admindashboardView;
         this.admindashboardView.PlacesNavigation(new PlacesNav());
         this.admindashboardView.TravellersNavigation(new TravellerNav());
         this.admindashboardView.TravellingNavigation(new TravellingNav());
@@ -66,7 +69,7 @@ public class AdminDashboardController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminBookingDetailsView adminBookingDetailsView = new AdminBookingDetailsView();
-            AdminBookingDetailsController AdminBookingDetails= new AdminBookingDetailsController(adminBookingDetailsView);
+            AdminBookingDetailsController AdminBookingDetails= new AdminBookingDetailsController(adminBookingDetailsView, currentAdminId);
             AdminBookingDetails.open();
             close();
         }
@@ -99,7 +102,7 @@ public class AdminDashboardController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminRouteDetailsView adminRouteDetailsView = new AdminRouteDetailsView();
-            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView);
+            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView , currentAdminId);
             AdminRouteDetails.open();
             close();
         }
@@ -133,7 +136,7 @@ public class AdminDashboardController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminBusTicketsView adminBusTicketsView = new AdminBusTicketsView();
-            AdminBusTicketsController AdminBusTickets= new AdminBusTicketsController(adminBusTicketsView);
+            AdminBusTicketsController AdminBusTickets= new AdminBusTicketsController(adminBusTicketsView, currentAdminId);
             AdminBusTickets.open();
             close();
         }
@@ -167,7 +170,7 @@ public class AdminDashboardController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminVehiclesDetailsView adminVehiclesDetailsView = new AdminVehiclesDetailsView();
-            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView);
+            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView, currentAdminId);
             AdminVehiclesDetails.open();
             close();
         }
@@ -200,10 +203,10 @@ public class AdminDashboardController {
         
         @Override
         public void mouseClicked(MouseEvent e) {
-//            AdminProfileView adminProfileView = new AdminProfileView();
-//            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView );
-//            AdminProfile.open();
-//            close();
+            AdminProfileView adminProfileView = new AdminProfileView();
+            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView , currentAdminId);
+            AdminProfile.open();
+            close();
         }
         
         @Override

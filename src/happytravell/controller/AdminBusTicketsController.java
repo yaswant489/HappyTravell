@@ -24,15 +24,16 @@ import javax.swing.JOptionPane;
  */
 public class AdminBusTicketsController {
     private AdminBusTicketsView TicketsView;
-    public AdminBusTicketsController(AdminBusTicketsView adminBusTicketsView) {
+    private int currentAdminId;
+    public AdminBusTicketsController(AdminBusTicketsView adminBusTicketsView, int adminId) {
         this.TicketsView.DashboardNavigation(new AdminBusTicketsController.DashboardNav(adminBusTicketsView.getDashboardlabel()));
         this.TicketsView.BookingDetailsNavigation(new AdminBusTicketsController.BookingDetailsNav(adminBusTicketsView.getBookingDetailslabel()));
         this.TicketsView.RouteDetailsNavigation(new AdminBusTicketsController.RouteDetailsNav(adminBusTicketsView.getRouteDetailslabel()));
         this.TicketsView.VehiclesDetailsNavigation(new AdminBusTicketsController.VehiclesDetailsNav(adminBusTicketsView.getVehiclesDetailslabel()));
         this.TicketsView.ProfileNavigation(new AdminBusTicketsController.ProfileNav(adminBusTicketsView.getProfilelabel()));
         this.TicketsView.LogOutNavigation(new AdminBusTicketsController.LogOutNav(adminBusTicketsView.getLogOutlabel()));
-        
         this.TicketsView = adminBusTicketsView;
+        this.currentAdminId = adminId;
     }
     public void open(){
     this.TicketsView.setVisible(true);
@@ -52,7 +53,7 @@ public class AdminBusTicketsController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdmindashboardView admindashboardView = new AdmindashboardView();
-            AdminDashboardController AdminDashboard= new AdminDashboardController(admindashboardView);
+            AdminDashboardController AdminDashboard= new AdminDashboardController(admindashboardView, currentAdminId);
             AdminDashboard.open();
             close();
         }
@@ -85,7 +86,7 @@ public class AdminBusTicketsController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminBookingDetailsView adminBookingDetailsView = new AdminBookingDetailsView();
-            AdminBookingDetailsController AdminBookingDetails= new AdminBookingDetailsController(adminBookingDetailsView);
+            AdminBookingDetailsController AdminBookingDetails= new AdminBookingDetailsController(adminBookingDetailsView ,currentAdminId);
             AdminBookingDetails.open();
             close();
         }
@@ -118,7 +119,7 @@ public class AdminBusTicketsController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminRouteDetailsView adminRouteDetailsView = new AdminRouteDetailsView();
-            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView);
+            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView, currentAdminId);
             AdminRouteDetails.open();
             close();
         }
@@ -153,7 +154,7 @@ public class AdminBusTicketsController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminVehiclesDetailsView adminVehiclesDetailsView = new AdminVehiclesDetailsView();
-            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView);
+            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView, currentAdminId);
             AdminVehiclesDetails.open();
             close();
         }
@@ -186,10 +187,10 @@ public class AdminBusTicketsController {
         
         @Override
         public void mouseClicked(MouseEvent e) {
-//            AdminProfileView adminProfileView = new AdminProfileView();
-//            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView );
-//            AdminProfile.open();
-//            close();
+            AdminProfileView adminProfileView = new AdminProfileView();
+            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView , currentAdminId);
+            AdminProfile.open();
+            close();
         }
         
         @Override

@@ -32,7 +32,7 @@ public class TravellerDao {
                 + "address VARCHAR(100) NOT NULL,"
                 + "email VARCHAR(100) UNIQUE NOT NULL,"
                 + "password VARCHAR(100) NOT NULL,"
-                + "image MEDIUMBLOB"
+                + "profile_picture MEDIUMBLOB"
             + ")";
             
     String insertQuery = "INSERT INTO traveller (first_name, last_name, email, address, phone_number, username, password, image) "
@@ -53,7 +53,7 @@ public class TravellerDao {
         stmt.setString(5, traveller.getPhoneNumber() != null ? traveller.getPhoneNumber() : "");
         stmt.setString(6, traveller.getUsername() != null ? traveller.getUsername() : "");
         stmt.setString(7, traveller.getPassword() != null ? traveller.getPassword() : "");
-        stmt.setBytes(8, traveller.getImage() != null ? traveller.getImage() : null);
+        stmt.setBytes(8, traveller.getProfilePicture() != null ? traveller.getProfilePicture() : null);
         
         int result = stmt.executeUpdate();
         stmt.close(); // Close the statement after use
@@ -67,7 +67,8 @@ public class TravellerDao {
         mysql.closeConnection(conn);
     }
 }
-    
+
+
     public List<BookingData> getAllBookingDetailsWithImage(){
         List<BookingData> bookingList = new ArrayList<>();
        
@@ -86,8 +87,7 @@ public class TravellerDao {
                                
                 traveller.setTravellerID(resultSet.getInt("traveller_ID"));
                 traveller.setFirstName(resultSet.getString("first_name"));
-                traveller.setImage(resultSet.getBytes("image"));
-                
+                traveller.setProfilePicture(resultSet.getBytes("profile_picture"));   
                 booking.setBookingId(resultSet.getInt("booking_ID"));
                 booking.setDropAddress(resultSet.getString("drop_address"));
                 booking.setDepartureDateTime(resultSet.getString("departure_date_time"));
@@ -170,6 +170,36 @@ public class TravellerDao {
         } finally {
             mysql.closeConnection(conn);
         }
+    }
+
+    public TravellerData getTravellerById(int travellerId) {
+        String query = "SELECT * FROM treveller WHERE traveller_ID = ?";
+        Connection conn = mysql.openConnection();
+        try {
+            PreparedStatement stmnt = conn.prepareStatement(query);
+            stmnt.setInt(1, travellerId);
+            ResultSet result = stmnt.executeQuery();
+            if (result.next()) {
+                int id = result.getInt("traveller_ID");
+                String firstName = result.getString("first_name");
+                String lastName = result.getString("restaurant_name");
+                String phoneNumber = result.getString("phone_number");
+                String address = result.getString("address");
+                String email = result.getString("email");
+                String username = result.getString("username");
+                String password = result.getString("password");
+                byte[] profilePicture = result.getBytes("profile_picture");
+                
+                TravellerData traveller = new TravellerData(id, firstName, lastName, phoneNumber, address, email, username, password,profilePicture);
+                traveller.setProfilePicture(profilePicture);
+                return traveller;
+            }
+        } catch (Exception e) {
+            return null;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return null;
     }
  
 }

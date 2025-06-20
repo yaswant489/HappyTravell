@@ -83,58 +83,59 @@ public class AdminRegisterController {
     }
     
     
-    class AdminRegister implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String firstName = adminRegisterView.getFirstNameTextField().getText();
-            String lastName = adminRegisterView.getLastNameTextField().getText();
-            String username = adminRegisterView.getUsernameTextField().getText();
-            String phoneNumber = adminRegisterView.getPhoneNumberTextField().getText();
-            String address = adminRegisterView.getAddressTextField().getText();
-            String email = adminRegisterView.getEmailTextField().getText();
-            String setpassword = String.valueOf(adminRegisterView.getSetPasswordTextField().getPassword());
-            String confirmpassword = String.valueOf(adminRegisterView.getConfirmPasswordTextField().getPassword());            
-             //Validation
-            if (firstName.isEmpty() || lastName.isEmpty() || phoneNumber.isEmpty() || username.isEmpty() ||address.isEmpty() || email.isEmpty() ||setpassword.isEmpty()||confirmpassword.isEmpty())
-            {   
-                JOptionPane.showMessageDialog(adminRegisterView, "All fields must be filled.");
-                return;
-            }
-            if (!setpassword.equals(confirmpassword)){
-                JOptionPane.showMessageDialog(adminRegisterView,"Password not matched.Please try again!");
-                return;
-            }
-            if (!Pattern.matches("^[\\w.-]+@[\\w.-]+\\.[A-Za-z]{2,6}$", email)) {
-                JOptionPane.showMessageDialog(adminRegisterView, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (!Pattern.matches("^\\d{7,15}$", phoneNumber)) {
-                JOptionPane.showMessageDialog(adminRegisterView, "Please enter a valid phone number (7 to 15 digits).", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            
-            adminData.setFirstName(firstName);
-            adminData.setLastName(lastName);
-            adminData.setUsername(username);
-            adminData.setEmail(email);
-            adminData.setAddress(address);
-            adminData.setPhoneNumber(phoneNumber);
-            adminData.setPassword(setpassword);
-                 
-            
+    class AdminRegister implements ActionListener {
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String firstName = adminRegisterView.getFirstNameTextField().getText();
+        String lastName = adminRegisterView.getLastNameTextField().getText();
+        String username = adminRegisterView.getUsernameTextField().getText();
+        String phoneNumber = adminRegisterView.getPhoneNumberTextField().getText();
+        String address = adminRegisterView.getAddressTextField().getText();
+        String email = adminRegisterView.getEmailTextField().getText();
+        String setpassword = String.valueOf(adminRegisterView.getSetPasswordTextField().getPassword());
+        String confirmpassword = String.valueOf(adminRegisterView.getConfirmPasswordTextField().getPassword());
+        
+        // Validation
+        if (firstName.isEmpty() || lastName.isEmpty() || phoneNumber.isEmpty() || username.isEmpty() || 
+            address.isEmpty() || email.isEmpty() || setpassword.isEmpty() || confirmpassword.isEmpty()) {
+            JOptionPane.showMessageDialog(adminRegisterView, "All fields must be filled.");
+            return;
+        }
+        
+        if (!setpassword.equals(confirmpassword)) {
+            JOptionPane.showMessageDialog(adminRegisterView, "Password not matched. Please try again!");
+            return;
+        }
+        
+        if (!Pattern.matches("^[\\w.-]+@[\\w.-]+\\.[A-Za-z]{2,6}$", email)) {
+            JOptionPane.showMessageDialog(adminRegisterView, "Please enter a valid email address.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (!Pattern.matches("^\\d{7,15}$", phoneNumber)) {
+            JOptionPane.showMessageDialog(adminRegisterView, "Please enter a valid phone number (7 to 15 digits).", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // CREATE AdminData object - THIS WAS MISSING
+        AdminData adminData = new AdminData(firstName, lastName, username, email, phoneNumber, address, setpassword);
+        
+        try {
             boolean success = new AdminDao().Register(adminData);
-            if (success){
-                JOptionPane.showMessageDialog(adminRegisterView,"Registered successfully. Please Login to continue!");
+            if (success) {
+                JOptionPane.showMessageDialog(adminRegisterView, "Registered successfully. Please Login to continue!");
                 LoginPageView loginView = new LoginPageView();
                 LoginController loginController = new LoginController(loginView);
                 loginController.open();
                 close();
             } else {
-                JOptionPane.showMessageDialog(adminRegisterView,"Registered failed. Please try again!");
+                JOptionPane.showMessageDialog(adminRegisterView, "Registration failed. Please try again!");
             }
-                        
-            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(adminRegisterView, "Error during registration: " + ex.getMessage());
         }
     }
+}
 }

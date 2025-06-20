@@ -9,7 +9,7 @@ package happytravell.model;
  * @author Acer
  */
 public class AdminData {
-    private String id;
+    private int id;
     private String firstName;
     private String lastName;
     private String username;
@@ -20,7 +20,7 @@ public class AdminData {
     private byte[] profilePicture;
     
     // Fixed constructor - removed unused parameters and corrected parameter usage
-    public AdminData(String id, String firstName, String lastName, String email, String password){
+    public AdminData(int id, String firstName, String lastName, String email, String password){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,7 +38,7 @@ public class AdminData {
         this.password = password;
     }
 
-    public AdminData(String id, String firstName, String lastName, String username, String email, String phoneNumber, String address, String password) {
+    public AdminData(int id, String firstName, String lastName, String username, String email, String phoneNumber, String address, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -50,7 +50,7 @@ public class AdminData {
     }
     
     // Setters - Fixed setId method parameter and logic
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -87,7 +87,7 @@ public class AdminData {
     }
 
     // Getters
-    public String getId() {
+    public int getId() {
         return this.id;
     }
     

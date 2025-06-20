@@ -47,10 +47,11 @@ import javax.swing.SwingConstants;
  */
 public class AdminBookingDetailsController {
     private AdminBookingDetailsView bookingView = new AdminBookingDetailsView();
+    private int currentAdminId;
     private List<BookingData>allBooking;
     private List<BookingData>filteredBooking;
     
-    public AdminBookingDetailsController(AdminBookingDetailsView adminBookingDetailsView) {
+    public AdminBookingDetailsController(AdminBookingDetailsView adminBookingDetailsView ,int adminId) {
         this.bookingView.DashboardNavigation(new AdminBookingDetailsController.DashboardNav(adminBookingDetailsView.getDashboardlabel()));
         this.bookingView.BusTicketsNavigation(new AdminBookingDetailsController.BusTicketsNav(adminBookingDetailsView.getBusTicketslabel()));
         this.bookingView.RouteDetailsNavigation(new AdminBookingDetailsController.RouteDetailsNav(adminBookingDetailsView.getRouteDetailslabel()));
@@ -58,6 +59,7 @@ public class AdminBookingDetailsController {
         this.bookingView.ProfileNavigation(new AdminBookingDetailsController.ProfileNav(adminBookingDetailsView.getProfilelabel()));
         this.bookingView.LogOutNavigation(new AdminBookingDetailsController.LogOutNav(adminBookingDetailsView.getLogOutlabel()));
         this.bookingView = adminBookingDetailsView;
+        this.currentAdminId = adminId;
         
         this.allBooking = new ArrayList<>();
         this.filteredBooking = new ArrayList<>();
@@ -75,14 +77,13 @@ public class AdminBookingDetailsController {
     class DashboardNav implements MouseListener{
         
         private JLabel dashboardLabel;
-        
         public DashboardNav(JLabel label){
             this.dashboardLabel = label;
         }
         @Override
         public void mouseClicked(MouseEvent e) {
             AdmindashboardView admindashboardView = new AdmindashboardView();
-            AdminDashboardController AdminDashboard= new AdminDashboardController(admindashboardView);
+            AdminDashboardController AdminDashboard= new AdminDashboardController(admindashboardView, currentAdminId);
             AdminDashboard.open();
             close();
         }
@@ -115,7 +116,7 @@ public class AdminBookingDetailsController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminRouteDetailsView adminRouteDetailsView = new AdminRouteDetailsView();
-            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView);
+            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView,currentAdminId );
             AdminRouteDetails.open();
             close();
         }
@@ -149,7 +150,7 @@ public class AdminBookingDetailsController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminBusTicketsView adminBusTicketsView = new AdminBusTicketsView();
-            AdminBusTicketsController AdminBusTickets= new AdminBusTicketsController(adminBusTicketsView);
+            AdminBusTicketsController AdminBusTickets= new AdminBusTicketsController(adminBusTicketsView ,currentAdminId);
             AdminBusTickets.open();
             close();
         }
@@ -183,7 +184,7 @@ public class AdminBookingDetailsController {
         @Override
         public void mouseClicked(MouseEvent e) {
             AdminVehiclesDetailsView adminVehiclesDetailsView = new AdminVehiclesDetailsView();
-            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView);
+            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView, currentAdminId);
             AdminVehiclesDetails.open();
             close();
         }
@@ -216,10 +217,10 @@ public class AdminBookingDetailsController {
         
         @Override
         public void mouseClicked(MouseEvent e) {
-//            AdminProfileView adminProfileView = new AdminProfileView();
-//            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView );
-//            AdminProfile.open();
-//            close();
+            AdminProfileView adminProfileView = new AdminProfileView();
+            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView, currentAdminId );
+            AdminProfile.open();
+            close();
         }
         
         @Override
@@ -295,7 +296,14 @@ public class AdminBookingDetailsController {
     }
 
     private void displayAllBooking() {
+        bookingView.displayBooking(allBooking);
+    }
+    private void displayFilteredBooking() {
         bookingView.displayBooking(filteredBooking);
+    }
+    
+    public void refreshBooking(){
+        loadBooking();
     }
     
     public class BookingDetailsPopup extends JDialog {
@@ -493,7 +501,7 @@ public class AdminBookingDetailsController {
             
             
             // Set customer image
-            byte[] imageData = travellerData.getImage();
+            byte[] imageData = travellerData.getProfilePicture();
             if (imageData != null && imageData.length > 0) {
                 try {
                     ImageIcon originalIcon = new ImageIcon(imageData);
@@ -576,6 +584,51 @@ public class AdminBookingDetailsController {
     
     public BookingData getBookingData() {
         return bookingData;
+    }
+}
+  class BookingCardListener implements MouseListener {
+    private BookingData booking;
+    private TravellerData travellerData;
+    
+    public BookingCardListener(BookingData booking) {
+        this.booking = booking;
+        // Initialize traveller data (you may need to fetch this from your DAO)
+        try {
+            TravellerDao travellerDao = new TravellerDao();
+            this.travellerData = travellerDao.getTravellerById(booking.getTravellerId());
+        } catch (Exception e) {
+            this.travellerData = new TravellerData(); // fallback empty object
+        }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        BookingDetailsPopup bookingPopup = new BookingDetailsPopup(booking);
+        bookingPopup.travellerData = this.travellerData; // Set the traveller data
+        bookingPopup.populateData(); // Ensure data is populated
+        bookingPopup.showPopup();
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // Optional: Add hover effect
+        JPanel card = (JPanel) e.getSource();
+        card.setBorder(BorderFactory.createLineBorder(new Color(241, 215, 184), 2));
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // Optional: Remove hover effect
+        JPanel card = (JPanel) e.getSource();
+        card.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
     }
 }
 }

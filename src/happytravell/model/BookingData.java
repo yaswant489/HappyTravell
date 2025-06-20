@@ -10,6 +10,7 @@ package happytravell.model;
  */
 public class BookingData {
     private int bookingId;   
+    private int travellerId;
     private String pickupAddress;
     public String dropAddress; // Made private for proper encapsulation
     private String departureDateTime;
@@ -25,9 +26,10 @@ public class BookingData {
     }
     
     // Constructor with essential fields
-    public BookingData(int bookingId, int passengerCount, String pickupAddress, String dropAddress, 
+    public BookingData(int bookingId, int travellerId,int passengerCount, String pickupAddress, String dropAddress, 
                       String departureDateTime, String returnDateTime, String vehicleNumber, String driverName) {
         this.bookingId = bookingId;
+        this.travellerId = travellerId;
         this.dropAddress = dropAddress;
         this.pickupAddress = pickupAddress;
         this.departureDateTime = departureDateTime;
@@ -44,6 +46,12 @@ public class BookingData {
         return bookingId;
     }
     
+    public int getTravellerId() {
+    return travellerId;
+    }
+    public void setTravellerId(int travellerId) {
+    this.travellerId = travellerId;
+    }
     public void setBookingId(int bookingId) {
         this.bookingId = bookingId;
     }

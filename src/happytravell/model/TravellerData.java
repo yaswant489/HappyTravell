@@ -18,7 +18,7 @@ public class TravellerData {
     private String phoneNumber;
     private String address;
     private String password;
-    private byte[] image;
+    private byte[] profilePicture;
     
     
 
@@ -33,7 +33,7 @@ public class TravellerData {
     
     // Constructor with all fields
     public TravellerData(int travellerID, String firstName, String lastName, String username, 
-                        String email, String phoneNumber, String address, String password, byte[] image) {
+                        String email, String phoneNumber, String address, String password, byte[] profilePicture) {
         this.travellerID = travellerID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -42,7 +42,7 @@ public class TravellerData {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
-        this.image = image;
+        this.profilePicture = profilePicture;
     }
 
     // Default constructor
@@ -83,8 +83,8 @@ public class TravellerData {
         this.password = password;
     }
     
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setProfilePicture(byte[] profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
     // Getters - FIXED: Removed incorrect parameters
@@ -120,7 +120,7 @@ public class TravellerData {
         return this.password;
     }
     
-    public byte[] getImage() { // Removed incorrect byte[] parameter
-        return this.image;
+    public byte[] getProfilePicture() { // Removed incorrect byte[] parameter
+        return this.profilePicture;
     }
 }
