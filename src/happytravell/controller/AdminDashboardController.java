@@ -4,6 +4,7 @@
  */
 package happytravell.controller;
 
+import happytravell.model.AdminData;
 import happytravell.view.AdminBookingDetailsView;
 import happytravell.view.AdminBusTicketsView;
 import happytravell.view.AdmindashboardView;
@@ -265,6 +266,9 @@ public class AdminDashboardController {
             logOutLabel.setForeground(Color.BLACK);
             logOutLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
+    }
+
+    public AdminDashboardController(AdmindashboardView dashboardView, AdminData admin) {
     }
 
     
