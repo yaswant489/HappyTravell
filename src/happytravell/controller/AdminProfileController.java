@@ -164,8 +164,8 @@ private void redirectToLogin() {
             }
     }
 
-    public void setCurrentOwnerId(int ownerId) {
-        this.currentAdminId = ownerId;
+    public void setCurrentAdminId(int adminId) {
+        this.currentAdminId = adminId;
         loadExistingProfilePicture();
     }
     

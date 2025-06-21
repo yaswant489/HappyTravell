@@ -31,20 +31,12 @@ public class ForgetPasswordView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jToggleButton1 = new javax.swing.JToggleButton();
-        resetButton = new javax.swing.JButton();
+        continueButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        emailLabel = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
-        codeLabel = new javax.swing.JLabel();
-        codeTextField = new javax.swing.JTextField();
-        resetLabel = new javax.swing.JLabel();
-        resetPassword = new javax.swing.JPasswordField();
-        confirmLabel = new javax.swing.JLabel();
-        confirmPassword = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
-        resetPasswordShowButton = new javax.swing.JToggleButton();
-        confirmPasswordShowButton = new javax.swing.JToggleButton();
-        sendCodeButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -56,102 +48,59 @@ public class ForgetPasswordView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        resetButton.setBackground(new java.awt.Color(255, 153, 51));
-        resetButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        resetButton.setText("Reset");
-        resetButton.addActionListener(new java.awt.event.ActionListener() {
+        continueButton.setBackground(new java.awt.Color(255, 153, 51));
+        continueButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        continueButton.setText("Continue");
+        continueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetButtonActionPerformed(evt);
+                continueButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(resetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 80, 26));
+        getContentPane().add(continueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 170, 26));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 102, 0));
         jLabel2.setText("Forget Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 210, 30));
-
-        emailLabel.setText("   Email");
-        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 50, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 210, 30));
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 150, -1));
+        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 170, -1));
 
-        codeLabel.setText(" Verification Code");
-        getContentPane().add(codeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 110, 20));
-        getContentPane().add(codeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 150, -1));
+        jLabel3.setFont(new java.awt.Font("Constantia", 3, 14)); // NOI18N
+        jLabel3.setText("Enter Your Email Address");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 200, -1));
 
-        resetLabel.setText("  Reset Password");
-        getContentPane().add(resetLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 110, 20));
-        getContentPane().add(resetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 150, -1));
-
-        confirmLabel.setText("  Confirm Password");
-        getContentPane().add(confirmLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 120, 20));
-
-        confirmPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmPasswordActionPerformed(evt);
-            }
-        });
-        getContentPane().add(confirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 150, -1));
-
+        backButton.setBackground(new java.awt.Color(255, 153, 51));
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 70, -1));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 65, 24));
 
-        resetPasswordShowButton.setText("Show");
-        resetPasswordShowButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetPasswordShowButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(resetPasswordShowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 65, 20));
-
-        confirmPasswordShowButton.setText("Show");
-        confirmPasswordShowButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmPasswordShowButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(confirmPasswordShowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, 65, 20));
-
-        sendCodeButton.setText("send Code");
-        getContentPane().add(sendCodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 80, -1));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+    private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_resetButtonActionPerformed
+    }//GEN-LAST:event_continueButtonActionPerformed
 
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
-    private void confirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmPasswordActionPerformed
-
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed
-
-    private void resetPasswordShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPasswordShowButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_resetPasswordShowButtonActionPerformed
-
-    private void confirmPasswordShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordShowButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmPasswordShowButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,50 +142,21 @@ public class ForgetPasswordView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JLabel codeLabel;
-    private javax.swing.JTextField codeTextField;
-    private javax.swing.JLabel confirmLabel;
-    private javax.swing.JPasswordField confirmPassword;
-    private javax.swing.JToggleButton confirmPasswordShowButton;
-    private javax.swing.JLabel emailLabel;
+    private javax.swing.JButton continueButton;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JButton resetButton;
-    private javax.swing.JLabel resetLabel;
-    private javax.swing.JPasswordField resetPassword;
-    private javax.swing.JToggleButton resetPasswordShowButton;
-    private javax.swing.JButton sendCodeButton;
     // End of variables declaration//GEN-END:variables
 
     public void addBackListener(ActionListener listener){
         backButton.addActionListener(listener);
     }
     public void addResetListener(ActionListener listener){
-        resetButton.addActionListener(listener);
+        continueButton.addActionListener(listener);
     }
-     public javax.swing.JPasswordField getResetSetPasswordField(){
-        return resetPassword;
-    }
-    public javax.swing.JPasswordField getConfirmPasswordField(){
-        return confirmPassword;
-    }
-    public javax.swing.JToggleButton getResetShowButton() {
-    return resetPasswordShowButton;
-    }
-    public javax.swing.JToggleButton getConfirmShowButton() {
-    return confirmPasswordShowButton;
-    }
-    public void toggleResetPasswordVisibility(ActionListener listener) {
-    resetPasswordShowButton.addActionListener(listener);
-    }
-    public void toggleConfirmPasswordVisibility(ActionListener listener) {
-    confirmPasswordShowButton.addActionListener(listener);
-    }
-    public void addSendCodeListener(ActionListener listener) { 
-        sendCodeButton.addActionListener(listener); 
-    }
-
+     
 }
