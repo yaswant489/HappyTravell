@@ -4,6 +4,7 @@
  */
 package happytravell.controller;
 
+import javaapplication2.TravellerProfileController;
 import happytravell.model.TravellerData;
 
 import happytravell.view.AdminProfileView;

@@ -26,18 +26,39 @@ public class CodeVerificationView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        codeTextField = new javax.swing.JTextField();
+        submitButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 102, 0));
+        jLabel1.setText("Code Verification");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 217, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("Enter Code");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 80, -1));
+        getContentPane().add(codeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 130, 150, -1));
+
+        submitButton.setBackground(new java.awt.Color(255, 153, 51));
+        submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        submitButton.setText("Submit");
+        getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 150, 26));
+
+        backButton.setBackground(new java.awt.Color(255, 153, 51));
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        backButton.setText("Back");
+        backButton.setOpaque(true);
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 172, 70, 25));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +99,11 @@ public class CodeVerificationView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
+    private javax.swing.JTextField codeTextField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
 }
