@@ -80,7 +80,7 @@ public class AdminDashboardController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            bookingDetailsLabel.setForeground(Color.RED);
+            bookingDetailsLabel.setForeground(Color.WHITE);
             bookingDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
@@ -216,7 +216,7 @@ public class AdminDashboardController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            profileLabel.setForeground(Color.RED);
+            profileLabel.setForeground(Color.WHITE);
             profileLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 

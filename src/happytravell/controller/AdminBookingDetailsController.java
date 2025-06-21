@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -51,21 +51,20 @@ public class AdminBookingDetailsController {
     private List<BookingData>allBooking;
     private List<BookingData>filteredBooking;
     
-    public AdminBookingDetailsController(AdminBookingDetailsView adminBookingDetailsView ,int adminId) {
-        this.bookingView.DashboardNavigation(new AdminBookingDetailsController.DashboardNav(adminBookingDetailsView.getDashboardlabel()));
-        this.bookingView.BusTicketsNavigation(new AdminBookingDetailsController.BusTicketsNav(adminBookingDetailsView.getBusTicketslabel()));
-        this.bookingView.RouteDetailsNavigation(new AdminBookingDetailsController.RouteDetailsNav(adminBookingDetailsView.getRouteDetailslabel()));
-        this.bookingView.VehiclesDetailsNavigation(new AdminBookingDetailsController.VehiclesDetailsNav(adminBookingDetailsView.getVehiclesDetailslabel()));
-        this.bookingView.ProfileNavigation(new AdminBookingDetailsController.ProfileNav(adminBookingDetailsView.getProfilelabel()));
-        this.bookingView.LogOutNavigation(new AdminBookingDetailsController.LogOutNav(adminBookingDetailsView.getLogOutlabel()));
+    public AdminBookingDetailsController(AdminBookingDetailsView adminBookingDetailsView, int adminId) {
         this.bookingView = adminBookingDetailsView;
-        this.currentAdminId = adminId;
-        
-        this.allBooking = new ArrayList<>();
-        this.filteredBooking = new ArrayList<>();
-        loadBooking();
-        
-    }
+    this.bookingView.DashboardNavigation(new AdminBookingDetailsController.DashboardNav(adminBookingDetailsView.getDashboardlabel()));
+    this.bookingView.BusTicketsNavigation(new AdminBookingDetailsController.BusTicketsNav(adminBookingDetailsView.getBusTicketslabel()));
+    this.bookingView.RouteDetailsNavigation(new AdminBookingDetailsController.RouteDetailsNav(adminBookingDetailsView.getRouteDetailslabel()));
+    this.bookingView.VehiclesDetailsNavigation(new AdminBookingDetailsController.VehiclesDetailsNav(adminBookingDetailsView.getVehiclesDetailslabel()));
+    this.bookingView.ProfileNavigation(new AdminBookingDetailsController.ProfileNav(adminBookingDetailsView.getProfilelabel()));
+    this.bookingView.LogOutNavigation(new AdminBookingDetailsController.LogOutNav(adminBookingDetailsView.getLogOutlabel()));
+    this.currentAdminId = adminId;
+    
+    this.allBooking = new ArrayList<>();
+    this.filteredBooking = new ArrayList<>();
+    loadBooking();
+}
     public void open(){
     this.bookingView.setVisible(true);
     } 
@@ -291,16 +290,19 @@ public class AdminBookingDetailsController {
             filteredBooking = new ArrayList<>(allBooking);
             displayAllBooking();
         } catch (Exception e) {
-            
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(bookingView, "Error loading bookings: " + e.getMessage(), 
+                                        "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void displayAllBooking() {
-        bookingView.displayBooking(allBooking);
-    }
-    private void displayFilteredBooking() {
-        bookingView.displayBooking(filteredBooking);
-    }
+    bookingView.displayBooking(allBooking, this);
+}
+
+private void displayFilteredBooking() {
+    bookingView.displayBooking(filteredBooking, this);
+}
     
     public void refreshBooking(){
         loadBooking();
@@ -586,13 +588,15 @@ public class AdminBookingDetailsController {
         return bookingData;
     }
 }
-  class BookingCardListener implements MouseListener {
+    public static class BookingCardListener implements MouseListener {
+    private final AdminBookingDetailsController controller;
     private BookingData booking;
     private TravellerData travellerData;
     
-    public BookingCardListener(BookingData booking) {
+    public BookingCardListener(BookingData booking, AdminBookingDetailsController controller) {
         this.booking = booking;
-        // Initialize traveller data (you may need to fetch this from your DAO)
+        this.controller = controller;
+        // Initialize traveller data
         try {
             TravellerDao travellerDao = new TravellerDao();
             this.travellerData = travellerDao.getTravellerById(booking.getTravellerId());
@@ -603,10 +607,11 @@ public class AdminBookingDetailsController {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        BookingDetailsPopup bookingPopup = new BookingDetailsPopup(booking);
-        bookingPopup.travellerData = this.travellerData; // Set the traveller data
-        bookingPopup.populateData(); // Ensure data is populated
-        bookingPopup.showPopup();
+        AdminBookingDetailsController.BookingDetailsPopup popup = 
+            controller.new BookingDetailsPopup(booking);
+        popup.travellerData = this.travellerData;
+        popup.populateData();
+        popup.showPopup();
     }
 
     @Override
@@ -619,14 +624,12 @@ public class AdminBookingDetailsController {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        // Optional: Add hover effect
         JPanel card = (JPanel) e.getSource();
         card.setBorder(BorderFactory.createLineBorder(new Color(241, 215, 184), 2));
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        // Optional: Remove hover effect
         JPanel card = (JPanel) e.getSource();
         card.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
     }

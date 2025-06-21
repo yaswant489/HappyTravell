@@ -18,9 +18,14 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -207,6 +212,163 @@ private void redirectToLogin() {
     public void close(){
     this.profileView.dispose();
     }
+    
+     //Profile Picture
+    class UploadProfielImage implements MouseListener{
+        
+        private JLabel insertProfileIcon;
+        
+        public UploadProfielImage(JLabel label){
+            this.insertProfileIcon = label;
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (currentAdminId == -1) {
+                JOptionPane.showMessageDialog(profileView, 
+                    "Error: Owner ID not set. Please login again.", 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            JFileChooser fileChooser = new JFileChooser();
+            
+            FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "Image files (*.jpg, *.jpeg, *.png, *.gif, *.bmp)", 
+                "jpg", "jpeg", "png", "gif", "bmp");
+            fileChooser.setFileFilter(filter);
+            fileChooser.setAcceptAllFileFilterUsed(false);
+            
+            int result = fileChooser.showOpenDialog(profileView);
+            
+            if (result == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                
+                if (file != null && file.exists() && file.isFile()) {
+                    try {
+                        long fileSize = file.length();
+                        if (fileSize > 5 * 1024 * 1024) {
+                            JOptionPane.showMessageDialog(profileView, 
+                                "File size too large. Please select an image smaller than 5MB.", 
+                                "Error", 
+                                JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+                        
+                        byte[] imageData = Files.readAllBytes(file.toPath());
+                        
+                        
+                        AdminDao adminDao = new AdminDao();
+                        boolean success = adminDao.updateProfilePicture(currentAdminId, imageData);
+                        
+                        if (success) {
+                            displayImageInView(imageData);
+                            profileView.selectedProfileFile(file);
+                            
+                            JOptionPane.showMessageDialog(profileView, 
+                                "Profile picture updated successfully!", 
+                                "Success", 
+                                JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(profileView, 
+                                "Failed to save profile picture to database.", 
+                                "Database Error", 
+                                JOptionPane.ERROR_MESSAGE);
+                        }
+                        
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(profileView, 
+                            "Error reading file: " + ex.getMessage(), 
+                            "File Error", 
+                            JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(profileView, 
+                        "Invalid file selected or file does not exist.", 
+                        "File Error", 
+                        JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+        
+        private void displayImageInView(byte[] imageData) {
+            try {
+                if (imageData != null && imageData.length > 0) {
+                    ImageIcon originalIcon = new ImageIcon(imageData);
+                    
+                    int labelWidth = 130;
+                    int labelHeight = 130;
+                    
+                    Image scaledImage = originalIcon.getImage().getScaledInstance(
+                        labelWidth, labelHeight, Image.SCALE_SMOOTH);
+                    
+                    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+                    
+                    profileView.displayProfileImage(imageData);
+                    
+                } 
+            } catch (Exception e) {
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            insertProfileIcon.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            insertProfileIcon.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        }
+    }
+    
+//    //Profile update
+//    class AccounManagement implements MouseListener{
+//        
+//        private JLabel accMageIcon;
+//        
+//        public AccounManagement(JLabel label) {
+//            this.accMageIcon = label;
+//        }
+//
+//        @Override
+//        public void mouseClicked(MouseEvent e) {
+//            AdminAccountManagementView adminAccountManagementView = new AdminAccountManagementView();
+//            AdminAccountManagementController adminAccountManagementController= new AdminAccountManagementController(adminAccountManagementView);
+//            adminAccountManagementController.open();
+//            close();
+//        }
+//
+//        @Override
+//        public void mousePressed(MouseEvent e) {
+//        }
+//
+//        @Override
+//        public void mouseReleased(MouseEvent e) {
+//        }
+//
+//        @Override
+//        public void mouseEntered(MouseEvent e) {
+//            accMageIcon.setForeground(Color.red);
+//            accMageIcon.setCursor(new Cursor(Cursor.HAND_CURSOR));
+//        }
+//
+//        @Override
+//        public void mouseExited(MouseEvent e) {
+//            accMageIcon.setForeground(Color.black);
+//            accMageIcon.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+//        }
+//    }
+    
     //    Dashboard Navigation
     class DashboardNav implements MouseListener{
         

@@ -125,7 +125,7 @@ public class TravellerRegisterController {
             travellerData.setPassword(setpassword);
                  
             
-            boolean success = new TravellerDao().Register(travellerData);
+            boolean success = new TravellerDao().register(travellerData);
             if (success){
                 JOptionPane.showMessageDialog(travellerRegisterView,"Registered sucessfully.Please Login to continue!");
 

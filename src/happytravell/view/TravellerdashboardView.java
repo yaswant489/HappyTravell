@@ -5,7 +5,10 @@
 package happytravell.view;
 
 import java.awt.Image;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -137,7 +140,7 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         satisfactionButton = new javax.swing.JButton();
         travelsDoneButton = new javax.swing.JButton();
         pendingButton = new javax.swing.JButton();
-        places = new javax.swing.JButton();
+        placesButton = new javax.swing.JButton();
         notificationIcon = new javax.swing.JLabel();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
@@ -277,7 +280,7 @@ public class TravellerdashboardView extends javax.swing.JFrame {
                 travelsDoneButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travelsDoneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 301, 115, 53));
+        TravelerDetailsPanel.add(travelsDoneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 301, 120, 53));
 
         pendingButton.setBackground(new java.awt.Color(173, 98, 44));
         pendingButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
@@ -289,15 +292,15 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         });
         TravelerDetailsPanel.add(pendingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 300, 115, 53));
 
-        places.setBackground(new java.awt.Color(173, 77, 44));
-        places.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        places.setText("Places");
-        places.addActionListener(new java.awt.event.ActionListener() {
+        placesButton.setBackground(new java.awt.Color(173, 77, 44));
+        placesButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        placesButton.setText("Places");
+        placesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placesActionPerformed(evt);
+                placesButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(places, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 300, 115, 53));
+        TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 300, 115, 53));
 
         notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
         TravelerDetailsPanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 5, 25, 25));
@@ -387,9 +390,9 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pendingButtonActionPerformed
 
-    private void placesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placesActionPerformed
+    private void placesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placesButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_placesActionPerformed
+    }//GEN-LAST:event_placesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,7 +467,7 @@ public class TravellerdashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel notificationIcon;
     private javax.swing.JButton pendingButton;
     private javax.swing.JPanel placePanel;
-    private javax.swing.JButton places;
+    private javax.swing.JButton placesButton;
     private javax.swing.JPanel pokharaPanelButton;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
@@ -475,4 +478,60 @@ public class TravellerdashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
+
+    public void TravelsDoneNavigation(ActionListener listener){
+        travelsDoneButton.addActionListener(listener);
+    }
+    public void PendingNavigation(ActionListener listener){
+        pendingButton.addActionListener(listener);
+    }
+    public void PlacesNavigation(ActionListener listener){
+        placesButton.addActionListener(listener);
+    }
+    public void SatisfactionNavigation(ActionListener listener){
+        satisfactionButton.addActionListener(listener);
+    }
+    public void DashboardNavigation(MouseListener listener){
+        dashboardLabel.addMouseListener(listener);
+    }
+    public JLabel getDashboardlabel(){
+        return dashboardLabel;
+    }
+    public void BookingNavigation(MouseListener listener){
+        bookingLabel.addMouseListener(listener);
+    }
+    public JLabel getBookinglabel(){
+        return bookingLabel;
+    }
+    public void RouteNavigation(MouseListener listener){
+        routeLabel.addMouseListener(listener);
+    }
+    public JLabel getRoutelabel(){
+        return routeLabel;
+    }
+    public void BusTicketsNavigation(MouseListener listener){
+        busTicketsLabel.addMouseListener(listener);
+    }
+    public JLabel getBusTicketslabel(){
+        return busTicketsLabel;
+    }
+    public void VehiclesDetailsNavigation(MouseListener listener){
+        vehiclesDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getVehiclesDetailslabel(){
+        return vehiclesDetailsLabel;
+    }
+    public void ProfileNavigation(MouseListener listener){
+        profileLabel.addMouseListener(listener);
+    }
+    public JLabel getProfilelabel(){
+        return profileLabel;
+    }
+    public void LogOutNavigation(MouseListener listener){
+        logOutLabel.addMouseListener(listener);
+    }
+    public JLabel getLogOutlabel(){
+        return logOutLabel;
+    }
+
 }

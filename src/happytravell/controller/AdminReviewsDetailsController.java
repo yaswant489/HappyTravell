@@ -11,7 +11,7 @@ import happytravell.view.AdminReviewsDetailsView;
  * @author Acer
  */
 public class AdminReviewsDetailsController {
-     private AdminReviewsDetailsView ReviewView;
+    private AdminReviewsDetailsView ReviewView;
     public AdminReviewsDetailsController(AdminReviewsDetailsView adminReviewsDetailsView) {
         this.ReviewView = adminReviewsDetailsView;
     }

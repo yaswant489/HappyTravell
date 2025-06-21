@@ -5,6 +5,8 @@
 package happytravell.view;
 
 import happytravell.UI.AdminBookingDetailsCardPanel;
+import happytravell.controller.AdminBookingDetailsController;
+import happytravell.dao.TravellerDao;
 import happytravell.model.BookingData;
 import happytravell.model.TravellerData;
 import java.awt.Color;
@@ -345,56 +347,42 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
         });
     }
     
-    public void displayBooking(List<BookingData> booking) {
-    TravellerData traveller = new TravellerData();
-
+   public void displayBooking(List<BookingData> bookings, AdminBookingDetailsController controller) {
     jPanel2.removeAll();
-
     jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
     
-    for (int i = 0; i < booking.size(); i++) {
-        BookingData bookingDetails = booking.get(i);
-
+    TravellerDao travellerDao = new TravellerDao();
+    
+    for (int i = 0; i < bookings.size(); i++) {
+        BookingData bookingDetails = bookings.get(i);
+        
         try {
+            // Get traveller data for this booking
+            TravellerData traveller = travellerDao.getTravellerById(bookingDetails.getTravellerId());
+            
             AdminBookingDetailsCardPanel cardPanel = new AdminBookingDetailsCardPanel(bookingDetails);
-           
+            cardPanel.setTravellerData(traveller);
+            cardPanel.populateData();
+            
             cardPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-            cardPanel.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    // TODO: Navigate to menu page
-                    System.out.println("Restaurant selected: " + traveller.getFirstName());
-                }
-                
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    cardPanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                    cardPanel.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 2));
-                }
-                
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    cardPanel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-                    cardPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-                }
-            });
-
+            
+            // Use the controller's BookingCardListener
+            cardPanel.addMouseListener(new AdminBookingDetailsController.BookingCardListener(bookingDetails, controller));
+            
             jPanel2.add(cardPanel);
             
-            if (i < booking.size() - 1) {
+            if (i < bookings.size() - 1) {
                 jPanel2.add(Box.createVerticalStrut(15));
             }
             
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     
     jPanel2.add(Box.createVerticalGlue());
-    
     jPanel2.revalidate();
     jPanel2.repaint();
-    
     scrollToTop();
 }
 
