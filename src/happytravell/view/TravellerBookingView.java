@@ -5,6 +5,7 @@
 package happytravell.view;
 
 import java.awt.Image;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 
 /**
@@ -166,10 +167,10 @@ public class TravellerBookingView extends javax.swing.JFrame {
         taxiIcon = new javax.swing.JLabel();
         jeepIcon = new javax.swing.JLabel();
         carIcon = new javax.swing.JLabel();
-        travellersButton1 = new javax.swing.JButton();
-        travellersButton2 = new javax.swing.JButton();
-        travellersButton3 = new javax.swing.JButton();
-        travellersButton4 = new javax.swing.JButton();
+        guideButton = new javax.swing.JButton();
+        carButton = new javax.swing.JButton();
+        jeepButton = new javax.swing.JButton();
+        taxiButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -252,50 +253,50 @@ public class TravellerBookingView extends javax.swing.JFrame {
         carIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/car.png"))); // NOI18N
         TravelerDetailsPanel.add(carIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, 48, 35));
 
-        travellersButton1.setBackground(new java.awt.Color(171, 106, 32));
-        travellersButton1.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        travellersButton1.setText("           Guide");
-        travellersButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        travellersButton1.addActionListener(new java.awt.event.ActionListener() {
+        guideButton.setBackground(new java.awt.Color(171, 106, 32));
+        guideButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        guideButton.setText("           Guide");
+        guideButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        guideButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travellersButton1ActionPerformed(evt);
+                guideButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 23, 110, 35));
+        TravelerDetailsPanel.add(guideButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 23, 110, 35));
 
-        travellersButton2.setBackground(new java.awt.Color(171, 106, 32));
-        travellersButton2.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        travellersButton2.setText("              Car");
-        travellersButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        travellersButton2.addActionListener(new java.awt.event.ActionListener() {
+        carButton.setBackground(new java.awt.Color(171, 106, 32));
+        carButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        carButton.setText("              Car");
+        carButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        carButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travellersButton2ActionPerformed(evt);
+                carButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 23, 110, 35));
+        TravelerDetailsPanel.add(carButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 23, 110, 35));
 
-        travellersButton3.setBackground(new java.awt.Color(171, 106, 32));
-        travellersButton3.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        travellersButton3.setText("            Jeep");
-        travellersButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        travellersButton3.setHideActionText(true);
-        travellersButton3.addActionListener(new java.awt.event.ActionListener() {
+        jeepButton.setBackground(new java.awt.Color(171, 106, 32));
+        jeepButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        jeepButton.setText("            Jeep");
+        jeepButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jeepButton.setHideActionText(true);
+        jeepButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travellersButton3ActionPerformed(evt);
+                jeepButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 23, 110, 35));
+        TravelerDetailsPanel.add(jeepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 23, 110, 35));
 
-        travellersButton4.setBackground(new java.awt.Color(171, 106, 32));
-        travellersButton4.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        travellersButton4.setText("       Taxi");
-        travellersButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        travellersButton4.addActionListener(new java.awt.event.ActionListener() {
+        taxiButton.setBackground(new java.awt.Color(171, 106, 32));
+        taxiButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        taxiButton.setText("       Taxi");
+        taxiButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        taxiButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travellersButton4ActionPerformed(evt);
+                taxiButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 23, 110, 35));
+        TravelerDetailsPanel.add(taxiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 23, 110, 35));
 
         jLabel2.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel2.setText("Choose Service");
@@ -345,6 +346,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
 
         PaymentMethodComboBox.setBackground(new java.awt.Color(248, 219, 164));
         PaymentMethodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Payment Method", "Cash ", "E-sewa", "Mobile Banking" }));
+        PaymentMethodComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PaymentMethodComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PaymentMethodComboBoxActionPerformed(evt);
@@ -354,6 +356,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
 
         VehiclesNumberComboBox.setBackground(new java.awt.Color(248, 219, 164));
         VehiclesNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehicles Number", " ", " ", " " }));
+        VehiclesNumberComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         VehiclesNumberComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VehiclesNumberComboBoxActionPerformed(evt);
@@ -363,6 +366,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
 
         driverNameComboBox.setBackground(new java.awt.Color(248, 219, 164));
         driverNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Driver name" }));
+        driverNameComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         driverNameComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 driverNameComboBoxActionPerformed(evt);
@@ -482,21 +486,21 @@ public class TravellerBookingView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void travellersButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellersButton1ActionPerformed
+    private void guideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_travellersButton1ActionPerformed
+    }//GEN-LAST:event_guideButtonActionPerformed
 
-    private void travellersButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellersButton2ActionPerformed
+    private void carButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_travellersButton2ActionPerformed
+    }//GEN-LAST:event_carButtonActionPerformed
 
-    private void travellersButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellersButton3ActionPerformed
+    private void jeepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jeepButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_travellersButton3ActionPerformed
+    }//GEN-LAST:event_jeepButtonActionPerformed
 
-    private void travellersButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellersButton4ActionPerformed
+    private void taxiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taxiButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_travellersButton4ActionPerformed
+    }//GEN-LAST:event_taxiButtonActionPerformed
 
     private void PaymentMethodComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentMethodComboBoxActionPerformed
         // TODO add your handling code here:
@@ -563,6 +567,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
     private javax.swing.JLabel bookingLabel;
     private javax.swing.JLabel busDetailsLabel;
     private javax.swing.JLabel busTicketIcon;
+    private javax.swing.JButton carButton;
     private javax.swing.JLabel carIcon;
     private javax.swing.JLabel dashboardIcon;
     private javax.swing.JLabel dashboardLabel;
@@ -570,6 +575,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
     private javax.swing.JSpinner departureSpinner;
     private javax.swing.JComboBox<String> driverNameComboBox;
     private javax.swing.JTextField dropAdressTextField;
+    private javax.swing.JButton guideButton;
     private javax.swing.JLabel guideIcon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -583,6 +589,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JButton jeepButton;
     private javax.swing.JLabel jeepIcon;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
@@ -598,12 +605,14 @@ public class TravellerBookingView extends javax.swing.JFrame {
     private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
     private javax.swing.JLabel searchIcon;
+    private javax.swing.JButton taxiButton;
     private javax.swing.JLabel taxiIcon;
-    private javax.swing.JButton travellersButton1;
-    private javax.swing.JButton travellersButton2;
-    private javax.swing.JButton travellersButton3;
-    private javax.swing.JButton travellersButton4;
     private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
+
+    public void GuideNavigation(ActionListener listener){
+        guideButton.addActionListener(listener);
+    }
+
 }

@@ -16,12 +16,12 @@ import javax.swing.JTextField;
  *
  * @author Acer
  */
-public final class AdminProfileView extends javax.swing.JFrame {
+public final class TravellerProfileView extends javax.swing.JFrame {
     File selectedProfileFile;
     /**
      * Creates new form AdmindashboardView
      */
-    public AdminProfileView() {
+    public TravellerProfileView() {
         initComponents();
         scaleImage1();
         scaleImage2();
@@ -150,7 +150,7 @@ public final class AdminProfileView extends javax.swing.JFrame {
         updateProfileButton = new javax.swing.JButton();
         adminNameLabel = new javax.swing.JLabel();
         profileAddIcon = new javax.swing.JLabel();
-        adminProfile = new javax.swing.JLabel();
+        travellerProfile = new javax.swing.JLabel();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -162,8 +162,8 @@ public final class AdminProfileView extends javax.swing.JFrame {
         dashboardIcon = new javax.swing.JLabel();
         logoIcon = new javax.swing.JLabel();
         dashboardLabel = new javax.swing.JLabel();
-        bookingDetailsLabel = new javax.swing.JLabel();
-        routeDetailsLabel = new javax.swing.JLabel();
+        bookingLabel = new javax.swing.JLabel();
+        routeLabel = new javax.swing.JLabel();
         busTicketsLabel = new javax.swing.JLabel();
         vehiclesDetailsLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
@@ -279,14 +279,14 @@ public final class AdminProfileView extends javax.swing.JFrame {
         jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 120, 30));
 
         adminNameLabel.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        adminNameLabel.setText("Admin Name");
-        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, 20));
+        adminNameLabel.setText("Traveller Name");
+        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 100, 20));
 
         profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add-user.png"))); // NOI18N
         jPanel2.add(profileAddIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 20, 20));
 
-        adminProfile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(adminProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
+        travellerProfile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(travellerProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
 
         profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 250));
 
@@ -333,13 +333,13 @@ public final class AdminProfileView extends javax.swing.JFrame {
         dashboardLabel.setText("  Dashboard");
         DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 80, -1));
 
-        bookingDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        bookingDetailsLabel.setText("  Booking Details");
-        DashDetailsPanel.add(bookingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
+        bookingLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        bookingLabel.setText("  Booking ");
+        DashDetailsPanel.add(bookingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
 
-        routeDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        routeDetailsLabel.setText("  Route Details");
-        DashDetailsPanel.add(routeDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, 20));
+        routeLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        routeLabel.setText("  Route ");
+        DashDetailsPanel.add(routeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, 20));
 
         busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         busTicketsLabel.setText("Bus Tickets");
@@ -407,14 +407,18 @@ public final class AdminProfileView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravellerProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravellerProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravellerProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TravellerProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -423,7 +427,7 @@ public final class AdminProfileView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminProfileView().setVisible(true);
+                new TravellerProfileView().setVisible(true);
             }
         });
     }
@@ -433,9 +437,8 @@ public final class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTextField;
     private javax.swing.JLabel adminNameLabel;
-    private javax.swing.JLabel adminProfile;
-    private javax.swing.JLabel bookingDetailsLabel;
     private javax.swing.JLabel bookingIcon;
+    private javax.swing.JLabel bookingLabel;
     private javax.swing.JLabel busTicketIcon;
     private javax.swing.JLabel busTicketsLabel;
     private javax.swing.JLabel dashboardIcon;
@@ -463,8 +466,9 @@ public final class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JPanel profilePanel;
-    private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
+    private javax.swing.JLabel routeLabel;
+    private javax.swing.JLabel travellerProfile;
     private javax.swing.JButton updateProfileButton;
     private javax.swing.JTextField usernameTextField;
     private javax.swing.JLabel usernamelabel;
@@ -480,17 +484,17 @@ public final class AdminProfileView extends javax.swing.JFrame {
     public JLabel getDashboardlabel(){
         return dashboardLabel;
     }
-    public void BookingDetailsNavigation(MouseListener listener){
-        bookingDetailsLabel.addMouseListener(listener);
+    public void BookingNavigation(MouseListener listener){
+        bookingLabel.addMouseListener(listener);
     }
-    public JLabel getBookingDetailslabel(){
-        return bookingDetailsLabel;
+    public JLabel getBookinglabel(){
+        return bookingLabel;
     }
-    public void RouteDetailsNavigation(MouseListener listener){
-        routeDetailsLabel.addMouseListener(listener);
+    public void RouteNavigation(MouseListener listener){
+        routeLabel.addMouseListener(listener);
     }
-    public JLabel getRouteDetailslabel(){
-        return routeDetailsLabel;
+    public JLabel getRoutelabel(){
+        return routeLabel;
     }
     public void BusTicketsNavigation(MouseListener listener){
         busTicketsLabel.addMouseListener(listener);
@@ -551,16 +555,16 @@ public final class AdminProfileView extends javax.swing.JFrame {
             ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/path/to/default-profile.png"));
 
             if (defaultIcon.getIconWidth() == -1) {
-                adminProfile.setText("No Image");
-                adminProfile.setIcon(null);
+                travellerProfile.setText("No Image");
+                travellerProfile.setIcon(null);
             } else {
                 Image scaledImage = defaultIcon.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
-                adminProfile.setIcon(new ImageIcon(scaledImage));
-                adminProfile.setText("");
+                travellerProfile.setIcon(new ImageIcon(scaledImage));
+                travellerProfile.setText("");
             }
         } catch (Exception e) {
-            adminProfile.setText("No Image");
-            adminProfile.setIcon(null);
+            travellerProfile.setText("No Image");
+            travellerProfile.setIcon(null);
         }
     }
     public void displayProfileImage(byte[] imageData) {
@@ -570,8 +574,8 @@ public final class AdminProfileView extends javax.swing.JFrame {
                 Image scaledImage = originalIcon.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
-                adminProfile.setIcon(scaledIcon);
-                adminProfile.setText("");
+                travellerProfile.setIcon(scaledIcon);
+                travellerProfile.setText("");
             } else {
                 setDefaultProfileImage();
             }

@@ -154,7 +154,6 @@ public boolean checkEmail(String email) {
 
     
     public AdminData getAdminById(int adminId) {
-    // Fixed: Changed table name from 'owner' to 'admin' and column name from 'id' to 'admin_ID'
     String query = "SELECT * FROM admin WHERE admin_ID = ?";
     Connection conn = mysql.openConnection();
     try {
@@ -190,10 +189,9 @@ public boolean checkEmail(String email) {
     }
     return null;
 }
- 
+    
      public boolean updateAdminProfile(int adminId, String firstName, String lastName, String username, String phoneNumber, String email, String address) {
-        // FIXED: Changed "First_name" to "first_name" for consistency
-        String query = "UPDATE admin SET first_name = ?, last_name = ?, username = ?, phone_number = ?, email = ?, address = ? WHERE admin_ID = ?";
+        String query = "UPDATE admin SET first_name = ?, last_name = ?, username = ?, phone_number = ?, email = ?, address = ? ,profile_picture = ? WHERE admin_ID = ?";
         Connection conn = mysql.openConnection();
         try {
             PreparedStatement stmnt = conn.prepareStatement(query);
@@ -204,6 +202,8 @@ public boolean checkEmail(String email) {
             stmnt.setString(5, email);
             stmnt.setString(6, address);
             stmnt.setInt(7, adminId);
+            
+    
             int result = stmnt.executeUpdate();
             
             System.out.println("Update Admin profile result: " + result + " for admin ID: " + adminId);
@@ -235,6 +235,10 @@ public boolean checkEmail(String email) {
         }
         return null;
     } 
+
+    public boolean updateProfilePicture(int currentAdminId, byte[] imageData) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
      
 }

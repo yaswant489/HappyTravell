@@ -49,15 +49,18 @@ public class AdminBookingDetailsCardPanel extends PanelShadow {
     private static final Color STATUS_CANCELLED = new Color(244, 67, 54);  // Red
     private TravellerData traveller;
     
-    public AdminBookingDetailsCardPanel(BookingData booking ) {
+    public AdminBookingDetailsCardPanel(BookingData booking) {
         this.bookingData = booking;
-        this.travellerData = traveller;
         initializeComponents();
         setupLayout();
         populateData();
         setupEventListeners();
     }
     
+    public void setTravellerData(TravellerData travellerData) {
+    this.travellerData = travellerData;
+    populateData(); // Refresh the data when traveller is set
+}
     private void initializeComponents() {
         // Set up the shadow panel properties
         setBackground(CARD_BACKGROUND);
@@ -172,27 +175,27 @@ public class AdminBookingDetailsCardPanel extends PanelShadow {
         add(mainContentPanel, BorderLayout.CENTER);
     }
     
-    private void populateData() {
-        if (bookingData != null && travellerData != null) {
-            // Populate name
-            String firstName = getFirstName();
-            String lastName = getLastName();
-            String fullName = (firstName != null ? firstName : "") + 
-                             (lastName != null ? " " + lastName : "");
-            nameLabel.setText("Name: " + (fullName.trim().isEmpty() ? "Customer" : fullName.trim()));
-            
-            // Populate destination
-            String destination = getDropAddress();
-            destinationLabel.setText("Destination: " + (destination != null ? destination : "Not specified"));
-            
-            // Populate date and time
-            String departureDateTime = bookingData.getDepartureDateTime();
-            dateTimeLabel.setText("Date and Time: " + (departureDateTime != null ? departureDateTime : "Not specified"));
-            
-            // Set status based on booking data (you can customize this logic)
-            updateStatusLabel("Active"); // Default status
-        }
+    public void populateData() {
+    if (bookingData != null) {
+        // Populate name
+        String firstName = getFirstName();
+        String lastName = getLastName();
+        String fullName = (firstName != null ? firstName : "") + 
+                         (lastName != null ? " " + lastName : "");
+        nameLabel.setText("Name: " + (fullName.trim().isEmpty() ? "Customer" : fullName.trim()));
+        
+        // Populate destination
+        String destination = getDropAddress();
+        destinationLabel.setText("Destination: " + (destination != null ? destination : "Not specified"));
+        
+        // Populate date and time
+        String departureDateTime = bookingData.getDepartureDateTime();
+        dateTimeLabel.setText("Date and Time: " + (departureDateTime != null ? departureDateTime : "Not specified"));
+        
+        // Set status based on booking data
+        updateStatusLabel("Active"); // Default status, you can customize this
     }
+}
     
     private void setupEventListeners() {
         // Add hover effect
@@ -241,7 +244,7 @@ public class AdminBookingDetailsCardPanel extends PanelShadow {
     private String getDropAddress() {
         if (bookingData != null) {
             try {
-                // Similar fix for drop address getter
+                
                 return bookingData.dropAddress; // Direct field access if available
             } catch (Exception e) {
                 return "Not specified";
