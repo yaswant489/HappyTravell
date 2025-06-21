@@ -4,20 +4,18 @@
  */
 package happytravell;
 
-import java.sql.*;
-public class HappyTravell {
+import happytravell.controller.LoginController;
+import happytravell.view.LoginPageView;
 
-    Connection con;
-    PreparedStatement pat;
-    
-    
-    
+
+public class HappyTravell {
    public static void main(String[] args) {
       
+       LoginPageView view = new LoginPageView();
+       LoginController controller = new LoginController(view);
+       controller.open();
        
-       
-       
-       
+        
     }
     
 }
