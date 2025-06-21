@@ -24,61 +24,38 @@ import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 /**
  *
- * @author Acer
+ * @author User
  */
 public class LoginController {
-    private LoginPageView loginView = new LoginPageView();
+    private final LoginPageView loginPageView;
 
     private boolean isPasswordVisible = false;
-    public LoginController(LoginPageView view){
-        this.loginView = view;
+    public LoginController(LoginPageView loginPageView){
+        this.loginPageView = loginPageView;
         
-        this.loginView.LoginUser(new LoginUser());
-        this.loginView.signUpNavigation(new SignUpNav(loginView.getSignUplabel()));
+        this.loginPageView.addLoginListener(new Login());
+        this.loginPageView.addSignupListener(new Signup());
 //        this.loginView.ForgetPasswordNavigation(new ForgetPasswordNav(loginView.getForgetPasswordLabel()));
         
-        this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
+        this.loginPageView.TogglePasswordVisibility(new TogglePasswordVisibility());
     }
     
     public void open(){
-        this.loginView.setVisible(true);
+        this.loginPageView.setVisible(true);
     }
     public void close(){
-        this.loginView.dispose();
+        this.loginPageView.dispose();
     }
     
     
-    class SignUpNav implements MouseListener{
-        
-        private JLabel signUpLabel;
-        
-        public SignUpNav(JLabel label){
-            this.signUpLabel = label;
-        }
+    class Signup implements ActionListener {
         @Override
-        public void mouseClicked(MouseEvent e) {
+        public void actionPerformed(ActionEvent e) {
             SignupAsView signupAsView = new SignupAsView();
-            SignupAsController signupAsController= new SignupAsController(signupAsView);
+            SignupAsController signupAsController = new SignupAsController(signupAsView);
             signupAsController.open();
             close();
         }
-        
-        @Override
-        public void mousePressed(MouseEvent e) {}
-        @Override
-        public void mouseReleased(MouseEvent e) {}
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            signUpLabel.setForeground(Color.BLUE);
-            signUpLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            signUpLabel.setForeground(Color.BLACK);
-            signUpLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        } 
     }
     
 //    class ForgetPasswordNav implements MouseListener{
@@ -122,108 +99,53 @@ public class LoginController {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (isPasswordVisible) {
-            loginView.getPasswordField().setEchoChar('•'); // or '*'
-            loginView.getShowButton().setText("Show");
+            loginPageView.getPasswordField().setEchoChar('•'); // or '*'
+            loginPageView.getShowButton().setText("Show");
         } else {
-            loginView.getPasswordField().setEchoChar((char) 0); // show password
-            loginView.getShowButton().setText("Hide");
+            loginPageView.getPasswordField().setEchoChar((char) 0); // show password
+            loginPageView.getShowButton().setText("Hide");
         }
         isPasswordVisible = !isPasswordVisible;
     }
 }
 
-    class LoginUser implements ActionListener{
-
+    class Login implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-         String email = loginView.getEmailTextField().getText();            
-         String password = String.valueOf(loginView.getPasswordField().getPassword());
-         if (email.isEmpty()||password.isEmpty()){
-            JOptionPane.showMessageDialog(loginView, "Fill in all the fields");
-            return;
+            String email = loginPageView.getEmailTextField().getText();
+            String password = String.valueOf(loginPageView.getPasswordField().getPassword());
+
+            if (email.isEmpty() || password.isEmpty()) {
+                JOptionPane.showMessageDialog(loginPageView, "All fields must be filled.");
+                return;
             }
-         LoginRequest loginRequest = new LoginRequest(email,password);
-         
-         Object authenticatedUser = authenticateUser(loginRequest);
-            
-            if (authenticatedUser == null) {
-                JOptionPane.showMessageDialog(loginView, 
-                    "Incorrect username or password. Please try again!", 
-                    "Error", JOptionPane.ERROR_MESSAGE);
-            } else {
-                String userType = getUserType(authenticatedUser);
-                JOptionPane.showMessageDialog(loginView, 
-                    "Logged in successfully as " + userType);
-                
-                // Navigate to appropriate dashboard based on user type
-                navigateToUserDashboard(authenticatedUser, userType);
-            }
-        }
-        
-        private Object authenticateUser(LoginRequest loginRequest) {
-            // Try admin first
-            AdminDao adminDao = new AdminDao();
-            AdminData admin= adminDao.adminLogin(loginRequest);
+
+            LoginRequest loginRequest = new LoginRequest(email, password);
+
+            // Try to log in as Admin first
+            AdminData admin = new AdminDao().adminLogin(loginRequest);
             if (admin != null) {
-                return admin;
+                JOptionPane.showMessageDialog(loginPageView, "Admin login successful");
+                close();
+                AdmindashboardView adminDashboardView = new AdmindashboardView();
+                AdminDashboardController adminController = new AdminDashboardController(adminDashboardView, admin.getId());
+                adminController.open();
+                return; // Exit after successful admin login
             }
-            
-            
-            
-            // Try traveller last
-            TravellerDao travellerDao = new TravellerDao();
-            TravellerData traveller = travellerDao.travellerLogin(loginRequest);
+
+            // If not an admin, try to log in as Traveller
+            TravellerData traveller = new TravellerDao().travellerLogin(loginRequest);
             if (traveller != null) {
-                return traveller;
+                JOptionPane.showMessageDialog(loginPageView, "Traveller login successful");
+                close();
+                TravellerdashboardView dashboardView = new TravellerdashboardView();
+                TravellerDashboardController dashboardController = new TravellerDashboardController(dashboardView, traveller);
+                dashboardController.open();
+                return; // Exit after successful traveller login
             }
             
-            // No user found
-            return null;
-        }
-        
-        private String getUserType(Object user) {
-            if (user instanceof AdminData) {
-                return "Admin";
-            
-            } else if (user instanceof TravellerData) {
-                return "Traveller";
-            }
-            return "Unknown";
-        }
-        
-        
-        
-        private void navigateToUserDashboard(Object user, String userType) {
-            // Close current login view
-            close();
-            
-            // Navigate based on user type
-            switch (userType) {
-                case "Admin":
-                    // Navigate to Admin dashboard Page
-                    AdmindashboardView adminDashboardView = new AdmindashboardView();
-                    AdminDashboardController admindashboardController = new AdminDashboardController(adminDashboardView, ((AdminData)user).getId());
-                    admindashboardController.open();
-                    break;
-                    
-               
-                case "Traveller":
-                    // Navigate to traveller database Page
-                    TravellerdashboardView travellerDashboardView = new TravellerdashboardView();
-                    TravellerDashboardController tarvellerdashboardController = new TravellerDashboardController(travellerDashboardView);
-                    tarvellerdashboardController.open();
-                    break;
-                    
-                    
-                    
-                   
-                    
-                default:
-                    JOptionPane.showMessageDialog(loginView, "Unknown user type");
-                    break;
-            
-             }
-        
+            // If both logins fail
+            JOptionPane.showMessageDialog(loginPageView, "Login failed. Please check your credentials.");
         }
     }
     

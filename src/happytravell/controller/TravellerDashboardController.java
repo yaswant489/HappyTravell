@@ -5,6 +5,7 @@
 package happytravell.controller;
 
 import happytravell.model.TravellerData;
+
 import happytravell.view.AdminProfileView;
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
@@ -16,6 +17,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -30,13 +32,61 @@ public class TravellerDashboardController {
         this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));       
         this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
+
     }
+    
     public void open(){
-    this.travellerdashboardView.setVisible(true);
+        this.travellerdashboardView.setVisible(true);
     } 
     public void close(){
-    this.travellerdashboardView.dispose();
-    } 
+        this.travellerdashboardView.dispose();
+    }
+    
+    class LogoutListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            new LoginController(new LoginPageView()).open();
+            close();
+        }
+    }
+    
+    class BookingListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            javax.swing.JOptionPane.showMessageDialog(travellerdashboardView, "Booking functionality not yet implemented!");
+        }
+    }
+    
+    class VehiclesListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            new TravellerVechilesDetailsView().setVisible(true);
+            close();
+        }
+    }
+
+    class DashboardListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Removed DashboardHomePanel reference - show default dashboard content
+            javax.swing.JOptionPane.showMessageDialog(travellerdashboardView, "Dashboard home view not available!");
+        }
+    }
+
+    class RouteListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            javax.swing.JOptionPane.showMessageDialog(travellerdashboardView, "Route functionality not yet implemented!");
+        }
+    }
+
+    class BusTicketsListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            javax.swing.JOptionPane.showMessageDialog(travellerdashboardView, "Bus Tickets functionality not yet implemented!");
+        }
+    }
+
 
     //    Booking Details Navigation
     class BookingNav implements MouseListener{
@@ -149,6 +199,8 @@ public class TravellerDashboardController {
 
     
     
+
     }
+}
     
     

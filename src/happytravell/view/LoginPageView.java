@@ -23,6 +23,7 @@ public class LoginPageView extends javax.swing.JFrame {
      */
     public LoginPageView() {
         initComponents();
+        getRootPane().setDefaultButton(loginButton);
 //        scaleImage1();
         
     }
@@ -197,5 +198,19 @@ public class LoginPageView extends javax.swing.JFrame {
     showButton.addActionListener(listener);
     }
 
-    
+    public void addLoginListener(java.awt.event.ActionListener listener) {
+        loginButton.addActionListener(listener);
+    }
+
+    public void addSignupListener(java.awt.event.ActionListener listener) {
+        signUpLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listener.actionPerformed(new java.awt.event.ActionEvent(evt.getSource(), java.awt.event.ActionEvent.ACTION_PERFORMED, null));
+            }
+        });
+    }
+
+    public void emailTextFieldSelectionColor(java.awt.Color color) {
+        emailTextField.setSelectionColor(color);
+    }
 }
