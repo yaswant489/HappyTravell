@@ -57,40 +57,66 @@ public class AdminDao {
     }
     }
     
-    public AdminData adminLogin(LoginRequest adminLoginData){
-    String query = "SELECT * FROM admin WHERE email=? AND password=?";
-    Connection conn = mysql.openConnection();
-    try{
-        PreparedStatement stmnt = conn.prepareStatement(query);
-        stmnt.setString(1, adminLoginData.getEmail());
-        stmnt.setString(2, adminLoginData.getPassword());
+    public AdminData adminLogin(LoginRequest adminLoginData) {
+        String createTableSQL = "CREATE TABLE IF NOT EXISTS admin("
+                + "admin_ID INT AUTO_INCREMENT PRIMARY KEY,"
+                + "first_name VARCHAR(100) NOT NULL,"
+                + "last_name VARCHAR(100) NOT NULL,"
+                + "username VARCHAR(100) NOT NULL,"
+                + "phone_number VARCHAR(15) NOT NULL,"
+                + "email VARCHAR(100) UNIQUE NOT NULL,"
+                + "password VARCHAR(100) NOT NULL"
+                + ")";
+
+        String checkAdminSQL = "SELECT COUNT(*) FROM admin";
+        String insertAdminSQL = "INSERT INTO admin (first_name, last_name, username, phone_number, email, password) VALUES ('Admin', 'User', 'admin', '1234567890', 'admin@example.com', 'admin123')";
         
-        // Always use executeQuery for SELECT statements
-        ResultSet result = stmnt.executeQuery();
-        System.out.println("Query executed successfully");
-        
-        // Result returns row if email and password match, else it returns empty
-        if (result.next()){
-            int id = result.getInt("admin_ID");
-            String firstName = result.getString("first_name");
-            String lastName = result.getString("last_name"); // Fixed: was using "first_name" twice
-            String email = result.getString("email");
-            String password = result.getString("password");
-            
-            // Wrapping the data in model - using the corrected constructor
-            AdminData admin = new AdminData(id, firstName, lastName, email, password);
-            return admin;
-        } else {
+        String query = "SELECT * FROM admin WHERE email=? and password=?";
+        Connection conn = mysql.openConnection();
+        try {
+            // Create table if not exists
+            PreparedStatement createTableStmt = conn.prepareStatement(createTableSQL);
+            createTableStmt.executeUpdate();
+            createTableStmt.close();
+
+            // Check if admin user exists, if not, create one
+            PreparedStatement checkAdminStmt = conn.prepareStatement(checkAdminSQL);
+            ResultSet rs = checkAdminStmt.executeQuery();
+            if (rs.next() && rs.getInt(1) == 0) {
+                PreparedStatement insertAdminStmt = conn.prepareStatement(insertAdminSQL);
+                insertAdminStmt.executeUpdate();
+                insertAdminStmt.close();
+            }
+            rs.close();
+            checkAdminStmt.close();
+
+
+            PreparedStatement stmnt = conn.prepareStatement(query);
+            stmnt.setString(1, adminLoginData.getEmail());
+            stmnt.setString(2, adminLoginData.getPassword());
+
+            ResultSet result = stmnt.executeQuery();
+            if (result.next()) {
+                int id = result.getInt("admin_ID");
+                String firstName = result.getString("first_name");
+                String lastName = result.getString("last_name");
+                String username = result.getString("username");
+                String phoneNumber = result.getString("phone_number");
+                String address = result.getString("address");
+                String email = result.getString("email");
+                String password = result.getString("password");
+                AdminData admin = new AdminData(id, firstName, lastName, username, email, phoneNumber, address, password);
+                return admin;
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
+        } finally {
+            mysql.closeConnection(conn);
         }
-    } catch(Exception e){
-        System.out.println("Exception in adminLogin: " + e.getMessage());
-        e.printStackTrace(); // Added for better debugging
-        return null;
-    } finally {
-        mysql.closeConnection(conn);
-    }   
-}
+    }
 
 public boolean checkEmail(String email) {
     String query = "SELECT 1 FROM admin WHERE email=?"; // More efficient query

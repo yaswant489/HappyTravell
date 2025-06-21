@@ -17,6 +17,7 @@ public class TravellerDao {
     private static final String BOOKING_TABLE = "bookingDetails";
     private final MysqlConnection mysql = new MysqlConnection();
 
+
     // SQL queries
     private static final String CREATE_TRAVELLER_TABLE = 
         "CREATE TABLE IF NOT EXISTS " + TRAVELLER_TABLE + "("
@@ -68,6 +69,7 @@ public class TravellerDao {
         Connection conn = null;
         PreparedStatement createTableStmt = null;
         PreparedStatement insertStmt = null;
+
         
         try {
             conn = mysql.openConnection();
@@ -100,15 +102,18 @@ public class TravellerDao {
 
     public List<BookingData> getAllBookingDetailsWithImage() {
         List<BookingData> bookingList = new ArrayList<>();
+
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
+
         
         try {
             conn = mysql.openConnection();
             stmt = conn.prepareStatement(GET_BOOKINGS_WITH_IMAGES);
             rs = stmt.executeQuery();
             
+
             while (rs.next()) {
                 // Create TravellerData
                 TravellerData traveller = new TravellerData();
@@ -128,6 +133,7 @@ public class TravellerDao {
                 booking.setVehicleNumber(rs.getString("vehicle_number"));
                 booking.setDriverName(rs.getString("driver_name"));
                 booking.setTravellerId(traveller.getTravellerID());
+
                 
                 bookingList.add(booking);
             }
@@ -190,6 +196,7 @@ public class TravellerDao {
             
             rs = stmt.executeQuery();
             
+
             if (rs.next()) {
                 TravellerData traveller = new TravellerData();
                 traveller.setTravellerID(rs.getInt("traveller_ID"));
@@ -202,6 +209,7 @@ public class TravellerDao {
                 traveller.setPassword(rs.getString("password"));
                 traveller.setProfilePicture(rs.getBytes("profile_picture"));
                 
+
                 return traveller;
             }
         } catch (SQLException e) {
@@ -256,6 +264,7 @@ public class TravellerDao {
     }
     
     public TravellerData getTravellerById(int travellerId) {
+
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -283,6 +292,7 @@ public class TravellerDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+
         } finally {
             closeResources(rs, stmt);
             mysql.closeConnection(conn);
