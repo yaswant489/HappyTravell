@@ -4,14 +4,13 @@
  */
 package happytravell.controller;
 
-
 import happytravell.model.TravellerData;
-
+import happytravell.view.AdminProfileView;
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
 import happytravell.view.TravellerProfileView;
-import happytravell.view.TravellerVechilesDetailsView;
 import happytravell.view.TravellerdashboardView;
+import happytravell.view.TravellerVechilesDetailsView;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
@@ -29,10 +28,14 @@ import javax.swing.JOptionPane;
 public class TravellerDashboardController {
 
     private TravellerdashboardView travellerdashboardView = new TravellerdashboardView();
-    public TravellerDashboardController(TravellerdashboardView travellerdashboardView){
+    private TravellerData currentTraveller;
+    
+    public TravellerDashboardController(TravellerdashboardView travellerdashboardView, TravellerData traveller){
         this.travellerdashboardView = travellerdashboardView;
+        this.currentTraveller = traveller;
        
         this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));       
+        this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
 
     }
@@ -124,11 +127,42 @@ public class TravellerDashboardController {
     }
     
 
-    TravellerDashboardController(TravellerdashboardView dashboardView, TravellerData traveller) {
-    }
-
     
+//    Profile Navigation
+    class ProfileNav implements MouseListener{
+        
+        private JLabel profileLabel;
+        public ProfileNav(JLabel label){
+            this.profileLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            // TODO: Create TravellerProfileController
+            JOptionPane.showMessageDialog(travellerdashboardView, "Profile functionality not yet implemented!");
+            // TravellerProfileView travellerProfileView = new TravellerProfileView();
+            // TravellerProfileController  travellerProfile= new  TravellerProfileController(travellerProfileView );
+            // travellerProfile.open();
+            // close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
 
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            profileLabel.setForeground(Color.RED);
+            profileLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            profileLabel.setForeground(Color.BLACK);
+            profileLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
     
 //    LogOut Navigation
     class LogOutNav implements MouseListener{
@@ -169,10 +203,6 @@ public class TravellerDashboardController {
             logOutLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
     }
-
+}
     
-    
-
- }
-   
     
