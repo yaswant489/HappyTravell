@@ -1,15 +1,8 @@
 
 package happytravell.database;
-//
-///*
-// * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-// * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this te
-//*/
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MysqlConnection implements DbConnection {
     
@@ -29,8 +22,10 @@ public class MysqlConnection implements DbConnection {
     
     @Override
     public Connection openConnection() {
-        try {
-            // Load MySQL JDBC driver
+        try{
+            String username="root";
+            String password="admin123";
+            String database="happytravel";
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             // Create and return connection
@@ -48,23 +43,18 @@ public class MysqlConnection implements DbConnection {
             return null;
         }
     }
-    
+
     @Override
     public void closeConnection(Connection conn) {
-
         try {
-            if (conn != null && !conn.isClosed()) {
-
+            if (conn!=null && !conn.isClosed()){
                 conn.close();
-                System.out.println("Database connection closed successfully!");
-            } catch (SQLException e) {
-                System.err.println("Error closing database connection: " + e.getMessage());
-                e.printStackTrace();
             }
-
-        } catch (SQLException e) {
-            System.err.println("Failed to close database connection: " + e.getMessage());
-
+        }
+        catch(Exception e){
+            
         }
     }
+    
+   
 }

@@ -12,8 +12,8 @@ package happytravell.controller;
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
 import happytravell.view.TravellerProfileView;
+import happytravell.view.TravellerVehiclesDetailsView;
 import happytravell.view.TravellerdashboardView;
-import happytravell.view.TravellerVechilesDetailsView;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
@@ -29,18 +29,18 @@ import javax.swing.JOptionPane;
  * @author Acer
  */
 public class TravellerDashboardController {
-
     private TravellerdashboardView travellerdashboardView = new TravellerdashboardView();
 
     private int currentTravellerId;
-    public TravellerDashboardController(TravellerdashboardView travellerdashboardView,int travellerId){
+    public TravellerDashboardController(TravellerdashboardView travellerdashboardView, int travellerId){
+        this.travellerdashboardView = travellerdashboardView;
         this.currentTravellerId = travellerId;
         this.travellerdashboardView = travellerdashboardView;
         this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));  
 
         this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
-
+       
     }
     
     public void open(){
@@ -125,6 +125,11 @@ public class TravellerDashboardController {
             profileLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
     }
+
+   
+
+    
+
     
 
 //    LogOut Navigation

@@ -481,26 +481,40 @@ private void displayFilteredBooking() {
         gbc.fill = GridBagConstraints.NONE;
     }
     
-    private void populateData() {
-        if (bookingData != null)
-            {
+    // Replace the populateData() method in BookingDetailsPopup class with this fixed version:
+
+private void populateData() {
+    if (bookingData != null) {
+        // First, try to get traveller data if not already set
+        if (travellerData == null) {
+            try {
+                TravellerDao travellerDao = new TravellerDao();
+                travellerData = travellerDao.getTravellerById(bookingData.getTravellerId());
+            } catch (Exception e) {
+                System.err.println("Error loading traveller data: " + e.getMessage());
+                travellerData = new TravellerData(); // Create empty fallback
+            }
+        }
+        
+        // Populate booking-related fields (these come from bookingData)
+        dropAddressValueLabel.setText(bookingData.getDropAddress() != null ? 
+                                       bookingData.getDropAddress() : "Not specified");
+        pickupAddressValueLabel.setText(bookingData.getPickupAddress() != null ? 
+                                      bookingData.getPickupAddress() : "Not specified");
+        departureDateTimeValueLabel.setText(bookingData.getDepartureDateTime() != null ? 
+                                    bookingData.getDepartureDateTime() : "Not specified");
+        returnDateTimeValueLabel.setText(bookingData.getReturnDateTime() != null ? 
+                                      bookingData.getReturnDateTime() : "Not specified");
+        passengerCountValueLabel.setText(String.valueOf(bookingData.getPassengerCount()));
+        vehicleNumberValueLabel.setText(bookingData.getVehicleNumber() != null ? 
+                                      bookingData.getVehicleNumber() : "Not assigned");
+        driverNameValueLabel.setText(bookingData.getDriverName() != null ? 
+                                   bookingData.getDriverName() : "Not assigned");
+        
+        // Populate traveller-related fields (these come from travellerData)
+        if (travellerData != null) {
             nameValueLabel.setText(travellerData.getFirstName() != null ? 
-                                     travellerData.getFirstName() : "Not specified");
-            dropAddressValueLabel.setText(bookingData.getDropAddress() != null ? 
-                                           bookingData.getDropAddress() : "Not specified");
-            pickupAddressValueLabel.setText(bookingData.getPickupAddress() != null ? 
-                                          bookingData.getPickupAddress() : "Not specified");
-            departureDateTimeValueLabel.setText(bookingData.getDepartureDateTime() != null ? 
-                                        bookingData.getDepartureDateTime() : "Not specified");
-            returnDateTimeValueLabel.setText(bookingData.getReturnDateTime() != null ? 
-                                          bookingData.getReturnDateTime() : "Not specified");
-            passengerCountValueLabel.setText(String.valueOf(bookingData.getPassengerCount()));
-            vehicleNumberValueLabel.setText(bookingData.getVehicleNumber() != null ? 
-                                          bookingData.getVehicleNumber() : "Not assigned");
-            driverNameValueLabel.setText(bookingData.getDriverName() != null ? 
-                                       bookingData.getDriverName() : "Not assigned");
-            
-            
+                                 travellerData.getFirstName() : "Not specified");
             
             // Set customer image
             byte[] imageData = travellerData.getProfilePicture();
@@ -523,8 +537,12 @@ private void displayFilteredBooking() {
             } else {
                 setDefaultCustomerImage();
             }
+        } else {
+            nameValueLabel.setText("Not specified");
+            setDefaultCustomerImage();
         }
     }
+}
     
     private void setDefaultCustomerImage() {
         imageLabel.setText("👤");

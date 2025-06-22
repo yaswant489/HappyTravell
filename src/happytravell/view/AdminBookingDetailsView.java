@@ -347,43 +347,79 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
         });
     }
     
-   public void displayBooking(List<BookingData> bookings, AdminBookingDetailsController controller) {
+   // Replace the displayBooking method in AdminBookingDetailsView with this debug version:
+
+public void displayBooking(List<BookingData> bookings, AdminBookingDetailsController controller) {
+    System.out.println("=== DEBUG: displayBooking called ===");
+    System.out.println("Number of bookings received: " + (bookings != null ? bookings.size() : "null"));
+    
     jPanel2.removeAll();
     jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
+    
+    if (bookings == null || bookings.isEmpty()) {
+        System.out.println("No bookings to display");
+        JLabel noDataLabel = new JLabel("No booking data available");
+        noDataLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        jPanel2.add(noDataLabel);
+        jPanel2.revalidate();
+        jPanel2.repaint();
+        return;
+    }
     
     TravellerDao travellerDao = new TravellerDao();
     
     for (int i = 0; i < bookings.size(); i++) {
         BookingData bookingDetails = bookings.get(i);
+        System.out.println("Processing booking " + (i+1) + "/" + bookings.size());
+        System.out.println("Booking ID: " + bookingDetails.getBookingId());
+        System.out.println("Traveller ID: " + bookingDetails.getTravellerId());
         
         try {
             // Get traveller data for this booking
             TravellerData traveller = travellerDao.getTravellerById(bookingDetails.getTravellerId());
+            System.out.println("Traveller loaded: " + (traveller != null ? traveller.getFirstName() : "null"));
             
+            // Create card panel
             AdminBookingDetailsCardPanel cardPanel = new AdminBookingDetailsCardPanel(bookingDetails);
+            System.out.println("Card panel created");
+            
             cardPanel.setTravellerData(traveller);
             cardPanel.populateData();
+            System.out.println("Card panel populated");
             
             cardPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            cardPanel.setPreferredSize(new java.awt.Dimension(480, 100)); // Set explicit size for testing
+            cardPanel.setBackground(java.awt.Color.LIGHT_GRAY); // Temporary background for visibility
+            cardPanel.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2)); // Temporary border
             
             // Use the controller's BookingCardListener
             cardPanel.addMouseListener(new AdminBookingDetailsController.BookingCardListener(bookingDetails, controller));
+            System.out.println("Mouse listener added");
             
             jPanel2.add(cardPanel);
+            System.out.println("Card panel added to jPanel2");
             
             if (i < bookings.size() - 1) {
                 jPanel2.add(Box.createVerticalStrut(15));
             }
             
         } catch (Exception e) {
+            System.err.println("Error creating card for booking " + bookingDetails.getBookingId());
             e.printStackTrace();
+            
+            // Add error card
+            JPanel errorPanel = new JPanel();
+            errorPanel.setBackground(java.awt.Color.PINK);
+            errorPanel.add(new JLabel("Error loading booking: " + e.getMessage()));
+            errorPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            jPanel2.add(errorPanel);
         }
     }
     
     jPanel2.add(Box.createVerticalGlue());
-    jPanel2.revalidate();
-    jPanel2.repaint();
-    scrollToTop();
+    
+    
+   
 }
 
     private JPanel createBookingCard(BookingData bookingDetails) {

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 package happytravell.dao;
 
@@ -405,7 +405,7 @@ public class TravellerDao {
 
 
 
-=======
+
 package happytravell.dao;
 
 import happytravell.database.MysqlConnection;
@@ -473,6 +473,20 @@ public class TravellerDao {
         + "return_date_time, passenger_number, vehicle_number, driver_name "
         + "FROM " + BOOKING_TABLE + " WHERE traveller_ID=?";
 
+
+    private static final String UPDATE_TRAVELLER_PROFILE = 
+        "UPDATE " + TRAVELLER_TABLE + " SET first_name = ?, last_name = ?, username = ?, " +
+        "phone_number = ?, email = ?, address = ? WHERE traveller_ID = ?";
+
+    private static final String UPDATE_PROFILE_PICTURE = 
+        "UPDATE " + TRAVELLER_TABLE + " SET profile_picture = ? WHERE traveller_ID = ?";
+
+    private static final String GET_PROFILE_PICTURE = 
+        "SELECT profile_picture FROM " + TRAVELLER_TABLE + " WHERE traveller_ID = ?";
+    
+// Create and insert traveller data  
+    
+
     public boolean register(TravellerData traveller) {
         Connection conn = null;
         PreparedStatement createTableStmt = null;
@@ -508,6 +522,10 @@ public class TravellerDao {
         }
     }
 
+
+    
+//  Booking with image  
+
     public List<BookingData> getAllBookingDetailsWithImage() {
         List<BookingData> bookingList = new ArrayList<>();
 
@@ -515,7 +533,6 @@ public class TravellerDao {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        
         try {
             conn = mysql.openConnection();
             stmt = conn.prepareStatement(GET_BOOKINGS_WITH_IMAGES);
@@ -554,7 +571,7 @@ public class TravellerDao {
         
         return bookingList;
     }
-    
+
     public List<BookingData> getBookingsByTravellerId(int travellerId) {
         List<BookingData> bookings = new ArrayList<>();
         Connection conn = null;
@@ -591,6 +608,9 @@ public class TravellerDao {
         return bookings;
     }
     
+
+//   login Query
+
     public TravellerData travellerLogin(LoginRequest loginRequest) {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -709,93 +729,7 @@ public class TravellerDao {
         return null;
     }
     
-    // --- Methods for Cancel/Reschedule ---
 
-    public BookingData getBookingById(int bookingId) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        String query = "SELECT * FROM " + BOOKING_TABLE + " WHERE booking_ID = ?";
-        
-        try {
-            conn = mysql.openConnection();
-            stmt = conn.prepareStatement(query);
-            stmt.setInt(1, bookingId);
-            rs = stmt.executeQuery();
-            
-            if (rs.next()) {
-                BookingData booking = new BookingData();
-                booking.setBookingId(rs.getInt("booking_ID"));
-                booking.setTravellerId(rs.getInt("traveller_ID"));
-                booking.setPickupAddress(rs.getString("pickup_address"));
-                booking.setDropAddress(rs.getString("drop_address"));
-                booking.setDepartureDateTime(rs.getString("departure_date_time"));
-                booking.setReturnDateTime(rs.getString("return_date_time"));
-                booking.setPassengerCount(rs.getInt("passenger_number"));
-                booking.setVehicleNumber(rs.getString("vehicle_number"));
-                booking.setDriverName(rs.getString("driver_name"));
-                booking.setPaymentMethod(rs.getString("payment_method"));
-                return booking;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            closeResources(rs, stmt);
-            mysql.closeConnection(conn);
-        }
-        return null;
-    }
-
-    public boolean updateBooking(BookingData booking) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        String query = "UPDATE " + BOOKING_TABLE + " SET " +
-                       "pickup_address = ?, drop_address = ?, departure_date_time = ?, " +
-                       "return_date_time = ?, passenger_number = ?, vehicle_number = ?, " +
-                       "driver_name = ?, payment_method = ? WHERE booking_ID = ?";
-        
-        try {
-            conn = mysql.openConnection();
-            stmt = conn.prepareStatement(query);
-            stmt.setString(1, booking.getPickupAddress());
-            stmt.setString(2, booking.getDropAddress());
-            stmt.setString(3, booking.getDepartureDateTime());
-            stmt.setString(4, booking.getReturnDateTime());
-            stmt.setInt(5, booking.getPassengerCount());
-            stmt.setString(6, booking.getVehicleNumber());
-            stmt.setString(7, booking.getDriverName());
-            stmt.setString(8, booking.getPaymentMethod());
-            stmt.setInt(9, booking.getBookingId());
-            
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            closeResources(stmt);
-            mysql.closeConnection(conn);
-        }
-    }
-
-    public boolean deleteBooking(int bookingId) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        String query = "DELETE FROM " + BOOKING_TABLE + " WHERE booking_ID = ?";
-        
-        try {
-            conn = mysql.openConnection();
-            stmt = conn.prepareStatement(query);
-            stmt.setInt(1, bookingId);
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            closeResources(stmt);
-            mysql.closeConnection(conn);
-        }
-    }
-    
     private void closeResources(AutoCloseable... resources) {
         for (AutoCloseable resource : resources) {
             if (resource != null) {
@@ -807,5 +741,85 @@ public class TravellerDao {
             }
         }
     }
+    
+    
+  
+    public boolean updateTravellerProfile(int travellerId, String firstName, String lastName, 
+                                        String username, String phoneNumber, String email, 
+                                        String address) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(UPDATE_TRAVELLER_PROFILE);
+            stmt.setString(1, firstName);
+            stmt.setString(2, lastName);
+            stmt.setString(3, username);
+            stmt.setString(4, phoneNumber);
+            stmt.setString(5, email);
+            stmt.setString(6, address);
+            stmt.setInt(7, travellerId);
+            
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            closeResources(stmt);
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public boolean updateProfilePicture(int travellerId, byte[] profilePicture) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(UPDATE_PROFILE_PICTURE);
+            stmt.setBytes(1, profilePicture);
+            stmt.setInt(2, travellerId);
+
+            
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            closeResources(stmt);
+            mysql.closeConnection(conn);
+        }
+    }
+
+
+    public byte[] getProfilePicture(int travellerId) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(GET_PROFILE_PICTURE);
+            stmt.setInt(1, travellerId);
+            
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getBytes("profile_picture");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(rs, stmt);
+            mysql.closeConnection(conn);
+        }
+        return null;
+    }
 }
->>>>>>> Yaswant
+
+
+
+
+
+
+
