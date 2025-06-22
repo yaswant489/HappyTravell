@@ -151,6 +151,7 @@ public final class TravellerProfileView extends javax.swing.JFrame {
         travellerNameLabel = new javax.swing.JLabel();
         profileAddIcon = new javax.swing.JLabel();
         travellerProfile = new javax.swing.JLabel();
+        nextButton = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -269,14 +270,14 @@ public final class TravellerProfileView extends javax.swing.JFrame {
         jPanel2.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 70, 20));
 
         updateProfileButton.setBackground(new java.awt.Color(241, 171, 89));
-        updateProfileButton.setFont(new java.awt.Font("Constantia", 1, 12)); // NOI18N
+        updateProfileButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         updateProfileButton.setText("Update Profile");
         updateProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateProfileButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 120, 30));
+        jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 120, 30));
 
         travellerNameLabel.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         travellerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -289,7 +290,12 @@ public final class TravellerProfileView extends javax.swing.JFrame {
         travellerProfile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(travellerProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
 
-        profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 250));
+        nextButton.setBackground(new java.awt.Color(241, 171, 89));
+        nextButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        nextButton.setText("Next");
+        jPanel2.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
+
+        profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 260));
 
         getContentPane().add(profilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
 
@@ -458,6 +464,7 @@ public final class TravellerProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
+    private javax.swing.JButton nextButton;
     private javax.swing.JLabel notificationIcon;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JTextField phoneNumberTextField;
@@ -589,5 +596,8 @@ public final class TravellerProfileView extends javax.swing.JFrame {
         return travellerNameLabel;
     }
  
+    public void NextNavigation(ActionListener listener){
+        nextButton.addActionListener(listener);
+    }
     
 }

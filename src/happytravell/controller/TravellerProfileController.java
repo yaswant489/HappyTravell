@@ -7,10 +7,12 @@ package happytravell.controller;
 import happytravell.dao.AdminDao;
 import happytravell.dao.TravellerDao;
 import happytravell.model.TravellerData;
+import happytravell.view.AdminProfileAccountManagementView;
 import happytravell.view.AdminVehiclesDetailsView;
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
 import happytravell.view.TravellerBusTicketsView;
+import happytravell.view.TravellerProfileAccountManagementView;
 import happytravell.view.TravellerProfileView;
 import happytravell.view.TravellerRouteView;
 import happytravell.view.TravellerVehiclesDetailsView;
@@ -18,6 +20,8 @@ import happytravell.view.TravellerdashboardView;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
@@ -50,6 +54,7 @@ public class TravellerProfileController {
         this.currentTravellerId = travellerId;
         
         // Set up navigation
+        this.profileView.NextNavigation(new NextNav());
         this.profileView.DashboardNavigation(new DashboardNav(profileView.getDashboardlabel()));
         this.profileView.BookingNavigation(new BookingNav(profileView.getBookinglabel()));
         this.profileView.RouteNavigation(new RouteNav(profileView.getRoutelabel()));
@@ -449,6 +454,16 @@ public class TravellerProfileController {
         } 
     }
     
+    
+    // Traveller Navigation
+    class NextNav implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                TravellerProfileAccountManagementView accountView = new TravellerProfileAccountManagementView();
+                TravellerProfileAccountManagementController accountController = new TravellerProfileAccountManagementController(accountView,currentTravellerId);
+                accountController.open();
+        }
+    }
     
     
 //    Logout Navigation

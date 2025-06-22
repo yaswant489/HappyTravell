@@ -397,4 +397,45 @@ public class TravellerDao {
     public boolean deleteBooking(int bookingId) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    public boolean updatePassword(int travellerId, String newPassword) {
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    
+    try {
+        conn = mysql.openConnection();
+        stmt = conn.prepareStatement("UPDATE traveller SET password = ? WHERE traveller_ID = ?");
+        stmt.setString(1, newPassword);
+        stmt.setInt(2, travellerId);
+        
+        return stmt.executeUpdate() > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    } finally {
+        closeResources(stmt);
+        mysql.closeConnection(conn);
     }
+}
+
+public boolean deleteTraveller(int travellerId) {
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    
+    try {
+        conn = mysql.openConnection();
+        stmt = conn.prepareStatement("DELETE FROM traveller WHERE traveller_ID = ?");
+        stmt.setInt(1, travellerId);
+        
+        return stmt.executeUpdate() > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    } finally {
+        closeResources(stmt);
+        mysql.closeConnection(conn);
+    }
+}
+    
+    }
+
