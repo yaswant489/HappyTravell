@@ -11,7 +11,7 @@ REM ===========================================
 REM EDIT THESE LINES WITH YOUR MYSQL CREDENTIALS
 REM ===========================================
 set DB_USERNAME=root
-set DB_PASSWORD=your_mysql_password_here
+set DB_PASSWORD=yaswant
 REM ===========================================
 
 echo Setting environment variables...

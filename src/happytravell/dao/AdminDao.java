@@ -37,7 +37,6 @@ public class AdminDao {
                 PreparedStatement createTable= conn.prepareStatement(createTableSQL);
                 createTable.executeUpdate();
                 PreparedStatement stmt = conn.prepareStatement(insertQuery);
-                createTable.executeUpdate();
                 stmt.setString(1, admin.getFirstName() != null ? admin.getFirstName() : "");
                 stmt.setString(2, admin.getLastName() != null ? admin.getLastName() : "");
                 stmt.setString(3, admin.getEmail() != null ? admin.getEmail() : "");

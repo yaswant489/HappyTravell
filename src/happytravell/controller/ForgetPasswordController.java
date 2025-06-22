@@ -53,7 +53,7 @@ public class ForgetPasswordController {
             passwordResetDao.storeVerificationCode(currentEmail, verificationCode);
 
             // Send the verification code via email
-            boolean emailSent = SMTPSMailSender.sendMail(currentEmail, verificationCode);
+            boolean emailSent = SMTPSMailSender.sendVerificationCode(currentEmail, verificationCode);
 
             if (emailSent) {
                 JOptionPane.showMessageDialog(view, "A verification code has been sent to " + currentEmail, "Email Sent", JOptionPane.INFORMATION_MESSAGE);

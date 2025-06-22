@@ -20,15 +20,11 @@ public class MysqlConnection implements DbConnection {
     // Each developer should set their own environment variables
     // ===========================================
     private static final String URL = "jdbc:mysql://localhost:3306/happytravel";
-    private static final String USERNAME = System.getenv("DB_USERNAME") != null ? System.getenv("DB_USERNAME") : "root";
-    private static final String PASSWORD = System.getenv("DB_PASSWORD") != null ? System.getenv("DB_PASSWORD") : "";
+    private static final String USERNAME = "root"; // Set username directly
+    private static final String PASSWORD = "yaswant"; // Set password directly
     // ===========================================
-    // Instructions for setting environment variables:
-    // 1. Open Command Prompt as Administrator
-    // 2. Run: setx DB_USERNAME "root"
-    // 3. Run: setx DB_PASSWORD "your_mysql_password"
-    // 4. Restart your IDE/Command Prompt
-    // 5. Run the application
+    // The application will now use the password "yaswant" by default.
+    // You no longer need to use the run_with_env_vars.bat file.
     // ===========================================
    
     
