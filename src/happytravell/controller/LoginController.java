@@ -191,44 +191,43 @@ import javax.swing.JLabel;
  * @author Acer
  */
 public class LoginController {
-    private LoginPageView loginView = new LoginPageView();
+    private final LoginPageView loginPageView;
 
     private boolean isPasswordVisible = false;
+
     public LoginController(LoginPageView view){
         this.loginView = view;
         this.loginView.LoginUser(new LoginUser());
         this.loginView.signUpNavigation(new SignUpNav(loginView.getSignUplabel()));
         this.loginView.ForgetPasswordNavigation(new ForgetPasswordNav(loginView.getForgetPasswordLabel()));
+
         
-
-        this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
-
-        this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
-
+        this.loginPageView.addLoginListener(new Login());
+        this.loginPageView.signUpNavigation(new SignupNav(loginPageView.getSignUplabel()));
+        this.loginPageView.ForgetPasswordNavigation(new ForgetPasswordNav(loginPageView.getForgetPasswordLabel()));
+        
+        this.loginPageView.TogglePasswordVisibility(new TogglePasswordVisibility());
     }
     
     public void open(){
-        this.loginView.setVisible(true);
+        this.loginPageView.setVisible(true);
     }
     public void close(){
-        this.loginView.dispose();
+        this.loginPageView.dispose();
     }
     
     
-
-    class SignUpNav implements MouseListener{
+    class SignupNav implements MouseListener {
+        private final JLabel signUplabel;
         
-        private JLabel signUpLabel;
-        
-        public SignUpNav(JLabel label){
-            this.signUpLabel = label;
-
+        public SignupNav(JLabel label){
+            this.signUplabel = label;
         }
         
         @Override
         public void mouseClicked(MouseEvent e) {
             SignupAsView signupAsView = new SignupAsView();
-            SignupAsController signupAsController= new SignupAsController(signupAsView);
+            SignupAsController signupAsController = new SignupAsController(signupAsView);
             signupAsController.open();
             close();
         }
@@ -240,26 +239,20 @@ public class LoginController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-
-            signUpLabel.setForeground(Color.BLUE);
-            signUpLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
+            signUplabel.setForeground(Color.BLUE);
+            signUplabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-
-            signUpLabel.setForeground(Color.BLACK);
-            signUpLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        } 
-
+            signUplabel.setForeground(Color.BLACK);
+            signUplabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        }
     }
     
     class ForgetPasswordNav implements MouseListener{
         
-
-        private JLabel forgetPasswordLabel;
-
+        private final JLabel forgetPasswordLabel;
         
         public ForgetPasswordNav(JLabel label){
             this.forgetPasswordLabel = label;
@@ -298,11 +291,11 @@ public class LoginController {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (isPasswordVisible) {
-            loginView.getPasswordField().setEchoChar('•'); // or '*'
-            loginView.getShowButton().setText("Show");
+            loginPageView.getPasswordField().setEchoChar('•'); // or '*'
+            loginPageView.getShowButton().setText("Show");
         } else {
-            loginView.getPasswordField().setEchoChar((char) 0); // show password
-            loginView.getShowButton().setText("Hide");
+            loginPageView.getPasswordField().setEchoChar((char) 0); // show password
+            loginPageView.getShowButton().setText("Hide");
         }
         isPasswordVisible = !isPasswordVisible;
     }
@@ -311,6 +304,7 @@ public class LoginController {
     class LoginUser implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+
          String email = loginView.getEmailTextField().getText();            
          String password = String.valueOf(loginView.getPasswordField().getPassword());
          if (email.isEmpty()||password.isEmpty()){
@@ -364,6 +358,7 @@ public class LoginController {
                 return "Traveller";
             }
             return "Unknown";
+
         }
         
         
@@ -396,7 +391,10 @@ public class LoginController {
             JOptionPane.showMessageDialog(loginView, "Unknown user type");
             break;
     }
+    
 }
+
     }
     
 }
+

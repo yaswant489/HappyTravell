@@ -20,8 +20,34 @@ import java.sql.SQLException;
  * @author Acer
  */
 public class AdminDao {
-    private static final String ADMIN_TABLE = "admin";
-    private final MysqlConnection mysql = new MysqlConnection();
+
+    MysqlConnection mysql = new MysqlConnection();
+    public boolean Register(AdminData admin){
+        Connection conn = mysql.openConnection();
+        String createTableSQL = "CREATE TABLE IF NOT EXISTS admin("
+                    + "admin_ID INT AUTO_INCREMENT PRIMARY KEY,"
+                    + "first_name VARCHAR(100) NOT NULL,"
+                    + "last_name VARCHAR(100) NOT NULL,"
+                    + "username VARCHAR(100) NOT NULL,"
+                    + "phone_number VARCHAR(15) NOT NULL,"
+                    + "address VARCHAR(100) NOT NULL,"
+                    + "email VARCHAR(100) UNIQUE NOT NULL,"
+                    + "password VARCHAR(100) NOT NULL"
+                + ")";
+         String insertQuery = "INSERT INTO admin (first_name, last_name, email, address, phone_number, username, password) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+         try {   
+                PreparedStatement createTable= conn.prepareStatement(createTableSQL);
+                createTable.executeUpdate();
+                PreparedStatement stmt = conn.prepareStatement(insertQuery);
+                stmt.setString(1, admin.getFirstName() != null ? admin.getFirstName() : "");
+                stmt.setString(2, admin.getLastName() != null ? admin.getLastName() : "");
+                stmt.setString(3, admin.getEmail() != null ? admin.getEmail() : "");
+                stmt.setString(4, admin.getAddress() != null ? admin.getAddress() : "");
+                stmt.setString(5, admin.getPhoneNumber() != null ? admin.getPhoneNumber() : "");
+                stmt.setString(6, admin.getUsername() != null ? admin.getUsername() : "");
+                stmt.setString(7, admin.getPassword() != null ? admin.getPassword() : "");
+
 
     // SQL queries
     private static final String CREATE_ADMIN_TABLE = 
