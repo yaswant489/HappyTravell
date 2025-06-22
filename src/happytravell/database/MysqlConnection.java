@@ -15,9 +15,21 @@ import java.sql.SQLException;
 public class MysqlConnection implements DbConnection {
     
     // Database connection parameters
-    private static final String URL = "jdbc:mysql://localhost:3306/happytravell";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "yaswant";
+    // ===========================================
+    // Using Environment Variables for security
+    // Each developer should set their own environment variables
+    // ===========================================
+    private static final String URL = "jdbc:mysql://localhost:3306/happytravel";
+    private static final String USERNAME = System.getenv("DB_USERNAME") != null ? System.getenv("DB_USERNAME") : "root";
+    private static final String PASSWORD = System.getenv("DB_PASSWORD") != null ? System.getenv("DB_PASSWORD") : "";
+    // ===========================================
+    // Instructions for setting environment variables:
+    // 1. Open Command Prompt as Administrator
+    // 2. Run: setx DB_USERNAME "root"
+    // 3. Run: setx DB_PASSWORD "your_mysql_password"
+    // 4. Restart your IDE/Command Prompt
+    // 5. Run the application
+    // ===========================================
    
     
     @Override
