@@ -251,7 +251,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
         TravelerDetailsPanel.add(jeepIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 40, 25));
 
         carIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/car.png"))); // NOI18N
-        TravelerDetailsPanel.add(carIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, 48, 35));
+        TravelerDetailsPanel.add(carIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, 40, 30));
 
         guideButton.setBackground(new java.awt.Color(171, 106, 32));
         guideButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N

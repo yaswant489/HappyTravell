@@ -38,7 +38,7 @@ public class ForgetPasswordView extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
+        // jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/WhatsApp Image 2025-05-22 at 10.03.44 PM.jpeg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jRadioButton1.setText("jRadioButton1");
@@ -157,6 +157,10 @@ public class ForgetPasswordView extends javax.swing.JFrame {
     }
     public void addResetListener(ActionListener listener){
         continueButton.addActionListener(listener);
+    }
+    
+    public String getEmail() {
+        return emailTextField.getText();
     }
      
 }

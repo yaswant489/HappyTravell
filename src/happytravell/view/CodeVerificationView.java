@@ -44,24 +44,43 @@ public class CodeVerificationView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Enter Code");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 80, -1));
+
+        codeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codeTextFieldActionPerformed(evt);
+            }
+        });
         getContentPane().add(codeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 130, 150, -1));
 
         submitButton.setBackground(new java.awt.Color(255, 153, 51));
         submitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         submitButton.setText("Submit");
-        getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 150, 26));
+        getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 150, 30));
 
         backButton.setBackground(new java.awt.Color(255, 153, 51));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         backButton.setText("Back");
         backButton.setOpaque(true);
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 172, 70, 25));
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 90, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void codeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codeTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,4 +125,21 @@ public class CodeVerificationView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
+
+    public void addBackListener(java.awt.event.ActionListener listener) {
+        backButton.addActionListener(listener);
+    }
+    
+    public void addResendListener(java.awt.event.ActionListener listener) {
+        resendCodeButton.addActionListener(listener);
+    }
+    
+    public void setFeedback(String message, java.awt.Color color) {
+        feedbackLabel.setText(message);
+        feedbackLabel.setForeground(color);
+    }
+    
+    public void setSubmitButtonEnabled(boolean enabled) {
+        submitButton.setEnabled(enabled);
+    }
 }

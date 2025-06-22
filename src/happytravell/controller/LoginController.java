@@ -12,11 +12,13 @@ import happytravell.dao.TravellerDao;
 import happytravell.model.AdminData;
 import happytravell.model.LoginRequest;
 import happytravell.model.TravellerData;
+import happytravell.view.TravellerdashboardView;
 import happytravell.view.AdmindashboardView;
 import happytravell.view.ForgetPasswordView;
 import happytravell.view.LoginPageView;
 import happytravell.view.SignupAsView;
-import happytravell.view.TravellerdashboardView;
+import happytravell.controller.ForgetPasswordController;
+import happytravell.controller.SignupAsController;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.MouseEvent;
@@ -36,9 +38,11 @@ public class LoginController {
         this.loginView.signUpNavigation(new SignUpNav(loginView.getSignUplabel()));
         this.loginView.ForgetPasswordNavigation(new ForgetPasswordNav(loginView.getForgetPasswordLabel()));
         
+
         this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
 
         this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
+
     }
     
     public void open(){
@@ -49,12 +53,14 @@ public class LoginController {
     }
     
     
+
     class SignUpNav implements MouseListener{
         
         private JLabel signUpLabel;
         
         public SignUpNav(JLabel label){
             this.signUpLabel = label;
+
         }
         
         @Override
@@ -72,20 +78,26 @@ public class LoginController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+
             signUpLabel.setForeground(Color.BLUE);
             signUpLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+
             signUpLabel.setForeground(Color.BLACK);
             signUpLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
+
     }
     
     class ForgetPasswordNav implements MouseListener{
         
+
         private JLabel forgetPasswordLabel;
+
         
         public ForgetPasswordNav(JLabel label){
             this.forgetPasswordLabel = label;
@@ -133,7 +145,6 @@ public class LoginController {
         isPasswordVisible = !isPasswordVisible;
     }
 }
-
 
     class Login implements ActionListener {
         @Override
