@@ -7,21 +7,20 @@ package happytravell.view;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
+
 
 /**
  *
  * @author Acer
  */
-public final class AdminProfileView extends javax.swing.JFrame {
-    File selectedProfileFile;
+public final class AdminProfileAccountManagementView extends javax.swing.JFrame {
+  
     /**
      * Creates new form AdmindashboardView
      */
-    public AdminProfileView() {
+    public AdminProfileAccountManagementView() {
         initComponents();
         scaleImage1();
         scaleImage2();
@@ -32,7 +31,7 @@ public final class AdminProfileView extends javax.swing.JFrame {
         scaleImage7();
         scaleImage8();
         scaleImage9();
-        scaleImage10();
+        
 
     }
     
@@ -108,14 +107,7 @@ public final class AdminProfileView extends javax.swing.JFrame {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         notificationIcon.setIcon(scaledIcon);
     }
-    public void scaleImage10(){
-        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/addImage.png"));
-        //scaling image to fit in the hlabel.
-        Image img1 = icon1.getImage();
-        Image imgScale = img1.getScaledInstance(profileAddIcon.getWidth(), profileAddIcon.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(imgScale);
-        profileAddIcon.setIcon(scaledIcon);
-    }
+   
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -135,23 +127,15 @@ public final class AdminProfileView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        firstNameLabel = new javax.swing.JLabel();
-        addressTextField = new javax.swing.JTextField();
-        lastNameLabel = new javax.swing.JLabel();
-        firstNameTextField = new javax.swing.JTextField();
-        lastNameTextField = new javax.swing.JTextField();
-        usernameTextField = new javax.swing.JTextField();
-        phoneNumberTextField = new javax.swing.JTextField();
-        emailTextField = new javax.swing.JTextField();
-        usernamelabel = new javax.swing.JLabel();
-        phoneNumberLabel = new javax.swing.JLabel();
+        currentPasswordLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
         addressLabel = new javax.swing.JLabel();
-        updateProfileButton = new javax.swing.JButton();
-        adminNameLabel = new javax.swing.JLabel();
-        profileAddIcon = new javax.swing.JLabel();
-        adminProfile = new javax.swing.JLabel();
-        nextButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        changePasswordButton = new javax.swing.JButton();
+        deleteAccountButton = new javax.swing.JButton();
+        confirmNewPasswordField = new javax.swing.JPasswordField();
+        currentPasswordField = new javax.swing.JPasswordField();
+        newPasswordField = new javax.swing.JPasswordField();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -202,100 +186,59 @@ public final class AdminProfileView extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
         jLabel1.setText("Profile");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 0, 69, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 69, 40));
 
         profilePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 40));
 
         jPanel2.setBackground(new java.awt.Color(251, 245, 205));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        firstNameLabel.setText("First Name");
-        jPanel2.add(firstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 70, 20));
+        currentPasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        currentPasswordLabel.setText("Current Password");
+        jPanel2.add(currentPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 110, 20));
 
-        addressTextField.addActionListener(new java.awt.event.ActionListener() {
+        emailLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        emailLabel.setText("     New Password");
+        jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 110, 20));
+
+        addressLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addressLabel.setText("               Confirm New Password");
+        jPanel2.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 190, 20));
+
+        backButton.setBackground(new java.awt.Color(241, 171, 89));
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressTextFieldActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 115, -1));
+        jPanel2.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 183, 60, -1));
 
-        lastNameLabel.setText("Last Name");
-        jPanel2.add(lastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 70, 20));
-
-        firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
+        changePasswordButton.setBackground(new java.awt.Color(241, 171, 89));
+        changePasswordButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        changePasswordButton.setText("Change password");
+        changePasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameTextFieldActionPerformed(evt);
+                changePasswordButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(firstNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 115, -1));
+        jPanel2.add(changePasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 180, 130, 26));
 
-        lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
+        deleteAccountButton.setBackground(new java.awt.Color(241, 171, 89));
+        deleteAccountButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        deleteAccountButton.setText("Delete Account");
+        deleteAccountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameTextFieldActionPerformed(evt);
+                deleteAccountButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(lastNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 115, -1));
+        jPanel2.add(deleteAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 120, 26));
+        jPanel2.add(confirmNewPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 160, -1));
+        jPanel2.add(currentPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 160, -1));
+        jPanel2.add(newPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 160, -1));
 
-        usernameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel2.add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 115, -1));
-
-        phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneNumberTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel2.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 115, -1));
-
-        emailTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel2.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 115, -1));
-
-        usernamelabel.setText("Username");
-        jPanel2.add(usernamelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 60, 20));
-
-        phoneNumberLabel.setText("Phone Number");
-        jPanel2.add(phoneNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, 20));
-
-        emailLabel.setText("Email");
-        jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 40, 20));
-
-        addressLabel.setText("Address");
-        jPanel2.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 70, 20));
-
-        updateProfileButton.setBackground(new java.awt.Color(241, 171, 89));
-        updateProfileButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        updateProfileButton.setText("Update Profile");
-        updateProfileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateProfileButtonActionPerformed(evt);
-            }
-        });
-        jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 120, 30));
-
-        adminNameLabel.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        adminNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adminNameLabel.setText("Admin Name");
-        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, 20));
-
-        profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/addImage.png"))); // NOI18N
-        jPanel2.add(profileAddIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 20, 20));
-
-        adminProfile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(adminProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
-
-        nextButton.setBackground(new java.awt.Color(241, 171, 89));
-        nextButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        nextButton.setText("Next");
-        jPanel2.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 212, -1, -1));
-
-        profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 260));
+        profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 490, 260));
 
         getContentPane().add(profilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
 
@@ -369,33 +312,17 @@ public final class AdminProfileView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTextFieldActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addressTextFieldActionPerformed
+    }//GEN-LAST:event_backButtonActionPerformed
 
-    private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
+    private void changePasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePasswordButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameTextFieldActionPerformed
+    }//GEN-LAST:event_changePasswordButtonActionPerformed
 
-    private void lastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextFieldActionPerformed
+    private void deleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAccountButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lastNameTextFieldActionPerformed
-
-    private void usernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameTextFieldActionPerformed
-
-    private void phoneNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneNumberTextFieldActionPerformed
-
-    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailTextFieldActionPerformed
-
-    private void updateProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProfileButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateProfileButtonActionPerformed
+    }//GEN-LAST:event_deleteAccountButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,14 +341,18 @@ public final class AdminProfileView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminProfileAccountManagementView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminProfileAccountManagementView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminProfileAccountManagementView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminProfileView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminProfileAccountManagementView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -430,7 +361,7 @@ public final class AdminProfileView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminProfileView().setVisible(true);
+                new AdminProfileAccountManagementView().setVisible(true);
             }
         });
     }
@@ -438,44 +369,36 @@ public final class AdminProfileView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
     private javax.swing.JLabel addressLabel;
-    private javax.swing.JTextField addressTextField;
-    private javax.swing.JLabel adminNameLabel;
-    private javax.swing.JLabel adminProfile;
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel bookingDetailsLabel;
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel busTicketIcon;
     private javax.swing.JLabel busTicketsLabel;
+    private javax.swing.JButton changePasswordButton;
+    private javax.swing.JPasswordField confirmNewPasswordField;
+    private javax.swing.JPasswordField currentPasswordField;
+    private javax.swing.JLabel currentPasswordLabel;
     private javax.swing.JLabel dashboardIcon;
     private javax.swing.JLabel dashboardLabel;
+    private javax.swing.JButton deleteAccountButton;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JTextField emailTextField;
-    private javax.swing.JLabel firstNameLabel;
-    private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel happyTravelLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JLabel lastNameLabel;
-    private javax.swing.JTextField lastNameTextField;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
-    private javax.swing.JButton nextButton;
+    private javax.swing.JPasswordField newPasswordField;
     private javax.swing.JLabel notificationIcon;
-    private javax.swing.JLabel phoneNumberLabel;
-    private javax.swing.JTextField phoneNumberTextField;
     private javax.swing.JPanel placePanel;
-    private javax.swing.JLabel profileAddIcon;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JPanel profilePanel;
     private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
-    private javax.swing.JButton updateProfileButton;
-    private javax.swing.JTextField usernameTextField;
-    private javax.swing.JLabel usernamelabel;
     private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
@@ -520,79 +443,27 @@ public final class AdminProfileView extends javax.swing.JFrame {
         return logOutLabel;
     }
     
-    public JTextField getFirstNameTextField() {
-        return firstNameTextField;
+    public javax.swing.JPasswordField getCurrentPasswordField(){
+        return currentPasswordField;
     }
-    public JTextField getLastNameTextField() {
-        return lastNameTextField;
+    
+    public javax.swing.JPasswordField getNewPasswordField(){
+        return newPasswordField;
     }
-    public JTextField getUsernameTextField() {
-        return usernameTextField;
-    }
-    public JTextField getAddressTextField() {
-        return addressTextField;
-    }
-    public JTextField getPhoneNumberTextField() {
-        return phoneNumberTextField;
-    }
-    public JTextField getEmailTextField() {
-        return emailTextField;
+    
+    public javax.swing.JPasswordField getConfirmNewPasswordField(){
+        return confirmNewPasswordField;
     }
     
     public void setUpdateProfileButtonAction(ActionListener listener) {
-        updateProfileButton.addActionListener(listener);
+        backButton.addActionListener(listener);
+    }
+    public void setchangePasswordAction(ActionListener listener) {
+        changePasswordButton.addActionListener(listener);
+    }
+    public void setDeleteAccoutAction(ActionListener listener) {
+        deleteAccountButton.addActionListener(listener);
     }
     
-    public void uploadProfilePicture(MouseListener listener){
-        profileAddIcon.addMouseListener(listener);
-    }
-    
-    public JLabel getUploadProfile(){
-        return profileAddIcon;
-    }
-    
-    public void selectedProfileFile(File file){
-        this.selectedProfileFile = file;
-    }
-    public void setDefaultProfileImage() {
-        try {
-            ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/path/to/default-profile.png"));
-
-            if (defaultIcon.getIconWidth() == -1) {
-                adminProfile.setText("No Image");
-                adminProfile.setIcon(null);
-            } else {
-                Image scaledImage = defaultIcon.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
-                adminProfile.setIcon(new ImageIcon(scaledImage));
-                adminProfile.setText("");
-            }
-        } catch (Exception e) {
-            adminProfile.setText("No Image");
-            adminProfile.setIcon(null);
-        }
-    }
-    public void displayProfileImage(byte[] imageData) {
-        try {
-            if (imageData != null && imageData.length > 0) {
-                ImageIcon originalIcon = new ImageIcon(imageData);
-                Image scaledImage = originalIcon.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH);
-                ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
-                adminProfile.setIcon(scaledIcon);
-                adminProfile.setText("");
-            } else {
-                setDefaultProfileImage();
-            }
-        } catch (Exception e) {
-            setDefaultProfileImage();
-        }
-    }
-    
-    public JLabel getAdminName(){
-        return adminNameLabel;
-    }
-    public void NextNavigation(ActionListener listener){
-        nextButton.addActionListener(listener);
-    }
     
 }

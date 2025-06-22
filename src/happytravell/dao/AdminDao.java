@@ -330,6 +330,55 @@ public class AdminDao {
             }
         }
     }
+    
+ 
+//Account management 
+private static final String UPDATE_PASSWORD = 
+    "UPDATE " + ADMIN_TABLE + " SET password = ? WHERE admin_ID = ?";
+
+private static final String DELETE_ADMIN = 
+    "DELETE FROM " + ADMIN_TABLE + " WHERE admin_ID = ?";
+
+public boolean updatePassword(int adminId, String newPassword) {
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    
+    try {
+        conn = mysql.openConnection();
+        stmt = conn.prepareStatement(UPDATE_PASSWORD);
+        stmt.setString(1, newPassword);
+        stmt.setInt(2, adminId);
+        
+        return stmt.executeUpdate() > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    } finally {
+        closeResources(stmt);
+        mysql.closeConnection(conn);
+    }
+}
+
+public boolean deleteAdmin(int adminId) {
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    
+    try {
+        conn = mysql.openConnection();
+        stmt = conn.prepareStatement("DELETE FROM " + ADMIN_TABLE + " WHERE admin_ID = ?");
+        stmt.setInt(1, adminId);
+        
+        int rowsAffected = stmt.executeUpdate();
+        return rowsAffected > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    } finally {
+        closeResources(stmt);
+        mysql.closeConnection(conn);
+    }
+
+}
 }
     
      

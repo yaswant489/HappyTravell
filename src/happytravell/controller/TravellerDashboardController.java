@@ -12,7 +12,6 @@ package happytravell.controller;
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
 import happytravell.view.TravellerProfileView;
-import happytravell.view.TravellerVehiclesDetailsView;
 import happytravell.view.TravellerdashboardView;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -37,7 +36,6 @@ public class TravellerDashboardController {
         this.currentTravellerId = travellerId;
         this.travellerdashboardView = travellerdashboardView;
         this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));  
-
         this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
        

@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package happytravell.controller;
-
+//
+//import image.AdminProfileAccountManagementController;
 import happytravell.dao.AdminDao;
 import happytravell.model.AdminData;
 import happytravell.view.AdminBookingDetailsView;
 import happytravell.view.AdminBusTicketsView;
+import happytravell.view.AdminProfileAccountManagementView;
 import happytravell.view.AdminProfileView;
 import happytravell.view.AdminRouteDetailsView;
 import happytravell.view.AdminVehiclesDetailsView;
@@ -16,6 +18,8 @@ import happytravell.view.LoginPageView;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
@@ -47,6 +51,7 @@ public class AdminProfileController {
     public AdminProfileController(AdminProfileView adminProfileView, int adminId) {
         this.profileView = adminProfileView;
         this.currentAdminId = adminId;
+//        this.profileView.NextNavigation(new NextNav());
         this.profileView.DashboardNavigation(new AdminProfileController.DashboardNav(adminProfileView.getDashboardlabel()));
         this.profileView.BookingDetailsNavigation(new AdminProfileController.BookingDetailsNav(adminProfileView.getBookingDetailslabel()));
         this.profileView.BusTicketsNavigation(new AdminProfileController.BusTicketsNav(adminProfileView.getBusTicketslabel()));
@@ -543,6 +548,16 @@ private void redirectToLogin() {
             vehiclesDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
     }
+    
+//    // Traveller Navigation
+//    class NextNav implements ActionListener {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//                AdminProfileAccountManagementView accountView = new AdminProfileAccountManagementView();
+//                AdminProfileAccountManagementController accountController = new AdminProfileAccountManagementController(accountView,currentAdminId);
+//                accountController.open();
+//        }
+//    }  
     
 
     
