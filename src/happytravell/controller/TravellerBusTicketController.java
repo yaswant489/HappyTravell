@@ -4,23 +4,23 @@
  */
 package happytravell.controller;
 
-import happytravell.view.TravellerBookingView;
+import happytravell.view.TravellerBusTicketsView;
 
 /**
  *
  * @author Acer
  */
-public class TravellerBookingController {
-    private TravellerBookingView BookingView;
+public class TravellerBusTicketController {
+    private TravellerBusTicketsView BusTicketsView;
     private int currentTravellerId;
-    public TravellerBookingController(TravellerBookingView travellerBookingView ,int travellerId) {
+    public TravellerBusTicketController(TravellerBusTicketsView BusTicketsView ,int travellerId) {
         this.currentTravellerId =travellerId;
-        this.BookingView = travellerBookingView;
+        this.BusTicketsView = BusTicketsView;
     }
     public void open(){
-    this.BookingView.setVisible(true);
+    this.BusTicketsView.setVisible(true);
     } 
     public void close(){
-    this.BookingView.dispose();
+    this.BusTicketsView.dispose();
     }
 }

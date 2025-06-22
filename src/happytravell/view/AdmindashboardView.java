@@ -280,7 +280,7 @@ public class AdmindashboardView extends javax.swing.JFrame {
                 travellersButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 301, 115, 53));
+        TravelerDetailsPanel.add(travellersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 115, 53));
 
         travellingButton.setBackground(new java.awt.Color(173, 98, 44));
         travellingButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N

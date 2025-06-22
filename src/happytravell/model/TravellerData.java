@@ -9,9 +9,8 @@ package happytravell.model;
  * @author User
  */
 public class TravellerData {
-
     private int travellerID;
-    public String firstName; // Changed from public to private for consistency
+    public String firstName;
     private String lastName;
     private String username;
     private String email;
@@ -19,22 +18,18 @@ public class TravellerData {
     private String address;
     private String password;
     private byte[] profilePicture;
-    
-    
 
     // Constructor with basic fields
-    public TravellerData(String firstName, String lastName, String username, String email) {
+    public TravellerData(int travellerID, String firstName, String lastName, String username, String email) {
+        this.travellerID = travellerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
-        // Removed initialization of null fields - they will be null by default
     }
     
-    // Constructor with all fields
-    public TravellerData(int travellerID, String firstName, String lastName, String username, 
-                        String email, String phoneNumber, String address, String password, byte[] profilePicture) {
-        this.travellerID = travellerID;
+    public TravellerData(String firstName, String lastName, String username, String email, 
+                        String phoneNumber, String address, String password, byte[] profilePicture) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -47,7 +42,6 @@ public class TravellerData {
 
     // Default constructor
     public TravellerData() {
-        
     }
     
     // Setters
@@ -87,12 +81,12 @@ public class TravellerData {
         this.profilePicture = profilePicture;
     }
 
-    // Getters - FIXED: Removed incorrect parameters
+    // Getters
     public int getTravellerID() {
         return this.travellerID;
     }
     
-    public String getFirstName() { // Removed incorrect String parameter
+    public String getFirstName() {
         return this.firstName;
     }
     
@@ -120,7 +114,7 @@ public class TravellerData {
         return this.password;
     }
     
-    public byte[] getProfilePicture() { // Removed incorrect byte[] parameter
+    public byte[] getProfilePicture() {
         return this.profilePicture;
     }
 }

@@ -4,8 +4,11 @@
  */
 package happytravell.controller;
 
-import happytravell.model.TravellerData;
-import happytravell.view.AdminProfileView;
+
+
+
+
+
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
 import happytravell.view.TravellerProfileView;
@@ -28,13 +31,13 @@ import javax.swing.JOptionPane;
 public class TravellerDashboardController {
 
     private TravellerdashboardView travellerdashboardView = new TravellerdashboardView();
-    private TravellerData currentTraveller;
-    
-    public TravellerDashboardController(TravellerdashboardView travellerdashboardView, TravellerData traveller){
+
+    private int currentTravellerId;
+    public TravellerDashboardController(TravellerdashboardView travellerdashboardView,int travellerId){
+        this.currentTravellerId = travellerId;
         this.travellerdashboardView = travellerdashboardView;
-        this.currentTraveller = traveller;
-       
-        this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));       
+        this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));  
+
         this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
 
@@ -55,56 +58,18 @@ public class TravellerDashboardController {
         }
     }
     
-    class BookingListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            javax.swing.JOptionPane.showMessageDialog(travellerdashboardView, "Booking functionality not yet implemented!");
-        }
-    }
-    
-    class VehiclesListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            new TravellerVechilesDetailsView().setVisible(true);
-            close();
-        }
-    }
-
-    class DashboardListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            // Removed DashboardHomePanel reference - show default dashboard content
-            javax.swing.JOptionPane.showMessageDialog(travellerdashboardView, "Dashboard home view not available!");
-        }
-    }
-
-    class RouteListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            javax.swing.JOptionPane.showMessageDialog(travellerdashboardView, "Route functionality not yet implemented!");
-        }
-    }
-
-    class BusTicketsListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            javax.swing.JOptionPane.showMessageDialog(travellerdashboardView, "Bus Tickets functionality not yet implemented!");
-        }
-    }
-
-
-    //    Booking Details Navigation
+    //    Booking  Navigation
     class BookingNav implements MouseListener{
         
-        private JLabel bookingDetailsLabel;
+        private JLabel bookingLabel;
         
         public BookingNav(JLabel label){
-            this.bookingDetailsLabel = label;
+            this.bookingLabel = label;
         }
         @Override
         public void mouseClicked(MouseEvent e) {
-            TravellerBookingView travellerBookingDetailsView = new TravellerBookingView();
-            TravellerBookingController TravellerBooking= new TravellerBookingController(travellerBookingDetailsView);
+            TravellerBookingView travellerBookingView = new TravellerBookingView();
+            TravellerBookingController TravellerBooking= new TravellerBookingController(travellerBookingView, currentTravellerId);
             TravellerBooking.open();
             close();
         }
@@ -115,20 +80,19 @@ public class TravellerDashboardController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            bookingDetailsLabel.setForeground(Color.WHITE);
-            bookingDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            bookingLabel.setForeground(Color.WHITE);
+            bookingLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            bookingDetailsLabel.setForeground(Color.BLACK);
-            bookingDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            bookingLabel.setForeground(Color.BLACK);
+            bookingLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
     }
-    
+   
 
-    
-//    Profile Navigation
+    //    Profile Navigation
     class ProfileNav implements MouseListener{
         
         private JLabel profileLabel;
@@ -138,12 +102,10 @@ public class TravellerDashboardController {
         
         @Override
         public void mouseClicked(MouseEvent e) {
-            // TODO: Create TravellerProfileController
-            JOptionPane.showMessageDialog(travellerdashboardView, "Profile functionality not yet implemented!");
-            // TravellerProfileView travellerProfileView = new TravellerProfileView();
-            // TravellerProfileController  travellerProfile= new  TravellerProfileController(travellerProfileView );
-            // travellerProfile.open();
-            // close();
+            TravellerProfileView travellerProfileView = new TravellerProfileView();
+            TravellerProfileController  TravellerProfile= new  TravellerProfileController(travellerProfileView , currentTravellerId);
+            TravellerProfile.open();
+            close();
         }
         
         @Override
@@ -153,7 +115,7 @@ public class TravellerDashboardController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            profileLabel.setForeground(Color.RED);
+            profileLabel.setForeground(Color.WHITE);
             profileLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
@@ -164,6 +126,7 @@ public class TravellerDashboardController {
         } 
     }
     
+
 //    LogOut Navigation
     class LogOutNav implements MouseListener{
         
@@ -203,6 +166,10 @@ public class TravellerDashboardController {
             logOutLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
     }
-}
-    
+
+   
+   
+ }
+   
+
     
