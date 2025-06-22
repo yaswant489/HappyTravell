@@ -244,4 +244,78 @@ public class CancelRescheduleView extends javax.swing.JFrame {
     private javax.swing.JSpinner returnSpinner;
     private javax.swing.JLabel searchIcon;
     // End of variables declaration//GEN-END:variables
+
+    // --- Listener Methods ---
+    public void addRescheduleListener(java.awt.event.ActionListener listener) {
+        rescheduleButton.addActionListener(listener);
+    }
+
+    public void addCancelListener(java.awt.event.ActionListener listener) {
+        cancelTripButton.addActionListener(listener);
+    }
+
+    // --- Getter and Setter Methods ---
+    public String getPickupAddress() {
+        return pickupAddressTextField.getText();
+    }
+
+    public void setPickupAddress(String address) {
+        pickupAddressTextField.setText(address);
+    }
+
+    public String getDropAddress() {
+        return dropAdressTextField.getText();
+    }
+
+    public void setDropAddress(String address) {
+        dropAdressTextField.setText(address);
+    }
+
+    public java.util.Date getDepartureDateTime() {
+        return (java.util.Date) departureSpinner.getValue();
+    }
+
+    public void setDepartureDateTime(java.util.Date date) {
+        departureSpinner.setValue(date);
+    }
+
+    public java.util.Date getReturnDateTime() {
+        return (java.util.Date) returnSpinner.getValue();
+    }
+
+    public void setReturnDateTime(java.util.Date date) {
+        returnSpinner.setValue(date);
+    }
+
+    public int getNumberOfPassengers() {
+        return (int) numberSpinner.getValue();
+    }
+
+    public void setNumberOfPassengers(int number) {
+        numberSpinner.setValue(number);
+    }
+
+    public String getSelectedVehicleNumber() {
+        return (String) VehiclesNumberComboBox.getSelectedItem();
+    }
+
+    public void setVehicleNumber(String vehicleNumber) {
+        VehiclesNumberComboBox.setSelectedItem(vehicleNumber);
+    }
+
+    public String getSelectedDriverName() {
+        return (String) driverNameComboBox.getSelectedItem();
+    }
+
+    public void setDriverName(String driverName) {
+        driverNameComboBox.setSelectedItem(driverName);
+    }
+
+    public String getSelectedPaymentMethod() {
+        return (String) PaymentMethodComboBox.getSelectedItem();
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        PaymentMethodComboBox.setSelectedItem(paymentMethod);
+    }
 }
