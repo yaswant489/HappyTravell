@@ -4,10 +4,6 @@
  */
 package happytravell.controller;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -16,36 +12,22 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 public class SMTPSMailSender {
 
-    private static final String CONFIG_FILE = "email_config.properties";
-    private static Properties emailProps = new Properties();
-
-    static {
-        try (InputStream input = new FileInputStream(CONFIG_FILE)) {
-            emailProps.load(input);
-        } catch (IOException ex) {
-            System.err.println("Error loading email configuration file: " + CONFIG_FILE);
-            ex.printStackTrace();
-        }
-    }
-
-    private static final String SENDER_EMAIL = emailProps.getProperty("SENDER_EMAIL");
-    private static final String SENDER_APP_PASSWORD = emailProps.getProperty("SENDER_APP_PASSWORD");
+    // Email credentials hardcoded in the source code
+    private static final String SENDER_EMAIL = "yaswantpoudel0@gmail.com";
+    private static final String SENDER_APP_PASSWORD = "dudt slms ghrl mfpu";
 
     public static boolean sendMail(String recipient, String subject, String body) {
-        if (SENDER_EMAIL == null || SENDER_APP_PASSWORD == null || SENDER_EMAIL.isEmpty() || SENDER_APP_PASSWORD.isEmpty()) {
-            System.err.println("Email credentials are not configured in " + CONFIG_FILE);
-            return false;
-        }
-
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
 
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
@@ -67,7 +49,7 @@ public class SMTPSMailSender {
             return true;
 
         } catch (MessagingException e) {
-            System.err.println("Failed to send email.");
+            System.err.println("Failed to send email: " + e.getMessage());
             e.printStackTrace();
             return false;
         }
