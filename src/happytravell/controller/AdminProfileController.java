@@ -53,7 +53,7 @@ public class AdminProfileController {
         this.profileView.RouteDetailsNavigation(new AdminProfileController.RouteDetailsNav(adminProfileView.getRouteDetailslabel()));
         this.profileView.VehiclesDetailsNavigation(new AdminProfileController.VehiclesDetailsNav(adminProfileView.getVehiclesDetailslabel()));
         this.profileView.LogOutNavigation(new AdminProfileController.LogOutNav(adminProfileView.getLogOutlabel()));
-        
+        this.profileView.uploadProfilePicture(new UploadProfilePicture(profileView.getUploadProfile()));
         this.profileView.setUpdateProfileButtonAction(e -> handleUpdateProfile());
         
         loadAdminData();
@@ -77,6 +77,8 @@ public class AdminProfileController {
                 profileView.getPhoneNumberTextField().setText(phoneNumber);
                 profileView.getEmailTextField().setText(email);
                 profileView.getAddressTextField().setText(address);
+                profileView.getAdminName().setText(firstName + " "+lastName );
+
             } else {
                 JOptionPane.showMessageDialog(profileView, 
                     "Admin account not found. Please contact system administrator.", 
@@ -151,6 +153,7 @@ private void redirectToLogin() {
             phoneNumber = changedPhoneNumber;
             email = changedEmail;
             address = changedAddress;
+            profileView.getAdminName().setText(firstName + " "+lastName );
 
             JOptionPane.showMessageDialog(profileView, 
                 "Profile updated successfully!", 
@@ -214,11 +217,11 @@ private void redirectToLogin() {
     }
     
      //Profile Picture
-    class UploadProfielImage implements MouseListener{
+    class UploadProfilePicture implements MouseListener{
         
         private JLabel insertProfileIcon;
         
-        public UploadProfielImage(JLabel label){
+        public UploadProfilePicture(JLabel label){
             this.insertProfileIcon = label;
         }
 
@@ -330,6 +333,10 @@ private void redirectToLogin() {
             insertProfileIcon.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         }
     }
+    
+    
+    
+    
     
 //    //Profile update
 //    class AccounManagement implements MouseListener{

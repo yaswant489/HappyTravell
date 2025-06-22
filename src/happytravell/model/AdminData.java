@@ -19,7 +19,11 @@ public class AdminData {
     private String password;
     private byte[] profilePicture;
     
-    // Fixed constructor - removed unused parameters and corrected parameter usage
+    // Default constructor - needed for DAO object creation pattern
+    public AdminData() {
+    }
+    
+    // Constructor with basic fields
     public AdminData(int id, String firstName, String lastName, String email, String password){
         this.id = id;
         this.firstName = firstName;
@@ -28,6 +32,7 @@ public class AdminData {
         this.password = password;
     }
 
+    // Constructor without ID (for registration)
     public AdminData(String firstName, String lastName, String username, String email, String phoneNumber, String address, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,6 +43,7 @@ public class AdminData {
         this.password = password;
     }
 
+    // Constructor with all fields
     public AdminData(int id, String firstName, String lastName, String username, String email, String phoneNumber, String address, String password) {
         this.id = id;
         this.firstName = firstName;
@@ -49,7 +55,7 @@ public class AdminData {
         this.password = password;
     }
     
-    // Setters - Fixed setId method parameter and logic
+    // Setters
     public void setId(int id) {
         this.id = id;
     }

@@ -109,7 +109,7 @@ public final class TravellerProfileView extends javax.swing.JFrame {
         notificationIcon.setIcon(scaledIcon);
     }
     public void scaleImage10(){
-        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/add-user.png"));
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/addImage.png"));
         //scaling image to fit in the hlabel.
         Image img1 = icon1.getImage();
         Image imgScale = img1.getScaledInstance(profileAddIcon.getWidth(), profileAddIcon.getHeight(), Image.SCALE_SMOOTH);
@@ -279,10 +279,11 @@ public final class TravellerProfileView extends javax.swing.JFrame {
         jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 120, 30));
 
         travellerNameLabel.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        travellerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         travellerNameLabel.setText("Traveller Name");
-        jPanel2.add(travellerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 100, 20));
+        jPanel2.add(travellerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, 20));
 
-        profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/add-user.png"))); // NOI18N
+        profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/addImage.png")));
         jPanel2.add(profileAddIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 20, 20));
 
         travellerProfile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -584,6 +585,9 @@ public final class TravellerProfileView extends javax.swing.JFrame {
         }
     }
 
+    public JLabel geTravellerName(){
+        return travellerNameLabel;
+    }
  
     
 }

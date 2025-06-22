@@ -85,6 +85,7 @@ public class TravellerProfileController {
                     profileView.getPhoneNumberTextField().setText(phoneNumber);
                     profileView.getEmailTextField().setText(email);
                     profileView.getAddressTextField().setText(address);
+                    profileView.geTravellerName().setText(firstName + " "+lastName );
                     
 //                    // Set traveller name in the view
 //                    profileView.getravellerNameLabel().setText(firstName + " " + lastName);
@@ -150,6 +151,9 @@ public class TravellerProfileController {
             phoneNumber = changedPhoneNumber;
             email = changedEmail;
             address = changedAddress;
+            
+            profileView.geTravellerName().setText(firstName +" "+lastName );
+
 
             JOptionPane.showMessageDialog(profileView, 
                 "Profile updated successfully!", 

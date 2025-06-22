@@ -122,7 +122,7 @@ public class AdminRegisterController {
         AdminData adminData = new AdminData(firstName, lastName, username, email, phoneNumber, address, setpassword);
         
         try {
-            boolean success = new AdminDao().Register(adminData);
+            boolean success = new AdminDao().register(adminData);
             if (success) {
                 JOptionPane.showMessageDialog(adminRegisterView, "Registered successfully. Please Login to continue!");
                 LoginPageView loginView = new LoginPageView();

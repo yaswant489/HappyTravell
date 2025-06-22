@@ -9,7 +9,6 @@ package happytravell.model;
  * @author User
  */
 public class TravellerData {
-
     private int travellerID;
     public String firstName;
     private String lastName;
