@@ -40,8 +40,7 @@ public class TravellerDashboardController {
 
         this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
-        this.travellerdashboardView.VehiclesDetailsNavigation(new TravellerDashboardController.VehiclesDetailsNav(travellerdashboardView.getVehiclesDetailslabel()));
-        this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
+       
     }
     
     public void open(){
@@ -96,9 +95,9 @@ public class TravellerDashboardController {
     //    Profile Navigation
     class ProfileNav implements MouseListener{
         
-        private JLabel vehiclesDetailsLabel;
-        public VehiclesDetailsNav(JLabel label){
-            this.vehiclesDetailsLabel = label;
+        private JLabel profileLabel;
+        public ProfileNav(JLabel label){
+            this.profileLabel = label;
         }
         
         @Override

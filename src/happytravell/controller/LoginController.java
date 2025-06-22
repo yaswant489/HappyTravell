@@ -308,7 +308,7 @@ public class LoginController {
     }
 }
 
-    class Login implements ActionListener {
+    class LoginUser implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
          String email = loginView.getEmailTextField().getText();            

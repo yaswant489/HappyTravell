@@ -42,22 +42,5 @@ public class MysqlConnection implements DbConnection {
         }
     }
     
-    @Override
-    public void closeConnection(Connection conn) {
-
-        try {
-            if (conn != null && !conn.isClosed()) {
-
-                conn.close();
-                System.out.println("Database connection closed successfully!");
-            } catch (SQLException e) {
-                System.err.println("Error closing database connection: " + e.getMessage());
-                e.printStackTrace();
-            }
-
-        } catch (SQLException e) {
-            System.err.println("Failed to close database connection: " + e.getMessage());
-
-        }
-    }
+   
 }
