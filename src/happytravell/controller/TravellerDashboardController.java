@@ -9,7 +9,7 @@ import happytravell.model.TravellerData;
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
 import happytravell.view.TravellerProfileView;
-import happytravell.view.TravellerVechilesDetailsView;
+import happytravell.view.TravellerVehiclesDetailsView;
 import happytravell.view.TravellerdashboardView;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -26,14 +26,16 @@ import javax.swing.JOptionPane;
  * @author Acer
  */
 public class TravellerDashboardController {
-
     private TravellerdashboardView travellerdashboardView = new TravellerdashboardView();
-    public TravellerDashboardController(TravellerdashboardView travellerdashboardView){
+    private int currentTravellerId;
+    public TravellerDashboardController(TravellerdashboardView travellerdashboardView, int travellerId){
         this.travellerdashboardView = travellerdashboardView;
+        this.currentTravellerId = travellerId;
        
         this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));       
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
-
+        this.travellerdashboardView.VehiclesDetailsNavigation(new TravellerDashboardController.VehiclesDetailsNav(travellerdashboardView.getVehiclesDetailslabel()));
+        this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
     }
     
     public void open(){
@@ -84,9 +86,75 @@ public class TravellerDashboardController {
         } 
     }
     
+//  Vehicles Details Navigation
+    class VehiclesDetailsNav implements MouseListener{
+        
+        private JLabel vehiclesDetailsLabel;
+        public VehiclesDetailsNav(JLabel label){
+            this.vehiclesDetailsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            TravellerVehiclesDetailsView travellerVehiclesDetailsView = new TravellerVehiclesDetailsView();
+            TravellerVehiclesDetailsController  travellerVehiclesDetails= new  TravellerVehiclesDetailsController(travellerVehiclesDetailsView, currentTravellerId);
+            travellerVehiclesDetails.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
 
-    TravellerDashboardController(TravellerdashboardView dashboardView, TravellerData traveller) {
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.WHITE);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.BLACK);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
     }
+    
+//    Profile Navigation
+    class ProfileNav implements MouseListener{
+        
+        private JLabel profileLabel;
+        public ProfileNav(JLabel label){
+            this.profileLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            TravellerProfileView travellerProfileView = new TravellerProfileView();
+            TravellerProfileController  travellerProfile= new  TravellerProfileController(travellerProfileView , currentTravellerId);
+            travellerProfile.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            profileLabel.setForeground(Color.WHITE);
+            profileLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            profileLabel.setForeground(Color.BLACK);
+            profileLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+
+   
 
     
 

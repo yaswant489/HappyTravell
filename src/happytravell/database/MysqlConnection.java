@@ -16,8 +16,10 @@ public class MysqlConnection implements DbConnection{
 
     @Override
     public Connection openConnection() {
-        try {
-            // Load MySQL JDBC driver
+        try{
+            String username="root";
+            String password="admin123";
+            String database="happytravel";
             Class.forName("com.mysql.cj.jdbc.Driver");
            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+ database,username,password);
 
@@ -28,20 +30,17 @@ public class MysqlConnection implements DbConnection{
             return null;
         }
     }
-    
+
     @Override
     public void closeConnection(Connection conn) {
         try {
             if (conn!=null && !conn.isClosed()){
                 conn.close();
-                System.out.println("Database connection closed successfully!");
-            } catch (SQLException e) {
-                System.err.println("Error closing database connection: " + e.getMessage());
-                e.printStackTrace();
             }
         }
         catch(Exception e){
             
         }
     }
+    
 }

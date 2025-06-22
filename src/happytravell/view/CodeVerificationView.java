@@ -130,14 +130,7 @@ public class CodeVerificationView extends javax.swing.JFrame {
         backButton.addActionListener(listener);
     }
     
-    public void addResendListener(java.awt.event.ActionListener listener) {
-        resendCodeButton.addActionListener(listener);
-    }
     
-    public void setFeedback(String message, java.awt.Color color) {
-        feedbackLabel.setText(message);
-        feedbackLabel.setForeground(color);
-    }
     
     public void setSubmitButtonEnabled(boolean enabled) {
         submitButton.setEnabled(enabled);
