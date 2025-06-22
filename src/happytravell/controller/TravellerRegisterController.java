@@ -130,13 +130,15 @@ public class TravellerRegisterController {
             
             boolean success = new TravellerDao().register(travellerData);
             if (success){
-                JOptionPane.showMessageDialog(travellerRegisterView,"Registered sucessfully.Please Login to continue!");
+                JOptionPane.showMessageDialog(travellerRegisterView,"Registered successfully. Please Login to continue!");
 
-            
-                    LoginPageView loginView = new LoginPageView();
-                    LoginController loginController = new LoginController(loginView);
-                    loginController.open();
-                } else{
+                // After successful registration, go to login page
+                close();
+                LoginPageView loginView = new LoginPageView();
+                LoginController loginController = new LoginController(loginView);
+                loginController.open();
+
+            }else{
                         JOptionPane.showMessageDialog(travellerRegisterView, "Register failed. Please try again!");
                 }
          

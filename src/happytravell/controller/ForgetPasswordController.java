@@ -7,6 +7,7 @@ package happytravell.controller;
 import happytravell.dao.PasswordResetDao;
 import happytravell.view.ForgetPasswordView;
 import happytravell.view.LoginPageView;
+import happytravell.view.CodeVerificationView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -50,25 +51,19 @@ public class ForgetPasswordController {
             
             String verificationCode = generateVerificationCode();
             passwordResetDao.storeVerificationCode(currentEmail, verificationCode);
-            
-            // For now, just show the verification code in a dialog
-            // TODO: Implement proper email sending functionality
-            JOptionPane.showMessageDialog(view, 
-                "Verification code sent to your email: " + currentEmail + "\n" +
-                "Code: " + verificationCode + "\n\n" +
-                "Note: In a real application, this code would be sent via email.", 
-                "Verification Code", JOptionPane.INFORMATION_MESSAGE);
-            
-            // TODO: Uncomment when SMTPSMailSender is implemented
-            /*
-            if (SMTPSMailSender.sendVerificationEmail(currentEmail, verificationCode)) {
-                JOptionPane.showMessageDialog(view, "Verification code sent to your email: " + currentEmail, "Success", JOptionPane.INFORMATION_MESSAGE);
-                // Here you can navigate to a verification code input page if needed
-                // For now, we'll just show a success message
+
+            // Send the verification code via email
+            boolean emailSent = SMTPSMailSender.sendVerificationCode(currentEmail, verificationCode);
+
+            if (emailSent) {
+                JOptionPane.showMessageDialog(view, "A verification code has been sent to " + currentEmail, "Email Sent", JOptionPane.INFORMATION_MESSAGE);
+                // Close the current view and open the code verification view
+                view.dispose();
+                CodeVerificationView codeView = new CodeVerificationView();
+                new CodeVerificationController(codeView, currentEmail).open();
             } else {
-                JOptionPane.showMessageDialog(view, "Failed to send verification code. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(view, "Failed to send verification email. Please try again later.", "Email Error", JOptionPane.ERROR_MESSAGE);
             }
-            */
         }
         
         private String generateVerificationCode() {
