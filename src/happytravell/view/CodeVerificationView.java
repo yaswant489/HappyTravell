@@ -160,10 +160,8 @@ public class CodeVerificationView extends javax.swing.JFrame {
     
     public void setResendLabelHover(boolean isHovering) {
         if (isHovering) {
-            resendCodeLabel.setText("<html><u>Resend Code</u></html>");
             resendCodeLabel.setForeground(java.awt.Color.BLUE);
         } else {
-            resendCodeLabel.setText("Resend Code");
             resendCodeLabel.setForeground(new java.awt.Color(0, 102, 255));
         }
     }

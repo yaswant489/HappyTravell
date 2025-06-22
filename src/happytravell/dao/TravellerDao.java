@@ -301,6 +301,93 @@ public class TravellerDao {
         return null;
     }
     
+    // --- Methods for Cancel/Reschedule ---
+
+    public BookingData getBookingById(int bookingId) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String query = "SELECT * FROM " + BOOKING_TABLE + " WHERE booking_ID = ?";
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setInt(1, bookingId);
+            rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                BookingData booking = new BookingData();
+                booking.setBookingId(rs.getInt("booking_ID"));
+                booking.setTravellerId(rs.getInt("traveller_ID"));
+                booking.setPickupAddress(rs.getString("pickup_address"));
+                booking.setDropAddress(rs.getString("drop_address"));
+                booking.setDepartureDateTime(rs.getString("departure_date_time"));
+                booking.setReturnDateTime(rs.getString("return_date_time"));
+                booking.setPassengerCount(rs.getInt("passenger_number"));
+                booking.setVehicleNumber(rs.getString("vehicle_number"));
+                booking.setDriverName(rs.getString("driver_name"));
+                booking.setPaymentMethod(rs.getString("payment_method"));
+                return booking;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(rs, stmt);
+            mysql.closeConnection(conn);
+        }
+        return null;
+    }
+
+    public boolean updateBooking(BookingData booking) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String query = "UPDATE " + BOOKING_TABLE + " SET " +
+                       "pickup_address = ?, drop_address = ?, departure_date_time = ?, " +
+                       "return_date_time = ?, passenger_number = ?, vehicle_number = ?, " +
+                       "driver_name = ?, payment_method = ? WHERE booking_ID = ?";
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, booking.getPickupAddress());
+            stmt.setString(2, booking.getDropAddress());
+            stmt.setString(3, booking.getDepartureDateTime());
+            stmt.setString(4, booking.getReturnDateTime());
+            stmt.setInt(5, booking.getPassengerCount());
+            stmt.setString(6, booking.getVehicleNumber());
+            stmt.setString(7, booking.getDriverName());
+            stmt.setString(8, booking.getPaymentMethod());
+            stmt.setInt(9, booking.getBookingId());
+            
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            closeResources(stmt);
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public boolean deleteBooking(int bookingId) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String query = "DELETE FROM " + BOOKING_TABLE + " WHERE booking_ID = ?";
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(query);
+            stmt.setInt(1, bookingId);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            closeResources(stmt);
+            mysql.closeConnection(conn);
+        }
+    }
+    
     private void closeResources(AutoCloseable... resources) {
         for (AutoCloseable resource : resources) {
             if (resource != null) {
