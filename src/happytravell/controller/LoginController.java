@@ -12,11 +12,13 @@ import happytravell.dao.TravellerDao;
 import happytravell.model.AdminData;
 import happytravell.model.LoginRequest;
 import happytravell.model.TravellerData;
+import happytravell.view.TravellerdashboardView;
 import happytravell.view.AdmindashboardView;
 import happytravell.view.ForgetPasswordView;
 import happytravell.view.LoginPageView;
 import happytravell.view.SignupAsView;
-import happytravell.view.TravellerdashboardView;
+import happytravell.controller.ForgetPasswordController;
+import happytravell.controller.SignupAsController;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.MouseEvent;
@@ -30,11 +32,12 @@ public class LoginController {
     private LoginPageView loginView = new LoginPageView();
 
     private boolean isPasswordVisible = false;
-    public LoginController(LoginPageView view){
-        this.loginView = view;
-        this.loginView.LoginUser(new Login());
-        this.loginView.signUpNavigation(new SignUpNav(loginView.getSignUplabel()));
-        this.loginView.ForgetPasswordNavigation(new ForgetPasswordNav(loginView.getForgetPasswordLabel()));
+    public LoginController(LoginPageView loginPageView){
+        this.loginPageView = loginPageView;
+        
+        this.loginPageView.addLoginListener(new Login());
+        this.loginPageView.addSignupListener(new Signup());
+        this.loginPageView.ForgetPasswordNavigation(new ForgetPasswordNav(loginPageView.getForgetPasswordLabel()));
         
         this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
 
@@ -49,14 +52,7 @@ public class LoginController {
     }
     
     
-    class SignUpNav implements MouseListener{
-        
-        private JLabel signUpLabel;
-        
-        public SignUpNav(JLabel label){
-            this.signUpLabel = label;
-        }
-        
+    class Signup implements ActionListener {
         @Override
         public void mouseClicked(MouseEvent e) {
             SignupAsView signupAsView = new SignupAsView();
@@ -64,45 +60,28 @@ public class LoginController {
             signupAsController.open();
             close();
         }
-        
-        @Override
-        public void mousePressed(MouseEvent e) {}
-        @Override
-        public void mouseReleased(MouseEvent e) {}
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            signUpLabel.setForeground(Color.BLUE);
-            signUpLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            signUpLabel.setForeground(Color.BLACK);
-            signUpLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        } 
     }
     
-    class ForgetPasswordNav implements MouseListener{
-        
-        private JLabel forgetPasswordLabel;
-        
-        public ForgetPasswordNav(JLabel label){
-            this.forgetPasswordLabel = label;
-        }
-        
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            ForgetPasswordView forgetPasswordView = new ForgetPasswordView();
-            ForgetPasswordController forgetPasswordController= new ForgetPasswordController(forgetPasswordView);
-            forgetPasswordController.open();
-            close();
-        }
-        
-        @Override
-        public void mousePressed(MouseEvent e) {}
-        @Override
-        public void mouseReleased(MouseEvent e) {}
+    class ForgetPasswordNav implements MouseListener {
+    
+    private JLabel forgetPasswordLabel;
+    
+    public ForgetPasswordNav(JLabel label){
+        this.forgetPasswordLabel = label;
+    }
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        ForgetPasswordView forgetPasswordView = new ForgetPasswordView();
+        ForgetPasswordController forgetPasswordController = new ForgetPasswordController(forgetPasswordView);
+        forgetPasswordController.open();
+        close();
+    }
+    
+    @Override
+    public void mousePressed(MouseEvent e) {}
+    @Override
+    public void mouseReleased(MouseEvent e) {}
 
         @Override
         public void mouseEntered(MouseEvent e) {
