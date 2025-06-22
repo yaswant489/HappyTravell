@@ -201,7 +201,6 @@ public class TravellerBookingView extends javax.swing.JFrame {
         routeIcon = new javax.swing.JLabel();
         bookingIcon = new javax.swing.JLabel();
         dashboardIcon = new javax.swing.JLabel();
-        logoIcon = new javax.swing.JLabel();
         dashboardLabel = new javax.swing.JLabel();
         bookingLabel = new javax.swing.JLabel();
         routeDetailsLabel = new javax.swing.JLabel();
@@ -209,6 +208,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
         vehiclesDetailsLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
         logOutLabel = new javax.swing.JLabel();
+        logoIcon = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -241,16 +241,16 @@ public class TravellerBookingView extends javax.swing.JFrame {
         TravelerDetailsPanel.setBackground(new java.awt.Color(235, 189, 135));
         TravelerDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        guideIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/guide.png"))); // NOI18N
+        guideIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/guide (3).png"))); // NOI18N
         TravelerDetailsPanel.add(guideIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 35, 20));
 
-        taxiIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/taxi.png"))); // NOI18N
-        TravelerDetailsPanel.add(taxiIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 35, 20));
+        taxiIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/taxi (1).png"))); // NOI18N
+        TravelerDetailsPanel.add(taxiIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 35, 20));
 
-        jeepIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/jeep .png"))); // NOI18N
-        TravelerDetailsPanel.add(jeepIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 40, 25));
+        jeepIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/jeep  (1).png"))); // NOI18N
+        TravelerDetailsPanel.add(jeepIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 40, 20));
 
-        carIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/car.png"))); // NOI18N
+        carIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/car_1.png"))); // NOI18N
         TravelerDetailsPanel.add(carIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, 40, 30));
 
         guideButton.setBackground(new java.awt.Color(171, 106, 32));
@@ -262,7 +262,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
                 guideButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(guideButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 23, 110, 35));
+        TravelerDetailsPanel.add(guideButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 23, 110, 30));
 
         carButton.setBackground(new java.awt.Color(171, 106, 32));
         carButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
@@ -273,7 +273,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
                 carButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(carButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 23, 110, 35));
+        TravelerDetailsPanel.add(carButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 23, 110, 30));
 
         jeepButton.setBackground(new java.awt.Color(171, 106, 32));
         jeepButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
@@ -285,7 +285,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
                 jeepButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(jeepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 23, 110, 35));
+        TravelerDetailsPanel.add(jeepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 23, 110, 30));
 
         taxiButton.setBackground(new java.awt.Color(171, 106, 32));
         taxiButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
@@ -296,7 +296,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
                 taxiButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(taxiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 23, 110, 35));
+        TravelerDetailsPanel.add(taxiButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 23, 110, 30));
 
         jLabel2.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel2.setText("Choose Service");
@@ -313,7 +313,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
         returnSpinner.setModel(new javax.swing.SpinnerDateModel());
         returnSpinner.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         returnSpinner.setFocusCycleRoot(true);
-        jPanel2.add(returnSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 122, 24));
+        jPanel2.add(returnSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 122, -1));
 
         departureSpinner.setModel(new javax.swing.SpinnerDateModel());
         departureSpinner.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -405,7 +405,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
         numberSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5, 1));
         numberSpinner.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         numberSpinner.setFocusCycleRoot(true);
-        jPanel2.add(numberSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 50, 24));
+        jPanel2.add(numberSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 50, -1));
 
         jSpinner4.setModel(new javax.swing.SpinnerDateModel());
         jSpinner4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -419,39 +419,34 @@ public class TravellerBookingView extends javax.swing.JFrame {
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
         DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N
+        logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout_1.png"))); // NOI18N
         DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, 18, 18));
         logoutIcon.getAccessibleContext().setAccessibleName("");
 
-        profileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
+        profileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user_1.png"))); // NOI18N
         profileIcon.setText("jLabel1");
-        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 255, 18, 18));
+        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 253, 18, 20));
 
-        vehiclesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/front-of-bus.png"))); // NOI18N
-        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 18, 18));
+        vehiclesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/front-of-bus_1.png"))); // NOI18N
+        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 214, 20, 20));
 
-        busTicketIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tickets.png"))); // NOI18N
-        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 18, 18));
+        busTicketIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tickets_1.png"))); // NOI18N
+        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 20, 20));
 
         jLabel4.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel4.setText("Happy Travels");
-        DashDetailsPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 80, -1));
+        DashDetailsPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 80, 30));
 
-        routeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/directions.png"))); // NOI18N
+        routeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/directions_1.png"))); // NOI18N
         DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 135, 18, 18));
 
-        bookingIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/booking.png"))); // NOI18N
+        bookingIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/booking_1.png"))); // NOI18N
         DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 97, 18, 18));
         bookingIcon.getAccessibleContext().setAccessibleName("");
 
-        dashboardIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/dashboard.png"))); // NOI18N
+        dashboardIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/dashboard_1.png"))); // NOI18N
         dashboardIcon.setText("jLabel1");
-        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, 18, 18));
-
-        logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/happy.png"))); // NOI18N
-        logoIcon.setFocusCycleRoot(true);
-        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-35, -5, 120, 50));
-        logoIcon.getAccessibleContext().setAccessibleName("");
+        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 20, 20));
 
         dashboardLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         dashboardLabel.setText("Dashboard");
@@ -480,6 +475,11 @@ public class TravellerBookingView extends javax.swing.JFrame {
         logOutLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         logOutLabel.setText("Logout");
         DashDetailsPanel.add(logOutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 50, -1));
+
+        logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/happy (2).png"))); // NOI18N
+        logoIcon.setFocusCycleRoot(true);
+        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 50));
+        logoIcon.getAccessibleContext().setAccessibleName("");
 
         getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 360));
 
