@@ -131,24 +131,11 @@ public class TravellerRegisterController {
             if (success){
                 JOptionPane.showMessageDialog(travellerRegisterView,"Registered sucessfully.Please Login to continue!");
 
-                // After successful registration, log the user in and open dashboard
-                LoginRequest loginReq = new LoginRequest(email, setpassword);
-                TravellerData newTraveller = new TravellerDao().travellerLogin(loginReq);
-                
-                if (newTraveller != null) {
-                    close(); // Close the registration view
-                    TravellerdashboardView dashboardView = new TravellerdashboardView();
-                    TravellerDashboardController dashboardController = new TravellerDashboardController(dashboardView, newTraveller);
-                    dashboardController.open();
-                } else {
-                    // If login fails for some reason, just go to login page
-                    close();
+            
                     LoginPageView loginView = new LoginPageView();
                     LoginController loginController = new LoginController(loginView);
                     loginController.open();
-                }
-
-            }else{
+                } else{
                         JOptionPane.showMessageDialog(travellerRegisterView, "Register failed. Please try again!");
                 }
          

@@ -65,6 +65,18 @@ public class TravellerDao {
         + "return_date_time, passenger_number, vehicle_number, driver_name "
         + "FROM " + BOOKING_TABLE + " WHERE traveller_ID=?";
 
+    private static final String UPDATE_TRAVELLER_PROFILE = 
+        "UPDATE " + TRAVELLER_TABLE + " SET first_name = ?, last_name = ?, username = ?, " +
+        "phone_number = ?, email = ?, address = ? WHERE traveller_ID = ?";
+
+    private static final String UPDATE_PROFILE_PICTURE = 
+        "UPDATE " + TRAVELLER_TABLE + " SET profile_picture = ? WHERE traveller_ID = ?";
+
+    private static final String GET_PROFILE_PICTURE = 
+        "SELECT profile_picture FROM " + TRAVELLER_TABLE + " WHERE traveller_ID = ?";
+    
+// Create and insert traveller data  
+    
     public boolean register(TravellerData traveller) {
         Connection conn = null;
         PreparedStatement createTableStmt = null;
@@ -100,14 +112,14 @@ public class TravellerDao {
         }
     }
 
+    
+//  Booking with image  
     public List<BookingData> getAllBookingDetailsWithImage() {
         List<BookingData> bookingList = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-
-        
         try {
             conn = mysql.openConnection();
             stmt = conn.prepareStatement(GET_BOOKINGS_WITH_IMAGES);
@@ -146,7 +158,7 @@ public class TravellerDao {
         
         return bookingList;
     }
-    
+     
     public List<BookingData> getBookingsByTravellerId(int travellerId) {
         List<BookingData> bookings = new ArrayList<>();
         Connection conn = null;
@@ -183,6 +195,7 @@ public class TravellerDao {
         return bookings;
     }
     
+//   login Query
     public TravellerData travellerLogin(LoginRequest loginRequest) {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -312,4 +325,80 @@ public class TravellerDao {
             }
         }
     }
+    
+    
+  
+    public boolean updateTravellerProfile(int travellerId, String firstName, String lastName, 
+                                        String username, String phoneNumber, String email, 
+                                        String address) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(UPDATE_TRAVELLER_PROFILE);
+            stmt.setString(1, firstName);
+            stmt.setString(2, lastName);
+            stmt.setString(3, username);
+            stmt.setString(4, phoneNumber);
+            stmt.setString(5, email);
+            stmt.setString(6, address);
+            stmt.setInt(7, travellerId);
+            
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            closeResources(stmt);
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public boolean updateProfilePicture(int travellerId, byte[] profilePicture) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(UPDATE_PROFILE_PICTURE);
+            stmt.setBytes(1, profilePicture);
+            stmt.setInt(2, travellerId);
+            
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            closeResources(stmt);
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public byte[] getProfilePicture(int travellerId) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(GET_PROFILE_PICTURE);
+            stmt.setInt(1, travellerId);
+            
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getBytes("profile_picture");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(rs, stmt);
+            mysql.closeConnection(conn);
+        }
+        return null;
+    }
 }
+
+
+
+

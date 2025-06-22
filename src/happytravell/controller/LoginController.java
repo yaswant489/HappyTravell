@@ -27,70 +27,95 @@ import javax.swing.JLabel;
  * @author User
  */
 public class LoginController {
-    private final LoginPageView loginPageView;
+    private LoginPageView loginView = new LoginPageView();
 
     private boolean isPasswordVisible = false;
-    public LoginController(LoginPageView loginPageView){
-        this.loginPageView = loginPageView;
+    public LoginController(LoginPageView view){
+        this.loginView = view;
+        this.loginView.LoginUser(new Login());
+        this.loginView.signUpNavigation(new SignUpNav(loginView.getSignUplabel()));
+        this.loginView.ForgetPasswordNavigation(new ForgetPasswordNav(loginView.getForgetPasswordLabel()));
         
-        this.loginPageView.addLoginListener(new Login());
-        this.loginPageView.addSignupListener(new Signup());
-        this.loginPageView.ForgetPasswordNavigation(new ForgetPasswordNav(loginPageView.getForgetPasswordLabel()));
-        
-        this.loginPageView.TogglePasswordVisibility(new TogglePasswordVisibility());
+        this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
+
+        this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
     }
     
     public void open(){
-        this.loginPageView.setVisible(true);
+        this.loginView.setVisible(true);
     }
     public void close(){
-        this.loginPageView.dispose();
+        this.loginView.dispose();
     }
     
     
-    class Signup implements ActionListener {
+    class SignUpNav implements MouseListener{
+        
+        private JLabel signUpLabel;
+        
+        public SignUpNav(JLabel label){
+            this.signUpLabel = label;
+        }
+        
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void mouseClicked(MouseEvent e) {
             SignupAsView signupAsView = new SignupAsView();
-            SignupAsController signupAsController = new SignupAsController(signupAsView);
+            SignupAsController signupAsController= new SignupAsController(signupAsView);
             signupAsController.open();
             close();
         }
-    }
-    
-    class ForgetPasswordNav implements MouseListener {
-    
-    private JLabel forgetPasswordLabel;
-    
-    public ForgetPasswordNav(JLabel label){
-        this.forgetPasswordLabel = label;
-    }
-    
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        ForgetPasswordView forgetPasswordView = new ForgetPasswordView();
-        ForgetPasswordController forgetPasswordController = new ForgetPasswordController(forgetPasswordView);
-        forgetPasswordController.open();
-        close();
-    }
-    
-    @Override
-    public void mousePressed(MouseEvent e) {}
-    @Override
-    public void mouseReleased(MouseEvent e) {}
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
 
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        forgetPasswordLabel.setForeground(Color.BLUE);
-        forgetPasswordLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-    }
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            signUpLabel.setForeground(Color.BLUE);
+            signUpLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
 
-    @Override
-    public void mouseExited(MouseEvent e) {
-        forgetPasswordLabel.setForeground(Color.BLACK);
-        forgetPasswordLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-    } 
-}
+        @Override
+        public void mouseExited(MouseEvent e) {
+            signUpLabel.setForeground(Color.BLACK);
+            signUpLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+    class ForgetPasswordNav implements MouseListener{
+        
+        private JLabel forgetPasswordLabel;
+        
+        public ForgetPasswordNav(JLabel label){
+            this.forgetPasswordLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            ForgetPasswordView forgetPasswordView = new ForgetPasswordView();
+            ForgetPasswordController forgetPasswordController= new ForgetPasswordController(forgetPasswordView);
+            forgetPasswordController.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            forgetPasswordLabel.setForeground(Color.BLUE);
+            forgetPasswordLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            forgetPasswordLabel.setForeground(Color.BLACK);
+            forgetPasswordLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
     
 
 
@@ -99,54 +124,57 @@ public class LoginController {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (isPasswordVisible) {
-            loginPageView.getPasswordField().setEchoChar('•'); // or '*'
-            loginPageView.getShowButton().setText("Show");
+            loginView.getPasswordField().setEchoChar('•'); // or '*'
+            loginView.getShowButton().setText("Show");
         } else {
-            loginPageView.getPasswordField().setEchoChar((char) 0); // show password
-            loginPageView.getShowButton().setText("Hide");
+            loginView.getPasswordField().setEchoChar((char) 0); // show password
+            loginView.getShowButton().setText("Hide");
         }
         isPasswordVisible = !isPasswordVisible;
     }
 }
 
+
     class Login implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String email = loginPageView.getEmailTextField().getText();
-            String password = String.valueOf(loginPageView.getPasswordField().getPassword());
-
+            String email = loginView.getEmailTextField().getText();            
+            String password = String.valueOf(loginView.getPasswordField().getPassword());
+            
             if (email.isEmpty() || password.isEmpty()) {
-                JOptionPane.showMessageDialog(loginPageView, "All fields must be filled.");
+                JOptionPane.showMessageDialog(loginView, "Please fill in all the fields");
                 return;
             }
-
+            
+            TravellerDao travellerDao = new TravellerDao();
+            AdminDao adminDao = new AdminDao();
             LoginRequest loginRequest = new LoginRequest(email, password);
-
-            // Try to log in as Admin first
-            AdminData admin = new AdminDao().adminLogin(loginRequest);
+            
+            // Try admin login first
+            AdminData admin = adminDao.adminLogin(loginRequest);
             if (admin != null) {
-                JOptionPane.showMessageDialog(loginPageView, "Admin login successful");
+                JOptionPane.showMessageDialog(loginView, "Admin logged in successfully");
+                AdmindashboardView dashboardView = new AdmindashboardView();
+                AdminDashboardController controller = new AdminDashboardController(dashboardView, admin.getId());
+                controller.open();
                 close();
-                AdmindashboardView adminDashboardView = new AdmindashboardView();
-                AdminDashboardController adminController = new AdminDashboardController(adminDashboardView, admin.getId());
-                adminController.open();
-                return; // Exit after successful admin login
-            }
-
-            // If not an admin, try to log in as Traveller
-            TravellerData traveller = new TravellerDao().travellerLogin(loginRequest);
-            if (traveller != null) {
-                JOptionPane.showMessageDialog(loginPageView, "Traveller login successful");
-                close();
-                TravellerdashboardView dashboardView = new TravellerdashboardView();
-                TravellerDashboardController dashboardController = new TravellerDashboardController(dashboardView, traveller);
-                dashboardController.open();
-                return; // Exit after successful traveller login
+                return;
             }
             
-            // If both logins fail
-            JOptionPane.showMessageDialog(loginPageView, "Login failed. Please check your credentials.");
+            // If not admin, try traveller login
+            TravellerData traveller = travellerDao.travellerLogin(loginRequest);
+            if (traveller != null) {
+                JOptionPane.showMessageDialog(loginView, "Traveller logged in successfully");
+                TravellerdashboardView dashboardView = new TravellerdashboardView();
+                TravellerDashboardController controller = new TravellerDashboardController(dashboardView, traveller.getTravellerID());
+                controller.open();
+                close();
+                return;
+            }
+            
+            // If neither worked
+            JOptionPane.showMessageDialog(loginView, "Login failed. Invalid email or password");
         }
     }
-    
 }
+
