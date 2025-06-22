@@ -28,6 +28,7 @@ public class ForgetPasswordView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jToggleButton1 = new javax.swing.JToggleButton();
         continueButton = new javax.swing.JButton();
@@ -36,6 +37,9 @@ public class ForgetPasswordView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+
+        
+        jLabel1.setText("jLabel1");
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -52,7 +56,7 @@ public class ForgetPasswordView extends javax.swing.JFrame {
                 continueButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(continueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 170, 30));
+        getContentPane().add(continueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 170, 26));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 102, 0));
@@ -78,7 +82,7 @@ public class ForgetPasswordView extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 70, 30));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 65, 24));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -140,6 +144,7 @@ public class ForgetPasswordView extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JButton continueButton;
     private javax.swing.JTextField emailTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

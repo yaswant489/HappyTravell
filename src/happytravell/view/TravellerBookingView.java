@@ -7,6 +7,7 @@ package happytravell.view;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -386,8 +387,8 @@ public class TravellerBookingView extends javax.swing.JFrame {
 
         bookingDetailsButton.setBackground(new java.awt.Color(171, 106, 32));
         bookingDetailsButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        bookingDetailsButton.setText("Booking Details");
-        jPanel2.add(bookingDetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 120, -1));
+        bookingDetailsButton.setText("Booking Detail");
+        jPanel2.add(bookingDetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 130, -1));
 
         searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/search.png"))); // NOI18N
         jPanel2.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 27, 15, 15));
@@ -613,6 +614,78 @@ public class TravellerBookingView extends javax.swing.JFrame {
 
     public void GuideNavigation(ActionListener listener){
         guideButton.addActionListener(listener);
+    }
+
+    public void addCarButtonListener(ActionListener listener) {
+        carButton.addActionListener(listener);
+    }
+
+    public void addJeepButtonListener(ActionListener listener) {
+        jeepButton.addActionListener(listener);
+    }
+
+    public void addTaxiButtonListener(ActionListener listener) {
+        taxiButton.addActionListener(listener);
+    }
+
+    public void addGuideButtonListener(ActionListener listener) {
+        guideButton.addActionListener(listener);
+    }
+
+    public void addBookButtonListener(ActionListener listener) {
+        bookButton.addActionListener(listener);
+    }
+
+    public void addBookingDetailsButtonListener(ActionListener listener) {
+        bookingDetailsButton.addActionListener(listener);
+    }
+
+    public void DashboardNavigation(java.awt.event.MouseListener listener) {
+        dashboardLabel.addMouseListener(listener);
+    }
+
+    public void RouteDetailsNavigation(java.awt.event.MouseListener listener) {
+        routeDetailsLabel.addMouseListener(listener);
+    }
+
+    public void BusDetailsNavigation(java.awt.event.MouseListener listener) {
+        busDetailsLabel.addMouseListener(listener);
+    }
+
+    public void VehiclesDetailsNavigation(java.awt.event.MouseListener listener) {
+        vehiclesDetailsLabel.addMouseListener(listener);
+    }
+
+    public void ProfileNavigation(java.awt.event.MouseListener listener) {
+        profileLabel.addMouseListener(listener);
+    }
+
+    public void LogOutNavigation(java.awt.event.MouseListener listener) {
+        logOutLabel.addMouseListener(listener);
+    }
+
+    public JLabel getDashboardLabel() {
+        return dashboardLabel;
+    }
+
+    public JLabel getRouteDetailsLabel() {
+        return routeDetailsLabel;
+    }
+
+    public JLabel getBusDetailsLabel() {
+        return busDetailsLabel;
+    }
+
+    public JLabel getVehiclesDetailsLabel() {
+        return vehiclesDetailsLabel;
+    }
+
+    public JLabel getProfileLabel() {
+        return profileLabel;
+    }
+
+    public JLabel getLogOutLabel() {
+        return logOutLabel;
     }
 
 }

@@ -21,11 +21,12 @@ public class MapDao {
         String query = "INSERT INTO route ( route_name,pickup_location,destination)"
                 + "VALUES (?,?,?)";
         Connection conn = mySql.openConnection();
+        if (conn == null) return false;
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-//            stmt.setString(1, user.getroute_name());
-//            stmt.setString(2, user.getpickup_location());
-//            stmt.setString(3, user.getdestination());
+            stmt.setString(1, user.getroute_name());
+            stmt.setString(2, user.getpickup_location());
+            stmt.setString(3, user.getdestination());
 
             int result = stmt.executeUpdate();
             return result > 0;

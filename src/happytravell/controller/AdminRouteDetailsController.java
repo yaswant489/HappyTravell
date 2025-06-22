@@ -30,6 +30,7 @@ public class AdminRouteDetailsController {
         this.currentAdminId = adminId;
         this.routeView.DashboardNavigation(new AdminRouteDetailsController.DashboardNav(adminRouteDetailsView.getDashboardlabel()));
         this.routeView.BookingDetailsNavigation(new AdminRouteDetailsController.BookingDetailsNav(adminRouteDetailsView.getBookingDetailslabel()));
+        this.routeView.RouteDetailsNavigation(new AdminRouteDetailsController.RouteDetailsNav(adminRouteDetailsView.getRouteDetailslabel()));
         this.routeView.BusTicketsNavigation(new AdminRouteDetailsController.BusTicketsNav(adminRouteDetailsView.getBusTicketslabel()));
         this.routeView.VehiclesDetailsNavigation(new AdminRouteDetailsController.VehiclesDetailsNav(adminRouteDetailsView.getVehiclesDetailslabel()));
         this.routeView.ProfileNavigation(new AdminRouteDetailsController.ProfileNav(adminRouteDetailsView.getProfilelabel()));
@@ -110,7 +111,36 @@ public class AdminRouteDetailsController {
         } 
     }
     
+//  Route Details Navigation
+    class RouteDetailsNav implements MouseListener{
+        
+        private JLabel routeDetailsLabel;      
+        public RouteDetailsNav(JLabel label){
+            this.routeDetailsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            // Already on this page
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
 
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            routeDetailsLabel.setForeground(Color.WHITE);
+            routeDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            routeDetailsLabel.setForeground(Color.BLACK);
+            routeDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
     
 //  Bus Ticket Navigation  
     class BusTicketsNav implements MouseListener{

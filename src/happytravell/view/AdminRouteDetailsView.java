@@ -338,7 +338,12 @@ public class AdminRouteDetailsView extends javax.swing.JFrame {
     public JLabel getBookingDetailslabel(){
         return bookingDetailsLabel;
     }
-    
+    public void RouteDetailsNavigation(MouseListener listener){
+        routeDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getRouteDetailslabel(){
+        return routeDetailsLabel;
+    }
     public void BusTicketsNavigation(MouseListener listener){
         busTicketsLabel.addMouseListener(listener);
     }

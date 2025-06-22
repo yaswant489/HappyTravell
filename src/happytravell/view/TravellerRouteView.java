@@ -192,15 +192,15 @@ public class TravellerRouteView extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel19.setText("Pokhara");
-        pokharaPanelButton.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 140, 43, -1));
+        pokharaPanelButton.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 100, 20));
 
         jLabel23.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel23.setText("Pokhara is a city on Phewa ");
-        pokharaPanelButton.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 156, 139, -1));
+        jLabel23.setText("KTM to Pokhara");
+        pokharaPanelButton.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 139, -1));
 
         jLabel24.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
         jLabel24.setText("Lake, in central Nepal.");
-        pokharaPanelButton.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 177, 139, -1));
+        pokharaPanelButton.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 139, -1));
 
         placePanel.add(pokharaPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 155, 214));
 
@@ -217,7 +217,7 @@ public class TravellerRouteView extends javax.swing.JFrame {
         mustangPanelButton.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 149, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel26.setText("The district is home to ");
+        jLabel26.setText("Pokhara to mustang");
         mustangPanelButton.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 170, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
@@ -239,7 +239,7 @@ public class TravellerRouteView extends javax.swing.JFrame {
         kathmanduPanelButton.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 146, -1, -1));
 
         jLabel28.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel28.setText("Kathmandu is best known");
+        jLabel28.setText("Pokhara to KTM");
         kathmanduPanelButton.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 167, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
@@ -249,7 +249,7 @@ public class TravellerRouteView extends javax.swing.JFrame {
         placePanel.add(kathmanduPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 21, 161, 214));
 
         jLabel17.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel17.setText("Most popular places among travelers.");
+        jLabel17.setText("Routes");
         placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 3, 211, -1));
 
         TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));

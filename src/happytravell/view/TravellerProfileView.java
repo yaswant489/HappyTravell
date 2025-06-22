@@ -510,6 +510,14 @@ public final class TravellerProfileView extends javax.swing.JFrame {
         return vehiclesDetailsLabel;
     }
     
+    public void ProfileNavigation(MouseListener listener){
+        profileLabel.addMouseListener(listener);
+    }
+
+    public JLabel getProfilelabel(){
+        return profileLabel;
+    }
+
     public void LogOutNavigation(MouseListener listener){
         logOutLabel.addMouseListener(listener);
     }
