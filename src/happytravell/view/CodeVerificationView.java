@@ -31,9 +31,9 @@ public class CodeVerificationView extends javax.swing.JFrame {
         codeTextField = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
-        resendCodeLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        Resendcodelable = new javax.swing.JLabel();
         feedbackLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,10 +68,13 @@ public class CodeVerificationView extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 90, 30));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 100, 30));
 
-        resendCodeLabel.setText("Resend Code");
-        getContentPane().add(resendCodeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
+        Resendcodelable.setText("Resend Code");
+        getContentPane().add(Resendcodelable, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
+
+        feedbackLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(feedbackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 260, 20));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 640, 360));
@@ -123,13 +126,13 @@ public class CodeVerificationView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Resendcodelable;
     private javax.swing.JButton backButton;
     private javax.swing.JTextField codeTextField;
     private javax.swing.JLabel feedbackLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel resendCodeLabel;
     private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
 
@@ -146,7 +149,7 @@ public class CodeVerificationView extends javax.swing.JFrame {
     }
     
     public void addResendListener(java.awt.event.MouseListener listener) {
-        resendCodeLabel.addMouseListener(listener);
+        Resendcodelable.addMouseListener(listener);
     }
 
     public void setFeedback(String message, java.awt.Color color) {
@@ -160,9 +163,9 @@ public class CodeVerificationView extends javax.swing.JFrame {
     
     public void setResendLabelHover(boolean isHovering) {
         if (isHovering) {
-            resendCodeLabel.setForeground(java.awt.Color.BLUE);
+            Resendcodelable.setForeground(java.awt.Color.BLUE);
         } else {
-            resendCodeLabel.setForeground(new java.awt.Color(0, 102, 255));
+            Resendcodelable.setForeground(new java.awt.Color(0, 102, 255));
         }
     }
 }

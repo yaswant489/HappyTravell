@@ -323,7 +323,7 @@ public class TravellerProfileController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            // No action needed as we are already on the profile view
+            // Already on this page
         }
 
         @Override
