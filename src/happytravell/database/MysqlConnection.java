@@ -18,6 +18,7 @@ public class MysqlConnection implements DbConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/happytravell";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "yaswant";
+   
     
     @Override
     public Connection openConnection() {
@@ -32,13 +33,10 @@ public class MysqlConnection implements DbConnection {
             
         } catch (ClassNotFoundException e) {
             System.err.println("MySQL JDBC Driver not found: " + e.getMessage());
-            System.err.println("Please make sure mysql-connector-j-9.2.0.jar is in the lib directory and included in the classpath.");
-            System.err.println("Run the application with: java -cp \"lib/*;build/classes\" happytravell.HappyTravell");
             e.printStackTrace();
             return null;
         } catch (SQLException e) {
             System.err.println("Database connection failed: " + e.getMessage());
-            System.err.println("Please check if MySQL server is running and the database 'happytravell' exists.");
             e.printStackTrace();
             return null;
         }

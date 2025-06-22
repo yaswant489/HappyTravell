@@ -163,10 +163,7 @@ public class LoginController {
             if (traveller != null) {
                 JOptionPane.showMessageDialog(loginPageView, "Traveller login successful");
                 close();
-                TravellerdashboardView dashboardView = new TravellerdashboardView();
-                TravellerDashboardController dashboardController = new TravellerDashboardController(dashboardView, traveller);
-                dashboardController.open();
-                return; // Exit after successful traveller login
+                 // Exit after successful traveller login
             }
             
             // If both logins fail

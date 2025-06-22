@@ -124,4 +124,20 @@ public class ResetPasswordView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField newPasswordField;
     // End of variables declaration//GEN-END:variables
+
+    public String getNewPassword() {
+        return new String(newPasswordField.getPassword());
+    }
+    
+    public String getConfirmPassword() {
+        return new String(confirmPasswordField.getPassword());
+    }
+    
+    public void addResetListener(java.awt.event.ActionListener listener) {
+        jButton1.addActionListener(listener);
+    }
+    
+    public void addBackListener(java.awt.event.ActionListener listener) {
+        jButton2.addActionListener(listener);
+    }
 }
