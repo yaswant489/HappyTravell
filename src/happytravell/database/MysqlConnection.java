@@ -1,19 +1,16 @@
+
 package happytravell.database;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this te
-*/
 
 import java.sql.*;
 
-/**
- *
- * @author Acer
- */
+public class MysqlConnection implements DbConnection {
+    // Database configuration
+    private static final String URL = "jdbc:mysql://localhost:3306/happytravel";
+    private static final String USER = "root";
+    private static final String PASSWORD = "admin123";
 
-public class MysqlConnection implements DbConnection{
-
+    
     @Override
     public Connection openConnection() {
         try{
@@ -21,12 +18,14 @@ public class MysqlConnection implements DbConnection{
             String password="admin123";
             String database="happytravel";
             Class.forName("com.mysql.cj.jdbc.Driver");
-           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+ database,username,password);
+            
 
-            return conn;
-           
-        }
-        catch(Exception e){
+            // Establish connection
+            return DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (ClassNotFoundException | SQLException e) {
+            System.err.println("Failed to create database connection: " + e.getMessage());
+
+            e.printStackTrace();
             return null;
         }
     }
@@ -43,4 +42,22 @@ public class MysqlConnection implements DbConnection{
         }
     }
     
+    @Override
+    public void closeConnection(Connection conn) {
+
+        try {
+            if (conn != null && !conn.isClosed()) {
+
+                conn.close();
+                System.out.println("Database connection closed successfully!");
+            } catch (SQLException e) {
+                System.err.println("Error closing database connection: " + e.getMessage());
+                e.printStackTrace();
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Failed to close database connection: " + e.getMessage());
+
+        }
+    }
 }

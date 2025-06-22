@@ -200,9 +200,11 @@ public class LoginController {
         this.loginView.signUpNavigation(new SignUpNav(loginView.getSignUplabel()));
         this.loginView.ForgetPasswordNavigation(new ForgetPasswordNav(loginView.getForgetPasswordLabel()));
         
+
         this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
 
         this.loginView.TogglePasswordVisibility(new TogglePasswordVisibility());
+
     }
     
     public void open(){
@@ -213,12 +215,14 @@ public class LoginController {
     }
     
     
+
     class SignUpNav implements MouseListener{
         
         private JLabel signUpLabel;
         
         public SignUpNav(JLabel label){
             this.signUpLabel = label;
+
         }
         
         @Override
@@ -236,20 +240,26 @@ public class LoginController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+
             signUpLabel.setForeground(Color.BLUE);
             signUpLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+
             signUpLabel.setForeground(Color.BLACK);
             signUpLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
+
     }
     
     class ForgetPasswordNav implements MouseListener{
         
+
         private JLabel forgetPasswordLabel;
+
         
         public ForgetPasswordNav(JLabel label){
             this.forgetPasswordLabel = label;
@@ -298,8 +308,7 @@ public class LoginController {
     }
 }
 
-    class LoginUser implements ActionListener{
-
+    class Login implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
          String email = loginView.getEmailTextField().getText();            
