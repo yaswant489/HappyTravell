@@ -13,41 +13,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-
 /**
  *
  * @author Acer
  */
 public class AdminDao {
 
+    private static final String ADMIN_TABLE = "admin";
+    
     MysqlConnection mysql = new MysqlConnection();
-    public boolean Register(AdminData admin){
-        Connection conn = mysql.openConnection();
-        String createTableSQL = "CREATE TABLE IF NOT EXISTS admin("
-                    + "admin_ID INT AUTO_INCREMENT PRIMARY KEY,"
-                    + "first_name VARCHAR(100) NOT NULL,"
-                    + "last_name VARCHAR(100) NOT NULL,"
-                    + "username VARCHAR(100) NOT NULL,"
-                    + "phone_number VARCHAR(15) NOT NULL,"
-                    + "address VARCHAR(100) NOT NULL,"
-                    + "email VARCHAR(100) UNIQUE NOT NULL,"
-                    + "password VARCHAR(100) NOT NULL"
-                + ")";
-         String insertQuery = "INSERT INTO admin (first_name, last_name, email, address, phone_number, username, password) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";
-         try {   
-                PreparedStatement createTable= conn.prepareStatement(createTableSQL);
-                createTable.executeUpdate();
-                PreparedStatement stmt = conn.prepareStatement(insertQuery);
-                stmt.setString(1, admin.getFirstName() != null ? admin.getFirstName() : "");
-                stmt.setString(2, admin.getLastName() != null ? admin.getLastName() : "");
-                stmt.setString(3, admin.getEmail() != null ? admin.getEmail() : "");
-                stmt.setString(4, admin.getAddress() != null ? admin.getAddress() : "");
-                stmt.setString(5, admin.getPhoneNumber() != null ? admin.getPhoneNumber() : "");
-                stmt.setString(6, admin.getUsername() != null ? admin.getUsername() : "");
-                stmt.setString(7, admin.getPassword() != null ? admin.getPassword() : "");
-
 
     // SQL queries
     private static final String CREATE_ADMIN_TABLE = 
@@ -100,6 +74,13 @@ public class AdminDao {
         "INSERT INTO " + ADMIN_TABLE + " (first_name, last_name, username, phone_number, "
         + "address, email, password) VALUES ('Admin', 'User', 'admin', '1234567890', "
         + "'Default Address', 'admin@example.com', 'admin123')";
+
+    // Account management queries
+    private static final String UPDATE_PASSWORD = 
+        "UPDATE " + ADMIN_TABLE + " SET password = ? WHERE admin_ID = ?";
+
+    private static final String DELETE_ADMIN = 
+        "DELETE FROM " + ADMIN_TABLE + " WHERE admin_ID = ?";
 
     // Create and insert admin data
     public boolean register(AdminData admin) {
@@ -345,6 +326,46 @@ public class AdminDao {
         return null;
     }
 
+    public boolean updatePassword(int adminId, String newPassword) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(UPDATE_PASSWORD);
+            stmt.setString(1, newPassword);
+            stmt.setInt(2, adminId);
+            
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            closeResources(stmt);
+            mysql.closeConnection(conn);
+        }
+    }
+
+    public boolean deleteAdmin(int adminId) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            conn = mysql.openConnection();
+            stmt = conn.prepareStatement(DELETE_ADMIN);
+            stmt.setInt(1, adminId);
+            
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            closeResources(stmt);
+            mysql.closeConnection(conn);
+        }
+    }
+
     private void closeResources(AutoCloseable... resources) {
         for (AutoCloseable resource : resources) {
             if (resource != null) {
@@ -356,56 +377,4 @@ public class AdminDao {
             }
         }
     }
-    
- 
-//Account management 
-private static final String UPDATE_PASSWORD = 
-    "UPDATE " + ADMIN_TABLE + " SET password = ? WHERE admin_ID = ?";
-
-private static final String DELETE_ADMIN = 
-    "DELETE FROM " + ADMIN_TABLE + " WHERE admin_ID = ?";
-
-public boolean updatePassword(int adminId, String newPassword) {
-    Connection conn = null;
-    PreparedStatement stmt = null;
-    
-    try {
-        conn = mysql.openConnection();
-        stmt = conn.prepareStatement(UPDATE_PASSWORD);
-        stmt.setString(1, newPassword);
-        stmt.setInt(2, adminId);
-        
-        return stmt.executeUpdate() > 0;
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return false;
-    } finally {
-        closeResources(stmt);
-        mysql.closeConnection(conn);
-    }
 }
-
-public boolean deleteAdmin(int adminId) {
-    Connection conn = null;
-    PreparedStatement stmt = null;
-    
-    try {
-        conn = mysql.openConnection();
-        stmt = conn.prepareStatement("DELETE FROM " + ADMIN_TABLE + " WHERE admin_ID = ?");
-        stmt.setInt(1, adminId);
-        
-        int rowsAffected = stmt.executeUpdate();
-        return rowsAffected > 0;
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return false;
-    } finally {
-        closeResources(stmt);
-        mysql.closeConnection(conn);
-    }
-
-}
-}
-    
-     
-

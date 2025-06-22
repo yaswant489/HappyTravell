@@ -51,7 +51,7 @@ public class AdminProfileController {
     public AdminProfileController(AdminProfileView adminProfileView, int adminId) {
         this.profileView = adminProfileView;
         this.currentAdminId = adminId;
-//        this.profileView.NextNavigation(new NextNav());
+        this.profileView.NextNavigation(new NextNav());
         this.profileView.DashboardNavigation(new AdminProfileController.DashboardNav(adminProfileView.getDashboardlabel()));
         this.profileView.BookingDetailsNavigation(new AdminProfileController.BookingDetailsNav(adminProfileView.getBookingDetailslabel()));
         this.profileView.BusTicketsNavigation(new AdminProfileController.BusTicketsNav(adminProfileView.getBusTicketslabel()));
@@ -342,44 +342,7 @@ private void redirectToLogin() {
     
     
     
-    
-//    //Profile update
-//    class AccounManagement implements MouseListener{
-//        
-//        private JLabel accMageIcon;
-//        
-//        public AccounManagement(JLabel label) {
-//            this.accMageIcon = label;
-//        }
-//
-//        @Override
-//        public void mouseClicked(MouseEvent e) {
-//            AdminAccountManagementView adminAccountManagementView = new AdminAccountManagementView();
-//            AdminAccountManagementController adminAccountManagementController= new AdminAccountManagementController(adminAccountManagementView);
-//            adminAccountManagementController.open();
-//            close();
-//        }
-//
-//        @Override
-//        public void mousePressed(MouseEvent e) {
-//        }
-//
-//        @Override
-//        public void mouseReleased(MouseEvent e) {
-//        }
-//
-//        @Override
-//        public void mouseEntered(MouseEvent e) {
-//            accMageIcon.setForeground(Color.red);
-//            accMageIcon.setCursor(new Cursor(Cursor.HAND_CURSOR));
-//        }
-//
-//        @Override
-//        public void mouseExited(MouseEvent e) {
-//            accMageIcon.setForeground(Color.black);
-//            accMageIcon.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-//        }
-//    }
+
     
     //    Dashboard Navigation
     class DashboardNav implements MouseListener{
@@ -549,15 +512,15 @@ private void redirectToLogin() {
         } 
     }
     
-//    // Traveller Navigation
-//    class NextNav implements ActionListener {
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//                AdminProfileAccountManagementView accountView = new AdminProfileAccountManagementView();
-//                AdminProfileAccountManagementController accountController = new AdminProfileAccountManagementController(accountView,currentAdminId);
-//                accountController.open();
-//        }
-//    }  
+    // Traveller Navigation
+    class NextNav implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                AdminProfileAccountManagementView accountView = new AdminProfileAccountManagementView();
+                AdminProfileAccountManagementController accountController = new AdminProfileAccountManagementController(accountView,currentAdminId);
+                accountController.open();
+        }
+    }
     
 
     
