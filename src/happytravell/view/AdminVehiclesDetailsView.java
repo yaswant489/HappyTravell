@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -124,6 +125,7 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
+        addVehiclesButton = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -185,7 +187,12 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jScrollPane1.setViewportView(jPanel2);
 
-        vehiclesDetailsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 72, 510, 290));
+        vehiclesDetailsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 62, 510, 300));
+
+        addVehiclesButton.setBackground(new java.awt.Color(200, 143, 75));
+        addVehiclesButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addVehiclesButton.setText("Add Vehicles");
+        vehiclesDetailsPanel.add(addVehiclesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 35, -1, -1));
 
         getContentPane().add(vehiclesDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
 
@@ -299,6 +306,7 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
+    private javax.swing.JButton addVehiclesButton;
     private javax.swing.JLabel bookingDetailsLabel;
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel busTicketIcon;
@@ -363,5 +371,8 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
     }
     public JLabel getLogOutlabel(){
         return logOutLabel;
+    }
+    public JButton getAddVeheclesButton(){
+        return addVehiclesButton;
     }
 }
