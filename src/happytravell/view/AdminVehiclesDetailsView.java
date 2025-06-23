@@ -388,7 +388,7 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
     public JLabel getLogOutlabel(){
         return logOutLabel;
     }
-    public JButton getAddVeheclesButton(){
+    public JButton getAddVheclesButton(){
         return addVehiclesButton;
     }
     

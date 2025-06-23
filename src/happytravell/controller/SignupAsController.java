@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import happytravell.controller.AdminRegisterController;
 import happytravell.view.LoginPageView;
-import happytravell.view.TravellerRegisterView;
+import image.TravellerRegisterView;
 /**
  *
  * @author Acer

@@ -23,7 +23,7 @@ public class LoginPageView extends javax.swing.JFrame {
      */
     public LoginPageView() {
         initComponents();
-        getRootPane().setDefaultButton(loginButton);
+        
 //        scaleImage1();
         
     }
@@ -55,49 +55,49 @@ public class LoginPageView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         signUpLabel = new javax.swing.JLabel();
         forgetPasswordLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        wellcomeLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        wellcomeLabel.setFont(new java.awt.Font("Candara", 1, 30)); // NOI18N
         wellcomeLabel.setForeground(new java.awt.Color(255, 153, 0));
         wellcomeLabel.setText("Travel Management System");
-        getContentPane().add(wellcomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 280, -1));
+        getContentPane().add(wellcomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 380, -1));
 
-        emailLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        emailLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         emailLabel.setText("  Email");
-        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 50, 30));
+        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 60, 30));
 
-        passwordLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        passwordLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         passwordLabel.setText("Password");
-        getContentPane().add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 80, 30));
+        getContentPane().add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 90, 30));
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 190, 30));
+        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 220, 30));
 
+        showButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         showButton.setText("Show");
         showButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, 70, 28));
+        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 70, 30));
 
         passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 190, 30));
+        getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 220, 30));
 
         loginButton.setBackground(new java.awt.Color(255, 153, 51));
-        loginButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        loginButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         loginButton.setForeground(new java.awt.Color(51, 51, 51));
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -105,24 +105,19 @@ public class LoginPageView extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 190, 30));
+        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 220, 33));
 
-        jLabel1.setText("Don't have an account ? ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 140, -1));
+        jLabel1.setText("   Don't have an account ? ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 150, -1));
 
-        signUpLabel.setText("SignUp");
-        getContentPane().add(signUpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 50, -1));
+        signUpLabel.setText("   SignUp");
+        getContentPane().add(signUpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 60, -1));
 
-        forgetPasswordLabel.setText("Forget Password ?");
-        getContentPane().add(forgetPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, -1));
+        forgetPasswordLabel.setText("   Forget Password ?");
+        getContentPane().add(forgetPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 120, 20));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 102, 0));
-        jLabel4.setText("Login");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 70, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 360));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/LoginFinal.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -156,8 +151,7 @@ public class LoginPageView extends javax.swing.JFrame {
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel forgetPasswordLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
@@ -195,19 +189,19 @@ public class LoginPageView extends javax.swing.JFrame {
         return signUpLabel;
     }
 
-    public void addLoginListener(ActionListener listener) {
+    public void LoginUser(ActionListener listener) {
         loginButton.addActionListener(listener);
     }
 
-    public void addSignupListener(MouseListener listener) {
+    public void signUpNavigation(MouseListener listener) {
         signUpLabel.addMouseListener(listener);
     }
 
-    public void addForgetPasswordListener(MouseListener listener) {
+    public void ForgetPasswordNavigation(MouseListener listener) {
         forgetPasswordLabel.addMouseListener(listener);
     }
     
-    public void addTogglePasswordVisibilityListener(ActionListener listener) {
+    public void TogglePasswordVisibility(ActionListener listener) {
         showButton.addActionListener(listener);
     }
 }
