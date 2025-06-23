@@ -61,6 +61,7 @@ public class TravellerProfileController {
         this.profileView.BusTicketsNavigation(new BusTicketsNav(profileView.getBusTicketslabel()));
         this.profileView.VehiclesDetailsNavigation(new VehiclesDetailsNav(profileView.getVehiclesDetailslabel()));
         this.profileView.LogOutNavigation(new LogOutNav(profileView.getLogOutlabel()));
+        this.profileView.ProfileNavigation(new ProfileNav(profileView.getProfilelabel()));
         
         // Set up profile picture upload
         this.profileView.uploadProfilePicture(new UploadProfileImage(profileView.getUploadProfile()));
@@ -314,8 +315,36 @@ public class TravellerProfileController {
 
         @Override
         public void mouseExited(MouseEvent e) {
-            dashboardLabel.setForeground(Color.BLACK);
-            dashboardLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            dashboardLabel.setForeground(Color.WHITE);
+        }
+    }
+    
+    class ProfileNav implements MouseListener {
+        private final JLabel profileLabel;
+        
+        public ProfileNav(JLabel label){
+            this.profileLabel = label;
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            // Already on this page
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {}
+
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            profileLabel.setForeground(Color.GRAY);
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            profileLabel.setForeground(Color.WHITE);
         }
     }
     

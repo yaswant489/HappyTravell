@@ -73,6 +73,17 @@ public class TravellerDao {
 
     private static final String GET_PROFILE_PICTURE = 
         "SELECT profile_picture FROM " + TRAVELLER_TABLE + " WHERE traveller_ID = ?";
+
+    private static final String GET_BOOKING_BY_ID = 
+        "SELECT * FROM " + BOOKING_TABLE + " WHERE booking_ID = ?";
+
+    private static final String UPDATE_BOOKING = 
+        "UPDATE " + BOOKING_TABLE + " SET pickup_address = ?, drop_address = ?, " +
+        "departure_date_time = ?, return_date_time = ?, passenger_number = ?, " +
+        "vehicle_number = ?, driver_name = ?, payment_method = ? WHERE booking_ID = ?";
+
+    private static final String DELETE_BOOKING = 
+        "DELETE FROM " + BOOKING_TABLE + " WHERE booking_ID = ?";
     
     // Create and insert traveller data  
     public boolean register(TravellerData traveller) {
@@ -304,6 +315,7 @@ public class TravellerDao {
         return null;
     }
     
+
     public boolean updateTravellerProfile(int travellerId, String firstName, String lastName, 
                                         String username, String phoneNumber, String email, 
                                         String address) {
@@ -373,6 +385,7 @@ public class TravellerDao {
         }
         return null;
     }
+
     
     private void closeResources(AutoCloseable... resources) {
         for (AutoCloseable resource : resources) {
@@ -416,6 +429,7 @@ public class TravellerDao {
         closeResources(stmt);
         mysql.closeConnection(conn);
     }
+
 }
 
 public boolean deleteTraveller(int travellerId) {

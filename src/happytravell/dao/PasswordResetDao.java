@@ -23,6 +23,21 @@ public class PasswordResetDao {
     
     private final MysqlConnection mysql = new MysqlConnection();
     
+    public PasswordResetDao() {
+        // Create the verification_codes table if it doesn't exist
+        String createTableQuery = "CREATE TABLE IF NOT EXISTS verification_codes ("
+                + "email VARCHAR(255) PRIMARY KEY,"
+                + "code VARCHAR(10) NOT NULL,"
+                + "expiration_time BIGINT NOT NULL"
+                + ")";
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement stmt = conn.prepareStatement(createTableQuery)) {
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public boolean emailExists(String email) {
         Connection conn = mysql.openConnection();
         String query = "SELECT 1 FROM (SELECT email FROM admin UNION SELECT email FROM traveller) AS users WHERE email = ?";
@@ -41,16 +56,44 @@ public class PasswordResetDao {
     }
     
     public void storeVerificationCode(String email, String code) {
-        long expirationTime = System.currentTimeMillis() + (CODE_EXPIRATION_MINUTES * 60 * 1000);
-        verificationCodes.put(email, new VerificationCode(email, code, expirationTime));
+        long expirationTime = System.currentTimeMillis() + (15 * 60 * 1000); // 15 minutes
+        String query = "REPLACE INTO verification_codes (email, code, expiration_time) VALUES (?, ?, ?)";
+        
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, email);
+            stmt.setString(2, code);
+            stmt.setLong(3, expirationTime);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     
     public boolean verifyCode(String email, String code) {
-        VerificationCode storedCode = verificationCodes.get(email);
-        if (storedCode == null || storedCode.isExpired()) {
-            return false;
+        String query = "SELECT code, expiration_time FROM verification_codes WHERE email = ?";
+        
+        try (Connection conn = mysql.openConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, email);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    String storedCode = rs.getString("code");
+                    long expirationTime = rs.getLong("expiration_time");
+                    
+                    if (System.currentTimeMillis() > expirationTime) {
+                        // Code has expired
+                        return false;
+                    }
+                    
+                    return storedCode.equals(code);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return storedCode.getCode().equals(code);
+        
+        return false;
     }
     
     public boolean resetPassword(String email, String newPassword) {
@@ -78,7 +121,11 @@ public class PasswordResetDao {
             
             // If successful, remove the verification code
             if (success) {
-                verificationCodes.remove(email);
+                String deleteQuery = "DELETE FROM verification_codes WHERE email = ?";
+                try (PreparedStatement stmt = conn.prepareStatement(deleteQuery)) {
+                    stmt.setString(1, email);
+                    stmt.executeUpdate();
+                }
             }
             
             return success;

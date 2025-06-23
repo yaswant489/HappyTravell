@@ -40,10 +40,12 @@ import javax.swing.SwingConstants;
 public class AdminPlacesController {
      private AdminPlacesView placesView;
     private PlaceDao placeDao;
+    private int currentAdminId;
     
-    public AdminPlacesController(AdminPlacesView view) {
+    public AdminPlacesController(AdminPlacesView view, int adminId) {
         this.placesView = view;
         this.placeDao = new PlaceDao();
+        this.currentAdminId = adminId;
         initializeEventHandlers();
     }
     public void open(){
@@ -58,13 +60,7 @@ public class AdminPlacesController {
      * Initialize event handlers for the places view
      */
     private void initializeEventHandlers() {
-        // Add Place button handler
-        placesView.getAddPlacesButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showAddPlaceDialog();
-            }
-        });
+        placesView.getAddPlacesButton().addActionListener(e -> showAddPlaceDialog());
     }    
         
     /**
@@ -198,23 +194,31 @@ public class AdminPlacesController {
                                         JLabel selectedPhotoLabel, JTextField nameField, 
                                         JTextArea descArea, JButton addButton, 
                                         JButton cancelButton) {
-        final String[] selectedPhotoPath = {null};
         
-        // Add photo button handler
-        addPhotoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter(
-                    "Image files", "jpg", "jpeg", "png", "gif"));
-                
-                if (fileChooser.showOpenDialog(dialog) == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    selectedPhotoPath[0] = selectedFile.getAbsolutePath();
-                    selectedPhotoLabel.setText("Selected: " + selectedFile.getName());
-                }
+        addButton.addActionListener(e -> {
+            String name = nameField.getText().trim();
+            String description = descArea.getText().trim();
+            
+            if (name.isEmpty() || description.isEmpty()) {
+                JOptionPane.showMessageDialog(dialog, 
+                    "Please fill in all required fields.", 
+                    "Validation Error", 
+                    JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
+            // For now, we'll add the place without an image
+            PlaceData newPlace = new PlaceData(0, name, description, null);
+            
+            if (placeDao.addPlace(newPlace)) {
+                JOptionPane.showMessageDialog(dialog, "Place added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                dialog.dispose();
+            } else {
+                JOptionPane.showMessageDialog(dialog, "Error adding place.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
+        
+        cancelButton.addActionListener(e -> dialog.dispose());
     }    
         // Add button handler
 //        addButton.addActionListener(new ActionListener() {

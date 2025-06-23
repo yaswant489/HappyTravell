@@ -4,33 +4,39 @@
  */
 package happytravell.controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 import happytravell.dao.AdminDao;
 import happytravell.dao.TravellerDao;
 import happytravell.model.AdminData;
 import happytravell.model.LoginRequest;
 import happytravell.model.TravellerData;
-import happytravell.view.TravellerdashboardView;
 import happytravell.view.AdmindashboardView;
 import happytravell.view.ForgetPasswordView;
 import happytravell.view.LoginPageView;
 import happytravell.view.SignupAsView;
+import happytravell.view.TravellerdashboardView;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author Acer
+ * @author User
  */
 public class LoginController {
+
     private LoginPageView loginView = new LoginPageView();
 
+
+    private final LoginPageView loginView;
+    private final AdminDao adminDao;
+    private final TravellerDao travellerDao;
     private boolean isPasswordVisible = false;
-    public LoginController(LoginPageView view){
+public LoginController(LoginPageView view){
         this.loginView = view;
         this.loginView.LoginUser(new LoginUser());
         this.loginView.signUpNavigation(new SignUpNav(loginView.getSignUplabel()));
@@ -54,29 +60,44 @@ public class LoginController {
         
         public SignUpNav(JLabel label){
             this.signUpLabel = label;
+
         }
-        
+    }
+
+    // Listener for the "Sign Up" navigation
+    class SignupListener implements MouseListener {
+        private final JLabel signupLabel;
+
+        public SignupListener(JLabel label) {
+            this.signupLabel = label;
+        }
+
         @Override
         public void mouseClicked(MouseEvent e) {
             SignupAsView signupAsView = new SignupAsView();
-            SignupAsController signupAsController= new SignupAsController(signupAsView);
+           SignupAsController signupAsController= new SignupAsController(signupAsView);
             signupAsController.open();
+
             close();
         }
-        
+
         @Override
         public void mousePressed(MouseEvent e) {}
+
         @Override
         public void mouseReleased(MouseEvent e) {}
 
         @Override
         public void mouseEntered(MouseEvent e) {
+
             signUpLabel.setForeground(Color.BLUE);
             signUpLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+
             signUpLabel.setForeground(Color.BLACK);
             signUpLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
@@ -87,19 +108,21 @@ public class LoginController {
         private JLabel forgetPasswordLabel;
         
         public ForgetPasswordNav(JLabel label){
+
             this.forgetPasswordLabel = label;
         }
-        
+
         @Override
         public void mouseClicked(MouseEvent e) {
             ForgetPasswordView forgetPasswordView = new ForgetPasswordView();
-            ForgetPasswordController forgetPasswordController= new ForgetPasswordController(forgetPasswordView);
-            forgetPasswordController.open();
+            new ForgetPasswordController(forgetPasswordView);
+            forgetPasswordView.setVisible(true);
             close();
         }
-        
+
         @Override
         public void mousePressed(MouseEvent e) {}
+
         @Override
         public void mouseReleased(MouseEvent e) {}
 
@@ -113,6 +136,7 @@ public class LoginController {
         public void mouseExited(MouseEvent e) {
             forgetPasswordLabel.setForeground(Color.BLACK);
             forgetPasswordLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+
         } 
     }
     
@@ -128,10 +152,10 @@ public class LoginController {
         } else {
             loginView.getPasswordField().setEchoChar((char) 0); // show password
             loginView.getShowButton().setText("Hide");
+
         }
-        isPasswordVisible = !isPasswordVisible;
     }
-}
+
 
     class LoginUser implements ActionListener{
 
@@ -151,44 +175,12 @@ public class LoginController {
                 JOptionPane.showMessageDialog(loginView, 
                     "Incorrect username or password. Please try again!", 
                     "Error", JOptionPane.ERROR_MESSAGE);
+
             } else {
-                String userType = getUserType(authenticatedUser);
-                JOptionPane.showMessageDialog(loginView, 
-                    "Logged in successfully as " + userType);
-                
-                // Navigate to appropriate dashboard based on user type
-                navigateToUserDashboard(authenticatedUser, userType);
+                loginView.getPasswordField().setEchoChar((char) 0);
+                loginView.getShowButton().setText("Hide");
             }
-        }
-        
-        private Object authenticateUser(LoginRequest loginRequest) {
-            // Try admin first
-            AdminDao adminDao = new AdminDao();
-            AdminData admin= adminDao.adminLogin(loginRequest);
-            if (admin != null) {
-                return admin;
-            }
-            
-            
-            
-            // Try traveller last
-            TravellerDao travellerDao = new TravellerDao();
-            TravellerData traveller = travellerDao.travellerLogin(loginRequest);
-            if (traveller != null) {
-                return traveller;
-            }
-            
-            // No user found
-            return null;
-        }
-        
-        private String getUserType(Object user) {
-            if (user instanceof AdminData) {
-                return "Admin";
-            
-            } else if (user instanceof TravellerData) {
-                return "Traveller";
-            }
+
             return "Unknown";
         }
         
@@ -228,6 +220,6 @@ public class LoginController {
              }
         
         }
+
     }
-    
 }

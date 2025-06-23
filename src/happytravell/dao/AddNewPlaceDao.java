@@ -5,7 +5,7 @@
 package happytravell.dao;
 
 import happytravell.database.MysqlConnection;
-import happytravell.model.TravellerData;
+import happytravell.model.PlaceData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -15,22 +15,23 @@ import java.sql.PreparedStatement;
  */
 public class AddNewPlaceDao {
     MysqlConnection mySql = new MysqlConnection();
-    public boolean Register(TravellerData user){
-        String query = "INSERT INTO route ( place_name,description,route)"
+    public boolean Register(PlaceData place){
+        String query = "INSERT INTO places (place_name,description,place_image)"
                 + "VALUES (?,?,?)";
         Connection conn = mySql.openConnection();
+        if (conn == null) return false;
         try {
             PreparedStatement stmt = conn.prepareStatement(query);
-//            stmt.setString(1, user.getplace_name());
-//            stmt.setString(2, user.getdescription());
-//            stmt.setString(3, user.getroute());
+            stmt.setString(1, place.getPlaceName());
+            stmt.setString(2, place.getDescription());
+            stmt.setBytes(3, place.getPlaceImage());
 
             int result = stmt.executeUpdate();
             return result > 0;
-    }   catch (Exception e) {
+        }   catch (Exception e) {
             return false;
-    }   finally {
-        mySql.closeConnection(conn);
-    }
+        }   finally {
+            mySql.closeConnection(conn);
+        }
     }
 }

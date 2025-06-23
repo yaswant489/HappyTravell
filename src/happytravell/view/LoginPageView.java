@@ -167,50 +167,47 @@ public class LoginPageView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
 
-    public javax.swing.JTextField getEmailTextField(){
+    public String getEmail() {
+        return emailTextField.getText();
+    }
+
+    public String getPassword() {
+        return new String(passwordField.getPassword());
+    }
+
+    public javax.swing.JTextField getEmailTextField() {
         return emailTextField;
     }
-    public javax.swing.JPasswordField getPasswordField(){
+    
+    public javax.swing.JPasswordField getPasswordField() {
         return passwordField;
     }
 
     public javax.swing.JToggleButton getShowButton() {
-    return showButton;
+        return showButton;
     }
 
-    public void LoginUser(ActionListener listener){
-        loginButton.addActionListener(listener);
-    }
-    public void signUpNavigation(MouseListener listener){
-        signUpLabel.addMouseListener(listener);
-    }
-    public JLabel getSignUplabel(){
-        return signUpLabel;
-    }
-    public void ForgetPasswordNavigation(MouseListener listener){
-        forgetPasswordLabel.addMouseListener(listener);
-    }
-    public JLabel getForgetPasswordLabel(){
+    public JLabel getForgetPasswordLabel() {
         return forgetPasswordLabel;
     }
-    
-    public void TogglePasswordVisibility(ActionListener listener) {
-    showButton.addActionListener(listener);
+
+    public JLabel getSignupLabel() {
+        return signUpLabel;
     }
 
-    public void addLoginListener(java.awt.event.ActionListener listener) {
+    public void addLoginListener(ActionListener listener) {
         loginButton.addActionListener(listener);
     }
 
-    public void addSignupListener(java.awt.event.ActionListener listener) {
-        signUpLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                listener.actionPerformed(new java.awt.event.ActionEvent(evt.getSource(), java.awt.event.ActionEvent.ACTION_PERFORMED, null));
-            }
-        });
+    public void addSignupListener(MouseListener listener) {
+        signUpLabel.addMouseListener(listener);
     }
 
-    public void emailTextFieldSelectionColor(java.awt.Color color) {
-        emailTextField.setSelectionColor(color);
+    public void addForgetPasswordListener(MouseListener listener) {
+        forgetPasswordLabel.addMouseListener(listener);
+    }
+    
+    public void addTogglePasswordVisibilityListener(ActionListener listener) {
+        showButton.addActionListener(listener);
     }
 }
