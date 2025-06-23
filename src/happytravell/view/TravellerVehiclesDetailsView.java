@@ -119,21 +119,6 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         TravelerDetailsPanel = new javax.swing.JPanel();
         placePanel = new javax.swing.JPanel();
-        pokharaPanelButton = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        mustangPanelButton = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        kathmanduPanelButton = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -182,77 +167,11 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
         placePanel.setBackground(new java.awt.Color(200, 143, 75));
         placePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pokharaPanelButton.setBackground(new java.awt.Color(222, 183, 154));
-        pokharaPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        pokharaPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
-        pokharaPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pokhara.jpg"))); // NOI18N
-        pokharaPanelButton.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, 126));
-
-        jLabel19.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel19.setText("Pokhara");
-        pokharaPanelButton.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 140, 43, -1));
-
-        jLabel23.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel23.setText("Pokhara is a city on Phewa ");
-        pokharaPanelButton.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 156, 139, -1));
-
-        jLabel24.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel24.setText("Lake, in central Nepal.");
-        pokharaPanelButton.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 177, 139, -1));
-
-        placePanel.add(pokharaPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 155, 214));
-
-        mustangPanelButton.setBackground(new java.awt.Color(222, 183, 154));
-        mustangPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        mustangPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
-        mustangPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/mustang.jpg"))); // NOI18N
-        mustangPanelButton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, 135));
-
-        jLabel11.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel11.setText("Mustang");
-        mustangPanelButton.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 149, -1, -1));
-
-        jLabel26.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel26.setText("The district is home to ");
-        mustangPanelButton.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 170, -1, -1));
-
-        jLabel29.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel29.setText("Muktinath Temple.");
-        mustangPanelButton.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 191, -1, -1));
-
-        placePanel.add(mustangPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 21, 155, 214));
-
-        kathmanduPanelButton.setBackground(new java.awt.Color(222, 183, 154));
-        kathmanduPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        kathmanduPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
-        kathmanduPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/kathmandu.jpg"))); // NOI18N
-        kathmanduPanelButton.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 2, -1, -1));
-
-        jLabel27.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel27.setText("Kathmandu");
-        kathmanduPanelButton.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 146, -1, -1));
-
-        jLabel28.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel28.setText("Kathmandu is best known");
-        kathmanduPanelButton.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 167, -1, -1));
-
-        jLabel30.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
-        jLabel30.setText("For its historical sights.");
-        kathmanduPanelButton.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 188, -1, -1));
-
-        placePanel.add(kathmanduPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 21, 161, 214));
-
         jLabel17.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        jLabel17.setText("Most popular places among travelers.");
+        jLabel17.setText("Vehicles available:");
         placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 3, 211, -1));
 
-        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));
+        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, 510, 230));
 
         jLabel2.setFont(new java.awt.Font("Candara", 3, 12)); // NOI18N
         jLabel2.setText("Welcome to Happy Travels!");
@@ -446,33 +365,18 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
     private javax.swing.JLabel dashboardIcon;
     private javax.swing.JLabel dashboardLabel;
     private javax.swing.JLabel happyTravelLabel;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JPanel kathmanduPanelButton;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
-    private javax.swing.JPanel mustangPanelButton;
     private javax.swing.JLabel notificationIcon;
     private javax.swing.JButton pendingButton;
     private javax.swing.JPanel placePanel;
     private javax.swing.JButton placesButton;
-    private javax.swing.JPanel pokharaPanelButton;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JLabel routeIcon;

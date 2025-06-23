@@ -342,6 +342,10 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
 
     
     
+    public JButton getAddVeheclesButton(){
+        return addVehiclesButton;
+    }
+
     public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);
     }
@@ -365,6 +369,12 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
     }
     public JLabel getBusTicketslabel(){
         return busTicketsLabel;
+    }
+    public void VehiclesDetailsNavigation(MouseListener listener){
+        vehiclesDatailsLabel.addMouseListener(listener);
+    }
+    public JLabel getVehiclesDetailslabel(){
+        return vehiclesDatailsLabel;
     }
     public void ProfileNavigation(MouseListener listener){
         profileLabel.addMouseListener(listener);

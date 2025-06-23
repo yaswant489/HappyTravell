@@ -34,8 +34,9 @@ public class TravellerDashboardController {
     public TravellerDashboardController(TravellerdashboardView travellerdashboardView, int travellerId){
         this.travellerdashboardView = travellerdashboardView;
         this.currentTravellerId = travellerId;
-        this.travellerdashboardView = travellerdashboardView;
         this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));  
+
+
         this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
        
@@ -89,6 +90,111 @@ public class TravellerDashboardController {
         } 
     }
    
+
+    //  Route Navigation
+    class RouteNav implements MouseListener {
+        private final JLabel routeLabel;
+
+        public RouteNav(JLabel label) {
+            this.routeLabel = label;
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            TravellerRouteView travellerRouteView = new TravellerRouteView();
+            TravellerRouteController TravellerRoute = new TravellerRouteController(travellerRouteView, currentTravellerId);
+            TravellerRoute.open();
+            close();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {}
+
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            routeLabel.setForeground(Color.WHITE);
+            routeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            routeLabel.setForeground(Color.BLACK);
+            routeLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        }
+    }
+
+    //  Bus Ticket Navigation
+    class BusTicketsNav implements MouseListener {
+        private final JLabel busTicketsLabel;
+
+        public BusTicketsNav(JLabel label) {
+            this.busTicketsLabel = label;
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            TravellerBusTicketsView travellerBusTicketsView = new TravellerBusTicketsView();
+            TravellerBusTicketController TravellerBusTicket = new TravellerBusTicketController(travellerBusTicketsView, currentTravellerId);
+            TravellerBusTicket.open();
+            close();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {}
+
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            busTicketsLabel.setForeground(Color.WHITE);
+            busTicketsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            busTicketsLabel.setForeground(Color.BLACK);
+            busTicketsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        }
+    }
+
+    //  Vehicles Details Navigation
+    class VehiclesDetailsNav implements MouseListener {
+        private final JLabel vehiclesDetailsLabel;
+
+        public VehiclesDetailsNav(JLabel label) {
+            this.vehiclesDetailsLabel = label;
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            TravellerVehiclesDetailsView travellerVehiclesDetailsView = new TravellerVehiclesDetailsView();
+            TravellerVehiclesDetailsController TravellerVehiclesDetails = new TravellerVehiclesDetailsController(travellerVehiclesDetailsView, currentTravellerId);
+            TravellerVehiclesDetails.open();
+            close();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {}
+
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.WHITE);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.BLACK);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        }
+    }
 
     //    Profile Navigation
     class ProfileNav implements MouseListener{

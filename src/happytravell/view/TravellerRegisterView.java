@@ -52,11 +52,9 @@ public class TravellerRegisterView extends javax.swing.JFrame {
         addressTextField = new javax.swing.JTextField();
         setPasswordField = new javax.swing.JPasswordField();
         confirmPasswordField = new javax.swing.JPasswordField();
-
         confirmShowButton = new javax.swing.JToggleButton();
         showButton = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
-
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField2.setText("  Set Username");
@@ -113,7 +111,6 @@ public class TravellerRegisterView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 72, -1, -1));
 
-
         lastnameLabel.setText(" Last name");
         getContentPane().add(lastnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 103, 70, -1));
 
@@ -137,7 +134,6 @@ public class TravellerRegisterView extends javax.swing.JFrame {
 
         firstnameLabel.setText(" First name");
         getContentPane().add(firstnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 73, 70, -1));
-
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +176,7 @@ public class TravellerRegisterView extends javax.swing.JFrame {
                 confirmShowButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(confirmShowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 65, 20));
+        getContentPane().add(confirmShowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 70, 20));
 
         showButton.setText("Show");
         showButton.addActionListener(new java.awt.event.ActionListener() {
@@ -188,11 +184,10 @@ public class TravellerRegisterView extends javax.swing.JFrame {
                 showButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 251, 65, 20));
+        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 251, 70, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 360));
-
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -290,18 +285,13 @@ public class TravellerRegisterView extends javax.swing.JFrame {
     private javax.swing.JTextField addressTextField;
     private javax.swing.JButton backButton;
     private javax.swing.JPasswordField confirmPasswordField;
-
     private javax.swing.JToggleButton confirmShowButton;
     private javax.swing.JLabel confirmpasswordlabel;
-
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel firstnameLabel;
     private javax.swing.JTextField firstnameTextField;
-
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lastnameLabel;
     private javax.swing.JTextField lastnameTextField;
@@ -311,9 +301,7 @@ public class TravellerRegisterView extends javax.swing.JFrame {
     private javax.swing.JLabel setPassword;
     private javax.swing.JPasswordField setPasswordField;
     private javax.swing.JLabel setUsernamelabel;
-
     private javax.swing.JToggleButton showButton;
-
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 public void registerTraveller(ActionListener listener){

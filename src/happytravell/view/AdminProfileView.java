@@ -184,111 +184,134 @@ public final class AdminProfileView extends javax.swing.JFrame {
         jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         profilePanel.setBackground(new java.awt.Color(248, 206, 157));
-        profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        profilePanel.setLayout(null);
 
         placePanel.setBackground(new java.awt.Color(200, 143, 75));
-        placePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        profilePanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));
+        placePanel.setLayout(null);
+        profilePanel.add(placePanel);
+        placePanel.setBounds(6, 54, -1, -1);
 
         notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        profilePanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 5, 25, 25));
+        profilePanel.add(notificationIcon);
+        notificationIcon.setBounds(470, 5, 25, 25);
         notificationIcon.getAccessibleContext().setAccessibleName("");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
         jLabel1.setText("Profile");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 0, 69, 40));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(217, 0, 69, 40);
 
-        profilePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 40));
+        profilePanel.add(jPanel1);
+        jPanel1.setBounds(0, 0, 510, 40);
 
         jPanel2.setBackground(new java.awt.Color(251, 245, 205));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setLayout(null);
 
         firstNameLabel.setText("First Name");
-        jPanel2.add(firstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 70, 20));
+        jPanel2.add(firstNameLabel);
+        firstNameLabel.setBounds(170, 30, 70, 20);
 
         addressTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addressTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 115, -1));
+        jPanel2.add(addressTextField);
+        addressTextField.setBounds(320, 170, 115, -1);
 
         lastNameLabel.setText("Last Name");
-        jPanel2.add(lastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 70, 20));
+        jPanel2.add(lastNameLabel);
+        lastNameLabel.setBounds(320, 30, 70, 20);
 
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(firstNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 115, -1));
+        jPanel2.add(firstNameTextField);
+        firstNameTextField.setBounds(170, 50, 115, -1);
 
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(lastNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 115, -1));
+        jPanel2.add(lastNameTextField);
+        lastNameTextField.setBounds(320, 50, 115, -1);
 
         usernameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 115, -1));
+        jPanel2.add(usernameTextField);
+        usernameTextField.setBounds(170, 110, 115, -1);
 
         phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneNumberTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 115, -1));
+        jPanel2.add(phoneNumberTextField);
+        phoneNumberTextField.setBounds(320, 110, 115, -1);
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 115, -1));
+        jPanel2.add(emailTextField);
+        emailTextField.setBounds(170, 170, 115, -1);
 
         usernamelabel.setText("Username");
-        jPanel2.add(usernamelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 60, 20));
+        jPanel2.add(usernamelabel);
+        usernamelabel.setBounds(170, 90, 70, 20);
 
         phoneNumberLabel.setText("Phone Number");
-        jPanel2.add(phoneNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, 20));
+        jPanel2.add(phoneNumberLabel);
+        phoneNumberLabel.setBounds(320, 90, 80, 20);
 
         emailLabel.setText("Email");
-        jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 40, 20));
+        jPanel2.add(emailLabel);
+        emailLabel.setBounds(170, 150, 70, 20);
 
         addressLabel.setText("Address");
-        jPanel2.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 70, 20));
+        jPanel2.add(addressLabel);
+        addressLabel.setBounds(320, 150, 70, 20);
+
 
         updateProfileButton.setBackground(new java.awt.Color(241, 171, 89));
         updateProfileButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+
         updateProfileButton.setText("Update Profile");
         updateProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateProfileButtonActionPerformed(evt);
             }
         });
+
         jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 120, 30));
 
+
         adminNameLabel.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        adminNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         adminNameLabel.setText("Admin Name");
-        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, 20));
+        jPanel2.add(adminNameLabel);
+        adminNameLabel.setBounds(30, 130, 100, 20);
 
-        profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/addImage.png"))); // NOI18N
-        jPanel2.add(profileAddIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 20, 20));
+        profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/addImage.png")));
+        jPanel2.add(profileAddIcon);
+        profileAddIcon.setBounds(100, 100, 20, 20);
 
-        adminProfile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(adminProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
+        adminProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/guide (3).png"))); // NOI18N
+        jPanel2.add(adminProfile);
+        adminProfile.setBounds(30, 10, 100, 110);
+
 
         nextButton.setBackground(new java.awt.Color(241, 171, 89));
         nextButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -297,74 +320,93 @@ public final class AdminProfileView extends javax.swing.JFrame {
 
         profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 260));
 
-        getContentPane().add(profilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
+
+        getContentPane().add(profilePanel);
+        profilePanel.setBounds(130, 0, 510, 360);
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
-        DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        DashDetailsPanel.setLayout(null);
 
         logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N
-        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, 18, 18));
+        DashDetailsPanel.add(logoutIcon);
+        logoutIcon.setBounds(10, 295, 18, 18);
         logoutIcon.getAccessibleContext().setAccessibleName("");
 
         profileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
         profileIcon.setText("jLabel1");
-        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 255, 18, 18));
+        DashDetailsPanel.add(profileIcon);
+        profileIcon.setBounds(10, 255, 18, 18);
 
         vehiclesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/front-of-bus.png"))); // NOI18N
-        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 18, 18));
+        DashDetailsPanel.add(vehiclesIcon);
+        vehiclesIcon.setBounds(10, 216, 18, 18);
 
         busTicketIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tickets.png"))); // NOI18N
-        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 18, 18));
+        DashDetailsPanel.add(busTicketIcon);
+        busTicketIcon.setBounds(10, 178, 18, 18);
 
         happyTravelLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         happyTravelLabel.setText("Happy Travels");
-        DashDetailsPanel.add(happyTravelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 80, -1));
+        DashDetailsPanel.add(happyTravelLabel);
+        happyTravelLabel.setBounds(50, 15, 80, -1);
 
         routeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/directions.png"))); // NOI18N
-        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 18, 18));
+        DashDetailsPanel.add(routeIcon);
+        routeIcon.setBounds(10, 140, 18, 18);
 
         bookingIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/booking.png"))); // NOI18N
-        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 97, 18, 18));
+        DashDetailsPanel.add(bookingIcon);
+        bookingIcon.setBounds(10, 97, 18, 18);
         bookingIcon.getAccessibleContext().setAccessibleName("");
 
         dashboardIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/dashboard.png"))); // NOI18N
         dashboardIcon.setText("jLabel1");
-        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, 18, 18));
+        DashDetailsPanel.add(dashboardIcon);
+        dashboardIcon.setBounds(10, 58, 18, 18);
 
         logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/happy.png"))); // NOI18N
         logoIcon.setFocusCycleRoot(true);
-        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-35, -5, 120, 50));
+        DashDetailsPanel.add(logoIcon);
+        logoIcon.setBounds(-35, -5, 120, 50);
         logoIcon.getAccessibleContext().setAccessibleName("");
 
         dashboardLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         dashboardLabel.setText("  Dashboard");
-        DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 80, -1));
+        DashDetailsPanel.add(dashboardLabel);
+        dashboardLabel.setBounds(30, 60, 80, -1);
 
         bookingDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         bookingDetailsLabel.setText("  Booking Details");
-        DashDetailsPanel.add(bookingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
+        DashDetailsPanel.add(bookingDetailsLabel);
+        bookingDetailsLabel.setBounds(30, 100, 100, -1);
 
         routeDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         routeDetailsLabel.setText("  Route Details");
-        DashDetailsPanel.add(routeDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, 20));
+        DashDetailsPanel.add(routeDetailsLabel);
+        routeDetailsLabel.setBounds(30, 140, 90, 20);
 
         busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        busTicketsLabel.setText("Bus Tickets");
-        DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 182, 60, -1));
+        busTicketsLabel.setText("  Bus Tickets");
+        DashDetailsPanel.add(busTicketsLabel);
+        busTicketsLabel.setBounds(36, 182, 60, -1);
 
         vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         vehiclesDetailsLabel.setText("  Vehicles Details");
-        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
+        DashDetailsPanel.add(vehiclesDetailsLabel);
+        vehiclesDetailsLabel.setBounds(31, 220, 90, -1);
 
         profileLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        profileLabel.setText("Profile");
-        DashDetailsPanel.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 50, -1));
+        profileLabel.setText("  Profile");
+        DashDetailsPanel.add(profileLabel);
+        profileLabel.setBounds(40, 260, 50, -1);
 
         logOutLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
-        logOutLabel.setText("LogOut");
-        DashDetailsPanel.add(logOutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        logOutLabel.setText("  Log Out");
+        DashDetailsPanel.add(logOutLabel);
+        logOutLabel.setBounds(40, 300, -1, -1);
 
-        getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 360));
+        getContentPane().add(DashDetailsPanel);
+        DashDetailsPanel.setBounds(0, 0, 130, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

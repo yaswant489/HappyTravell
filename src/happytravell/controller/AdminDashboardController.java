@@ -47,7 +47,7 @@ public class AdminDashboardController {
         this.admindashboardView.VehiclesDetailsNavigation(new AdminDashboardController.VehiclesDetailsNav(admindashboardView.getVehiclesDetailslabel()));
         this.admindashboardView.ProfileNavigation(new AdminDashboardController.ProfileNav(admindashboardView.getProfilelabel()));
         this.admindashboardView.LogOutNavigation(new AdminDashboardController.LogOutNav(admindashboardView.getLogOutlabel()));
-        
+        this.admindashboardView.DashboardNavigation(new AdminDashboardController.DashboardNav(admindashboardView.getDashboardlabel()));
     }
     
     public void open(){
@@ -57,6 +57,39 @@ public class AdminDashboardController {
     public void close(){
         this.admindashboardView.dispose();
     } 
+    
+//    Dashboard Navigation
+    class DashboardNav implements MouseListener{
+        
+        private JLabel dashboardLabel;
+        
+        public DashboardNav(JLabel label){
+            this.dashboardLabel = label;
+        }
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdmindashboardView adminDashboardView = new AdmindashboardView();
+            AdminDashboardController adminController = new AdminDashboardController(adminDashboardView, currentAdminId);
+            adminController.open();
+            close();
+        }
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            dashboardLabel.setForeground(Color.WHITE);
+            dashboardLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            dashboardLabel.setForeground(Color.BLACK);
+            dashboardLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
     
 //    Booking Details Navigation
     class BookingDetailsNav implements MouseListener{
@@ -272,9 +305,10 @@ public class AdminDashboardController {
     class PlacesNav implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-                AdminPlacesView placesView = new AdminPlacesView();
-                AdminPlacesController placesController = new AdminPlacesController(placesView);
-                placesController.open();
+            AdminPlacesView placesView = new AdminPlacesView();
+            AdminPlacesController placesController = new AdminPlacesController(placesView, currentAdminId);
+            placesController.open();
+            close();
         }
     }   
 

@@ -20,7 +20,7 @@ import java.sql.SQLException;
 public class AdminDao {
 
     private static final String ADMIN_TABLE = "admin";
-    
+
     MysqlConnection mysql = new MysqlConnection();
 
     // SQL queries
@@ -123,9 +123,8 @@ public class AdminDao {
         PreparedStatement createTableStmt = null;
         PreparedStatement checkAdminStmt = null;
         PreparedStatement insertDefaultStmt = null;
-        PreparedStatement loginStmt = null;
         ResultSet rs = null;
-        
+
         try {
             conn = mysql.openConnection();
             
@@ -141,12 +140,18 @@ public class AdminDao {
                 insertDefaultStmt = conn.prepareStatement(INSERT_DEFAULT_ADMIN);
                 insertDefaultStmt.executeUpdate();
             }
-            
-            // Close resources before login attempt
-            closeResources(rs, checkAdminStmt, insertDefaultStmt);
-            rs = null;
-            checkAdminStmt = null;
-            insertDefaultStmt = null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(rs, createTableStmt, checkAdminStmt, insertDefaultStmt);
+            mysql.closeConnection(conn);
+        }
+
+        // --- New block for login ---
+        PreparedStatement loginStmt = null;
+        rs = null; // Reset result set
+        try {
+            conn = mysql.openConnection(); // Re-open connection
             
             // Perform login
             loginStmt = conn.prepareStatement(LOGIN_QUERY);
@@ -172,7 +177,7 @@ public class AdminDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            closeResources(rs, createTableStmt, checkAdminStmt, insertDefaultStmt, loginStmt);
+            closeResources(rs, loginStmt);
             mysql.closeConnection(conn);
         }
         
