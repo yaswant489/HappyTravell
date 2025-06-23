@@ -4,12 +4,18 @@
  */
 package happytravell.view;
 
+import happytravell.UI.AdminVehiclesDetailsCardPanel;
+import happytravell.model.VehiclesData;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.util.List;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -375,4 +381,23 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
     public JButton getAddVeheclesButton(){
         return addVehiclesButton;
     }
+    
+    public void displayVehicleCards(List<VehiclesData> vehicles) {
+    jPanel2.removeAll(); // Clear existing components
+    jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
+    
+    for (VehiclesData vehicle : vehicles) {
+        AdminVehiclesDetailsCardPanel card = new AdminVehiclesDetailsCardPanel(vehicle);
+        jPanel2.add(card);
+        jPanel2.add(Box.createVerticalStrut(10)); // Add spacing between cards
+    }
+    
+    jPanel2.revalidate();
+    jPanel2.repaint();
+}
+
+// Add this getter method
+public JPanel getVehiclesContainerPanel() {
+    return jPanel2;
+}
 }

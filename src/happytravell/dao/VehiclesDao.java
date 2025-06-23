@@ -21,7 +21,7 @@ public class VehiclesDao {
     public boolean addVehicle(VehiclesData vehicle) {
         Connection conn = mySql.openConnection();
         String sql = "INSERT INTO vehicles (vehicle_type, vehicle_number, number_of_seats, " +
-                    "vehicle_name, vehicle_color, travel_agency, vehicles_image, is_active) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
+                    "vehicle_name, vehicle_color, travel_agency, vehicles_image, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             
@@ -31,7 +31,15 @@ public class VehiclesDao {
             stmt.setString(4, vehicle.getVehicleName());
             stmt.setString(5, vehicle.getVehicleColor());
             stmt.setString(6, vehicle.getTravelAgency());
-            stmt.setBoolean(7, vehicle.isActive());
+            
+            // Handle image data
+            if (vehicle.getVehicleImage() != null) {
+                stmt.setBytes(7, vehicle.getVehicleImage());
+            } else {
+                stmt.setNull(7, Types.BLOB);
+            }
+            
+            stmt.setBoolean(8, vehicle.isActive());
             
             int rowsAffected = stmt.executeUpdate();
             
@@ -48,6 +56,14 @@ public class VehiclesDao {
         } catch (SQLException e) {
             System.err.println("Error adding vehicle: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
         }
         return false;
     }
@@ -60,7 +76,7 @@ public class VehiclesDao {
     public boolean updateVehicle(VehiclesData vehicle){
         Connection conn = mySql.openConnection();
         String sql = "UPDATE vehicles SET vehicle_type = ?, vehicle_number = ?, number_of_seats = ?, " +
-                    "vehicle_name = ?, vehicle_color = ?, travel_agency = ?, vehicles_image,is_active = ? WHERE vehicle_id = ?";
+                    "vehicle_name = ?, vehicle_color = ?, travel_agency = ?, vehicles_image = ?, is_active = ? WHERE vehicle_id = ?";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             
@@ -70,23 +86,35 @@ public class VehiclesDao {
             stmt.setString(4, vehicle.getVehicleName());
             stmt.setString(5, vehicle.getVehicleColor());
             stmt.setString(6, vehicle.getTravelAgency());
-            stmt.setBoolean(7, vehicle.isActive());
-            stmt.setInt(8, vehicle.getVehicleId());
+            
+            // Handle image data
+            if (vehicle.getVehicleImage() != null) {
+                stmt.setBytes(7, vehicle.getVehicleImage());
+            } else {
+                stmt.setNull(7, Types.BLOB);
+            }
+            
+            stmt.setBoolean(8, vehicle.isActive());
+            stmt.setInt(9, vehicle.getVehicleId());
             
             return stmt.executeUpdate() > 0;
             
         } catch (SQLException e) {
             System.err.println("Error updating vehicle: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
         }
         return false;
     }
     
-    /**
-     * Delete a vehicle (soft delete - set isActive to false)
-     * @param vehicleId ID of the vehicle to delete
-     * @return true if successful, false otherwise
-     */
+    
     public boolean deleteVehicle(int vehicleId) {
         Connection conn = mySql.openConnection();
         String sql = "UPDATE vehicles SET is_active = false WHERE vehicle_id = ?";
@@ -98,15 +126,19 @@ public class VehiclesDao {
         } catch (SQLException e) {
             System.err.println("Error deleting vehicle: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
         }
         return false;
     }
     
-    /**
-     * Get a vehicle by ID
-     * @param vehicleId ID of the vehicle
-     * @return Vehicle object or null if not found
-     */
+    
     public VehiclesData getVehicleById(int vehicleId) {
         Connection conn = mySql.openConnection();
         String sql = "SELECT * FROM vehicles WHERE vehicle_id = ? AND is_active = true";
@@ -123,14 +155,20 @@ public class VehiclesDao {
         } catch (SQLException e) {
             System.err.println("Error getting vehicle by ID: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
         }
         return null;
     }
     
-    /**
-     * Get all active vehicles
-     * @return List of Vehicle objects
-     */
+    
+    
     public List<VehiclesData> getAllVehicles() {
         Connection conn = mySql.openConnection();
         List<VehiclesData> vehicles = new ArrayList<>();
@@ -146,15 +184,19 @@ public class VehiclesDao {
         } catch (SQLException e) {
             System.err.println("Error getting all vehicles: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
         }
         return vehicles;
     }
     
-    /**
-     * Get vehicles by type
-     * @param vehicleType Type of vehicle to search for
-     * @return List of Vehicle objects
-     */
+    
     public List<VehiclesData> getVehiclesByType(String vehicleType) {
         Connection conn = mySql.openConnection();
         List<VehiclesData> vehicles = new ArrayList<>();
@@ -172,6 +214,14 @@ public class VehiclesDao {
         } catch (SQLException e) {
             System.err.println("Error getting vehicles by type: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
         }
         return vehicles;
     }
@@ -197,15 +247,18 @@ public class VehiclesDao {
         } catch (SQLException e) {
             System.err.println("Error checking vehicle number: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
         }
         return false;
     }
     
-    /**
-     * Search vehicles by various criteria
-     * @param searchTerm Search term to match against vehicle number, name, or color
-     * @return List of matching Vehicle objects
-     */
     public List<VehiclesData> searchVehicles(String searchTerm) {
         Connection conn = mySql.openConnection();
         List<VehiclesData> vehicles = new ArrayList<>();
@@ -228,6 +281,14 @@ public class VehiclesDao {
         } catch (SQLException e) {
             System.err.println("Error searching vehicles: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
         }
         return vehicles;
     }
@@ -248,23 +309,7 @@ public class VehiclesDao {
             rs.getString("vehicle_color"),
             rs.getString("travel_agency"),
             rs.getBoolean("is_active"),
-            rs.getBytes("vehicle_Image")    
+            rs.getBytes("vehicles_image")    
         );
     }
-    
-    /**
-     * Close database conn
-     */
-    public void closeConnection() {
-        Connection conn = mySql.openConnection();
-        try {
-            if (conn != null && !conn.isClosed()) {
-                conn.close();
-            }
-        } catch (SQLException e) {
-            System.err.println("Error closing conn: " + e.getMessage());
-        }
-    }
 }
-    
-
