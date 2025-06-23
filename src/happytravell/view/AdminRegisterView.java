@@ -4,16 +4,16 @@
  */
 package happytravell.view;
 
-
-import happytravell.controller.AdminRegisterController;
-
 import java.awt.event.ActionListener;
+import javax.swing.JLabel;
 
 /**
  *
  * @author Acer
  */
 public class AdminRegisterView extends javax.swing.JFrame {
+
+    private JLabel jLabel1;
 
     /**
      * Creates new form Register
@@ -52,8 +52,8 @@ public class AdminRegisterView extends javax.swing.JFrame {
         addressTextField = new javax.swing.JTextField();
         setPasswordField = new javax.swing.JPasswordField();
         confirmPasswordField = new javax.swing.JPasswordField();
+        confirmShowButton = new javax.swing.JToggleButton();
         showButton = new javax.swing.JToggleButton();
-        confirmshowButton = new javax.swing.JToggleButton();
         jLabel3 = new javax.swing.JLabel();
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -69,41 +69,37 @@ public class AdminRegisterView extends javax.swing.JFrame {
 
         RegisterLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         RegisterLabel.setForeground(new java.awt.Color(204, 102, 0));
+        RegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RegisterLabel.setText("Admin Registration");
-        getContentPane().add(RegisterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, 31));
+        getContentPane().add(RegisterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 290, 31));
 
         lastnameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(lastnameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 126, -1));
+        getContentPane().add(lastnameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, 180, 30));
 
         firstnameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstnameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(firstnameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 126, -1));
+        getContentPane().add(firstnameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 180, 30));
 
         usernameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 126, -1));
+        getContentPane().add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 180, 30));
 
         registerButton.setBackground(new java.awt.Color(255, 153, 51));
         registerButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         registerButton.setText("Register");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 126, -1));
+        getContentPane().add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 180, -1));
 
-        backButton.setBackground(new java.awt.Color(239, 243, 243));
+        backButton.setBackground(new java.awt.Color(255, 153, 51));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -111,69 +107,93 @@ public class AdminRegisterView extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 323, 70, -1));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 522, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 72, -1, -1));
 
-        lastnameLabel.setText("Last name");
-        getContentPane().add(lastnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 103, 60, -1));
+        lastnameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lastnameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lastnameLabel.setText(" Last name");
+        getContentPane().add(lastnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 90, 30));
 
-        setUsernamelabel.setText("  Set Username");
-        getContentPane().add(setUsernamelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 133, 90, -1));
+        setUsernamelabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        setUsernamelabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        setUsernamelabel.setText(" Set Username");
+        getContentPane().add(setUsernamelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 100, 30));
 
-        emailLabel.setText("     Email");
-        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 163, 60, -1));
+        emailLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        emailLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        emailLabel.setText(" Email");
+        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, 50, 30));
 
-        phonenumberLabel.setText(" Phone number");
-        getContentPane().add(phonenumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 193, 90, -1));
+        phonenumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        phonenumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        phonenumberLabel.setText("Phone number");
+        getContentPane().add(phonenumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 110, 30));
 
+        addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         addressLabel.setText(" Address");
-        getContentPane().add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 223, 60, -1));
+        getContentPane().add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 80, 30));
 
-        setPassword.setText("     Set Password");
-        getContentPane().add(setPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 253, 100, -1));
+        setPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        setPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        setPassword.setText(" Set Password");
+        getContentPane().add(setPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 110, 30));
 
-        confirmpasswordlabel.setText("  Confirm Password");
-        getContentPane().add(confirmpasswordlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 280, 110, -1));
+        confirmpasswordlabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        confirmpasswordlabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        confirmpasswordlabel.setText("Confirm Password");
+        getContentPane().add(confirmpasswordlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 130, 30));
 
-        firstnameLabel.setText("First name");
-        getContentPane().add(firstnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 73, 60, -1));
+        firstnameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        firstnameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        firstnameLabel.setText(" First name");
+        getContentPane().add(firstnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 80, 30));
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 126, -1));
+        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 180, 30));
 
         phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneNumberTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 126, -1));
+        getContentPane().add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 180, 30));
 
         addressTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addressTextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 126, -1));
+        getContentPane().add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 180, 30));
 
         setPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setPasswordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(setPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 126, -1));
+        getContentPane().add(setPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 180, 30));
 
         confirmPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmPasswordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 126, -1));
+        getContentPane().add(confirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 180, 30));
+
+        confirmShowButton.setText("Show");
+        confirmShowButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmShowButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(confirmShowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 460, 80, 30));
 
         showButton.setText("Show");
         showButton.addActionListener(new java.awt.event.ActionListener() {
@@ -181,19 +201,10 @@ public class AdminRegisterView extends javax.swing.JFrame {
                 showButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 65, 20));
+        getContentPane().add(showButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 410, 80, 30));
 
-        confirmshowButton.setText("Show");
-        confirmshowButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmshowButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(confirmshowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, 65, 20));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/LoginFinal.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,19 +249,14 @@ public class AdminRegisterView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_setPasswordFieldActionPerformed
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registerButtonActionPerformed
 
+    private void confirmShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmShowButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmShowButtonActionPerformed
 
     private void showButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_showButtonActionPerformed
-
-    private void confirmshowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmshowButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confirmshowButtonActionPerformed
-
 
     /**
      * @param args the command line arguments
@@ -300,10 +306,8 @@ public class AdminRegisterView extends javax.swing.JFrame {
     private javax.swing.JTextField addressTextField;
     private javax.swing.JButton backButton;
     private javax.swing.JPasswordField confirmPasswordField;
+    private javax.swing.JToggleButton confirmShowButton;
     private javax.swing.JLabel confirmpasswordlabel;
-
-    private javax.swing.JToggleButton confirmshowButton;
-
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel firstnameLabel;
@@ -319,9 +323,7 @@ public class AdminRegisterView extends javax.swing.JFrame {
     private javax.swing.JLabel setPassword;
     private javax.swing.JPasswordField setPasswordField;
     private javax.swing.JLabel setUsernamelabel;
-
     private javax.swing.JToggleButton showButton;
-
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 public void registerAdmin(ActionListener listener){
@@ -330,13 +332,15 @@ public void registerAdmin(ActionListener listener){
     public void mainpageBack(ActionListener listener){
         backButton.addActionListener(listener);
     }
+
     public javax.swing.JToggleButton getShowButton() {
     return showButton;
     }
     public javax.swing.JToggleButton getConfirmShowButton() {
-    return confirmshowButton;
+    return confirmShowButton;
     }
 
+    
     public javax.swing.JTextField getFirstNameTextField(){
         return firstnameTextField;
     }
@@ -365,10 +369,9 @@ public void registerAdmin(ActionListener listener){
     showButton.addActionListener(listener);
     }
     public void toggleConfirmPasswordVisibility(ActionListener listener) {
-    confirmshowButton.addActionListener(listener);
+    confirmShowButton.addActionListener(listener);
     }
 
 
-    
-
 }
+

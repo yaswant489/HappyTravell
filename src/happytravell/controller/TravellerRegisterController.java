@@ -9,11 +9,10 @@ import java.awt.event.ActionListener;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import happytravell.model.TravellerData;
-import image.TravellerRegisterView;
 import happytravell.view.SignupAsView;
-import image.TravellerRegisterView;
 import happytravell.view.LoginPageView;
 import happytravell.model.LoginRequest;
+import happytravell.view.TravellerRegisterView;
 import happytravell.view.TravellerdashboardView;
 
 
