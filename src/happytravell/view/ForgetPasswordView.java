@@ -8,12 +8,12 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author Administrator
+ * @author Acer
  */
 public class ForgetPasswordView extends javax.swing.JFrame {
 
     /**
-     * Creates new form forget
+     * Creates new form ForgetPasswordView
      */
     public ForgetPasswordView() {
         initComponents();
@@ -28,47 +28,26 @@ public class ForgetPasswordView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        RegisterLabel = new javax.swing.JLabel();
         continueButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        emailTextField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-
-        jRadioButton1.setText("jRadioButton1");
-
-        jToggleButton1.setText("jToggleButton1");
+        jLabel1 = new javax.swing.JLabel();
+        emailTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        RegisterLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        RegisterLabel.setForeground(new java.awt.Color(204, 102, 0));
+        RegisterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RegisterLabel.setText("Forget Password");
+        getContentPane().add(RegisterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 290, 31));
+
         continueButton.setBackground(new java.awt.Color(255, 153, 51));
         continueButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         continueButton.setText("Continue");
-        continueButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                continueButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(continueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 170, 30));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 102, 0));
-        jLabel2.setText("Forget Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 210, 30));
-
-        emailTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTextFieldActionPerformed(evt);
-            }
-        });
-        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 170, -1));
-
-        jLabel3.setFont(new java.awt.Font("Constantia", 3, 14)); // NOI18N
-        jLabel3.setText("Enter Your Email Address");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 200, -1));
+        getContentPane().add(continueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 220, -1));
 
         backButton.setBackground(new java.awt.Color(255, 153, 51));
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -78,21 +57,19 @@ public class ForgetPasswordView extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 80, 30));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 312, 80, 30));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Login.jpg"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Enter Your Email Address");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 200, -1));
+        getContentPane().add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 220, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/LoginFinal.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_continueButtonActionPerformed
-
-    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailTextFieldActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
@@ -124,9 +101,6 @@ public class ForgetPasswordView extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ForgetPasswordView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -137,14 +111,12 @@ public class ForgetPasswordView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel RegisterLabel;
     private javax.swing.JButton backButton;
     private javax.swing.JButton continueButton;
     private javax.swing.JTextField emailTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 
     public void addBackListener(ActionListener listener){
@@ -157,5 +129,5 @@ public class ForgetPasswordView extends javax.swing.JFrame {
     public String getEmail() {
         return emailTextField.getText();
     }
-     
+
 }
