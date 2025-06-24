@@ -30,6 +30,9 @@ public class AdmindashboardView extends javax.swing.JFrame {
         scaleImage7();
         scaleImage8();
         scaleImage9();
+        scaleImage10();
+        scaleImage11();
+        scaleImage12();
 
     }
     
@@ -105,6 +108,32 @@ public class AdmindashboardView extends javax.swing.JFrame {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         notificationIcon.setIcon(scaledIcon);
     }
+    public void scaleImage10(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/pokhara.jpg"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(pokharaImage.getWidth(), pokharaImage.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        pokharaImage.setIcon(scaledIcon);
+    }
+    public void scaleImage11(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/mustang.jpg"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(mustangImage.getWidth(), mustangImage.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        mustangImage.setIcon(scaledIcon);
+    }
+    public void scaleImage12(){
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/kathmandu.jpg"));
+        //scaling image to fit in the hlabel.
+        Image img1 = icon1.getImage();
+        Image imgScale = img1.getScaledInstance(kathmanduImage.getWidth(), kathmanduImage.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imgScale);
+        kathmanduImage.setIcon(scaledIcon);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -123,17 +152,17 @@ public class AdmindashboardView extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        pokharaImage = new javax.swing.JLabel();
         mustangPanelButton = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        mustangImage = new javax.swing.JLabel();
         kathmanduPanelButton = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        kathmanduImage = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -199,8 +228,8 @@ public class AdmindashboardView extends javax.swing.JFrame {
         jLabel24.setText("Lake, in central Nepal.");
         pokharaPanelButton.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 139, -1));
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pokhara.jpg"))); // NOI18N
-        pokharaPanelButton.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 190));
+        pokharaImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pokhara.jpg"))); // NOI18N
+        pokharaPanelButton.add(pokharaImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 10, 190, 180));
 
         placePanel.add(pokharaPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 300));
 
@@ -209,20 +238,20 @@ public class AdmindashboardView extends javax.swing.JFrame {
         mustangPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
         mustangPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/mustang.jpg"))); // NOI18N
-        mustangPanelButton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 135));
-
-        jLabel11.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel11.setText("Mustang");
-        mustangPanelButton.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 149, -1, -1));
+        mustangPanelButton.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
-        jLabel26.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Candara", 2, 14)); // NOI18N
         jLabel26.setText("The district is home to ");
-        mustangPanelButton.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 170, -1, -1));
+        mustangPanelButton.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
-        jLabel29.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Candara", 2, 14)); // NOI18N
         jLabel29.setText("Muktinath Temple.");
-        mustangPanelButton.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 191, -1, -1));
+        mustangPanelButton.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        mustangImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/mustang.jpg"))); // NOI18N
+        mustangPanelButton.add(mustangImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 10, 190, 190));
 
         placePanel.add(mustangPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 200, 300));
 
@@ -231,22 +260,22 @@ public class AdmindashboardView extends javax.swing.JFrame {
         kathmanduPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
         kathmanduPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/kathmandu.jpg"))); // NOI18N
-        kathmanduPanelButton.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 2, -1, -1));
-
-        jLabel27.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel27.setText("Kathmandu");
-        kathmanduPanelButton.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 146, -1, -1));
+        kathmanduPanelButton.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, 20));
 
-        jLabel28.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Candara", 2, 14)); // NOI18N
         jLabel28.setText("Kathmandu is best known");
-        kathmanduPanelButton.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 167, -1, -1));
+        kathmanduPanelButton.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
-        jLabel30.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Candara", 2, 14)); // NOI18N
         jLabel30.setText("For its historical sights.");
-        kathmanduPanelButton.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 188, -1, -1));
+        kathmanduPanelButton.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
-        placePanel.add(kathmanduPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(471, 80, 200, 300));
+        kathmanduImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/kathmandu.jpg"))); // NOI18N
+        kathmanduPanelButton.add(kathmanduImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 10, 190, 190));
+
+        placePanel.add(kathmanduPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 200, 300));
 
         jLabel17.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         jLabel17.setText("Most popular places among travelers.");
@@ -444,11 +473,8 @@ public class AdmindashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel happyTravelLabel;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel26;
@@ -459,14 +485,17 @@ public class AdmindashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel kathmanduImage;
     private javax.swing.JPanel kathmanduPanelButton;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
+    private javax.swing.JLabel mustangImage;
     private javax.swing.JPanel mustangPanelButton;
     private javax.swing.JLabel notificationIcon;
     private javax.swing.JPanel placePanel;
     private javax.swing.JButton placesButton;
+    private javax.swing.JLabel pokharaImage;
     private javax.swing.JPanel pokharaPanelButton;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
