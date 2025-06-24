@@ -120,10 +120,10 @@ public class AdmindashboardView extends javax.swing.JFrame {
         TravelerDetailsPanel = new javax.swing.JPanel();
         placePanel = new javax.swing.JPanel();
         pokharaPanelButton = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         mustangPanelButton = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -187,22 +187,22 @@ public class AdmindashboardView extends javax.swing.JFrame {
         pokharaPanelButton.setPreferredSize(new java.awt.Dimension(640, 360));
         pokharaPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pokhara.jpg"))); // NOI18N
-        pokharaPanelButton.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, 126));
-
-        jLabel19.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
         jLabel19.setText("Pokhara");
-        pokharaPanelButton.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 140, 43, -1));
+        pokharaPanelButton.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 70, -1));
 
-        jLabel23.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Candara", 2, 14)); // NOI18N
         jLabel23.setText("Pokhara is a city on Phewa ");
-        pokharaPanelButton.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 156, 139, -1));
+        pokharaPanelButton.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 170, -1));
 
-        jLabel24.setFont(new java.awt.Font("Candara", 2, 12)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Candara", 2, 14)); // NOI18N
         jLabel24.setText("Lake, in central Nepal.");
-        pokharaPanelButton.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 177, 139, -1));
+        pokharaPanelButton.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 139, -1));
 
-        placePanel.add(pokharaPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 155, 214));
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/pokhara.jpg"))); // NOI18N
+        pokharaPanelButton.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 190));
+
+        placePanel.add(pokharaPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 300));
 
         mustangPanelButton.setBackground(new java.awt.Color(222, 183, 154));
         mustangPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -210,7 +210,7 @@ public class AdmindashboardView extends javax.swing.JFrame {
         mustangPanelButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/mustang.jpg"))); // NOI18N
-        mustangPanelButton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, 135));
+        mustangPanelButton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 135));
 
         jLabel11.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel11.setText("Mustang");
@@ -224,7 +224,7 @@ public class AdmindashboardView extends javax.swing.JFrame {
         jLabel29.setText("Muktinath Temple.");
         mustangPanelButton.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 191, -1, -1));
 
-        placePanel.add(mustangPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 21, 155, 214));
+        placePanel.add(mustangPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 200, 300));
 
         kathmanduPanelButton.setBackground(new java.awt.Color(222, 183, 154));
         kathmanduPanelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -246,134 +246,136 @@ public class AdmindashboardView extends javax.swing.JFrame {
         jLabel30.setText("For its historical sights.");
         kathmanduPanelButton.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 188, -1, -1));
 
-        placePanel.add(kathmanduPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 21, 161, 214));
+        placePanel.add(kathmanduPanelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(471, 80, 200, 300));
 
-        jLabel17.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         jLabel17.setText("Most popular places among travelers.");
-        placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 3, 211, -1));
+        placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 30));
 
-        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));
+        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 680, 410));
 
-        jLabel2.setFont(new java.awt.Font("Candara", 3, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Candara", 3, 16)); // NOI18N
         jLabel2.setText("Welcome to Happy Travels!");
-        TravelerDetailsPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 153, -1));
+        TravelerDetailsPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 190, -1));
 
-        jLabel3.setFont(new java.awt.Font("Candara", 3, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Candara", 3, 16)); // NOI18N
         jLabel3.setText("Lets travel the world together.");
-        TravelerDetailsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 27, -1, -1));
+        TravelerDetailsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         reviewsButton.setBackground(new java.awt.Color(168, 116, 55));
-        reviewsButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        reviewsButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         reviewsButton.setText("Reviews");
         reviewsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reviewsButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(reviewsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 115, 53));
+        TravelerDetailsPanel.add(reviewsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, 150, 60));
 
         travellersButton.setBackground(new java.awt.Color(166, 124, 94));
-        travellersButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        travellersButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         travellersButton.setText("Travellers");
         travellersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 travellersButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 115, 53));
+        TravelerDetailsPanel.add(travellersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 150, 60));
 
         travellingButton.setBackground(new java.awt.Color(173, 98, 44));
-        travellingButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        travellingButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         travellingButton.setText("Travelling");
         travellingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 travellingButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(travellingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 300, 115, 53));
+        TravelerDetailsPanel.add(travellingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 520, 150, 60));
 
         placesButton.setBackground(new java.awt.Color(173, 77, 44));
-        placesButton.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
+        placesButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         placesButton.setText("Places");
         placesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 placesButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 300, 115, 53));
+        TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 520, 150, 60));
 
         notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        TravelerDetailsPanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 5, 25, 25));
+        TravelerDetailsPanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
         notificationIcon.getAccessibleContext().setAccessibleName("");
 
-        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
+        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
         DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N
-        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, 18, 18));
+        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 30, 30));
         logoutIcon.getAccessibleContext().setAccessibleName("");
 
         profileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
         profileIcon.setText("jLabel1");
-        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 255, 18, 18));
+        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 30, 30));
 
         vehiclesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/front-of-bus.png"))); // NOI18N
-        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 18, 18));
+        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 30, 30));
 
         busTicketIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tickets.png"))); // NOI18N
-        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 18, 18));
+        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 30, 30));
 
-        happyTravelLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        happyTravelLabel.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         happyTravelLabel.setText("Happy Travels");
-        DashDetailsPanel.add(happyTravelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 80, -1));
+        DashDetailsPanel.add(happyTravelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 120, -1));
 
         routeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/directions.png"))); // NOI18N
-        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 18, 18));
+        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 30, 30));
 
         bookingIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/booking.png"))); // NOI18N
-        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 97, 18, 18));
+        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 30, 30));
         bookingIcon.getAccessibleContext().setAccessibleName("");
 
         dashboardIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/dashboard.png"))); // NOI18N
         dashboardIcon.setText("jLabel1");
-        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, 18, 18));
+        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 30, 30));
 
         logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/happy.png"))); // NOI18N
         logoIcon.setFocusCycleRoot(true);
-        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-35, -5, 120, 50));
+        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -20, 180, 120));
         logoIcon.getAccessibleContext().setAccessibleName("");
 
-        dashboardLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        dashboardLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         dashboardLabel.setText("  Dashboard");
-        DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 80, -1));
+        DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 100, 20));
 
-        bookingDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        bookingDetailsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
+        bookingDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bookingDetailsLabel.setText("  Booking Details");
-        DashDetailsPanel.add(bookingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
+        DashDetailsPanel.add(bookingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 120, 20));
 
-        routeDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        routeDetailsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         routeDetailsLabel.setText("  Route Details");
-        DashDetailsPanel.add(routeDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, 20));
+        DashDetailsPanel.add(routeDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 130, 20));
 
-        busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         busTicketsLabel.setText("Bus Tickets");
-        DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 182, 60, -1));
+        DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 110, 20));
 
-        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
+        vehiclesDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         vehiclesDetailsLabel.setText("  Vehicles Details");
-        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
+        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 390, 120, 20));
 
-        profileLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        profileLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         profileLabel.setText("Profile");
-        DashDetailsPanel.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 50, -1));
+        DashDetailsPanel.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 90, 20));
 
-        logOutLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        logOutLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         logOutLabel.setText("LogOut");
-        DashDetailsPanel.add(logOutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        DashDetailsPanel.add(logOutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 80, 20));
 
-        getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 360));
+        getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
