@@ -280,7 +280,9 @@ public class TravellerBookingController {
         }
     }
     
-    // Navigation classes
+    
+    
+    //    Dashboard Navigation
     class DashboardNav implements MouseListener {
         private JLabel dashboardLabel;
         

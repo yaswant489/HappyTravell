@@ -35,8 +35,7 @@ public class BookingDao {
             stmt.setString(8, booking.getPaymentMethod());
             
             
-            int rowsAffected = stmt.executeUpdate();
-            
+            int rowsAffected = stmt.executeUpdate();  
             if (rowsAffected > 0) {
                 // Get the generated booking ID
                 try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
@@ -138,7 +137,7 @@ public class BookingDao {
         return bookings;
     }
     
-    
+//   Update Booking Status
     public boolean updateBookingStatus(int bookingId, String status) {
         String sql = "UPDATE bookings SET booking_status = ?, updated_at = NOW() WHERE id = ?";
         
@@ -181,11 +180,7 @@ public class BookingDao {
         return false;
     }
     
-    /**
-     * Get available vehicles by type
-     * @param vehicleType Type of vehicle (Car, Jeep, Taxi, etc.)
-     * @return List of available vehicle numbers
-     */
+    
     public List<String> getAvailableVehiclesByType(String vehicleType) {
         List<String> vehicles = new ArrayList<>();
         String sql = "SELECT vehicle_number FROM vehicle WHERE vehicle_type = ? ";
@@ -208,10 +203,8 @@ public class BookingDao {
         return vehicles;
     }
     
-    /**
-     * Get available drivers
-     * @return List of available driver names
-     */
+    
+    
     public List<String> getAvailableDrivers() {
         List<String> drivers = new ArrayList<>();
         String sql = "SELECT name FROM drivers WHERE status = 'AVAILABLE'";
