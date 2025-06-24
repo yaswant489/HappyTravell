@@ -30,8 +30,7 @@ public class AdminRouteDetailsController {
         this.currentAdminId = adminId;
         this.routeView.DashboardNavigation(new AdminRouteDetailsController.DashboardNav(adminRouteDetailsView.getDashboardlabel()));
         this.routeView.BookingDetailsNavigation(new AdminRouteDetailsController.BookingDetailsNav(adminRouteDetailsView.getBookingDetailslabel()));
-        this.routeView.RouteDetailsNavigation(new AdminRouteDetailsController.RouteDetailsNav(adminRouteDetailsView.getRouteDetailslabel()));
-        this.routeView.BusTicketsNavigation(new AdminRouteDetailsController.BusTicketsNav(adminRouteDetailsView.getBusTicketslabel()));
+        this.routeView.BusTicketsNavigation(new AdminRouteDetailsController.BusTicketsNav(adminRouteDetailsView.getBusTicketsLabel()));
         this.routeView.VehiclesDetailsNavigation(new AdminRouteDetailsController.VehiclesDetailsNav(adminRouteDetailsView.getVehiclesDetailslabel()));
         this.routeView.ProfileNavigation(new AdminRouteDetailsController.ProfileNav(adminRouteDetailsView.getProfilelabel()));
         this.routeView.LogOutNavigation(new AdminRouteDetailsController.LogOutNav(adminRouteDetailsView.getLogOutlabel()));
