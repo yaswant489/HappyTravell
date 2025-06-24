@@ -31,7 +31,6 @@ public class AdminBusTicketsController {
         this.TicketsView.DashboardNavigation(new AdminBusTicketsController.DashboardNav(adminBusTicketsView.getDashboardlabel()));
         this.TicketsView.BookingDetailsNavigation(new AdminBusTicketsController.BookingDetailsNav(adminBusTicketsView.getBookingDetailslabel()));
         this.TicketsView.RouteDetailsNavigation(new AdminBusTicketsController.RouteDetailsNav(adminBusTicketsView.getRouteDetailslabel()));
-        this.TicketsView.BusTicketsNavigation(new AdminBusTicketsController.BusTicketsNav(adminBusTicketsView.getBusTicketslabel()));
         this.TicketsView.VehiclesDetailsNavigation(new AdminBusTicketsController.VehiclesDetailsNav(adminBusTicketsView.getVehiclesDetailslabel()));
         this.TicketsView.ProfileNavigation(new AdminBusTicketsController.ProfileNav(adminBusTicketsView.getProfilelabel()));
         this.TicketsView.LogOutNavigation(new AdminBusTicketsController.LogOutNav(adminBusTicketsView.getLogOutlabel()));
@@ -143,36 +142,6 @@ public class AdminBusTicketsController {
         } 
     }
     
-//  Bus Ticket Navigation  
-    class BusTicketsNav implements MouseListener{
-        
-        private JLabel busTicketsLabel;
-        public BusTicketsNav(JLabel label){
-            this.busTicketsLabel = label;
-        }
-        
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            // Already on this page
-        }
-        
-        @Override
-        public void mousePressed(MouseEvent e) {}
-        @Override
-        public void mouseReleased(MouseEvent e) {}
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            busTicketsLabel.setForeground(Color.WHITE);
-            busTicketsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            busTicketsLabel.setForeground(Color.BLACK);
-            busTicketsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        } 
-    }
     
 //  Vehicles Details Navigation
     class VehiclesDetailsNav implements MouseListener{
