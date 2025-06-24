@@ -118,13 +118,7 @@ public class AdminBookingDetailsCardPanel extends PanelShadow {
         dateTimeLabel.setFont(new Font("Candara", Font.PLAIN, 14));
         dateTimeLabel.setForeground(TEXT_SECONDARY);
         
-        statusLabel = new JLabel("Active");
-        statusLabel.setFont(new Font("Candara", Font.BOLD, 12));
-        statusLabel.setForeground(Color.WHITE);
-        statusLabel.setBackground(STATUS_ACTIVE);
-        statusLabel.setOpaque(true);
-        statusLabel.setBorder(BorderFactory.createEmptyBorder(4, 8, 4, 8));
-        statusLabel.setHorizontalAlignment(SwingConstants.CENTER);
+       
     }
     
     private void setupLayout() {
@@ -192,8 +186,7 @@ public class AdminBookingDetailsCardPanel extends PanelShadow {
         String departureDateTime = bookingData.getDepartureDateTime();
         dateTimeLabel.setText("Date and Time: " + (departureDateTime != null ? departureDateTime : "Not specified"));
         
-        // Set status based on booking data
-        updateStatusLabel("Active"); // Default status, you can customize this
+        
     }
 }
     
@@ -253,28 +246,7 @@ public class AdminBookingDetailsCardPanel extends PanelShadow {
         return "Not specified";
     }
     
-    // Method to update status and its appearance
-    public void updateStatusLabel(String status) {
-        statusLabel.setText(status);
-        
-        switch (status.toLowerCase()) {
-            case "active":
-            case "confirmed":
-                statusLabel.setBackground(STATUS_ACTIVE);
-                break;
-            case "pending":
-            case "waiting":
-                statusLabel.setBackground(STATUS_PENDING);
-                break;
-            case "cancelled":
-            case "canceled":
-                statusLabel.setBackground(STATUS_CANCELLED);
-                break;
-            default:
-                statusLabel.setBackground(STATUS_PENDING);
-        }
-        repaint();
-    }
+    
     
     // Method to set profile image
     public void setProfileImage(ImageIcon image) {

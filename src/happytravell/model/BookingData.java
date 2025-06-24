@@ -29,6 +29,17 @@ public class BookingData {
     public BookingData() {
     }
     
+    
+     public BookingData(int travellerId, String pickupAddress, String dropAddress,
+                      String departureDateTime, String returnDateTime,
+                      int passengerCount, String vehicleType, String paymentMethod,
+                      String vehicleNumber, String driverName) {
+        this(travellerId, pickupAddress, dropAddress, departureDateTime, 
+             returnDateTime, passengerCount, vehicleType, paymentMethod);
+        this.vehicleNumber = vehicleNumber;
+        this.driverName = driverName;
+     }
+    
     // Constructor for traveler booking
     public BookingData(int travellerId, String pickupAddress, String dropAddress, 
                       String departureDateTime, String returnDateTime, 
@@ -171,4 +182,6 @@ public class BookingData {
         return String.format("Booking #%d - %s (%s) - %s - : ", 
             bookingId, travellerName, vehicleType, driverName );
     }
+    
+    
 }

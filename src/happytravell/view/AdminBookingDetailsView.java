@@ -350,14 +350,12 @@ public class AdminBookingDetailsView extends javax.swing.JFrame {
    // Replace the displayBooking method in AdminBookingDetailsView with this debug version:
 
 public void displayBooking(List<BookingData> bookings, AdminBookingDetailsController controller) {
-    System.out.println("=== DEBUG: displayBooking called ===");
-    System.out.println("Number of bookings received: " + (bookings != null ? bookings.size() : "null"));
+    
     
     jPanel2.removeAll();
     jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
     
     if (bookings == null || bookings.isEmpty()) {
-        System.out.println("No bookings to display");
         JLabel noDataLabel = new JLabel("No booking data available");
         noDataLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         jPanel2.add(noDataLabel);

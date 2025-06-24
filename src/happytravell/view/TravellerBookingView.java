@@ -7,7 +7,10 @@ package happytravell.view;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
 
 /**
  *
@@ -179,11 +182,11 @@ public class TravellerBookingView extends javax.swing.JFrame {
         departureSpinner = new javax.swing.JSpinner();
         returnDateTimeTextField = new javax.swing.JTextField();
         pickupAddressTextField = new javax.swing.JTextField();
-        dropAdressTextField = new javax.swing.JTextField();
+        dropAddressTextField = new javax.swing.JTextField();
         departureDateTimeTextField = new javax.swing.JTextField();
         numberOfPassenger = new javax.swing.JLabel();
-        PaymentMethodComboBox = new javax.swing.JComboBox<>();
-        VehiclesNumberComboBox = new javax.swing.JComboBox<>();
+        paymentMethodComboBox = new javax.swing.JComboBox<>();
+        vehiclesNumberComboBox = new javax.swing.JComboBox<>();
         driverNameComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jLabel6 = new javax.swing.JLabel();
@@ -331,10 +334,10 @@ public class TravellerBookingView extends javax.swing.JFrame {
         pickupAddressTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(pickupAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 18, 250, 23));
 
-        dropAdressTextField.setBackground(new java.awt.Color(248, 219, 164));
-        dropAdressTextField.setText("Drop Address");
-        dropAdressTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(dropAdressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 250, 23));
+        dropAddressTextField.setBackground(new java.awt.Color(248, 219, 164));
+        dropAddressTextField.setText("Drop Address");
+        dropAddressTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(dropAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 250, 23));
 
         departureDateTimeTextField.setBackground(new java.awt.Color(248, 219, 164));
         departureDateTimeTextField.setText("Departure Date & Time");
@@ -345,25 +348,25 @@ public class TravellerBookingView extends javax.swing.JFrame {
         numberOfPassenger.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(numberOfPassenger, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 200, 22));
 
-        PaymentMethodComboBox.setBackground(new java.awt.Color(248, 219, 164));
-        PaymentMethodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Payment Method", "Cash ", "E-sewa", "Mobile Banking" }));
-        PaymentMethodComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        PaymentMethodComboBox.addActionListener(new java.awt.event.ActionListener() {
+        paymentMethodComboBox.setBackground(new java.awt.Color(248, 219, 164));
+        paymentMethodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Payment Method", "Cash ", "E-sewa", "Mobile Banking" }));
+        paymentMethodComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        paymentMethodComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PaymentMethodComboBoxActionPerformed(evt);
+                paymentMethodComboBoxActionPerformed(evt);
             }
         });
-        jPanel2.add(PaymentMethodComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 250, -1));
+        jPanel2.add(paymentMethodComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 250, -1));
 
-        VehiclesNumberComboBox.setBackground(new java.awt.Color(248, 219, 164));
-        VehiclesNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehicles Number", " ", " ", " " }));
-        VehiclesNumberComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        VehiclesNumberComboBox.addActionListener(new java.awt.event.ActionListener() {
+        vehiclesNumberComboBox.setBackground(new java.awt.Color(248, 219, 164));
+        vehiclesNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehicles Number", " ", " ", " " }));
+        vehiclesNumberComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        vehiclesNumberComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VehiclesNumberComboBoxActionPerformed(evt);
+                vehiclesNumberComboBoxActionPerformed(evt);
             }
         });
-        jPanel2.add(VehiclesNumberComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 250, -1));
+        jPanel2.add(vehiclesNumberComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 250, -1));
 
         driverNameComboBox.setBackground(new java.awt.Color(248, 219, 164));
         driverNameComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Driver name" }));
@@ -503,13 +506,13 @@ public class TravellerBookingView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_taxiButtonActionPerformed
 
-    private void PaymentMethodComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentMethodComboBoxActionPerformed
+    private void paymentMethodComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentMethodComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PaymentMethodComboBoxActionPerformed
+    }//GEN-LAST:event_paymentMethodComboBoxActionPerformed
 
-    private void VehiclesNumberComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehiclesNumberComboBoxActionPerformed
+    private void vehiclesNumberComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehiclesNumberComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_VehiclesNumberComboBoxActionPerformed
+    }//GEN-LAST:event_vehiclesNumberComboBoxActionPerformed
 
     private void driverNameComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driverNameComboBoxActionPerformed
         // TODO add your handling code here:
@@ -559,9 +562,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
-    private javax.swing.JComboBox<String> PaymentMethodComboBox;
     private javax.swing.JPanel TravelerDetailsPanel;
-    private javax.swing.JComboBox<String> VehiclesNumberComboBox;
     private javax.swing.JButton bookButton;
     private javax.swing.JButton bookingDetailsButton;
     private javax.swing.JLabel bookingIcon;
@@ -575,7 +576,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
     private javax.swing.JTextField departureDateTimeTextField;
     private javax.swing.JSpinner departureSpinner;
     private javax.swing.JComboBox<String> driverNameComboBox;
-    private javax.swing.JTextField dropAdressTextField;
+    private javax.swing.JTextField dropAddressTextField;
     private javax.swing.JButton guideButton;
     private javax.swing.JLabel guideIcon;
     private javax.swing.JLabel jLabel1;
@@ -598,6 +599,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
     private javax.swing.JLabel notificationIcon;
     private javax.swing.JLabel numberOfPassenger;
     private javax.swing.JSpinner numberSpinner;
+    private javax.swing.JComboBox<String> paymentMethodComboBox;
     private javax.swing.JTextField pickupAddressTextField;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
@@ -610,6 +612,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
     private javax.swing.JLabel taxiIcon;
     private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
+    private javax.swing.JComboBox<String> vehiclesNumberComboBox;
     // End of variables declaration//GEN-END:variables
 
     public void GuideNavigation(ActionListener listener){
@@ -687,5 +690,40 @@ public class TravellerBookingView extends javax.swing.JFrame {
     public JLabel getLogOutLabel() {
         return logOutLabel;
     }
+    
+    public JComboBox getDriverNameComboBox(){
+        return driverNameComboBox;
+    }
+    
+    public JComboBox getVehiclesNumberComboBox(){
+        return vehiclesNumberComboBox;
+    }
+    
+    public JComboBox getPaymentMethodComboBox(){
+        return paymentMethodComboBox;
+    }
+   
+    public JTextField getPickUpAddressTextField() {
+        return pickupAddressTextField;
+    }
+    
+    public JTextField getDropAddressTextField() {
+        return dropAddressTextField;
+    }
+    
+    public JSpinner getReturnDateTimeSpinner() {
+        return returnSpinner;
+    }
+    
+    public JSpinner getDepartureDateTimeSpinner() {
+        return departureSpinner;
+    }
+    
+    public JSpinner getPassengerNumberSpinner() {
+        return numberSpinner;
+    }
+    
+    
+    
 
 }
