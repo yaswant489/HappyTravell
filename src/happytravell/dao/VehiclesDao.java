@@ -20,7 +20,7 @@ public class VehiclesDao {
 
     public boolean addVehicle(VehiclesData vehicle) {
         Connection conn = mySql.openConnection();
-        String sql = "INSERT INTO vehicles (vehicle_type, vehicle_number, number_of_seats, " +
+        String sql = "INSERT INTO vehicle (vehicle_type, vehicle_number, number_of_seats, " +
                     "vehicle_name, vehicle_color, travel_agency, vehicles_image, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -75,7 +75,7 @@ public class VehiclesDao {
      */
     public boolean updateVehicle(VehiclesData vehicle){
         Connection conn = mySql.openConnection();
-        String sql = "UPDATE vehicles SET vehicle_type = ?, vehicle_number = ?, number_of_seats = ?, " +
+        String sql = "UPDATE vehicle SET vehicle_type = ?, vehicle_number = ?, number_of_seats = ?, " +
                     "vehicle_name = ?, vehicle_color = ?, travel_agency = ?, vehicles_image = ?, is_active = ? WHERE vehicle_id = ?";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -117,7 +117,7 @@ public class VehiclesDao {
     
     public boolean deleteVehicle(int vehicleId) {
         Connection conn = mySql.openConnection();
-        String sql = "UPDATE vehicles SET is_active = false WHERE vehicle_id = ?";
+        String sql = "UPDATE vehicle SET is_active = false WHERE vehicle_id = ?";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, vehicleId);
@@ -141,7 +141,7 @@ public class VehiclesDao {
     
     public VehiclesData getVehicleById(int vehicleId) {
         Connection conn = mySql.openConnection();
-        String sql = "SELECT * FROM vehicles WHERE vehicle_id = ? AND is_active = true";
+        String sql = "SELECT * FROM vehicle WHERE vehicle_id = ? AND is_active = true";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, vehicleId);
@@ -172,7 +172,7 @@ public class VehiclesDao {
     public List<VehiclesData> getAllVehicles() {
         Connection conn = mySql.openConnection();
         List<VehiclesData> vehicles = new ArrayList<>();
-        String sql = "SELECT * FROM vehicles WHERE is_active = true ORDER BY vehicle_id DESC";
+        String sql = "SELECT * FROM vehicle WHERE is_active = true ORDER BY vehicle_id DESC";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
@@ -200,7 +200,7 @@ public class VehiclesDao {
     public List<VehiclesData> getVehiclesByType(String vehicleType) {
         Connection conn = mySql.openConnection();
         List<VehiclesData> vehicles = new ArrayList<>();
-        String sql = "SELECT * FROM vehicles WHERE vehicle_type = ? AND is_active = true ORDER BY vehicle_id DESC";
+        String sql = "SELECT * FROM vehicle WHERE vehicle_type = ? AND is_active = true ORDER BY vehicle_id DESC";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, vehicleType);
@@ -212,7 +212,7 @@ public class VehiclesDao {
             }
             
         } catch (SQLException e) {
-            System.err.println("Error getting vehicles by type: " + e.getMessage());
+            System.err.println("Error getting vehicle by type: " + e.getMessage());
             e.printStackTrace();
         } finally {
             try {
@@ -233,7 +233,7 @@ public class VehiclesDao {
      */
     public boolean isVehicleNumberExists(String vehicleNumber) {
         Connection conn = mySql.openConnection();
-        String sql = "SELECT COUNT(*) FROM vehicles WHERE vehicle_number = ? AND is_active = true";
+        String sql = "SELECT COUNT(*) FROM vehicle WHERE vehicle_number = ? AND is_active = true";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, vehicleNumber);
@@ -262,7 +262,7 @@ public class VehiclesDao {
     public List<VehiclesData> searchVehicles(String searchTerm) {
         Connection conn = mySql.openConnection();
         List<VehiclesData> vehicles = new ArrayList<>();
-        String sql = "SELECT * FROM vehicles WHERE (vehicle_number LIKE ? OR vehicle_name LIKE ? OR " +
+        String sql = "SELECT * FROM vehicle WHERE (vehicle_number LIKE ? OR vehicle_name LIKE ? OR " +
                     "vehicle_color LIKE ? OR travel_agency LIKE ?) AND is_active = true ORDER BY vehicle_id DESC";
         
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {

@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 
 /**
  *
@@ -75,21 +76,21 @@ public class TravellerBookingController {
     
     private void loadAvailableOptions() {
         // Load available drivers
-        List<String> availableDrivers = bookingDao.getAvailableDrivers();
+        List<BookingData.DriverInfo> availableDrivers = bookingDao.getAvailableDrivers();
         // Clear existing items and add new ones
         BookingView.getDriverNameComboBox().removeAllItems();
         BookingView.getDriverNameComboBox().addItem("Select Driver");
-        for (String driver : availableDrivers) {
+        for (BookingData.DriverInfo driver : availableDrivers) {
             BookingView.getDriverNameComboBox().addItem(driver);
         }
     }
     
     private void loadVehiclesByType(String vehicleType) {
-        List<String> availableVehicles = bookingDao.getAvailableVehiclesByType(vehicleType);
+        List<BookingData.VehicleInfo> availableVehicles = bookingDao.getAvailableVehiclesByType(vehicleType);
         // Clear existing items and add new ones
         BookingView.getVehiclesNumberComboBox().removeAllItems();
         BookingView.getVehiclesNumberComboBox().addItem("Select Vehicle");
-        for (String vehicle : availableVehicles) {
+        for (BookingData.VehicleInfo vehicle : availableVehicles) {
             BookingView.getVehiclesNumberComboBox().addItem(vehicle);
         }
     }
@@ -103,23 +104,46 @@ public class TravellerBookingController {
     }
     
     // Vehicle Type Selection Listener
-    class VehicleTypeListener implements ActionListener {
-        private String vehicleType;
-        
-        public VehicleTypeListener(String vehicleType) {
-            this.vehicleType = vehicleType;
-        }
-        
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            selectedVehicleType = vehicleType;
-            loadVehiclesByType(vehicleType);
-            JOptionPane.showMessageDialog(BookingView, 
-                "Selected vehicle type: " + vehicleType + "\nAvailable vehicles loaded.", 
-                "Vehicle Selection", 
-                JOptionPane.INFORMATION_MESSAGE);
-        }
+class VehicleTypeListener implements ActionListener {
+    private String vehicleType;
+    
+    public VehicleTypeListener(String vehicleType) {
+        this.vehicleType = vehicleType;
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        selectedVehicleType = vehicleType;
+        
+        // Load vehicles for all types and populate tabs
+        List<BookingData.VehicleInfo> cars = bookingDao.getAvailableVehiclesByType("Car");
+        List<BookingData.VehicleInfo> jeeps = bookingDao.getAvailableVehiclesByType("Jeep");
+        List<BookingData.VehicleInfo> taxis = bookingDao.getAvailableVehiclesByType("Taxi");
+        
+        BookingView.populateCarTab(cars);
+        BookingView.populateJeepTab(jeeps);
+        BookingView.populateTaxiTab(taxis);
+        
+        // Select the appropriate tab based on vehicle type
+        switch (vehicleType) {
+            case "Car":
+                BookingView.getTabbedPane().setSelectedIndex(0);
+                break;
+            case "Jeep":
+                BookingView.getTabbedPane().setSelectedIndex(1);
+                break;
+            case "Taxi":
+                BookingView.getTabbedPane().setSelectedIndex(2);
+                break;
+        }
+        
+        // Load vehicles for the combo box
+        loadVehiclesByType(vehicleType);
+    }
+}
+
+
+
     
     // Book Button Listener
     class BookButtonListener implements ActionListener {

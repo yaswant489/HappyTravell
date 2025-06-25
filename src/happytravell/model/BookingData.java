@@ -13,6 +13,8 @@ public class BookingData {
     
     private int bookingId;   
     private int travellerId;
+    private int vehiclesId;
+    private int driverId;
     private String travellerName; 
     private String pickupAddress;
     public String dropAddress;
@@ -89,6 +91,22 @@ public class BookingData {
     
     public void setTravellerId(int travellerId) {
         this.travellerId = travellerId;
+    }
+    
+    public int getVehiclesId() {
+        return vehiclesId;
+    }
+    
+    public void setVehiclesId(int vehiclesId) {
+        this.vehiclesId = vehiclesId;
+    }
+    
+    public int getDriverId() {
+        return driverId;
+    }
+    
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
     }
     
     public String getTravellerName() {
@@ -181,6 +199,160 @@ public class BookingData {
     public String getFormattedAdminSummary() {
         return String.format("Booking #%d - %s (%s) - %s - : ", 
             bookingId, travellerName, vehicleType, driverName );
+    }
+    
+    public static class DriverInfo {
+        private int driverId;
+        private String name;
+        private String licenseNumber;
+        private String phone;
+
+        // Constructors
+        public DriverInfo() {
+        }
+
+        public DriverInfo(int driverId, String name) {
+            this.driverId = driverId;
+            this.name = name;
+        }
+
+        // Getters and Setters
+        public int getDriverId() {
+            return driverId;
+        }
+
+        public void setDriverId(int driverId) {
+            this.driverId = driverId;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getLicenseNumber() {
+            return licenseNumber;
+        }
+
+        public void setLicenseNumber(String licenseNumber) {
+            this.licenseNumber = licenseNumber;
+        }
+
+        public String getPhone() {
+            return phone;
+        }
+
+        public void setPhone(String phone) {
+            this.phone = phone;
+        }
+
+        @Override
+        public String toString() {
+            return name; // For display purposes
+        }
+    }
+    
+    
+    public static class VehicleInfo {
+        private int vehicleId;
+        private String vehicleType;
+        private String vehicleNumber;
+        private int numberOfSeats;
+        private String vehicleName;
+        private String vehicleColor;
+        private String travelAgency;
+        private boolean isActive;
+        private byte[] vehicleImage;
+
+        // Constructors
+        public VehicleInfo() {
+        }
+
+        public VehicleInfo(int vehicleId, String vehicleNumber) {
+            this.vehicleId = vehicleId;
+            this.vehicleNumber = vehicleNumber;
+        }
+
+        // Getters and Setters
+        public int getVehicleId() {
+            return vehicleId;
+        }
+
+        public void setVehicleId(int vehicleId) {
+            this.vehicleId = vehicleId;
+        }
+
+        public String getVehicleType() {
+            return vehicleType;
+        }
+
+        public void setVehicleType(String vehicleType) {
+            this.vehicleType = vehicleType;
+        }
+
+        public String getVehicleNumber() {
+            return vehicleNumber;
+        }
+
+        public void setVehicleNumber(String vehicleNumber) {
+            this.vehicleNumber = vehicleNumber;
+        }
+
+        public int getNumberOfSeats() {
+            return numberOfSeats;
+        }
+
+        public void setNumberOfSeats(int numberOfSeats) {
+            this.numberOfSeats = numberOfSeats;
+        }
+
+        public String getVehicleName() {
+            return vehicleName;
+        }
+
+        public void setVehicleName(String vehicleName) {
+            this.vehicleName = vehicleName;
+        }
+
+        public String getVehicleColor() {
+            return vehicleColor;
+        }
+
+        public void setVehicleColor(String vehicleColor) {
+            this.vehicleColor = vehicleColor;
+        }
+
+        public String getTravelAgency() {
+            return travelAgency;
+        }
+
+        public void setTravelAgency(String travelAgency) {
+            this.travelAgency = travelAgency;
+        }
+
+        public boolean isActive() {
+            return isActive;
+        }
+
+        public void setActive(boolean active) {
+            isActive = active;
+        }
+        
+        public byte[] getVehicleImage() {
+        return vehicleImage;
+        }
+    
+        public void setVehicleImage(byte[] vehicleImage) {
+        this.vehicleImage = vehicleImage;
+        }
+
+        @Override
+        public String toString() {
+            return vehicleNumber + " (" + vehicleType + ")";
+        }
     }
     
     
