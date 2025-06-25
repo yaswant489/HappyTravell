@@ -847,58 +847,60 @@ private JPanel createVehiclePanel(BookingData.VehicleInfo vehicle) {
     leftPanel.add(imageLabel);
     panel.add(leftPanel, BorderLayout.WEST);
 
-    // Right panel for details
-//    JPanel rightPanel = new JPanel();
-//    rightPanel.setLayout(new GridLayout(3, 1));
-//    rightPanel.setBackground(new Color(248, 219, 164));
-//    
-//    JLabel numberLabel = new JLabel("Number: " + vehicle.getVehicleNumber());
-//    JLabel seatsLabel = new JLabel("Seats: " + vehicle.getNumberOfSeats());
-//    JLabel agencyLabel = new JLabel("Agency: " + vehicle.getTravelAgency());
-//    
-//    rightPanel.add(numberLabel);
-//    rightPanel.add(seatsLabel);
-//    rightPanel.add(agencyLabel);
-//    
-//    panel.add(rightPanel, BorderLayout.CENTER);
-//
-//    return panel;
-//}
-//
-//    public JTabbedPane getTabbedPane() {
-//    return jTabbedPane1;
-//    
-//} 
-// Right panel for vehicle details (with reduced spacing)
+//     Right panel for details
     JPanel rightPanel = new JPanel();
-    rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+    rightPanel.setLayout(new GridLayout(3, 1));
     rightPanel.setBackground(new Color(248, 219, 164));
-
-    Font font = new Font("SansSerif", Font.PLAIN, 12);
-
+    
     JLabel numberLabel = new JLabel("Number: " + vehicle.getVehicleNumber());
-    numberLabel.setFont(font);
-    numberLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-
     JLabel seatsLabel = new JLabel("Seats: " + vehicle.getNumberOfSeats());
-    seatsLabel.setFont(font);
-    seatsLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-
     JLabel agencyLabel = new JLabel("Agency: " + vehicle.getTravelAgency());
-    agencyLabel.setFont(font);
-    agencyLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-    // Add labels with reduced vertical spacing
+    
     rightPanel.add(numberLabel);
-    rightPanel.add(Box.createVerticalStrut(3));
     rightPanel.add(seatsLabel);
-    rightPanel.add(Box.createVerticalStrut(3));
     rightPanel.add(agencyLabel);
-
+    
     panel.add(rightPanel, BorderLayout.CENTER);
 
     return panel;
 }
+
+    public JTabbedPane getTabbedPane() {
+    return jTabbedPane1;
+    
+} 
+
+
+// Right panel for vehicle details (with reduced spacing)
+//    JPanel rightPanel = new JPanel();
+//    rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+//    rightPanel.setBackground(new Color(248, 219, 164));
+//
+//    Font font = new Font("SansSerif", Font.PLAIN, 12);
+//
+//    JLabel numberLabel = new JLabel("Number: " + vehicle.getVehicleNumber());
+//    numberLabel.setFont(font);
+//    numberLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+//
+//    JLabel seatsLabel = new JLabel("Seats: " + vehicle.getNumberOfSeats());
+//    seatsLabel.setFont(font);
+//    seatsLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+//
+//    JLabel agencyLabel = new JLabel("Agency: " + vehicle.getTravelAgency());
+//    agencyLabel.setFont(font);
+//    agencyLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+//
+//    // Add labels with reduced vertical spacing
+//    rightPanel.add(numberLabel);
+//    rightPanel.add(Box.createVerticalStrut(3));
+//    rightPanel.add(seatsLabel);
+//    rightPanel.add(Box.createVerticalStrut(3));
+//    rightPanel.add(agencyLabel);
+//
+//    panel.add(rightPanel, BorderLayout.CENTER);
+//
+//    return panel;
+//}
 
 
 
