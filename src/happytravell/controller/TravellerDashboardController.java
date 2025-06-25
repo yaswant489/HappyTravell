@@ -33,8 +33,6 @@ public class TravellerDashboardController {
         this.travellerdashboardView = travellerdashboardView;
         this.currentTravellerId = travellerId;
         this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));  
-
-
         this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
        

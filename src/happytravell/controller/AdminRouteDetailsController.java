@@ -99,7 +99,7 @@ public class AdminRouteDetailsController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            bookingDetailsLabel.setForeground(Color.RED);
+            bookingDetailsLabel.setForeground(Color.WHITE);
             bookingDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
