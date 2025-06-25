@@ -4,19 +4,30 @@
  */
 package happytravell.view;
 
+import happytravell.UI.AdminBookingDetailsCardPanel;
+import happytravell.controller.AdminBookingDetailsController;
+import happytravell.dao.TravellerDao;
+import happytravell.model.BookingData;
+import happytravell.model.TravellerData;
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.util.List;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author Acer
  */
-public final class AdminProfileView extends javax.swing.JFrame {
+public class AdminProfileView extends javax.swing.JFrame {
     File selectedProfileFile;
     /**
      * Creates new form AdmindashboardView
@@ -33,6 +44,7 @@ public final class AdminProfileView extends javax.swing.JFrame {
         scaleImage8();
         scaleImage9();
         scaleImage10();
+        
 
     }
     
@@ -117,6 +129,8 @@ public final class AdminProfileView extends javax.swing.JFrame {
         profileAddIcon.setIcon(scaledIcon);
     }
     
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -129,29 +143,30 @@ public final class AdminProfileView extends javax.swing.JFrame {
 
         jPanel11 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
-        profilePanel = new javax.swing.JPanel();
-        placePanel = new javax.swing.JPanel();
+        TravelerDetailsPanel = new javax.swing.JPanel();
         notificationIcon = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        scrollPane = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        firstNameLabel = new javax.swing.JLabel();
-        addressTextField = new javax.swing.JTextField();
-        lastNameLabel = new javax.swing.JLabel();
-        firstNameTextField = new javax.swing.JTextField();
-        lastNameTextField = new javax.swing.JTextField();
-        usernameTextField = new javax.swing.JTextField();
-        phoneNumberTextField = new javax.swing.JTextField();
-        emailTextField = new javax.swing.JTextField();
-        usernamelabel = new javax.swing.JLabel();
-        phoneNumberLabel = new javax.swing.JLabel();
-        emailLabel = new javax.swing.JLabel();
-        addressLabel = new javax.swing.JLabel();
-        updateProfileButton = new javax.swing.JButton();
-        adminNameLabel = new javax.swing.JLabel();
-        profileAddIcon = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         adminProfile = new javax.swing.JLabel();
+        adminNameLabel = new javax.swing.JLabel();
+        firstNameLabel = new javax.swing.JLabel();
+        firstNameTextField = new javax.swing.JTextField();
+        lastNameLabel = new javax.swing.JLabel();
+        lastNameTextField = new javax.swing.JTextField();
+        usernamelabel = new javax.swing.JLabel();
+        usernameTextField = new javax.swing.JTextField();
+        phoneNumberLabel = new javax.swing.JLabel();
+        phoneNumberTextField = new javax.swing.JTextField();
+        emailLabel = new javax.swing.JLabel();
+        emailTextField = new javax.swing.JTextField();
+        addressLabel = new javax.swing.JLabel();
+        addressTextField = new javax.swing.JTextField();
+        updateProfileButton = new javax.swing.JButton();
         nextButton = new javax.swing.JButton();
+        profileAddIcon = new javax.swing.JLabel();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -186,15 +201,11 @@ public final class AdminProfileView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profilePanel.setBackground(new java.awt.Color(248, 206, 157));
-        profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        placePanel.setBackground(new java.awt.Color(200, 143, 75));
-        placePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        profilePanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));
+        TravelerDetailsPanel.setBackground(new java.awt.Color(255, 242, 227));
+        TravelerDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        profilePanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 5, 25, 25));
+        TravelerDetailsPanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
         notificationIcon.getAccessibleContext().setAccessibleName("");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -202,176 +213,190 @@ public final class AdminProfileView extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
         jLabel1.setText("Profile");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 0, 69, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 150, 50));
 
-        profilePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 40));
+        TravelerDetailsPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 50));
 
-        jPanel2.setBackground(new java.awt.Color(251, 245, 205));
+        scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jPanel2.setBackground(new java.awt.Color(248, 206, 157));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBackground(new java.awt.Color(251, 245, 205));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        adminProfile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(adminProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 90, 80));
+
+        adminNameLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
+        adminNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        adminNameLabel.setText("Admin Name");
+        jPanel3.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 160, 20));
+
+        firstNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         firstNameLabel.setText("First Name");
-        jPanel2.add(firstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 70, 20));
-
-        addressTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel2.add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 115, -1));
-
-        lastNameLabel.setText("Last Name");
-        jPanel2.add(lastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 70, 20));
+        jPanel3.add(firstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 70, 20));
 
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstNameTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(firstNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 115, -1));
+        jPanel3.add(firstNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 150, 30));
+
+        lastNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lastNameLabel.setText("Last Name");
+        jPanel3.add(lastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 70, 20));
 
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(lastNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 115, -1));
+        jPanel3.add(lastNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 150, 30));
+
+        usernamelabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        usernamelabel.setText("Username");
+        jPanel3.add(usernamelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 80, 20));
 
         usernameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 115, -1));
+        jPanel3.add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 162, 150, 30));
+
+        phoneNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        phoneNumberLabel.setText("Phone Number");
+        jPanel3.add(phoneNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, -1, 20));
 
         phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 phoneNumberTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 115, -1));
+        jPanel3.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 162, 150, 30));
+
+        emailLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        emailLabel.setText("Email");
+        jPanel3.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 40, 20));
 
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 115, -1));
+        jPanel3.add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 232, 150, 30));
 
-        usernamelabel.setText("Username");
-        jPanel2.add(usernamelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 60, 20));
-
-        phoneNumberLabel.setText("Phone Number");
-        jPanel2.add(phoneNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, 20));
-
-        emailLabel.setText("Email");
-        jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 40, 20));
-
+        addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addressLabel.setText("Address");
-        jPanel2.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 70, 20));
+        jPanel3.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 70, 20));
+
+        addressTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel3.add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 233, 150, 30));
 
         updateProfileButton.setBackground(new java.awt.Color(241, 171, 89));
-        updateProfileButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        updateProfileButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         updateProfileButton.setText("Update Profile");
         updateProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateProfileButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 120, 30));
-
-        adminNameLabel.setFont(new java.awt.Font("Candara", 1, 14)); // NOI18N
-        adminNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adminNameLabel.setText("Admin Name");
-        jPanel2.add(adminNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 160, 20));
-
-        profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/addImage.png"))); // NOI18N
-        jPanel2.add(profileAddIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 20, 20));
-
-        adminProfile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(adminProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 80, 70));
+        jPanel3.add(updateProfileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 150, 30));
 
         nextButton.setBackground(new java.awt.Color(241, 171, 89));
-        nextButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        nextButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         nextButton.setText("Next");
-        jPanel2.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 212, -1, -1));
+        jPanel3.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 80, -1));
 
-        profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 260));
+        profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/addImage.png"))); // NOI18N
+        jPanel3.add(profileAddIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 135, 25, 25));
 
-        getContentPane().add(profilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 650, 380));
+
+        scrollPane.setViewportView(jPanel2);
+
+        TravelerDetailsPanel.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 52, 700, 550));
+
+        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
         DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N
-        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, 18, 18));
+        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 30, 30));
         logoutIcon.getAccessibleContext().setAccessibleName("");
 
         profileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
         profileIcon.setText("jLabel1");
-        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 255, 18, 18));
+        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 30, 30));
 
         vehiclesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/front-of-bus.png"))); // NOI18N
-        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 18, 18));
+        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 30, 30));
 
         busTicketIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tickets.png"))); // NOI18N
-        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 18, 18));
+        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 30, 30));
 
-        happyTravelLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        happyTravelLabel.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         happyTravelLabel.setText("Happy Travels");
-        DashDetailsPanel.add(happyTravelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 80, -1));
+        DashDetailsPanel.add(happyTravelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 120, -1));
 
         routeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/directions.png"))); // NOI18N
-        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 18, 18));
+        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 30, 30));
 
         bookingIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/booking.png"))); // NOI18N
-        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 97, 18, 18));
+        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 30, 30));
         bookingIcon.getAccessibleContext().setAccessibleName("");
 
         dashboardIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/dashboard.png"))); // NOI18N
         dashboardIcon.setText("jLabel1");
-        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, 18, 18));
+        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 30, 30));
 
         logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/happy.png"))); // NOI18N
         logoIcon.setFocusCycleRoot(true);
-        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-35, -5, 120, 50));
+        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -20, 180, 120));
         logoIcon.getAccessibleContext().setAccessibleName("");
 
-        dashboardLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        dashboardLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         dashboardLabel.setText("  Dashboard");
-        DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 80, -1));
+        DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 100, 20));
 
-        bookingDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        bookingDetailsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
+        bookingDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bookingDetailsLabel.setText("  Booking Details");
-        DashDetailsPanel.add(bookingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
+        DashDetailsPanel.add(bookingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 120, 20));
 
-        routeDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        routeDetailsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         routeDetailsLabel.setText("  Route Details");
-        DashDetailsPanel.add(routeDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, 20));
+        DashDetailsPanel.add(routeDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 130, 20));
 
-        busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         busTicketsLabel.setText("Bus Tickets");
-        DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 182, 60, -1));
+        DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 110, 20));
 
-        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
+        vehiclesDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         vehiclesDetailsLabel.setText("  Vehicles Details");
-        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
+        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 390, 120, 20));
 
-        profileLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        profileLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         profileLabel.setText("Profile");
-        DashDetailsPanel.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 50, -1));
+        DashDetailsPanel.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 90, 20));
 
-        logOutLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        logOutLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         logOutLabel.setText("LogOut");
-        DashDetailsPanel.add(logOutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        DashDetailsPanel.add(logOutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 80, 20));
 
-        getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 360));
+        getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void addressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addressTextFieldActionPerformed
 
     private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
         // TODO add your handling code here:
@@ -392,6 +417,10 @@ public final class AdminProfileView extends javax.swing.JFrame {
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextFieldActionPerformed
+
+    private void addressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addressTextFieldActionPerformed
 
     private void updateProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProfileButtonActionPerformed
         // TODO add your handling code here:
@@ -426,7 +455,8 @@ public final class AdminProfileView extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
+        //</editor-fold>
+     
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -437,6 +467,7 @@ public final class AdminProfileView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
+    private javax.swing.JPanel TravelerDetailsPanel;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTextField;
     private javax.swing.JLabel adminNameLabel;
@@ -456,6 +487,7 @@ public final class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameTextField;
@@ -466,13 +498,12 @@ public final class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel notificationIcon;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JTextField phoneNumberTextField;
-    private javax.swing.JPanel placePanel;
     private javax.swing.JLabel profileAddIcon;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
-    private javax.swing.JPanel profilePanel;
     private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
+    private javax.swing.JScrollPane scrollPane;
     private javax.swing.JButton updateProfileButton;
     private javax.swing.JTextField usernameTextField;
     private javax.swing.JLabel usernamelabel;
@@ -480,8 +511,8 @@ public final class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 
-    
-    
+   
+
     public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);
     }
