@@ -73,7 +73,6 @@ public class AdminVehiclesDetailsController {
         this.vehiclesDetailsView.BookingDetailsNavigation(new BookingDetailsNav(adminVehiclesDetailsView.getBookingDetailslabel()));
         this.vehiclesDetailsView.BusTicketsNavigation(new BusTicketsNav(adminVehiclesDetailsView.getBusTicketslabel()));
         this.vehiclesDetailsView.RouteDetailsNavigation(new RouteDetailsNav(adminVehiclesDetailsView.getRouteDetailslabel()));
-        this.vehiclesDetailsView.VehiclesDetailsNavigation(new VehiclesDetailsNav(adminVehiclesDetailsView.getVehiclesDetailslabel()));
         this.vehiclesDetailsView.ProfileNavigation(new ProfileNav(adminVehiclesDetailsView.getProfilelabel()));
         this.vehiclesDetailsView.LogOutNavigation(new LogOutNav(adminVehiclesDetailsView.getLogOutlabel()));
     
@@ -482,7 +481,7 @@ private boolean validateVehicleInput(String vehicleNumber, String seats,
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            bookingDetailsLabel.setForeground(Color.RED);
+            bookingDetailsLabel.setForeground(Color.WHITE);
             bookingDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
@@ -561,36 +560,7 @@ private boolean validateVehicleInput(String vehicleNumber, String seats,
         } 
     }
     
-    //  Vehicles Details Navigation
-    class VehiclesDetailsNav implements MouseListener{
-        
-        private JLabel vehiclesDetailsLabel;
-        public VehiclesDetailsNav(JLabel label){
-            this.vehiclesDetailsLabel = label;
-        }
-        
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            // Already on this page
-        }
-        
-        @Override
-        public void mousePressed(MouseEvent e) {}
-        @Override
-        public void mouseReleased(MouseEvent e) {}
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            vehiclesDetailsLabel.setForeground(Color.WHITE);
-            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            vehiclesDetailsLabel.setForeground(Color.BLACK);
-            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        } 
-    }
+    
     
     // Profile Navigation
     class ProfileNav implements MouseListener{
@@ -615,7 +585,7 @@ private boolean validateVehicleInput(String vehicleNumber, String seats,
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            profileLabel.setForeground(Color.RED);
+            profileLabel.setForeground(Color.WHITE);
             profileLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
 
