@@ -143,12 +143,10 @@ public class AdminProfileView extends javax.swing.JFrame {
 
         jPanel11 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
-        TravelerDetailsPanel = new javax.swing.JPanel();
+        ProfilePanel = new javax.swing.JPanel();
         notificationIcon = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        scrollPane = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         adminProfile = new javax.swing.JLabel();
         adminNameLabel = new javax.swing.JLabel();
@@ -201,11 +199,11 @@ public class AdminProfileView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TravelerDetailsPanel.setBackground(new java.awt.Color(255, 242, 227));
-        TravelerDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ProfilePanel.setBackground(new java.awt.Color(248, 206, 157));
+        ProfilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        TravelerDetailsPanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
+        ProfilePanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
         notificationIcon.getAccessibleContext().setAccessibleName("");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -215,13 +213,7 @@ public class AdminProfileView extends javax.swing.JFrame {
         jLabel1.setText("Profile");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 150, 50));
 
-        TravelerDetailsPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 50));
-
-        scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        jPanel2.setBackground(new java.awt.Color(248, 206, 157));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ProfilePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 50));
 
         jPanel3.setBackground(new java.awt.Color(251, 245, 205));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -301,7 +293,7 @@ public class AdminProfileView extends javax.swing.JFrame {
         jPanel3.add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 233, 150, 30));
 
         updateProfileButton.setBackground(new java.awt.Color(241, 171, 89));
-        updateProfileButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        updateProfileButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         updateProfileButton.setText("Update Profile");
         updateProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,18 +305,14 @@ public class AdminProfileView extends javax.swing.JFrame {
         nextButton.setBackground(new java.awt.Color(241, 171, 89));
         nextButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         nextButton.setText("Next");
-        jPanel3.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 80, -1));
+        jPanel3.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 297, 80, 30));
 
         profileAddIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/addImage.png"))); // NOI18N
         jPanel3.add(profileAddIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 135, 25, 25));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 650, 380));
+        ProfilePanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 640, 380));
 
-        scrollPane.setViewportView(jPanel2);
-
-        TravelerDetailsPanel.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 52, 700, 550));
-
-        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
+        getContentPane().add(ProfilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
         DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -467,7 +455,7 @@ public class AdminProfileView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
-    private javax.swing.JPanel TravelerDetailsPanel;
+    private javax.swing.JPanel ProfilePanel;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTextField;
     private javax.swing.JLabel adminNameLabel;
@@ -486,7 +474,6 @@ public class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lastNameLabel;
@@ -503,7 +490,6 @@ public class AdminProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel profileLabel;
     private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
-    private javax.swing.JScrollPane scrollPane;
     private javax.swing.JButton updateProfileButton;
     private javax.swing.JTextField usernameTextField;
     private javax.swing.JLabel usernamelabel;
