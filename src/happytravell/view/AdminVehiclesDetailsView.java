@@ -196,7 +196,7 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
                 addVehiclesButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(addVehiclesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 130, 30));
+        TravelerDetailsPanel.add(addVehiclesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 140, 30));
 
         guideButton.setBackground(new java.awt.Color(252, 186, 107));
         guideButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N

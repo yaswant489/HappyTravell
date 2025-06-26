@@ -65,6 +65,7 @@ public class AddGuidePopup extends JDialog {
         
         // Main panel
         JPanel mainPanel = new JPanel(new GridBagLayout());
+        mainPanel.setBackground(new Color(239, 204, 150));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         GridBagConstraints gbc = new GridBagConstraints();
         

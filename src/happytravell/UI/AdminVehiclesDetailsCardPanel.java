@@ -56,9 +56,9 @@ public class AdminVehiclesDetailsCardPanel extends PanelShadow {
         setShadowSize(8);
         setShadowOpacity(0.5f);
         setShadowColor(new Color(0, 0, 0, 100));
-        setPreferredSize(new Dimension(350, 200));
-        setMaximumSize(new Dimension(350, 200));
-        setMinimumSize(new Dimension(350, 200));
+        setPreferredSize(new Dimension(650, 130));
+        setMaximumSize(new Dimension(650, 130));
+        setMinimumSize(new Dimension(650, 130));
         setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         imageLabel = new JLabel();

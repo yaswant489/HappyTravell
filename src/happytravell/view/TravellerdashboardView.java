@@ -158,10 +158,6 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        satisfactionButton = new javax.swing.JButton();
-        travelsDoneButton = new javax.swing.JButton();
-        pendingButton = new javax.swing.JButton();
-        placesButton = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -272,7 +268,7 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         jLabel17.setText("Here are few suggections for you new travel.");
         placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 30));
 
-        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 680, 410));
+        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 680, 450));
 
         jLabel2.setFont(new java.awt.Font("Candara", 3, 16)); // NOI18N
         jLabel2.setText("Welcome to Happy Travels!");
@@ -281,46 +277,6 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Candara", 3, 16)); // NOI18N
         jLabel3.setText("Lets travel the world together.");
         TravelerDetailsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
-
-        satisfactionButton.setBackground(new java.awt.Color(168, 116, 55));
-        satisfactionButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        satisfactionButton.setText("Satisfaction");
-        satisfactionButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                satisfactionButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(satisfactionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, 150, 60));
-
-        travelsDoneButton.setBackground(new java.awt.Color(166, 124, 94));
-        travelsDoneButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        travelsDoneButton.setText("Travels Done");
-        travelsDoneButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travelsDoneButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(travelsDoneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 150, 60));
-
-        pendingButton.setBackground(new java.awt.Color(173, 98, 44));
-        pendingButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        pendingButton.setText("Pending");
-        pendingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pendingButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(pendingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 520, 150, 60));
-
-        placesButton.setBackground(new java.awt.Color(173, 77, 44));
-        placesButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        placesButton.setText("Places");
-        placesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placesButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 520, 150, 60));
 
         getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
@@ -396,22 +352,6 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void satisfactionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_satisfactionButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_satisfactionButtonActionPerformed
-
-    private void travelsDoneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travelsDoneButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_travelsDoneButtonActionPerformed
-
-    private void pendingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pendingButtonActionPerformed
-
-    private void placesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placesButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_placesButtonActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -481,34 +421,22 @@ public class TravellerdashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel logoutIcon;
     private javax.swing.JLabel mustangImage;
     private javax.swing.JPanel mustangPanelButton;
-    private javax.swing.JButton pendingButton;
     private javax.swing.JPanel placePanel;
-    private javax.swing.JButton placesButton;
     private javax.swing.JLabel pokharaImage;
     private javax.swing.JPanel pokharaPanelButton;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JLabel routeIcon;
     private javax.swing.JLabel routeLabel;
-    private javax.swing.JButton satisfactionButton;
-    private javax.swing.JButton travelsDoneButton;
     private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 
     
-    public void PlacesNavigation(ActionListener listener){
-        placesButton.addActionListener(listener);
-    }
-    public void TravellersNavigation(ActionListener listener){
-        travelsDoneButton.addActionListener(listener);
-    }
-    public void TravellingNavigation(ActionListener listener){
-        pendingButton.addActionListener(listener);
-    }
-    public void ReviewsNavigation(ActionListener listener){
-        satisfactionButton.addActionListener(listener);
-    }
+//    public void PlacesNavigation(ActionListener listener){
+//        placesButton.addActionListener(listener);
+//    }
+    
     public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);
     }

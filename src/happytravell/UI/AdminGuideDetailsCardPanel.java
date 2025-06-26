@@ -50,13 +50,13 @@ public class AdminGuideDetailsCardPanel extends JPanel {
     }
     
     private void initializeComponents() {
-        setBackground(Color.WHITE);
+        setBackground(new Color(239, 204, 150));
         setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(200, 200, 200), 1),
             new EmptyBorder(15, 20, 15, 20)
         ));
-        setPreferredSize(new Dimension(600, 250));
-        setMaximumSize(new Dimension(Integer.MAX_VALUE, 250));
+        setPreferredSize(new Dimension(600, 1600));
+        setMaximumSize(new Dimension(Integer.MAX_VALUE, 160));
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         // Create labels with guide information
@@ -122,7 +122,7 @@ public class AdminGuideDetailsCardPanel extends JPanel {
             
             @Override
             public void mouseEntered(MouseEvent e) {
-                setBackground(new Color(245, 245, 245));
+                setBackground(new Color(239, 204, 150));
                 setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(new Color(100, 150, 200), 2),
                     new EmptyBorder(14, 19, 14, 19)
@@ -133,7 +133,7 @@ public class AdminGuideDetailsCardPanel extends JPanel {
             @Override
             public void mouseExited(MouseEvent e) {
                 if (!isSelected) {
-                    setBackground(Color.WHITE);
+                    setBackground(new Color(239, 204, 150));
                     setBorder(BorderFactory.createCompoundBorder(
                         BorderFactory.createLineBorder(new Color(200, 200, 200), 1),
                         new EmptyBorder(15, 20, 15, 20)
@@ -167,7 +167,7 @@ public class AdminGuideDetailsCardPanel extends JPanel {
                 new EmptyBorder(14, 19, 14, 19)
             ));
         } else {
-            setBackground(Color.WHITE);
+            setBackground(Color.decode("#F8D985"));
             setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(new Color(200, 200, 200), 1),
                 new EmptyBorder(15, 20, 15, 20)
