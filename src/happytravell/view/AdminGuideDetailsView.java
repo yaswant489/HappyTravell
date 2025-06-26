@@ -7,6 +7,7 @@ package happytravell.view;
 import happytravell.UI.AdminVehiclesDetailsCardPanel;
 import happytravell.model.VehiclesData;
 import java.awt.Image;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.List;
 import javax.swing.Box;
@@ -359,10 +360,6 @@ public class AdminGuideDetailsView extends javax.swing.JFrame {
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 
-   
-      public JButton getAddVeheclesButton(){
-        return backButton;
-    }
 
     public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);
@@ -388,6 +385,12 @@ public class AdminGuideDetailsView extends javax.swing.JFrame {
     public JLabel getBusTicketslabel(){
         return busTicketsLabel;
     }
+    public void VehiclesDetailsNavigation(MouseListener listener){
+        vehiclesDetailsLabel.addMouseListener(listener);
+    }
+    public JLabel getVehiclesDetailslabel(){
+        return vehiclesDetailsLabel;
+    }
     
     public void ProfileNavigation(MouseListener listener){
         profileLabel.addMouseListener(listener);
@@ -401,13 +404,14 @@ public class AdminGuideDetailsView extends javax.swing.JFrame {
     public JLabel getLogOutlabel(){
         return logOutLabel;
     }
-    public JButton getBackButton(){
-        return backButton;
+    public void BackNavigation(ActionListener listener){
+        backButton.addActionListener(listener);
     }
     public JButton getAddGuideButton(){
         return addGuideButton;
     }
 
+    
     
     public JPanel getGuideContainerPanel() {
     return jPanel2; 
