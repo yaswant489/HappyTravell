@@ -108,7 +108,7 @@ public class GuidePopup extends JDialog{
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
-        mainPanel.setBackground(Color.WHITE);
+        mainPanel.setBackground(new Color(239, 204, 150));
         
         // Title
         JLabel titleLabel = new JLabel("Edit Guide Information");
@@ -118,7 +118,7 @@ public class GuidePopup extends JDialog{
         
         // Form panel
         JPanel formPanel = new JPanel(new GridBagLayout());
-        formPanel.setBackground(Color.WHITE);
+        formPanel.setBackground(new Color(239, 204, 150));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(8, 8, 8, 8);
         gbc.anchor = GridBagConstraints.WEST;
@@ -149,7 +149,7 @@ public class GuidePopup extends JDialog{
         
         // Button panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        buttonPanel.setBackground(Color.WHITE);
+        buttonPanel.setBackground(new Color(239, 204, 150));
         buttonPanel.add(saveButton);
         buttonPanel.add(deleteButton);
         buttonPanel.add(cancelButton);

@@ -62,19 +62,19 @@ public class AdminGuideDetailsCardPanel extends JPanel {
         // Create labels with guide information
         nameLabel = new JLabel("Name: " + guide.getGuideName());
         nameLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        nameLabel.setForeground(new Color(51, 51, 51));
+        nameLabel.setForeground(Color.decode("#000000"));
         
         phoneLabel = new JLabel("Phone: " + guide.getPhoneNumber());
         phoneLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        phoneLabel.setForeground(new Color(102, 102, 102));
+        phoneLabel.setForeground(Color.decode("#000000"));
         
         addressLabel = new JLabel("Address: " + guide.getAddress());
         addressLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        addressLabel.setForeground(new Color(102, 102, 102));
+        addressLabel.setForeground(Color.decode("#000000"));
         
         emailLabel = new JLabel("Email: " + guide.getEmail());
         emailLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        emailLabel.setForeground(new Color(102, 102, 102));
+        emailLabel.setForeground(Color.decode("#000000"));
     }
     
     private void setupLayout() {
@@ -101,7 +101,7 @@ public class AdminGuideDetailsCardPanel extends JPanel {
         // Add click indicator
         JLabel clickIndicator = new JLabel("Click to edit/delete");
         clickIndicator.setFont(new Font("Segoe UI", Font.ITALIC, 12));
-        clickIndicator.setForeground(new Color(150, 150, 150));
+        clickIndicator.setForeground(Color.decode("#000000"));
         clickIndicator.setHorizontalAlignment(SwingConstants.RIGHT);
         
         JPanel bottomPanel = new JPanel(new BorderLayout());

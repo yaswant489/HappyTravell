@@ -27,6 +27,7 @@ public class AddGuidePopup extends JDialog {
     public AddGuidePopup(JFrame parent) {
         super(parent, "Add New Guide", true);
         this.guideData = new GuideData();
+        setBackground(new Color(239, 204, 150));
         initializeComponents();
         setupLayout();
         setupEventListeners();
@@ -68,6 +69,7 @@ public class AddGuidePopup extends JDialog {
         mainPanel.setBackground(new Color(239, 204, 150));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         GridBagConstraints gbc = new GridBagConstraints();
+        
         
         // Title
         JLabel titleLabel = new JLabel("Add New Guide");
@@ -132,8 +134,10 @@ public class AddGuidePopup extends JDialog {
         gbc.insets = new Insets(5, 0, 5, 0);
         mainPanel.add(emailField, gbc);
         
+        
         // Button panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        buttonPanel.setBackground(new Color(239, 204, 150));
         buttonPanel.add(saveButton);
         buttonPanel.add(cancelButton);
         
