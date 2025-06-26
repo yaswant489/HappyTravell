@@ -7,7 +7,6 @@ package happytravell.view;
 import happytravell.UI.AdminVehiclesDetailsCardPanel;
 import happytravell.model.VehiclesData;
 import java.awt.Image;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.List;
 import javax.swing.Box;
@@ -23,12 +22,12 @@ import javax.swing.JPanel;
  *
  * @author Acer
  */
-public class AdminVehiclesDetailsView extends javax.swing.JFrame {
+public class AdminGuideDetailsView extends javax.swing.JFrame {
 
     /**
      * Creates new form AdmindashboardView
      */
-    public AdminVehiclesDetailsView() {
+    public AdminGuideDetailsView() {
         initComponents();
         scaleImage1();
         scaleImage2();
@@ -130,9 +129,8 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        addVehiclesButton = new javax.swing.JButton();
-        guideButton = new javax.swing.JButton();
-        driversButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        addGuideButton = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -174,8 +172,8 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
-        jLabel1.setText("Vehicles Details");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 150, 50));
+        jLabel1.setText("Guide Details");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 150, 30));
 
         TravelerDetailsPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 40));
 
@@ -188,25 +186,25 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
 
         TravelerDetailsPanel.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 102, 680, 480));
 
-        addVehiclesButton.setBackground(new java.awt.Color(252, 186, 107));
-        addVehiclesButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        addVehiclesButton.setText("Add Vehicles");
-        addVehiclesButton.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setBackground(new java.awt.Color(252, 186, 107));
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addVehiclesButtonActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(addVehiclesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 130, 30));
+        TravelerDetailsPanel.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, 30));
 
-        guideButton.setBackground(new java.awt.Color(252, 186, 107));
-        guideButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        guideButton.setText("Guide");
-        TravelerDetailsPanel.add(guideButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 130, 30));
-
-        driversButton.setBackground(new java.awt.Color(252, 186, 107));
-        driversButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        driversButton.setText("Drivers");
-        TravelerDetailsPanel.add(driversButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, 30));
+        addGuideButton.setBackground(new java.awt.Color(252, 186, 107));
+        addGuideButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        addGuideButton.setText("Add Guide");
+        addGuideButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addGuideButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(addGuideButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 130, 30));
 
         getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
@@ -282,9 +280,13 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addVehiclesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVehiclesButtonActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addVehiclesButtonActionPerformed
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void addGuideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGuideButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addGuideButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,14 +305,18 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminVehiclesDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminGuideDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminVehiclesDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminGuideDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminVehiclesDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminGuideDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminVehiclesDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminGuideDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -319,7 +325,7 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminVehiclesDetailsView().setVisible(true);
+                new AdminGuideDetailsView().setVisible(true);
             }
         });
     }
@@ -327,15 +333,14 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
     private javax.swing.JPanel TravelerDetailsPanel;
-    private javax.swing.JButton addVehiclesButton;
+    private javax.swing.JButton addGuideButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel bookingDetailsLabel;
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel busTicketIcon;
     private javax.swing.JLabel busTicketsLabel;
     private javax.swing.JLabel dashboardIcon;
     private javax.swing.JLabel dashboardLabel;
-    private javax.swing.JButton driversButton;
-    private javax.swing.JButton guideButton;
     private javax.swing.JLabel happyTravelLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -356,7 +361,7 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
 
    
       public JButton getAddVeheclesButton(){
-        return addVehiclesButton;
+        return backButton;
     }
 
     public void DashboardNavigation(MouseListener listener){
@@ -396,34 +401,18 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
     public JLabel getLogOutlabel(){
         return logOutLabel;
     }
-    
-    public JButton getGuideButton(){
-        return guideButton;
+    public JButton getBackButton(){
+        return backButton;
     }
-    public JButton getDriversButton(){
-        return driversButton;
-    }
-    public void displayVehicleCards(List<VehiclesData> vehicles) {
-    jPanel2.removeAll(); // Clear existing components
-    jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
-    
-    for (VehiclesData vehicle : vehicles) {
-        AdminVehiclesDetailsCardPanel card = new AdminVehiclesDetailsCardPanel(vehicle);
-        jPanel2.add(card);
-        jPanel2.add(Box.createVerticalStrut(10)); // Add spacing between cards
-    }
-    
-    jPanel2.revalidate();
-    jPanel2.repaint();
-}
-
-    // Add this getter method
-    public JPanel getVehiclesContainerPanel() {
-        return jPanel2;
+    public JButton getAddGuideButton(){
+        return addGuideButton;
     }
 
-    public void GuideNavigation(ActionListener listener){
-            guideButton.addActionListener(listener);
-    }
+    
+    public JPanel getGuideContainerPanel() {
+    return jPanel2; 
 }
+}    
+    
+    
 

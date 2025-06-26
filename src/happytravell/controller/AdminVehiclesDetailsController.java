@@ -8,6 +8,7 @@ import happytravell.dao.VehiclesDao;
 import happytravell.model.VehiclesData;
 import happytravell.view.AdminBookingDetailsView;
 import happytravell.view.AdminBusTicketsView;
+import happytravell.view.AdminGuideDetailsView;
 import happytravell.view.AdminProfileView;
 import happytravell.view.AdminRouteDetailsView;
 import happytravell.view.AdminVehiclesDetailsView;
@@ -75,6 +76,7 @@ public class AdminVehiclesDetailsController {
         this.vehiclesDetailsView.RouteDetailsNavigation(new RouteDetailsNav(adminVehiclesDetailsView.getRouteDetailslabel()));
         this.vehiclesDetailsView.ProfileNavigation(new ProfileNav(adminVehiclesDetailsView.getProfilelabel()));
         this.vehiclesDetailsView.LogOutNavigation(new LogOutNav(adminVehiclesDetailsView.getLogOutlabel()));
+        this.vehiclesDetailsView.GuideNavigation(new GuideNav());
     
         loadAndDisplayVehicles();
 }
@@ -634,6 +636,16 @@ private boolean validateVehicleInput(String vehicleNumber, String seats,
             logOutLabel.setForeground(Color.BLACK);
             logOutLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
+    }
+    
+    class GuideNav implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            AdminGuideDetailsView GuideView = new AdminGuideDetailsView();
+            GuideController guideController = new GuideController(GuideView, currentAdminId);
+            guideController.open();
+            close();
+        }
     }
     
     private void loadAndDisplayVehicles() {
