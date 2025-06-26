@@ -4,9 +4,11 @@
  */
 package happytravell.view;
 
+
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -15,8 +17,8 @@ import javax.swing.JLabel;
  *
  * @author Acer
  */
-public final class TravellerProfileAccountManagementView extends javax.swing.JFrame {
-  
+public class TravellerProfileAccountManagementView extends javax.swing.JFrame {
+    
     /**
      * Creates new form AdmindashboardView
      */
@@ -31,6 +33,7 @@ public final class TravellerProfileAccountManagementView extends javax.swing.JFr
         scaleImage7();
         scaleImage8();
         scaleImage9();
+        
         
 
     }
@@ -107,7 +110,9 @@ public final class TravellerProfileAccountManagementView extends javax.swing.JFr
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         notificationIcon.setIcon(scaledIcon);
     }
-   
+    
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,21 +126,20 @@ public final class TravellerProfileAccountManagementView extends javax.swing.JFr
 
         jPanel11 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
-        profilePanel = new javax.swing.JPanel();
-        placePanel = new javax.swing.JPanel();
+        ProfilePanel = new javax.swing.JPanel();
         notificationIcon = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         currentPasswordLabel = new javax.swing.JLabel();
+        currentPasswordField = new javax.swing.JPasswordField();
         emailLabel = new javax.swing.JLabel();
+        newPasswordField = new javax.swing.JPasswordField();
         addressLabel = new javax.swing.JLabel();
+        confirmNewPasswordField = new javax.swing.JPasswordField();
         backButton = new javax.swing.JButton();
         changePasswordButton = new javax.swing.JButton();
         deleteAccountButton = new javax.swing.JButton();
-        confirmNewPasswordField = new javax.swing.JPasswordField();
-        currentPasswordField = new javax.swing.JPasswordField();
-        newPasswordField = new javax.swing.JPasswordField();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -170,15 +174,11 @@ public final class TravellerProfileAccountManagementView extends javax.swing.JFr
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profilePanel.setBackground(new java.awt.Color(248, 206, 157));
-        profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        placePanel.setBackground(new java.awt.Color(200, 143, 75));
-        placePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        profilePanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, -1, -1));
+        ProfilePanel.setBackground(new java.awt.Color(248, 206, 157));
+        ProfilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        profilePanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 5, 25, 25));
+        ProfilePanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
         notificationIcon.getAccessibleContext().setAccessibleName("");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -186,143 +186,145 @@ public final class TravellerProfileAccountManagementView extends javax.swing.JFr
 
         jLabel1.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
         jLabel1.setText("Profile");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 69, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 150, 50));
 
-        profilePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 40));
+        ProfilePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 50));
 
-        jPanel2.setBackground(new java.awt.Color(251, 245, 205));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setBackground(new java.awt.Color(251, 245, 205));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        currentPasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        currentPasswordLabel.setText("Current Password");
-        jPanel2.add(currentPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 110, 20));
+        currentPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        currentPasswordLabel.setText("  Current Password");
+        jPanel3.add(currentPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 140, 30));
+        jPanel3.add(currentPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 190, 30));
 
-        emailLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        emailLabel.setText("     New Password");
-        jPanel2.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 110, 20));
+        emailLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        emailLabel.setText("    New Password");
+        jPanel3.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 130, 30));
+        jPanel3.add(newPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 190, 30));
 
-        addressLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addressLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addressLabel.setText("               Confirm New Password");
-        jPanel2.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 190, 20));
+        jPanel3.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 200, 220, 30));
+        jPanel3.add(confirmNewPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 190, 30));
 
         backButton.setBackground(new java.awt.Color(241, 171, 89));
-        backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 183, 60, -1));
+        jPanel3.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 270, 80, -1));
 
         changePasswordButton.setBackground(new java.awt.Color(241, 171, 89));
-        changePasswordButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        changePasswordButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         changePasswordButton.setText("Change password");
         changePasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changePasswordButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(changePasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 180, 130, 26));
+        jPanel3.add(changePasswordButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 190, 30));
 
         deleteAccountButton.setBackground(new java.awt.Color(241, 171, 89));
-        deleteAccountButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        deleteAccountButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         deleteAccountButton.setText("Delete Account");
         deleteAccountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteAccountButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(deleteAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 120, 26));
-        jPanel2.add(confirmNewPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 160, -1));
-        jPanel2.add(currentPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 160, -1));
-        jPanel2.add(newPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 160, -1));
+        jPanel3.add(deleteAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 140, 30));
 
-        profilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 490, 260));
+        ProfilePanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 640, 380));
 
-        getContentPane().add(profilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 510, 360));
+        getContentPane().add(ProfilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
         DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N
-        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, 18, 18));
+        DashDetailsPanel.add(logoutIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 30, 30));
         logoutIcon.getAccessibleContext().setAccessibleName("");
 
         profileIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
         profileIcon.setText("jLabel1");
-        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 255, 18, 18));
+        DashDetailsPanel.add(profileIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 30, 30));
 
         vehiclesIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/front-of-bus.png"))); // NOI18N
-        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, 18, 18));
+        DashDetailsPanel.add(vehiclesIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 30, 30));
 
         busTicketIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tickets.png"))); // NOI18N
-        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 18, 18));
+        DashDetailsPanel.add(busTicketIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 30, 30));
 
-        happyTravelLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        happyTravelLabel.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         happyTravelLabel.setText("Happy Travels");
-        DashDetailsPanel.add(happyTravelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 15, 80, -1));
+        DashDetailsPanel.add(happyTravelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 120, -1));
 
         routeIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/directions.png"))); // NOI18N
-        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 18, 18));
+        DashDetailsPanel.add(routeIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 30, 30));
 
         bookingIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/booking.png"))); // NOI18N
-        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 97, 18, 18));
+        DashDetailsPanel.add(bookingIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 30, 30));
         bookingIcon.getAccessibleContext().setAccessibleName("");
 
         dashboardIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/dashboard.png"))); // NOI18N
         dashboardIcon.setText("jLabel1");
-        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 58, 18, 18));
+        DashDetailsPanel.add(dashboardIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 30, 30));
 
         logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/happy.png"))); // NOI18N
         logoIcon.setFocusCycleRoot(true);
-        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-35, -5, 120, 50));
+        DashDetailsPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -20, 180, 120));
         logoIcon.getAccessibleContext().setAccessibleName("");
 
-        dashboardLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        dashboardLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         dashboardLabel.setText("  Dashboard");
-        DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 80, -1));
+        DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 100, 20));
 
-        bookingLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        bookingLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
+        bookingLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bookingLabel.setText("  Booking ");
-        DashDetailsPanel.add(bookingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
+        DashDetailsPanel.add(bookingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 120, 20));
 
-        routeLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        routeLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         routeLabel.setText("  Route ");
-        DashDetailsPanel.add(routeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 90, 20));
+        DashDetailsPanel.add(routeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 130, 20));
 
-        busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         busTicketsLabel.setText("Bus Tickets");
-        DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 182, 60, -1));
+        DashDetailsPanel.add(busTicketsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 110, 20));
 
-        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        vehiclesDetailsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
+        vehiclesDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         vehiclesDetailsLabel.setText("  Vehicles Details");
-        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 220, 90, -1));
+        DashDetailsPanel.add(vehiclesDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 390, 120, 20));
 
-        profileLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        profileLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         profileLabel.setText("Profile");
-        DashDetailsPanel.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 50, -1));
+        DashDetailsPanel.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 90, 20));
 
-        logOutLabel.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
+        logOutLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         logOutLabel.setText("LogOut");
-        DashDetailsPanel.add(logOutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        DashDetailsPanel.add(logOutLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 80, 20));
 
-        getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 360));
+        getContentPane().add(DashDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+    private void deleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAccountButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_backButtonActionPerformed
+    }//GEN-LAST:event_deleteAccountButtonActionPerformed
 
     private void changePasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePasswordButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_changePasswordButtonActionPerformed
 
-    private void deleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAccountButtonActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteAccountButtonActionPerformed
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,7 +367,11 @@ public final class TravellerProfileAccountManagementView extends javax.swing.JFr
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+     
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -376,6 +382,7 @@ public final class TravellerProfileAccountManagementView extends javax.swing.JFr
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
+    private javax.swing.JPanel ProfilePanel;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel bookingIcon;
@@ -394,26 +401,24 @@ public final class TravellerProfileAccountManagementView extends javax.swing.JFr
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
     private javax.swing.JPasswordField newPasswordField;
     private javax.swing.JLabel notificationIcon;
-    private javax.swing.JPanel placePanel;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
-    private javax.swing.JPanel profilePanel;
     private javax.swing.JLabel routeIcon;
     private javax.swing.JLabel routeLabel;
     private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
 
-    
-    
-    public void DashboardNavigation(MouseListener listener){
+   
+
+      public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);
     }
     public JLabel getDashboardlabel(){
