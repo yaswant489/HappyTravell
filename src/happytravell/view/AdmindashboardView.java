@@ -29,7 +29,6 @@ public class AdmindashboardView extends javax.swing.JFrame {
         scaleImage6();
         scaleImage7();
         scaleImage8();
-        scaleImage9();
         scaleImage10();
         scaleImage11();
         scaleImage12();
@@ -100,14 +99,7 @@ public class AdmindashboardView extends javax.swing.JFrame {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         logoIcon.setIcon(scaledIcon);
     }
-    public void scaleImage9(){
-        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/ringing.png"));
-        //scaling image to fit in the hlabel.
-        Image img1 = icon1.getImage();
-        Image imgScale = img1.getScaledInstance(notificationIcon.getWidth(), notificationIcon.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(imgScale);
-        notificationIcon.setIcon(scaledIcon);
-    }
+    
     public void scaleImage10(){
         ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/pokhara.jpg"));
         //scaling image to fit in the hlabel.
@@ -170,7 +162,6 @@ public class AdmindashboardView extends javax.swing.JFrame {
         travellersButton = new javax.swing.JButton();
         travellingButton = new javax.swing.JButton();
         placesButton = new javax.swing.JButton();
-        notificationIcon = new javax.swing.JLabel();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -331,10 +322,6 @@ public class AdmindashboardView extends javax.swing.JFrame {
         });
         TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 520, 150, 60));
 
-        notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        TravelerDetailsPanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
-        notificationIcon.getAccessibleContext().setAccessibleName("");
-
         getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
@@ -492,7 +479,6 @@ public class AdmindashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel logoutIcon;
     private javax.swing.JLabel mustangImage;
     private javax.swing.JPanel mustangPanelButton;
-    private javax.swing.JLabel notificationIcon;
     private javax.swing.JPanel placePanel;
     private javax.swing.JButton placesButton;
     private javax.swing.JLabel pokharaImage;

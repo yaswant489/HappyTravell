@@ -164,9 +164,7 @@ public class TravellerBookingView extends javax.swing.JFrame {
         Image img1 = icon1.getImage();
         Image imgScale = img1.getScaledInstance(searchIcon.getWidth(), searchIcon.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
-        searchIcon.setIcon(scaledIcon);
-        
-        
+        searchIcon.setIcon(scaledIcon); 
     }
     
     

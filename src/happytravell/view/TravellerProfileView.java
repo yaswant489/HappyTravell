@@ -42,7 +42,6 @@ public class TravellerProfileView extends javax.swing.JFrame {
         scaleImage6();
         scaleImage7();
         scaleImage8();
-        scaleImage9();
         scaleImage10();
         
 
@@ -112,14 +111,7 @@ public class TravellerProfileView extends javax.swing.JFrame {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         logoIcon.setIcon(scaledIcon);
     }
-    public void scaleImage9(){
-        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/ringing.png"));
-        //scaling image to fit in the hlabel.
-        Image img1 = icon1.getImage();
-        Image imgScale = img1.getScaledInstance(notificationIcon.getWidth(), notificationIcon.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(imgScale);
-        notificationIcon.setIcon(scaledIcon);
-    }
+    
     public void scaleImage10(){
         ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/addImage.png"));
         //scaling image to fit in the hlabel.
@@ -144,7 +136,6 @@ public class TravellerProfileView extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         ProfilePanel = new javax.swing.JPanel();
-        notificationIcon = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -201,10 +192,6 @@ public class TravellerProfileView extends javax.swing.JFrame {
 
         ProfilePanel.setBackground(new java.awt.Color(248, 206, 157));
         ProfilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        ProfilePanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
-        notificationIcon.getAccessibleContext().setAccessibleName("");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -485,7 +472,6 @@ public class TravellerProfileView extends javax.swing.JFrame {
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
     private javax.swing.JButton nextButton;
-    private javax.swing.JLabel notificationIcon;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JTextField phoneNumberTextField;
     private javax.swing.JLabel profileAddIcon;

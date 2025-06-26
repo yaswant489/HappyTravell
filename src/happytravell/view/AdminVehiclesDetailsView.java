@@ -37,7 +37,7 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         scaleImage6();
         scaleImage7();
         scaleImage8();
-        scaleImage9();
+
        
         
 
@@ -107,14 +107,7 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         logoIcon.setIcon(scaledIcon);
     }
-    public void scaleImage9(){
-        ImageIcon icon1 = new ImageIcon(getClass().getResource("/image/ringing.png"));
-        //scaling image to fit in the hlabel.
-        Image img1 = icon1.getImage();
-        Image imgScale = img1.getScaledInstance(notificationIcon.getWidth(), notificationIcon.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(imgScale);
-        notificationIcon.setIcon(scaledIcon);
-    }
+   
     
     
     
@@ -132,12 +125,13 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         TravelerDetailsPanel = new javax.swing.JPanel();
-        notificationIcon = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         addVehiclesButton = new javax.swing.JButton();
+        addVehiclesButton1 = new javax.swing.JButton();
+        addVehiclesButton2 = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -175,16 +169,12 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         TravelerDetailsPanel.setBackground(new java.awt.Color(255, 242, 227));
         TravelerDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        notificationIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ringing.png"))); // NOI18N
-        TravelerDetailsPanel.add(notificationIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
-        notificationIcon.getAccessibleContext().setAccessibleName("");
-
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
         jLabel1.setText("Vehicles Details");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 150, 50));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 150, 50));
 
         TravelerDetailsPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 40));
 
@@ -198,9 +188,24 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         TravelerDetailsPanel.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 102, 680, 480));
 
         addVehiclesButton.setBackground(new java.awt.Color(252, 186, 107));
-        addVehiclesButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addVehiclesButton.setText("Add Vehicles");
-        TravelerDetailsPanel.add(addVehiclesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 130, 30));
+        addVehiclesButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        addVehiclesButton.setText(" Guide");
+        addVehiclesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addVehiclesButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(addVehiclesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 130, 30));
+
+        addVehiclesButton1.setBackground(new java.awt.Color(252, 186, 107));
+        addVehiclesButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        addVehiclesButton1.setText("Add Vehicles");
+        TravelerDetailsPanel.add(addVehiclesButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 130, 30));
+
+        addVehiclesButton2.setBackground(new java.awt.Color(252, 186, 107));
+        addVehiclesButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        addVehiclesButton2.setText("Drivers");
+        TravelerDetailsPanel.add(addVehiclesButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, 30));
 
         getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
@@ -276,6 +281,10 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addVehiclesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVehiclesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addVehiclesButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,6 +327,8 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
     private javax.swing.JPanel DashDetailsPanel;
     private javax.swing.JPanel TravelerDetailsPanel;
     private javax.swing.JButton addVehiclesButton;
+    private javax.swing.JButton addVehiclesButton1;
+    private javax.swing.JButton addVehiclesButton2;
     private javax.swing.JLabel bookingDetailsLabel;
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel busTicketIcon;
@@ -333,7 +344,6 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
-    private javax.swing.JLabel notificationIcon;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JLabel routeDetailsLabel;
