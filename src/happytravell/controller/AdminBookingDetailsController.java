@@ -4,6 +4,7 @@
  */
 package happytravell.controller;
 
+import happytravell.dao.BookingDao;
 import happytravell.dao.TravellerDao;
 import happytravell.model.BookingData;
 import happytravell.model.TravellerData;
@@ -284,17 +285,17 @@ public class AdminBookingDetailsController {
 
     
     private void loadBooking() {
-        try {
-            TravellerDao travellerDao = new TravellerDao();
-            allBooking = travellerDao.getAllBookingDetailsWithImage();
-            filteredBooking = new ArrayList<>(allBooking);
-            displayAllBooking();
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(bookingView, "Error loading bookings: " + e.getMessage(), 
-                                        "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    try {
+        BookingDao bookingDao = new BookingDao(); // Use BookingDao instead of TravellerDao
+        allBooking = bookingDao.getAllBookings(); // Use the correct method
+        filteredBooking = new ArrayList<>(allBooking);
+        displayAllBooking();
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(bookingView, "Error loading bookings: " + e.getMessage(), 
+                                    "Error", JOptionPane.ERROR_MESSAGE);
     }
+}
 
     private void displayAllBooking() {
     bookingView.displayBooking(allBooking, this);

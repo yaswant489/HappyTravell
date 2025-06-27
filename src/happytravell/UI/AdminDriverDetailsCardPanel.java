@@ -140,8 +140,8 @@ public class AdminDriverDetailsCardPanel extends JPanel {
         // Add click instruction at bottom
         JLabel clickHint = new JLabel("Click to edit driver details");
         clickHint.setFont(new Font("Segoe UI", Font.ITALIC, 11));
-        clickHint.setForeground(new Color(150, 150, 150));
-        clickHint.setHorizontalAlignment(SwingConstants.CENTER);
+        clickHint.setForeground(Color.decode("#000000"));
+        clickHint.setHorizontalAlignment(SwingConstants.RIGHT);
         add(clickHint, BorderLayout.SOUTH);
     }
     

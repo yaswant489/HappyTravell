@@ -14,11 +14,13 @@ import happytravell.view.AdmindashboardView;
 import happytravell.view.LoginPageView;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -109,35 +111,44 @@ public class DriverDetailsController {
         contentPanel.removeAll();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         
-        for (DriverData driver : driversList) {
-            AdminDriverDetailsCardPanel cardPanel = new AdminDriverDetailsCardPanel(driver);
+        for (int i = 0; i < driversList.size(); i++) {
+        DriverData driver = driversList.get(i);
+        AdminDriverDetailsCardPanel cardPanel = new AdminDriverDetailsCardPanel(driver);
+        
+        // Add click listener to card panel
+        cardPanel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                showDriverEditDialog(driver);
+            }
             
-            // Add click listener to card panel
-            cardPanel.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    showDriverEditDialog(driver);
-                }
-                
-                @Override
-                public void mousePressed(MouseEvent e) {}
-                
-                @Override
-                public void mouseReleased(MouseEvent e) {}
-                
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    cardPanel.setCardHovered(true);
-                }
-                
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    cardPanel.setCardHovered(false);
-                }
-            });
+            @Override
+            public void mousePressed(MouseEvent e) {}
             
-            contentPanel.add(cardPanel);
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+            
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                cardPanel.setCardHovered(true);
+            }
+            
+            @Override
+            public void mouseExited(MouseEvent e) {
+                cardPanel.setCardHovered(false);
+            }
+        });
+        
+        contentPanel.add(cardPanel);
+        
+        
+        if (i < driversList.size() - 1) {
+            contentPanel.add(Box.createRigidArea(new Dimension(0, 15)));
         }
+    }
+    
+    // Optional: Add some padding at the bottom
+    contentPanel.add(Box.createVerticalGlue());
         
         contentPanel.revalidate();
         contentPanel.repaint();

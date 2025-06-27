@@ -94,7 +94,7 @@ public class DriverPopup extends JDialog {
         cancelButton.setBackground(new Color(128, 128, 128));
         cancelButton.setForeground(Color.WHITE);
         cancelButton.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        cancelButton.setPreferredSize(new Dimension(100, 35));
+        cancelButton.setPreferredSize(new Dimension(120, 35));
     }
     
     /**
@@ -120,7 +120,7 @@ public class DriverPopup extends JDialog {
         JPanel formPanel = new JPanel(new GridBagLayout());
         formPanel.setBackground(new Color(239, 204, 150));
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.insets = new Insets(8, 8, 8, 8);
         gbc.anchor = GridBagConstraints.WEST;
         
         // Name field
