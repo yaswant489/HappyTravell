@@ -5,6 +5,8 @@
 package happytravell.view;
 
 import happytravell.model.BookingData;
+import happytravell.model.GuideData;
+import happytravell.popup.GuideSelectionPopup;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -22,10 +24,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -868,38 +872,37 @@ private JPanel createVehiclePanel(BookingData.VehicleInfo vehicle) {
     
 } 
 
+    
+    
+    
+    // Add this with your other variable declarations at the top of the class
+private GuideData selectedGuide;
 
-// Right panel for vehicle details (with reduced spacing)
-//    JPanel rightPanel = new JPanel();
-//    rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-//    rightPanel.setBackground(new Color(248, 219, 164));
-//
-//    Font font = new Font("SansSerif", Font.PLAIN, 12);
-//
-//    JLabel numberLabel = new JLabel("Number: " + vehicle.getVehicleNumber());
-//    numberLabel.setFont(font);
-//    numberLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-//
-//    JLabel seatsLabel = new JLabel("Seats: " + vehicle.getNumberOfSeats());
-//    seatsLabel.setFont(font);
-//    seatsLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-//
-//    JLabel agencyLabel = new JLabel("Agency: " + vehicle.getTravelAgency());
-//    agencyLabel.setFont(font);
-//    agencyLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-//
-//    // Add labels with reduced vertical spacing
-//    rightPanel.add(numberLabel);
-//    rightPanel.add(Box.createVerticalStrut(3));
-//    rightPanel.add(seatsLabel);
-//    rightPanel.add(Box.createVerticalStrut(3));
-//    rightPanel.add(agencyLabel);
-//
-//    panel.add(rightPanel, BorderLayout.CENTER);
-//
-//    return panel;
-//}
-
-
-
+// Add these getter and setter methods
+public GuideData getSelectedGuide() {
+    return selectedGuide;
 }
+
+public void setSelectedGuide(GuideData guide) {
+    this.selectedGuide = guide;
+}
+    
+    
+// In TravellerBookingView.java
+
+// Replace the existing showGuideSelectionPopup method with this:
+public GuideData showGuideSelectionPopup(List<GuideData> guides) {
+    GuideSelectionPopup popup = new GuideSelectionPopup(this, guides);
+    return popup.showDialog();
+}
+
+// Update the guideButtonActionPerformed method to:
+private void guideButtonAcctionPerformed(java.awt.event.ActionEvent evt) {                                           
+    // This will be handled by the controller
+}
+}
+
+    
+    
+    
+

@@ -5,7 +5,9 @@
 package happytravell.controller;
 
 import happytravell.dao.BookingDao;
+import happytravell.dao.GuideDao;
 import happytravell.model.BookingData;
+import happytravell.model.GuideData;
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
 import happytravell.view.TravellerBusTicketsView;
@@ -34,12 +36,14 @@ public class TravellerBookingController {
     private TravellerBookingView BookingView;
     private int currentTravellerId;
     private BookingDao bookingDao;
+    private GuideDao guideDao;
     private String selectedVehicleType = "";
     
     public TravellerBookingController(TravellerBookingView travellerBookingView, int travellerId) {
         this.currentTravellerId = travellerId;
         this.BookingView = travellerBookingView;
         this.bookingDao = new BookingDao();
+        this.guideDao = new GuideDao(); 
         
         // Initialize navigation listeners
         initializeNavigation();
@@ -103,42 +107,72 @@ public class TravellerBookingController {
         this.BookingView.dispose();
     }
     
-    // Vehicle Type Selection Listener
-class VehicleTypeListener implements ActionListener {
+   class VehicleTypeListener implements ActionListener {
     private String vehicleType;
     
     public VehicleTypeListener(String vehicleType) {
         this.vehicleType = vehicleType;
     }
     
+    // In the VehicleTypeListener class in TravellerBookingController.java
     @Override
     public void actionPerformed(ActionEvent e) {
         selectedVehicleType = vehicleType;
-        
-        // Load vehicles for all types and populate tabs
-        List<BookingData.VehicleInfo> cars = bookingDao.getAvailableVehiclesByType("Car");
-        List<BookingData.VehicleInfo> jeeps = bookingDao.getAvailableVehiclesByType("Jeep");
-        List<BookingData.VehicleInfo> taxis = bookingDao.getAvailableVehiclesByType("Taxi");
-        
-        BookingView.populateCarTab(cars);
-        BookingView.populateJeepTab(jeeps);
-        BookingView.populateTaxiTab(taxis);
-        
-        // Select the appropriate tab based on vehicle type
-        switch (vehicleType) {
-            case "Car":
-                BookingView.getTabbedPane().setSelectedIndex(0);
-                break;
-            case "Jeep":
-                BookingView.getTabbedPane().setSelectedIndex(1);
-                break;
-            case "Taxi":
-                BookingView.getTabbedPane().setSelectedIndex(2);
-                break;
+
+        if ("Guide".equals(vehicleType)) {
+            try {
+                List<GuideData> availableGuides = guideDao.getAllGuides();
+                if (availableGuides.isEmpty()) {
+                    JOptionPane.showMessageDialog(BookingView, 
+                        "No guides available at this time.", 
+                        "No Guides", 
+                        JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    GuideData selectedGuide = BookingView.showGuideSelectionPopup(availableGuides);
+                    if (selectedGuide != null) {
+                        // Store the selected guide
+                        BookingView.setSelectedGuide(selectedGuide);
+
+                        // Show confirmation to user
+                        JOptionPane.showMessageDialog(BookingView,
+                            "Guide selected: " + selectedGuide.getGuideName(),
+                            "Guide Confirmation",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(BookingView,
+                    "Error loading guides: " + ex.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            // Existing vehicle type handling code...
+            List<BookingData.VehicleInfo> cars = bookingDao.getAvailableVehiclesByType("Car");
+            List<BookingData.VehicleInfo> jeeps = bookingDao.getAvailableVehiclesByType("Jeep");
+            List<BookingData.VehicleInfo> taxis = bookingDao.getAvailableVehiclesByType("Taxi");
+
+            BookingView.populateCarTab(cars);
+            BookingView.populateJeepTab(jeeps);
+            BookingView.populateTaxiTab(taxis);
+
+            // Select the appropriate tab based on vehicle type
+            switch (vehicleType) {
+                case "Car":
+                    BookingView.getTabbedPane().setSelectedIndex(0);
+                    break;
+                case "Jeep":
+                    BookingView.getTabbedPane().setSelectedIndex(1);
+                    break;
+                case "Taxi":
+                    BookingView.getTabbedPane().setSelectedIndex(2);
+                    break;
+            }
+
+            // Load vehicles for the combo box
+            loadVehiclesByType(vehicleType);
         }
-        
-        // Load vehicles for the combo box
-        loadVehiclesByType(vehicleType);
     }
 }
 
