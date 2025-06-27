@@ -10,13 +10,23 @@ package happytravell.controller;
 
 import happytravell.dao.PlaceDao;
 import happytravell.model.PlaceData;
+import happytravell.view.AdminBookingDetailsView;
+import happytravell.view.AdminBusTicketsView;
 import happytravell.view.AdminPlacesView;
+import happytravell.view.AdminProfileView;
+import happytravell.view.AdminRouteDetailsView;
+import happytravell.view.AdminVehiclesDetailsView;
+import happytravell.view.AdmindashboardView;
+import happytravell.view.LoginPageView;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -46,7 +56,14 @@ public class AdminPlacesController {
         this.placesView = view;
         this.placeDao = new PlaceDao();
         this.currentAdminId = adminId;
-        initializeEventHandlers();
+        this.placesView.BookingDetailsNavigation(new AdminPlacesController.BookingDetailsNav(view.getBookingDetailslabel()));
+        this.placesView.BusTicketsNavigation(new AdminPlacesController.BusTicketsNav(view.getBusTicketslabel()));
+        this.placesView.RouteDetailsNavigation(new AdminPlacesController.RouteDetailsNav(view.getRouteDetailslabel()));
+        this.placesView.VehiclesDetailsNavigation(new AdminPlacesController.VehiclesDetailsNav(view.getVehiclesDetailslabel()));
+        this.placesView.ProfileNavigation(new AdminPlacesController.ProfileNav(view.getProfilelabel()));
+        this.placesView.LogOutNavigation(new AdminPlacesController.LogOutNav(view.getLogOutlabel()));
+        this.placesView.DashboardNavigation(new AdminPlacesController.DashboardNav(view.getDashboardlabel()));
+        
     }
     public void open(){
     this.placesView.setVisible(true);
@@ -56,271 +73,247 @@ public class AdminPlacesController {
     this.placesView.dispose();
     } 
     
-    /**
-     * Initialize event handlers for the places view
-     */
-    private void initializeEventHandlers() {
-        placesView.getAddPlacesButton().addActionListener(e -> showAddPlaceDialog());
-    }    
+    //    Dashboard Navigation
+    class DashboardNav implements MouseListener{
         
-    /**
-     * Show the Add Places popup dialog
-     */
-    public void showAddPlaceDialog() {
-        JDialog addPlaceDialog = createAddPlaceDialog();
-        addPlaceDialog.setVisible(true);
+        private JLabel dashboardLabel;
+        
+        public DashboardNav(JLabel label){
+            this.dashboardLabel = label;
+        }
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdmindashboardView adminDashboardView = new AdmindashboardView();
+            AdminDashboardController adminController = new AdminDashboardController(adminDashboardView, currentAdminId);
+            adminController.open();
+            close();
+        }
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            dashboardLabel.setForeground(Color.WHITE);
+            dashboardLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            dashboardLabel.setForeground(Color.BLACK);
+            dashboardLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
     }
     
-    /**
-     * Create the Add Places dialog with form components
-     * @return JDialog for adding places
-     */
-    private JDialog createAddPlaceDialog() {
-        JDialog dialog = new JDialog();
-        dialog.setTitle("Add Places");
-        dialog.setModal(true);
-        dialog.setSize(400, 300);
-        dialog.setLocationRelativeTo(placesView);
-        dialog.setResizable(false);
+//    Booking Details Navigation
+    class BookingDetailsNav implements MouseListener{
         
-        // Create main panel
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        mainPanel.setBackground(new java.awt.Color(252,186,107));
-        // Photo section
-        JPanel photoPanel = new JPanel();
-        photoPanel.setLayout(new BoxLayout(photoPanel, BoxLayout.Y_AXIS));
-        photoPanel.setBorder(BorderFactory.createTitledBorder("Photo"));
+        private JLabel bookingDetailsLabel;
         
-        JButton addPhotoButton = new JButton("Add Photo");
-        addPhotoButton.setPreferredSize(new java.awt.Dimension(200,100));
-        addPhotoButton.setBackground(java.awt.Color.LIGHT_GRAY);
-        
-        JLabel selectedPhotoLabel = new JLabel("No photo selected");
-        selectedPhotoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-//        
-        photoPanel.add(addPhotoButton);
-//        photoPanel.add(Box.createVerticalStrut(10));
-//        photoPanel.add(selectedPhotoLabel);
-        
-        // Name section
-        JPanel namePanel = new JPanel(new GridBagLayout());
-        JLabel nameLabel = new JLabel("Name:");
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.anchor = GridBagConstraints.WEST;
-        
-        gbc.gridx =-5; gbc.gridy =2 ;
-        namePanel.setBackground(new java.awt.Color(252,186,107));
-        nameLabel.setFont(nameLabel.getFont().deriveFont(12f));
-        JTextField nameField = new JTextField();
-        namePanel.add(nameLabel,gbc);
-        
-        nameField.setPreferredSize(new java.awt.Dimension(200,20));
-        
-        namePanel.add(nameLabel);
-        namePanel.add(Box.createVerticalStrut(5));
-        namePanel.add(nameField);
-        
-        // Description section
-        JPanel descPanel = new JPanel(new GridBagLayout());
-        JLabel descLabel = new JLabel("Description:");
-        GridBagConstraints gbc2 = new GridBagConstraints();
-        gbc2.anchor = GridBagConstraints.WEST;
-        gbc2.gridx =-5; gbc2.gridy =2 ;
-        descPanel.setBackground(new java.awt.Color(252,186,107));
-        descLabel.setFont(descLabel.getFont().deriveFont(12f));
-        
-        JTextArea descArea = new JTextArea(3, 20);
-        descArea.setLineWrap(true);
-        descArea.setWrapStyleWord(true);
-        JScrollPane descScrollPane = new JScrollPane(descArea);
-      
-        
-//        gbc.gridx = 1; gbc.fill = GridBagConstraints.BOTH;
-//        JTextArea descArea = new JTextArea(3, 20);
-//        descArea.setFont(new Font("Arial", Font.PLAIN, 14));
-//        descArea.setBorder(BorderFactory.createCompoundBorder(
-//            BorderFactory.createLineBorder(new Color(227, 143, 11), 2),
-//            BorderFactory.createEmptyBorder(5, 5, 5, 5)
-//      
-        
-        descPanel.add(descLabel);
-        descPanel.add(Box.createVerticalStrut(5));
-        descPanel.add(descScrollPane);
-        
-        // Button panel
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(new java.awt.Color(252,186,107));
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
-        
-        JButton addButton = new JButton("Add");
-        addButton.setBackground(new java.awt.Color(173,98,44)); // Orange color from UI
-        addButton.setForeground(java.awt.Color.BLACK);
-        addButton.setPreferredSize(new java.awt.Dimension(80, 35));
-        
-        JButton cancelButton = new JButton("Cancel");
-        cancelButton.setPreferredSize(new java.awt.Dimension(80, 35));
-        cancelButton.setBackground(new java.awt.Color(173,98,44));
-        cancelButton.setForeground(java.awt.Color.BLACK);
-        
-        buttonPanel.add(Box.createHorizontalGlue());
-        buttonPanel.add(cancelButton);
-        buttonPanel.add(Box.createHorizontalStrut(5));
-        buttonPanel.add(addButton);
-        
-        // Add components to main panel
-        mainPanel.add(photoPanel);
-        mainPanel.add(Box.createVerticalStrut(5));
-        mainPanel.add(namePanel);
-        mainPanel.add(Box.createVerticalStrut(5));
-        mainPanel.add(descPanel);
-        mainPanel.add(Box.createVerticalStrut(10));
-        mainPanel.add(buttonPanel);
-        
-        dialog.add(mainPanel);
-        
-        // Event handlers for dialog
-        setupDialogEventHandlers(dialog, addPhotoButton, selectedPhotoLabel, 
-                                nameField, descArea, addButton, cancelButton);
-        
-        return dialog;
+        public BookingDetailsNav(JLabel label){
+            this.bookingDetailsLabel = label;
+        }
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminBookingDetailsView adminBookingDetailsView = new AdminBookingDetailsView();
+            AdminBookingDetailsController AdminBookingDetails= new AdminBookingDetailsController(adminBookingDetailsView, currentAdminId);
+            AdminBookingDetails.open();
+            close();
+        }
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            bookingDetailsLabel.setForeground(Color.WHITE);
+            bookingDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            bookingDetailsLabel.setForeground(Color.BLACK);
+            bookingDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
     }
     
-    /**
-     * Setup event handlers for the add place dialog
-     */
-    private void setupDialogEventHandlers(JDialog dialog, JButton addPhotoButton, 
-                                        JLabel selectedPhotoLabel, JTextField nameField, 
-                                        JTextArea descArea, JButton addButton, 
-                                        JButton cancelButton) {
+//  Route Details Navigation
+    class RouteDetailsNav implements MouseListener{
         
-        addButton.addActionListener(e -> {
-            String name = nameField.getText().trim();
-            String description = descArea.getText().trim();
-            
-            if (name.isEmpty() || description.isEmpty()) {
-                JOptionPane.showMessageDialog(dialog, 
-                    "Please fill in all required fields.", 
-                    "Validation Error", 
-                    JOptionPane.WARNING_MESSAGE);
-                return;
+        private JLabel routeDetailsLabel;      
+        public RouteDetailsNav(JLabel label){
+            this.routeDetailsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminRouteDetailsView adminRouteDetailsView = new AdminRouteDetailsView();
+            AdminRouteDetailsController AdminRouteDetails= new AdminRouteDetailsController(adminRouteDetailsView , currentAdminId);
+            AdminRouteDetails.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            routeDetailsLabel.setForeground(Color.WHITE);
+            routeDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            routeDetailsLabel.setForeground(Color.BLACK);
+            routeDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+//  Bus Ticket Navigation  
+    class BusTicketsNav implements MouseListener{
+        
+        private JLabel busTicketsLabel;
+        public BusTicketsNav(JLabel label){
+            this.busTicketsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminBusTicketsView adminBusTicketsView = new AdminBusTicketsView();
+            AdminBusTicketsController AdminBusTickets= new AdminBusTicketsController(adminBusTicketsView, currentAdminId);
+            AdminBusTickets.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            busTicketsLabel.setForeground(Color.WHITE);
+            busTicketsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            busTicketsLabel.setForeground(Color.BLACK);
+            busTicketsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+//  Vehicles Details Navigation
+    class VehiclesDetailsNav implements MouseListener{
+        
+        private JLabel vehiclesDetailsLabel;
+        public VehiclesDetailsNav(JLabel label){
+            this.vehiclesDetailsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminVehiclesDetailsView adminVehiclesDetailsView = new AdminVehiclesDetailsView();
+            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView, currentAdminId);
+            AdminVehiclesDetails.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.WHITE);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.BLACK);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+//    Profile Navigation
+    class ProfileNav implements MouseListener{
+        
+        private JLabel profileLabel;
+        public ProfileNav(JLabel label){
+            this.profileLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminProfileView adminProfileView = new AdminProfileView();
+            AdminProfileController  AdminProfile= new  AdminProfileController(adminProfileView , currentAdminId);
+            AdminProfile.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            profileLabel.setForeground(Color.WHITE);
+            profileLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            profileLabel.setForeground(Color.BLACK);
+            profileLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+//    LogOut Navigation
+    class LogOutNav implements MouseListener{
+        
+        private JLabel logOutLabel;
+        public LogOutNav(JLabel label){
+            this.logOutLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Logout",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            if (response == JOptionPane.YES_OPTION) {
+                placesView.dispose();
+
+                LoginPageView loginView = new LoginPageView();
+                LoginController loginController = new LoginController(loginView);
+                loginController.open();
             }
-            
-            // For now, we'll add the place without an image
-            PlaceData newPlace = new PlaceData(0, name, description, null);
-            
-            if (placeDao.addPlace(newPlace)) {
-                JOptionPane.showMessageDialog(dialog, "Place added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                dialog.dispose();
-            } else {
-                JOptionPane.showMessageDialog(dialog, "Error adding place.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        });
+        }
         
-        cancelButton.addActionListener(e -> dialog.dispose());
-    }    
-        // Add button handler
-//        addButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                String name = nameField.getText().trim();
-//                String description = descArea.getText().trim();
-//                
-//                if (validateInput(name, description)) {
-//                    Place newPlace = new Place(name, description, selectedPhotoPath[0]);
-//                    if (addPlace(newPlace)) {
-//                        JOptionPane.showMessageDialog(dialog, 
-//                            "Place added successfully!", 
-//                            "Success", 
-//                            JOptionPane.INFORMATION_MESSAGE);
-//                        dialog.dispose();
-//                        refreshPlacesView();
-//                    } else {
-//                        JOptionPane.showMessageDialog(dialog, 
-//                            "Error adding place. Please try again.", 
-//                            "Error", 
-//                            JOptionPane.ERROR_MESSAGE);
-//                    }
-//                } else {
-//                    JOptionPane.showMessageDialog(dialog, 
-//                        "Please fill in all required fields (Name and Description).", 
-//                        "Validation Error", 
-//                        JOptionPane.WARNING_MESSAGE);
-//                }
-//            }
-//        });
-        
-        // Cancel button handler
-//        cancelButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                dialog.dispose();
-//            }
-//        });
-//        
-//        // Close button (X) handler
-//        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-//    }
-//    
-//    /**
-//     * Validate input fields
-//     * @param name Place name
-//     * @param description Place description
-//     * @return true if valid, false otherwise
-//     */
-//    private boolean validateInput(String name, String description) {
-//        return !name.isEmpty() && !description.isEmpty();
-//    }
-//    
-//    /**
-//     * Add a new place using the place DAO
-//     * @param place Place to add
-//     * @return true if successful, false otherwise
-//     */
-//    private boolean addPlace(Place place) {
-//        try {
-//            return placeDao.addPlace(place);
-//        } catch (Exception e) {
-//            System.err.println("Error adding place: " + e.getMessage());
-//            return false;
-//        }
-//    }
-//    
-//    /**
-//     * Refresh the places view to show updated data
-//     */
-//    private void refreshPlacesView() {
-//        placesView.refreshPlacesList();
-//    }
-//    
-//    /**
-//     * Search for places based on query
-//     * @param query Search query
-//     */
-//    private void searchPlaces(String query) {
-//        if (query.trim().isEmpty()) {
-//            placesView.showAllPlaces();
-//        } else {
-//            placesView.filterPlaces(query);
-//        }
-//    }
-//    
-//    /**
-//     * Get the places view
-//     * @return PlacesView instance
-//     */
-//    public PlacesView getPlacesView() {
-//        return placesView;
-//    }
-//    
-//    /**
-//     * Set the places view
-//     * @param placesView PlacesView instance
-//     */
-//    public void setPlacesView(PlacesView placesView) {
-//        this.placesView = placesView;
-//    }
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            logOutLabel.setForeground(Color.WHITE);
+            logOutLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            logOutLabel.setForeground(Color.BLACK);
+            logOutLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
 
     
 }           
