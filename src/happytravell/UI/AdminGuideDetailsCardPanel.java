@@ -80,9 +80,11 @@ public class AdminGuideDetailsCardPanel extends JPanel {
     private void setupLayout() {
         setLayout(new BorderLayout());
         
+        
         // Main content panel
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+        contentPanel.setBackground(new Color(239, 204, 150));
         contentPanel.setOpaque(false);
         
         // Add some spacing

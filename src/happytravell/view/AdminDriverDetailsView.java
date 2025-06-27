@@ -4,24 +4,31 @@
  */
 package happytravell.view;
 
-
+import happytravell.UI.AdminVehiclesDetailsCardPanel;
+import happytravell.model.VehiclesData;
 import java.awt.Image;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-import java.io.File;
+import java.util.List;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.JPanel;
+
+
 
 /**
  *
  * @author Acer
  */
-public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
-    File selectedProfileFile;
+public class AdminDriverDetailsView extends javax.swing.JFrame {
+
     /**
      * Creates new form AdmindashboardView
      */
-    public TravellerVehiclesDetailsView() {
+    public AdminDriverDetailsView() {
         initComponents();
         scaleImage1();
         scaleImage2();
@@ -31,8 +38,8 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
         scaleImage6();
         scaleImage7();
         scaleImage8();
-        
-        
+
+       
         
 
     }
@@ -101,6 +108,7 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         logoIcon.setIcon(scaledIcon);
     }
+   
     
     
     
@@ -117,19 +125,13 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
 
         jPanel11 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
-        ProfilePanel = new javax.swing.JPanel();
+        TravelerDetailsPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        numberOfSeatsTextField = new javax.swing.JTextField();
-        travelAgencyTextField = new javax.swing.JTextField();
-        vehiclesNumberTextField = new javax.swing.JTextField();
-        vehiclesTypeTextField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        scrollPane = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+        backButton = new javax.swing.JButton();
+        adddriverButton = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -141,8 +143,8 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
         dashboardIcon = new javax.swing.JLabel();
         logoIcon = new javax.swing.JLabel();
         dashboardLabel = new javax.swing.JLabel();
-        bookingLabel = new javax.swing.JLabel();
-        routeLabel = new javax.swing.JLabel();
+        bookingDetailsLabel = new javax.swing.JLabel();
+        routeDetailsLabel = new javax.swing.JLabel();
         busTicketsLabel = new javax.swing.JLabel();
         vehiclesDetailsLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
@@ -164,47 +166,48 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ProfilePanel.setBackground(new java.awt.Color(248, 206, 157));
-        ProfilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        TravelerDetailsPanel.setBackground(new java.awt.Color(255, 242, 227));
+        TravelerDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Constantia", 1, 18)); // NOI18N
-        jLabel1.setText("Vehicles Details");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 150, 40));
+        jLabel1.setText("Drivers Details");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 150, 30));
 
-        ProfilePanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 50));
+        TravelerDetailsPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 40));
 
-        jPanel3.setBackground(new java.awt.Color(251, 245, 205));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Travel Agency ");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, 30));
+        jPanel2.setBackground(new java.awt.Color(200, 143, 75));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        scrollPane.setViewportView(jPanel2);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Vehicles Number");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, 30));
+        TravelerDetailsPanel.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 102, 680, 480));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Vehicles Type");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, 30));
+        backButton.setBackground(new java.awt.Color(252, 186, 107));
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, 30));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Number of Seats ");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 30));
-        jPanel3.add(numberOfSeatsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 220, 30));
-        jPanel3.add(travelAgencyTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 220, 30));
-        jPanel3.add(vehiclesNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 220, 30));
-        jPanel3.add(vehiclesTypeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 220, 30));
+        adddriverButton.setBackground(new java.awt.Color(252, 186, 107));
+        adddriverButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        adddriverButton.setText("Add Drivers");
+        adddriverButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adddriverButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(adddriverButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 130, 30));
 
-        ProfilePanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 560, 240));
-
-        jLabel3.setText("selected Vehicles image");
-        ProfilePanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 480, 180));
-
-        getContentPane().add(ProfilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
+        getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
         DashDetailsPanel.setBackground(new java.awt.Color(241, 215, 184));
         DashDetailsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -247,14 +250,14 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
         dashboardLabel.setText("  Dashboard");
         DashDetailsPanel.add(dashboardLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 100, 20));
 
-        bookingLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
-        bookingLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        bookingLabel.setText("  Booking ");
-        DashDetailsPanel.add(bookingLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 120, 20));
+        bookingDetailsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
+        bookingDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bookingDetailsLabel.setText("  Booking Details");
+        DashDetailsPanel.add(bookingDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 120, 20));
 
-        routeLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
-        routeLabel.setText("  Route ");
-        DashDetailsPanel.add(routeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 130, 20));
+        routeDetailsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
+        routeDetailsLabel.setText("  Route Details");
+        DashDetailsPanel.add(routeDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 130, 20));
 
         busTicketsLabel.setFont(new java.awt.Font("Candara", 1, 16)); // NOI18N
         busTicketsLabel.setText("Bus Tickets");
@@ -278,6 +281,14 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void adddriverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adddriverButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adddriverButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -295,13 +306,13 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TravellerVehiclesDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminDriverDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TravellerVehiclesDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminDriverDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TravellerVehiclesDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminDriverDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TravellerVehiclesDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminDriverDetailsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -317,52 +328,46 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
-     
+        //</editor-fold>
+        //</editor-fold>
+       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TravellerVehiclesDetailsView().setVisible(true);
+                new AdminDriverDetailsView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
-    private javax.swing.JPanel ProfilePanel;
+    private javax.swing.JPanel TravelerDetailsPanel;
+    private javax.swing.JButton adddriverButton;
+    private javax.swing.JButton backButton;
+    private javax.swing.JLabel bookingDetailsLabel;
     private javax.swing.JLabel bookingIcon;
-    private javax.swing.JLabel bookingLabel;
     private javax.swing.JLabel busTicketIcon;
     private javax.swing.JLabel busTicketsLabel;
     private javax.swing.JLabel dashboardIcon;
     private javax.swing.JLabel dashboardLabel;
     private javax.swing.JLabel happyTravelLabel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
-    private javax.swing.JTextField numberOfSeatsTextField;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
+    private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
-    private javax.swing.JLabel routeLabel;
-    private javax.swing.JTextField travelAgencyTextField;
+    public javax.swing.JScrollPane scrollPane;
     private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
-    private javax.swing.JTextField vehiclesNumberTextField;
-    private javax.swing.JTextField vehiclesTypeTextField;
     // End of variables declaration//GEN-END:variables
 
-   
 
     public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);
@@ -370,17 +375,17 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
     public JLabel getDashboardlabel(){
         return dashboardLabel;
     }
-    public void BookingNavigation(MouseListener listener){
-        bookingLabel.addMouseListener(listener);
+    public void BookingDetailsNavigation(MouseListener listener){
+        bookingDetailsLabel.addMouseListener(listener);
     }
-    public JLabel getBookinglabel(){
-        return bookingLabel;
+    public JLabel getBookingDetailslabel(){
+        return bookingDetailsLabel;
     }
-    public void RouteNavigation(MouseListener listener){
-        routeLabel.addMouseListener(listener);
+    public void RouteDetailsNavigation(MouseListener listener){
+        routeDetailsLabel.addMouseListener(listener);
     }
-    public JLabel getRoutelabel(){
-        return routeLabel;
+    public JLabel getRouteDetailslabel(){
+        return routeDetailsLabel;
     }
     public void BusTicketsNavigation(MouseListener listener){
         busTicketsLabel.addMouseListener(listener);
@@ -398,32 +403,27 @@ public class TravellerVehiclesDetailsView extends javax.swing.JFrame {
     public void ProfileNavigation(MouseListener listener){
         profileLabel.addMouseListener(listener);
     }
-
     public JLabel getProfilelabel(){
         return profileLabel;
     }
-
     public void LogOutNavigation(MouseListener listener){
         logOutLabel.addMouseListener(listener);
     }
     public JLabel getLogOutlabel(){
         return logOutLabel;
     }
-    
-    public JTextField getTravelAgencyTextField() {
-        return travelAgencyTextField;
+    public void BackNavigation(ActionListener listener){
+        backButton.addActionListener(listener);
     }
-    public JTextField getVehiclesNumberTextField() {
-        return vehiclesNumberTextField;
+    public JButton getAddDriverButton(){
+        return adddriverButton;
     }
-    public JTextField getVehiclesTypeTextField() {
-        return vehiclesTypeTextField;
-    }
-    public JTextField getNumberOfSeatsTextField() {
-        return numberOfSeatsTextField;
-    }
+
     
     
     
+
+}    
     
-}
+    
+

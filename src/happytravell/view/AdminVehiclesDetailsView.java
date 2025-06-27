@@ -425,5 +425,9 @@ public class AdminVehiclesDetailsView extends javax.swing.JFrame {
     public void GuideNavigation(ActionListener listener){
             guideButton.addActionListener(listener);
     }
+    
+    public void DriverNavigation(ActionListener listener){
+            driversButton.addActionListener(listener);
+    }
 }
 

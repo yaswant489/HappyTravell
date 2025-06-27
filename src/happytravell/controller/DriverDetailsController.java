@@ -1,17 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package happytravell.controller;
 
-import happytravell.UI.AdminGuideDetailsCardPanel;
-import happytravell.dao.GuideDao;
-import happytravell.model.GuideData;
-import happytravell.popup.AddGuidePopup;
-import happytravell.popup.GuidePopup;
+import happytravell.popup.DriverPopup;
+import happytravell.dao.DriverDao;
+import happytravell.model.DriverData;
+import happytravell.view.AdminDriverDetailsView;
+import happytravell.UI.AdminDriverDetailsCardPanel;
 import happytravell.view.AdminBookingDetailsView;
 import happytravell.view.AdminBusTicketsView;
-import happytravell.view.AdminGuideDetailsView;
 import happytravell.view.AdminProfileView;
 import happytravell.view.AdminRouteDetailsView;
 import happytravell.view.AdminVehiclesDetailsView;
@@ -24,179 +19,289 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
+import javax.swing.JPanel;
 
 /**
- *
- * @author Acer
+ * Controller for Driver Details functionality
+ * Handles the interaction between view, model and data access layer
  */
-public class GuideController {
-    private AdminGuideDetailsView guideView;
-    private GuideDao guideDao;
-    private int currentAdminId;
-    private List<GuideData> guides;
+public class DriverDetailsController {
     
-    public GuideController(AdminGuideDetailsView guideView, int adminId) {
-        this.guideView = guideView;
-        this.currentAdminId = adminId;
-        this.guideDao = new GuideDao();
-        this.guideView.BackNavigation(new BackNav());
-        this.guideView.DashboardNavigation(new DashboardNav(guideView.getDashboardlabel()));
-        this.guideView.BookingDetailsNavigation(new BookingDetailsNav(guideView.getBookingDetailslabel()));
-        this.guideView.BusTicketsNavigation(new BusTicketsNav(guideView.getBusTicketslabel()));
-        this.guideView.VehiclesDetailsNavigation(new VehiclesNav(guideView.getVehiclesDetailslabel()));
-        this.guideView.RouteDetailsNavigation(new RouteDetailsNav(guideView.getRouteDetailslabel()));
-        this.guideView.ProfileNavigation(new ProfileNav(guideView.getProfilelabel()));
-        this.guideView.LogOutNavigation(new LogOutNav(guideView.getLogOutlabel()));
+    private AdminDriverDetailsView view;
+    private DriverDao driverDao;
+    private List<DriverData> driversList;
+    private int currentAdminId;
+    
+    public DriverDetailsController(AdminDriverDetailsView view) {
+        this.view = view;
+        this.driverDao = new DriverDao();
+        this.view.BackNavigation(new BackNav());
+        this.view.DashboardNavigation(new DashboardNav(view.getDashboardlabel()));
+        this.view.BookingDetailsNavigation(new BookingDetailsNav(view.getBookingDetailslabel()));
+        this.view.BusTicketsNavigation(new BusTicketsNav(view.getBusTicketslabel()));
+        this.view.VehiclesDetailsNavigation(new VehiclesNav(view.getVehiclesDetailslabel()));
+        this.view.RouteDetailsNavigation(new RouteDetailsNav(view.getRouteDetailslabel()));
+        this.view.ProfileNavigation(new ProfileNav(view.getProfilelabel()));
+        this.view.LogOutNavigation(new LogOutNav(view.getLogOutlabel()));
         
         initializeController();
     }
-    public void open(){
-    this.guideView.setVisible(true);
+     public void open(){
+    this.view.setVisible(true);
     } 
     public void close(){
-    this.guideView.dispose();
+    this.view.dispose();
     }
     
-    
-    
-    
+    /**
+     * Initialize controller and set up event listeners
+     */
     private void initializeController() {
+        loadDriversData();
         setupEventListeners();
-        loadGuides();
     }
     
+    /**
+     * Set up event listeners for UI components
+     */
     private void setupEventListeners() {
-        // Add Guide button listener
-        guideView.getAddGuideButton().addActionListener(new ActionListener() {
+        // Add driver button listener
+        view.getAddDriverButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                showAddGuideDialog();
+                showAddDriverDialog();
             }
         });
         
-      
-        }
-  
-
+//       
+    }
     
-    private void loadGuides() {
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * Load drivers data from database and display in UI
+     */
+    public void loadDriversData() {
         try {
-            guides = guideDao.getAllGuides();
-            displayGuides();
+            driversList = driverDao.getAllDrivers();
+            displayDriverCards();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(guideView, 
-                "Error loading guides: " + e.getMessage(), 
+            JOptionPane.showMessageDialog(view, 
+                "Error loading drivers data: " + e.getMessage(), 
                 "Database Error", 
                 JOptionPane.ERROR_MESSAGE);
         }
     }
     
-    private void displayGuides() {
-        guideView.getGuideContainerPanel().removeAll();
-        guideView.getGuideContainerPanel().setLayout(new BoxLayout(guideView.getGuideContainerPanel(), BoxLayout.Y_AXIS));
+    /**
+     * Display driver cards in the scroll panel
+     */
+    private void displayDriverCards() {
+        JPanel contentPanel = (JPanel) view.scrollPane.getViewport().getView();
+        contentPanel.removeAll();
+        contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         
-        if (guides == null || guides.isEmpty()) {
-            // Show message when no guides available
-            javax.swing.JLabel noGuidesLabel = new javax.swing.JLabel("No guides available. Click 'Add Guide' to add new guides.");
-            noGuidesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-            noGuidesLabel.setFont(new java.awt.Font("Segoe UI", java.awt.Font.ITALIC, 14));
-            noGuidesLabel.setForeground(new java.awt.Color(128, 128, 128));
-            guideView.getGuideContainerPanel().add(Box.createVerticalStrut(50));
-            guideView.getGuideContainerPanel().add(noGuidesLabel);
-        } else {
-            for (GuideData guide : guides) {
-                AdminGuideDetailsCardPanel card = new AdminGuideDetailsCardPanel(guide);
+        for (DriverData driver : driversList) {
+            AdminDriverDetailsCardPanel cardPanel = new AdminDriverDetailsCardPanel(driver);
+            
+            // Add click listener to card panel
+            cardPanel.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    showDriverEditDialog(driver);
+                }
                 
-                // Set click listener for each card
-                card.setClickListener(new AdminGuideDetailsCardPanel.GuideCardClickListener() {
-                    @Override
-                    public void onGuideCardClicked(GuideData selectedGuide) {
-                        showEditGuideDialog(selectedGuide);
-                    }
-                });
+                @Override
+                public void mousePressed(MouseEvent e) {}
                 
-                guideView.getGuideContainerPanel().add(card);
-                guideView.getGuideContainerPanel().add(Box.createVerticalStrut(10));
-            }
+                @Override
+                public void mouseReleased(MouseEvent e) {}
+                
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    cardPanel.setCardHovered(true);
+                }
+                
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    cardPanel.setCardHovered(false);
+                }
+            });
+            
+            contentPanel.add(cardPanel);
         }
         
-        guideView.getGuideContainerPanel().revalidate();
-        guideView.getGuideContainerPanel().repaint();
+        contentPanel.revalidate();
+        contentPanel.repaint();
     }
     
-    private void showAddGuideDialog() {
-    AddGuidePopup addForm = new AddGuidePopup((JFrame) SwingUtilities.getWindowAncestor(guideView));
-    addForm.setVisible(true);
-    
-    // Check if the form was saved
-    if (addForm.isSaved()) {
-        GuideData newGuide = addForm.getGuideData();
+    /**
+     * Show dialog for adding new driver
+     */
+    private void showAddDriverDialog() {
+        DriverData newDriver = new DriverData();
+        DriverPopup dialog = new DriverPopup(view, true, newDriver, true);
         
-        // Check if email already exists before saving
-        if (guideDao.emailExists(newGuide.getEmail(), 0)) {
-            JOptionPane.showMessageDialog(guideView, 
-                "This email is already registered with another guide.", 
+        dialog.setActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if ("SAVE".equals(e.getActionCommand())) {
+                    if (saveDriver(dialog.getDriverData())) {
+                        dialog.dispose();
+                        loadDriversData(); // Refresh the list
+                        JOptionPane.showMessageDialog(view, 
+                            "Driver added successfully!", 
+                            "Success", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } else if ("CANCEL".equals(e.getActionCommand())) {
+                    dialog.dispose();
+                }
+            }
+        });
+        
+        dialog.setVisible(true);
+    }
+    
+    /**
+     * Show dialog for editing existing driver
+     */
+    private void showDriverEditDialog(DriverData driver) {
+        DriverPopup dialog = new DriverPopup(view, true, driver, false);
+        
+        dialog.setActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String command = e.getActionCommand();
+                
+                if ("SAVE".equals(command)) {
+                    if (updateDriver(dialog.getDriverData())) {
+                        dialog.dispose();
+                        loadDriversData(); // Refresh the list
+                        JOptionPane.showMessageDialog(view, 
+                            "Driver updated successfully!", 
+                            "Success", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } else if ("DELETE".equals(command)) {
+                    int result = JOptionPane.showConfirmDialog(view,
+                        "Are you sure you want to delete driver: " + driver.getName() + "?",
+                        "Confirm Delete",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.WARNING_MESSAGE);
+                    
+                    if (result == JOptionPane.YES_OPTION) {
+                        if (deleteDriver(driver.getId())) {
+                            dialog.dispose();
+                            loadDriversData(); // Refresh the list
+                            JOptionPane.showMessageDialog(view, 
+                                "Driver deleted successfully!", 
+                                "Success", 
+                                JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                } else if ("CANCEL".equals(command)) {
+                    dialog.dispose();
+                }
+            }
+        });
+        
+        dialog.setVisible(true);
+    }
+    
+    /**
+     * Save new driver to database
+     */
+    private boolean saveDriver(DriverData driver) {
+        try {
+            if (validateDriverData(driver)) {
+                return driverDao.insertDriver(driver);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(view, 
+                "Error saving driver: " + e.getMessage(), 
+                "Database Error", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+    
+    /**
+     * Update existing driver in database
+     */
+    private boolean updateDriver(DriverData driver) {
+        try {
+            if (validateDriverData(driver)) {
+                return driverDao.updateDriver(driver);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(view, 
+                "Error updating driver: " + e.getMessage(), 
+                "Database Error", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+    
+    /**
+     * Delete driver from database
+     */
+    private boolean deleteDriver(int driverId) {
+        try {
+            return driverDao.deleteDriver(driverId);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(view, 
+                "Error deleting driver: " + e.getMessage(), 
+                "Database Error", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+    
+    /**
+     * Validate driver data before saving
+     */
+    private boolean validateDriverData(DriverData driver) {
+        if (driver.getName() == null || driver.getName().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(view, 
+                "Driver name is required!", 
                 "Validation Error", 
                 JOptionPane.ERROR_MESSAGE);
-            return;
+            return false;
         }
         
-        // Save to database
-        if (guideDao.addGuide(newGuide)) {
-            JOptionPane.showMessageDialog(guideView, 
-                "Guide added successfully!", 
-                "Success", 
-                JOptionPane.INFORMATION_MESSAGE);
-            loadGuides(); // Refresh the list
-        } else {
-            JOptionPane.showMessageDialog(guideView, 
-                "Failed to add guide. Please try again.", 
-                "Error", 
+        if (driver.getLicenseNumber() == null || driver.getLicenseNumber().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(view, 
+                "License number is required!", 
+                "Validation Error", 
                 JOptionPane.ERROR_MESSAGE);
+            return false;
         }
-    }
-}
-    
-    private void showEditGuideDialog(GuideData guide) {
-        GuidePopup popup = new GuidePopup(guideView, guide);
-        popup.setVisible(true);
         
-        // Check if guide was updated or deleted
-        if (popup.isUpdated() || popup.isDeleted()) {
-            loadGuides(); // Refresh the guide list
+        if (driver.getPhone() == null || driver.getPhone().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(view, 
+                "Phone number is required!", 
+                "Validation Error", 
+                JOptionPane.ERROR_MESSAGE);
+            return false;
         }
+        
+        if (driver.getStatus() == null || driver.getStatus().trim().isEmpty()) {
+            driver.setStatus("AVAILABLE"); // Default status
+        }
+        
+        return true;
     }
     
-    
-    
-    
-   
-    
-    public void refreshGuides() {
-        loadGuides();
-    }
-    
-    public GuideData getGuideById(int guideId) {
-        return guideDao.getGuideById(guideId);
-    }
-    
-    public List<GuideData> getAllGuides() {
-        return guides;
-    }
-    
-    
-    public AdminGuideDetailsView getView() {
-        return guideView;
-    }
-    
-    
-    // Dashboard Navigation
+     // Dashboard Navigation
     class DashboardNav implements MouseListener{
         private JLabel dashboardLabel;
         
@@ -413,7 +518,7 @@ public class GuideController {
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
             if (response == JOptionPane.YES_OPTION) {
-                guideView.dispose();
+                view.dispose();
 
                 LoginPageView loginView = new LoginPageView();
                 LoginController loginController = new LoginController(loginView);
@@ -449,5 +554,18 @@ public class GuideController {
             close();
         }
     }
-  
+    
+    /**
+     * Refresh driver data - can be called externally
+     */
+    public void refreshData() {
+        loadDriversData();
+    }
+    
+    /**
+     * Get current drivers list
+     */
+    public List<DriverData> getDriversList() {
+        return driversList;
+    }
 }

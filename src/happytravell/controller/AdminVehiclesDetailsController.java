@@ -8,6 +8,7 @@ import happytravell.dao.VehiclesDao;
 import happytravell.model.VehiclesData;
 import happytravell.view.AdminBookingDetailsView;
 import happytravell.view.AdminBusTicketsView;
+import happytravell.view.AdminDriverDetailsView;
 import happytravell.view.AdminGuideDetailsView;
 import happytravell.view.AdminProfileView;
 import happytravell.view.AdminRouteDetailsView;
@@ -77,6 +78,7 @@ public class AdminVehiclesDetailsController {
         this.vehiclesDetailsView.ProfileNavigation(new ProfileNav(adminVehiclesDetailsView.getProfilelabel()));
         this.vehiclesDetailsView.LogOutNavigation(new LogOutNav(adminVehiclesDetailsView.getLogOutlabel()));
         this.vehiclesDetailsView.GuideNavigation(new GuideNav());
+        this.vehiclesDetailsView.DriverNavigation(new DriverNav () );
     
         loadAndDisplayVehicles();
 }
@@ -644,6 +646,16 @@ private boolean validateVehicleInput(String vehicleNumber, String seats,
             AdminGuideDetailsView GuideView = new AdminGuideDetailsView();
             GuideController guideController = new GuideController(GuideView, currentAdminId);
             guideController.open();
+            close();
+        }
+    }
+    
+    class DriverNav implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            AdminDriverDetailsView view = new AdminDriverDetailsView();
+            DriverDetailsController driverController = new DriverDetailsController(view);
+            driverController.open();
             close();
         }
     }
