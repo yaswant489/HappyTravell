@@ -158,6 +158,8 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        placesButton = new javax.swing.JButton();
+        reviewsButton = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
         profileIcon = new javax.swing.JLabel();
@@ -268,7 +270,7 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         jLabel17.setText("Here are few suggections for you new travel.");
         placePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 30));
 
-        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 680, 450));
+        TravelerDetailsPanel.add(placePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 680, 410));
 
         jLabel2.setFont(new java.awt.Font("Candara", 3, 16)); // NOI18N
         jLabel2.setText("Welcome to Happy Travels!");
@@ -277,6 +279,26 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Candara", 3, 16)); // NOI18N
         jLabel3.setText("Lets travel the world together.");
         TravelerDetailsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
+        placesButton.setBackground(new java.awt.Color(168, 116, 55));
+        placesButton.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        placesButton.setText("Places");
+        placesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                placesButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 350, 60));
+
+        reviewsButton.setBackground(new java.awt.Color(168, 116, 55));
+        reviewsButton.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        reviewsButton.setText("Reviews");
+        reviewsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reviewsButtonActionPerformed(evt);
+            }
+        });
+        TravelerDetailsPanel.add(reviewsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, 300, 60));
 
         getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
@@ -352,6 +374,14 @@ public class TravellerdashboardView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void placesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_placesButtonActionPerformed
+
+    private void reviewsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reviewsButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -422,10 +452,12 @@ public class TravellerdashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel mustangImage;
     private javax.swing.JPanel mustangPanelButton;
     private javax.swing.JPanel placePanel;
+    private javax.swing.JButton placesButton;
     private javax.swing.JLabel pokharaImage;
     private javax.swing.JPanel pokharaPanelButton;
     private javax.swing.JLabel profileIcon;
     private javax.swing.JLabel profileLabel;
+    private javax.swing.JButton reviewsButton;
     private javax.swing.JLabel routeIcon;
     private javax.swing.JLabel routeLabel;
     private javax.swing.JLabel vehiclesDetailsLabel;
@@ -433,9 +465,13 @@ public class TravellerdashboardView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-//    public void PlacesNavigation(ActionListener listener){
-//        placesButton.addActionListener(listener);
-//    }
+    public void PlacesNavigation(ActionListener listener){
+        placesButton.addActionListener(listener);
+    }
+    
+    public void ReviewsNavigation(ActionListener listener){
+        reviewsButton.addActionListener(listener);
+    }
     
     public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);

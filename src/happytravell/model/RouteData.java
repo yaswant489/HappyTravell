@@ -8,13 +8,13 @@ package happytravell.model;
  *
  * @author Acer
  */
-public class Map {
+public class RouteData {
     private String route_name;
     private String pickup_location;
     private String destination;
     
     
-    public Map(String route_name,String pickup_location,String destination){
+    public RouteData(String route_name,String pickup_location,String destination){
         this.route_name = route_name;
         this.pickup_location = pickup_location;
         this.destination = destination;
@@ -27,18 +27,21 @@ public class Map {
      public void setPickupLocation(String pickup_location) {
         this.pickup_location = pickup_location;
     }
-     public void setDestination(String destination) {
+    public void setDestination(String destination) {
         this.destination = destination;
     }
      
     public  String getRouteName() {
         return this.route_name;
     }
+    
      public String getPickupLocation( ) {
         return this.pickup_location;
     }
      public String getDestination() {
         return this.destination;
     }
+     
+     
     
 }

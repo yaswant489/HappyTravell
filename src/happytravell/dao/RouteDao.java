@@ -13,7 +13,7 @@ import java.sql.*;
  *
  * @author Acer
  */
-public class MapDao {
+public class RouteDao {
     MysqlConnection mySql = new MysqlConnection();
 
     public boolean route(TravellerData user){

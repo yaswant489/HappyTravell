@@ -12,8 +12,6 @@ import happytravell.view.AdminPlacesView;
 import happytravell.view.AdminProfileView;
 import happytravell.view.AdminReviewsDetailsView;
 import happytravell.view.AdminRouteDetailsView;
-import happytravell.view.AdminTravellersDetailsView;
-import happytravell.view.AdminTravellingDetailsView;
 import happytravell.view.AdminVehiclesDetailsView;
 import happytravell.view.ForgetPasswordView;
 import java.awt.Color;
@@ -38,8 +36,6 @@ public class AdminDashboardController {
         this.currentAdminId = adminId;
         this.admindashboardView = admindashboardView;
         this.admindashboardView.PlacesNavigation(new PlacesNav());
-        this.admindashboardView.TravellersNavigation(new TravellerNav());
-        this.admindashboardView.TravellingNavigation(new TravellingNav());
         this.admindashboardView.ReviewsNavigation(new ReviewsNav());
         this.admindashboardView.BookingDetailsNavigation(new AdminDashboardController.BookingDetailsNav(admindashboardView.getBookingDetailslabel()));
         this.admindashboardView.BusTicketsNavigation(new AdminDashboardController.BusTicketsNav(admindashboardView.getBusTicketslabel()));
@@ -312,28 +308,7 @@ public class AdminDashboardController {
         }
     }   
 
-   
-// Traveller Navigation
-    class TravellerNav implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-                AdminTravellersDetailsView travellerView = new AdminTravellersDetailsView();
-                AdminTravellerDetailsController travellerController = new AdminTravellerDetailsController(travellerView);
-                travellerController.open();
-        }
-    }  
-
-    
-// Travelling Navigation
-    class TravellingNav implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-                AdminTravellingDetailsView travellingView = new AdminTravellingDetailsView();
-                AdminTravellingDetailsController travellingController = new AdminTravellingDetailsController(travellingView);
-                travellingController.open();
-        }
-    }  
-
+ 
     
 //  Review Navigation
     class ReviewsNav implements ActionListener {

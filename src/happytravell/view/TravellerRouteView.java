@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -137,7 +138,7 @@ public class TravellerRouteView extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         searchIcon = new javax.swing.JLabel();
         searchField = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        mapPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
@@ -240,13 +241,13 @@ public class TravellerRouteView extends javax.swing.JFrame {
         });
         ProfilePanel.add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 230, 30));
 
-        jPanel2.setBackground(new java.awt.Color(251, 245, 205));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        mapPanel.setBackground(new java.awt.Color(251, 245, 205));
+        mapPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Map");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 150, 40, -1));
+        mapPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 150, 40, -1));
 
-        ProfilePanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 300, 320));
+        ProfilePanel.add(mapPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 300, 320));
 
         getContentPane().add(ProfilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
@@ -396,13 +397,13 @@ public class TravellerRouteView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
+    private javax.swing.JPanel mapPanel;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JTextField pickupLocationTextField;
     private javax.swing.JLabel profileIcon;
@@ -418,6 +419,8 @@ public class TravellerRouteView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
    
+    public JPanel getMapPanel() {
+         return mapPanel; }
 
     public void DashboardNavigation(MouseListener listener){
         dashboardLabel.addMouseListener(listener);
@@ -473,6 +476,9 @@ public class TravellerRouteView extends javax.swing.JFrame {
     }
     public JTextField getDestinationTextField() {
         return destinationTextField;
+    }
+    public JTextField getSearchField() {
+        return searchField;
     }
     
     

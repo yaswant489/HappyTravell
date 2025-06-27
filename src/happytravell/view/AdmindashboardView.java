@@ -159,8 +159,6 @@ public class AdmindashboardView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         reviewsButton = new javax.swing.JButton();
-        travellersButton = new javax.swing.JButton();
-        travellingButton = new javax.swing.JButton();
         placesButton = new javax.swing.JButton();
         DashDetailsPanel = new javax.swing.JPanel();
         logoutIcon = new javax.swing.JLabel();
@@ -283,44 +281,24 @@ public class AdmindashboardView extends javax.swing.JFrame {
         TravelerDetailsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         reviewsButton.setBackground(new java.awt.Color(168, 116, 55));
-        reviewsButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        reviewsButton.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         reviewsButton.setText("Reviews");
         reviewsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reviewsButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(reviewsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, 150, 60));
+        TravelerDetailsPanel.add(reviewsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 520, 310, 60));
 
-        travellersButton.setBackground(new java.awt.Color(166, 124, 94));
-        travellersButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        travellersButton.setText("Travellers");
-        travellersButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travellersButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(travellersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 150, 60));
-
-        travellingButton.setBackground(new java.awt.Color(173, 98, 44));
-        travellingButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        travellingButton.setText("Travelling");
-        travellingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                travellingButtonActionPerformed(evt);
-            }
-        });
-        TravelerDetailsPanel.add(travellingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 520, 150, 60));
-
-        placesButton.setBackground(new java.awt.Color(173, 77, 44));
-        placesButton.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        placesButton.setBackground(new java.awt.Color(168, 116, 55));
+        placesButton.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
         placesButton.setText("Places");
         placesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 placesButtonActionPerformed(evt);
             }
         });
-        TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 520, 150, 60));
+        TravelerDetailsPanel.add(placesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 350, 60));
 
         getContentPane().add(TravelerDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 700, 600));
 
@@ -399,14 +377,6 @@ public class AdmindashboardView extends javax.swing.JFrame {
     private void reviewsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewsButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_reviewsButtonActionPerformed
-
-    private void travellersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellersButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_travellersButtonActionPerformed
-
-    private void travellingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travellingButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_travellingButtonActionPerformed
 
     private void placesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placesButtonActionPerformed
         // TODO add your handling code here:
@@ -488,8 +458,6 @@ public class AdmindashboardView extends javax.swing.JFrame {
     private javax.swing.JButton reviewsButton;
     private javax.swing.JLabel routeDetailsLabel;
     private javax.swing.JLabel routeIcon;
-    private javax.swing.JButton travellersButton;
-    private javax.swing.JButton travellingButton;
     private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
     // End of variables declaration//GEN-END:variables
@@ -498,12 +466,7 @@ public class AdmindashboardView extends javax.swing.JFrame {
     public void PlacesNavigation(ActionListener listener){
         placesButton.addActionListener(listener);
     }
-    public void TravellersNavigation(ActionListener listener){
-        travellersButton.addActionListener(listener);
-    }
-    public void TravellingNavigation(ActionListener listener){
-        travellingButton.addActionListener(listener);
-    }
+    
     public void ReviewsNavigation(ActionListener listener){
         reviewsButton.addActionListener(listener);
     }

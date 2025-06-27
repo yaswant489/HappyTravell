@@ -6,7 +6,6 @@ package happytravell.controller;
 
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
-import happytravell.view.TravellerBusTicketsView;
 import happytravell.view.TravellerProfileView;
 import happytravell.view.TravellerRouteView;
 import happytravell.view.TravellerVehiclesDetailsView;
@@ -128,7 +127,10 @@ public class TravellerRouteController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            // Already on this page, do nothing
+            TravellerRouteView travellerRouteView = new TravellerRouteView();
+            TravellerRouteController TravellerRoute = new TravellerRouteController(travellerRouteView, currentTravellerId);
+            TravellerRoute.open();
+            close();
         }
 
         @Override
@@ -160,10 +162,7 @@ public class TravellerRouteController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            TravellerBusTicketsView travellerBusTicketsView = new TravellerBusTicketsView();
-            TravellerBusTicketController TravellerBusTicket = new TravellerBusTicketController(travellerBusTicketsView, currentTravellerId);
-            TravellerBusTicket.open();
-            close();
+            // Already on this page, do nothing
         }
 
         @Override

@@ -4,6 +4,10 @@
  */
 package happytravell.controller;
 
+import happytravell.view.AdminBusTicketsView;
+import happytravell.view.AdminPlacesView;
+import happytravell.view.AdminReviewsDetailsView;
+import happytravell.view.AdminVehiclesDetailsView;
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
 import happytravell.view.TravellerBusTicketsView;
@@ -32,10 +36,81 @@ public class TravellerDashboardController {
     public TravellerDashboardController(TravellerdashboardView travellerdashboardView, int travellerId){
         this.travellerdashboardView = travellerdashboardView;
         this.currentTravellerId = travellerId;
-        this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel()));  
+        this.travellerdashboardView.PlacesNavigation(new PlacesNav());
+        this.travellerdashboardView.ReviewsNavigation(new ReviewsNav());
+        this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel())); 
+        this.travellerdashboardView.BusTicketsNavigation(new TravellerDashboardController.BusTicketsNav(travellerdashboardView.getBusTicketslabel()));
+        this.travellerdashboardView.RouteNavigation(new TravellerDashboardController.RouteNav(travellerdashboardView.getRoutelabel()));
+        this.travellerdashboardView.VehiclesDetailsNavigation(new TravellerDashboardController.VehiclesDetailsNav(travellerdashboardView.getVehiclesDetailslabel()));
         this.travellerdashboardView.ProfileNavigation(new TravellerDashboardController.ProfileNav(travellerdashboardView.getProfilelabel()));
         this.travellerdashboardView.LogOutNavigation(new TravellerDashboardController.LogOutNav(travellerdashboardView.getLogOutlabel()));
-       
+        //  Bus Ticket Navigation  
+    class BusTicketsNav implements MouseListener{
+        
+        private JLabel busTicketsLabel;
+        public BusTicketsNav(JLabel label){
+            this.busTicketsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminBusTicketsView adminBusTicketsView = new AdminBusTicketsView();
+            AdminBusTicketsController AdminBusTickets= new AdminBusTicketsController(adminBusTicketsView, currentTravellerId);
+            AdminBusTickets.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            busTicketsLabel.setForeground(Color.WHITE);
+            busTicketsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            busTicketsLabel.setForeground(Color.BLACK);
+            busTicketsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
+    
+//  Vehicles Details Navigation
+    class VehiclesDetailsNav implements MouseListener{
+        
+        private JLabel vehiclesDetailsLabel;
+        public VehiclesDetailsNav(JLabel label){
+            this.vehiclesDetailsLabel = label;
+        }
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            AdminVehiclesDetailsView adminVehiclesDetailsView = new AdminVehiclesDetailsView();
+            AdminVehiclesDetailsController  AdminVehiclesDetails= new  AdminVehiclesDetailsController(adminVehiclesDetailsView, currentTravellerId);
+            AdminVehiclesDetails.open();
+            close();
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {}
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.WHITE);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            vehiclesDetailsLabel.setForeground(Color.BLACK);
+            vehiclesDetailsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } 
+    }
     }
     
     public void open(){
@@ -271,6 +346,29 @@ public class TravellerDashboardController {
             logOutLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } 
     }
+    
+    //  place Navigation
+    class PlacesNav implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            AdminPlacesView placesView = new AdminPlacesView();
+            AdminPlacesController placesController = new AdminPlacesController(placesView, currentTravellerId);
+            placesController.open();
+            close();
+        }
+    }   
+
+ 
+    
+//  Review Navigation
+    class ReviewsNav implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                AdminReviewsDetailsView reviewView = new AdminReviewsDetailsView();
+                AdminReviewsDetailsController reviewsController = new AdminReviewsDetailsController(reviewView);
+                reviewsController.open();
+        }
+    }  
 
    
    
