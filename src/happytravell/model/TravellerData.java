@@ -11,7 +11,7 @@ package happytravell.model;
 public class TravellerData {
     private int travellerID;
     public String firstName;
-    private String lastName;
+    public String lastName;
     private String username;
     private String email;
     private String phoneNumber;

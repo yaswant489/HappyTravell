@@ -284,9 +284,7 @@ public class DriverPopup extends JDialog {
         return true;
     }
     
-    /**
-     * Show validation error message
-     */
+    
     private void showValidationError(String message) {
         JOptionPane.showMessageDialog(this, 
             "Please fix the following errors:\n\n" + message, 

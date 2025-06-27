@@ -16,9 +16,9 @@ public class BookingData {
     private int vehiclesId;
     private int driverId;
     private String travellerName; 
-    private String pickupAddress;
+    public String pickupAddress;
     public String dropAddress;
-    private String departureDateTime;  
+    public String departureDateTime;  
     private String returnDateTime;
     private int passengerCount;
     private String vehicleNumber;
