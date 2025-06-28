@@ -40,24 +40,23 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+
 public class TravellerBusTicketController {
     private TravellerBusTicketsView busTicketsView;
     private int currentTravellerId;
     private BusTicketsDao busTicketsDao;
-    private VehiclesDao vehiclesDao; // Add VehiclesDao for fetching vehicle data
+    private VehiclesDao vehiclesDao; 
     private List<String> selectedSeats = new ArrayList<>();
     private String currentVehicleNumber;
-    private JLabel vehicleImageLabel; // JLabel to display vehicle image
+    private JLabel vehicleImageLabel; 
 
+    
     public TravellerBusTicketController(TravellerBusTicketsView busTicketsView, int travellerId) {
         this.currentTravellerId = travellerId;
         this.busTicketsView = busTicketsView;
         this.busTicketsDao = new BusTicketsDao();
-        this.vehiclesDao = new VehiclesDao(); // Initialize VehiclesDao
-
-        // Get reference to the image display label from your view
-        // Assuming you have a JLabel for displaying images in your view
-        this.vehicleImageLabel = busTicketsView.getBusImageLabel(); // You'll need to add this getter to your view
+        this.vehiclesDao = new VehiclesDao(); 
+        this.vehicleImageLabel = busTicketsView.getBusImageLabel(); 
 
         // Initialize UI components
         initializeSeatSelection();
@@ -67,7 +66,6 @@ public class TravellerBusTicketController {
         // Add listener for vehicle number selection
         busTicketsView.getBusNumberComboBox().addItemListener(new VehicleSelectionListener());
         
-        // Attach all the navigation listeners
         this.busTicketsView.DashboardNavigation(new DashboardNav(busTicketsView.getDashboardLabel()));
         this.busTicketsView.BookingNavigation(new BookingNav(busTicketsView.getBusDetailsLabel()));
         this.busTicketsView.RouteNavigation(new RouteNav(busTicketsView.getRouteDetailsLabel()));
@@ -170,7 +168,6 @@ public class TravellerBusTicketController {
     if (currentVehicleNumber == null) return;
     
     String currentDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-    // Changed to use BusTicketsDao methods
     List<String> bookedSeats = busTicketsDao.getBookedSeatsForVehicle(currentVehicleNumber, currentDate);
     
     updateSeatLabels(bookedSeats);
@@ -178,7 +175,6 @@ public class TravellerBusTicketController {
 }
 
     private void updateSeatLabels(List<String> bookedSeats) {
-        // Update all seat labels based on availability
         updateSeatLabel(busTicketsView.getSeatA1(), "A1", bookedSeats);
         updateSeatLabel(busTicketsView.getSeatA2(), "A2", bookedSeats);
         updateSeatLabel(busTicketsView.getSeatA3(), "A3", bookedSeats);
@@ -213,11 +209,11 @@ public class TravellerBusTicketController {
 
     private void updateSeatLabel(JLabel seatLabel, String seatNumber, List<String> bookedSeats) {
         if (bookedSeats.contains(seatNumber)) {
-            seatLabel.setForeground(Color.RED); // Red for booked seats
+            seatLabel.setForeground(Color.RED); 
             seatLabel.setEnabled(false);
             seatLabel.setCursor(Cursor.getDefaultCursor());
         } else {
-            seatLabel.setForeground(Color.GREEN); // Green for available seats
+            seatLabel.setForeground(Color.GREEN); 
             seatLabel.setEnabled(true);
             seatLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
             seatLabel.removeMouseListener(getExistingMouseListener(seatLabel));
@@ -242,10 +238,9 @@ public class TravellerBusTicketController {
     private void updateSeatCountDisplay(String date) {
     if (currentVehicleNumber == null) return;
     
-    // Changed to use BusTicketsDao methods
+    
     List<String> availableSeats = busTicketsDao.getAvailableSeatsForVehicle(currentVehicleNumber, date);
     List<String> bookedSeats = busTicketsDao.getBookedSeatsForVehicle(currentVehicleNumber, date);
-    
     busTicketsView.getAvailableTextField().setText(String.valueOf(availableSeats.size()));
     busTicketsView.getBookedSeatsTextField().setText(String.valueOf(bookedSeats.size()));
     busTicketsView.getSelectedSeatsTextField().setText(String.valueOf(selectedSeats.size()));
@@ -303,7 +298,6 @@ public class TravellerBusTicketController {
             }
             
             try {
-                // Get vehicle details for validation
                 VehiclesData vehicle = vehiclesDao.getVehicleByNumber(currentVehicleNumber);
                 if (vehicle == null) {
                     JOptionPane.showMessageDialog(busTicketsView, 
@@ -407,7 +401,7 @@ public class TravellerBusTicketController {
         this.busTicketsView.dispose();
     }
 
-    // Navigation classes remain the same as in your original code
+    // Navigation 
     class DashboardNav implements MouseListener {
         private final JLabel dashboardLabel;
 
