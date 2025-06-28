@@ -10,11 +10,11 @@ import happytravell.view.TravellerProfileView;
 import happytravell.view.TravellerRouteView;
 import happytravell.view.TravellerVehiclesDetailsView;
 import happytravell.view.TravellerdashboardView;
+import happytravell.UI.SimpleMap;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 public class TravellerRouteController {
     private TravellerRouteView routeView;
     private int currentTravellerId;
+    private SimpleMap map;
 
     public TravellerRouteController(TravellerRouteView routeView, int travellerId) {
         this.currentTravellerId = travellerId;
@@ -37,6 +38,30 @@ public class TravellerRouteController {
         this.routeView.VehiclesDetailsNavigation(new VehiclesDetailsNav(routeView.getVehiclesDetailslabel()));
         this.routeView.ProfileNavigation(new ProfileNav(routeView.getProfilelabel()));
         this.routeView.LogOutNavigation(new LogOutNav(routeView.getLogOutlabel()));
+        
+        // Setup the map in the map panel
+        setupMapInPanel();
+    }
+
+    private void setupMapInPanel() {
+        // Get the map panel
+        javax.swing.JPanel mapPanel = routeView.getMapPanel();
+        
+        // Clear existing content and set layout
+        mapPanel.removeAll();
+        mapPanel.setLayout(new java.awt.BorderLayout());
+        mapPanel.setBackground(new Color(248, 206, 157));
+        
+        // Create the Google Maps-style map
+        map = new SimpleMap();
+        map.setPreferredSize(new java.awt.Dimension(580, 350));
+        
+        // Add map directly to the panel
+        mapPanel.add(map, java.awt.BorderLayout.CENTER);
+        
+        // Refresh the panel
+        mapPanel.revalidate();
+        mapPanel.repaint();
     }
 
     public void open() {
@@ -49,9 +74,9 @@ public class TravellerRouteController {
 
     //    Dashboard Navigation
     class DashboardNav implements MouseListener {
-        private final JLabel dashboardLabel;
+        private final javax.swing.JLabel dashboardLabel;
 
-        public DashboardNav(JLabel label) {
+        public DashboardNav(javax.swing.JLabel label) {
             this.dashboardLabel = label;
         }
 
@@ -84,9 +109,9 @@ public class TravellerRouteController {
 
     //    Booking  Navigation
     class BookingNav implements MouseListener {
-        private final JLabel bookingLabel;
+        private final javax.swing.JLabel bookingLabel;
 
-        public BookingNav(JLabel label) {
+        public BookingNav(javax.swing.JLabel label) {
             this.bookingLabel = label;
         }
 
@@ -119,9 +144,9 @@ public class TravellerRouteController {
     
     //  Route Navigation
     class RouteNav implements MouseListener {
-        private final JLabel routeLabel;
+        private final javax.swing.JLabel routeLabel;
 
-        public RouteNav(JLabel label) {
+        public RouteNav(javax.swing.JLabel label) {
             this.routeLabel = label;
         }
 
@@ -154,9 +179,9 @@ public class TravellerRouteController {
 
     //  Bus Ticket Navigation
     class BusTicketsNav implements MouseListener {
-        private final JLabel busTicketsLabel;
+        private final javax.swing.JLabel busTicketsLabel;
 
-        public BusTicketsNav(JLabel label) {
+        public BusTicketsNav(javax.swing.JLabel label) {
             this.busTicketsLabel = label;
         }
 
@@ -186,9 +211,9 @@ public class TravellerRouteController {
 
     //  Vehicles Details Navigation
     class VehiclesDetailsNav implements MouseListener {
-        private final JLabel vehiclesDetailsLabel;
+        private final javax.swing.JLabel vehiclesDetailsLabel;
 
-        public VehiclesDetailsNav(JLabel label) {
+        public VehiclesDetailsNav(javax.swing.JLabel label) {
             this.vehiclesDetailsLabel = label;
         }
 
@@ -221,9 +246,9 @@ public class TravellerRouteController {
 
     //    Profile Navigation
     class ProfileNav implements MouseListener {
-        private final JLabel profileLabel;
+        private final javax.swing.JLabel profileLabel;
 
-        public ProfileNav(JLabel label) {
+        public ProfileNav(javax.swing.JLabel label) {
             this.profileLabel = label;
         }
 
@@ -256,16 +281,16 @@ public class TravellerRouteController {
 
     //    LogOut Navigation
     class LogOutNav implements MouseListener {
-        private final JLabel logOutLabel;
+        private final javax.swing.JLabel logOutLabel;
 
-        public LogOutNav(JLabel label) {
+        public LogOutNav(javax.swing.JLabel label) {
             this.logOutLabel = label;
         }
 
         @Override
         public void mouseClicked(MouseEvent e) {
             int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Logout",
-                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
             if (response == JOptionPane.YES_OPTION) {
                 routeView.dispose();

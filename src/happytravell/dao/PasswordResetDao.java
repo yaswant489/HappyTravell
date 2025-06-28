@@ -136,4 +136,14 @@ public class PasswordResetDao {
             mysql.closeConnection(conn);
         }
     }
+       private Connection conn;
+
+    // ✅ Constructor that accepts Connection
+    public PasswordResetDao(Connection conn) {
+        this.conn = conn;
+    }
+
+    public boolean updatePassword(String correctEmail, String correctPassword) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
