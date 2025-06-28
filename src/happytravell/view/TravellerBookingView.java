@@ -834,7 +834,7 @@ private JPanel createVehiclePanel(BookingData.VehicleInfo vehicle) {
     panel.setLayout(new BorderLayout(10, 10));
     panel.setBackground(new Color(248, 219, 164));
     panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-    panel.setPreferredSize(new Dimension(300, 10));
+    panel.setPreferredSize(new Dimension(300, 8));
 
     // Left panel for image
     JPanel leftPanel = new JPanel();
@@ -852,15 +852,23 @@ private JPanel createVehiclePanel(BookingData.VehicleInfo vehicle) {
     leftPanel.add(imageLabel);
     panel.add(leftPanel, BorderLayout.WEST);
 
-//     Right panel for details
+// Right panel alternative using BoxLayout
     JPanel rightPanel = new JPanel();
-    rightPanel.setLayout(new GridLayout(3, 1));
+    rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
     rightPanel.setBackground(new Color(248, 219, 164));
-    
+
     JLabel numberLabel = new JLabel("Number: " + vehicle.getVehicleNumber());
+    numberLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+    numberLabel.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5)); // No vertical padding
+
     JLabel seatsLabel = new JLabel("Seats: " + vehicle.getNumberOfSeats());
+    seatsLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+    seatsLabel.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+
     JLabel agencyLabel = new JLabel("Agency: " + vehicle.getTravelAgency());
-    
+    agencyLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+    agencyLabel.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
+
     rightPanel.add(numberLabel);
     rightPanel.add(seatsLabel);
     rightPanel.add(agencyLabel);
@@ -891,61 +899,27 @@ public void setSelectedGuide(GuideData guide) {
 }
     
     
-// In TravellerBookingView.java
 
-// Replace the existing showGuideSelectionPopup method with this:
+
+//  showGuideSelectionPopup method with this:
 public GuideData showGuideSelectionPopup(List<GuideData> guides) {
     GuideSelectionPopup popup = new GuideSelectionPopup(this, guides);
     return popup.showDialog();
 }
 
-// Update the guideButtonActionPerformed method to:
+
 private void guideButtonAcctionPerformed(java.awt.event.ActionEvent evt) {                                           
-    // This will be handled by the controller
+    
 }
 
 
- // Replace these methods in your TravellerBookingView.java file:
-
-//// Fix the showBookingDetailsPopup method
-//public void showBookingDetailsPopup(List<BookingData> bookings) {
-//    BookingDetailsPopup.showBookingDetails(this, bookings);
-//}
-
-
-
-
-
-//public void addBookingDetailsListener(ActionListener listener) {
-//    bookingDetailsButton.addActionListener(listener);
-//}
-//
-////// Add this method to properly handle booking details button
-////public void addBookingDetailsListener(ActionListener listener) {
-////    bookingDetailsButton.addActionListener(listener);
-////}
-////
-//// Make sure the event handler is correct
-//private void bookingDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {
-//    // This will be handled by the controller
-//}
-//
-//// Fix the missing closing brace issue - add this at the end of the class before the last closing brace:
-
-
-// Add this method to your TravellerBookingView.java class:
-
-// Make sure this exists in your view initialization:
+ 
 
 
 public void addBookingDetailsListener(ActionListener listener) {
     bookingDetailsButton.addActionListener(listener);
 }
 
-
-
-
-// Make sure your BookingDetailsPopup constructor is compatible:
 public void showBookingDetailsPopup(BookingData booking) {
     BookingDetailsPopup popup = new BookingDetailsPopup(this, booking);
     popup.setVisible(true);
