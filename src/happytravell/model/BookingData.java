@@ -24,7 +24,8 @@ public class BookingData {
     private String vehicleNumber;
     private String vehicleType;    
     private String driverName;
-    private String paymentMethod;         
+    private String paymentMethod; 
+    
              
     
     // Default constructor

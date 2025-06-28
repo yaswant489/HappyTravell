@@ -4,8 +4,10 @@
  */
 package happytravell.view;
 
+
 import happytravell.model.BookingData;
 import happytravell.model.GuideData;
+import happytravell.popup.BookingDetailsPopup;
 import happytravell.popup.GuideSelectionPopup;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,6 +23,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -695,9 +698,9 @@ public class TravellerBookingView extends javax.swing.JFrame {
         bookButton.addActionListener(listener);
     }
 
-    public void addBookingDetailsButtonListener(ActionListener listener) {
-        bookingDetailsButton.addActionListener(listener);
-    }
+//    public void addBookingDetailsButtonListener(ActionListener listener) {
+//        bookingDetailsButton.addActionListener(listener);
+//    }
 
     public void DashboardNavigation(java.awt.event.MouseListener listener) {
         dashboardLabel.addMouseListener(listener);
@@ -875,7 +878,7 @@ private JPanel createVehiclePanel(BookingData.VehicleInfo vehicle) {
     
     
     
-    // Add this with your other variable declarations at the top of the class
+// Add this with your other variable declarations at the top of the class
 private GuideData selectedGuide;
 
 // Add these getter and setter methods
@@ -900,9 +903,68 @@ public GuideData showGuideSelectionPopup(List<GuideData> guides) {
 private void guideButtonAcctionPerformed(java.awt.event.ActionEvent evt) {                                           
     // This will be handled by the controller
 }
+
+
+ // Replace these methods in your TravellerBookingView.java file:
+
+//// Fix the showBookingDetailsPopup method
+//public void showBookingDetailsPopup(List<BookingData> bookings) {
+//    BookingDetailsPopup.showBookingDetails(this, bookings);
+//}
+
+
+
+
+
+//public void addBookingDetailsListener(ActionListener listener) {
+//    bookingDetailsButton.addActionListener(listener);
+//}
+//
+////// Add this method to properly handle booking details button
+////public void addBookingDetailsListener(ActionListener listener) {
+////    bookingDetailsButton.addActionListener(listener);
+////}
+////
+//// Make sure the event handler is correct
+//private void bookingDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {
+//    // This will be handled by the controller
+//}
+//
+//// Fix the missing closing brace issue - add this at the end of the class before the last closing brace:
+
+
+// Add this method to your TravellerBookingView.java class:
+
+// Make sure this exists in your view initialization:
+
+
+public void addBookingDetailsListener(ActionListener listener) {
+    bookingDetailsButton.addActionListener(listener);
 }
 
-    
+
+
+
+// Make sure your BookingDetailsPopup constructor is compatible:
+public void showBookingDetailsPopup(BookingData booking) {
+    BookingDetailsPopup popup = new BookingDetailsPopup(this, booking);
+    popup.setVisible(true);
+}
+
+// Alternative method for multiple bookings:
+public void showBookingDetailsPopup(List<BookingData> bookings) {
+    BookingDetailsPopup popup = new BookingDetailsPopup(this, bookings);
+    popup.setVisible(true);
+}
+
+
+
+
+
+
+}
+
+
     
     
 

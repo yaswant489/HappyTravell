@@ -4,6 +4,7 @@
  */
 package happytravell.controller;
 
+import happytravell.popup.BookingDetailsPopup;
 import happytravell.dao.BookingDao;
 import happytravell.dao.GuideDao;
 import happytravell.model.BookingData;
@@ -74,8 +75,11 @@ public class TravellerBookingController {
         // Add listener for book button
         BookingView.addBookButtonListener(new BookButtonListener());
         
-        // Add listener for booking details button
-        BookingView.addBookingDetailsButtonListener(new BookingDetailsListener());
+        // Add listener for booking details button - FIXED METHOD NAME
+            
+        // This line in your controller:
+        BookingView.addBookingDetailsListener(new BookingDetailsListener());
+        
     }
     
     private void loadAvailableOptions() {
@@ -107,77 +111,73 @@ public class TravellerBookingController {
         this.BookingView.dispose();
     }
     
-   class VehicleTypeListener implements ActionListener {
-    private String vehicleType;
-    
-    public VehicleTypeListener(String vehicleType) {
-        this.vehicleType = vehicleType;
-    }
-    
-    // In the VehicleTypeListener class in TravellerBookingController.java
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        selectedVehicleType = vehicleType;
+    class VehicleTypeListener implements ActionListener {
+        private String vehicleType;
+        
+        public VehicleTypeListener(String vehicleType) {
+            this.vehicleType = vehicleType;
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            selectedVehicleType = vehicleType;
 
-        if ("Guide".equals(vehicleType)) {
-            try {
-                List<GuideData> availableGuides = guideDao.getAllGuides();
-                if (availableGuides.isEmpty()) {
-                    JOptionPane.showMessageDialog(BookingView, 
-                        "No guides available at this time.", 
-                        "No Guides", 
-                        JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    GuideData selectedGuide = BookingView.showGuideSelectionPopup(availableGuides);
-                    if (selectedGuide != null) {
-                        // Store the selected guide
-                        BookingView.setSelectedGuide(selectedGuide);
-
-                        // Show confirmation to user
-                        JOptionPane.showMessageDialog(BookingView,
-                            "Guide selected: " + selectedGuide.getGuideName(),
-                            "Guide Confirmation",
+            if ("Guide".equals(vehicleType)) {
+                try {
+                    List<GuideData> availableGuides = guideDao.getAllGuides();
+                    if (availableGuides.isEmpty()) {
+                        JOptionPane.showMessageDialog(BookingView, 
+                            "No guides available at this time.", 
+                            "No Guides", 
                             JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        GuideData selectedGuide = BookingView.showGuideSelectionPopup(availableGuides);
+                        if (selectedGuide != null) {
+                            // Store the selected guide
+                            BookingView.setSelectedGuide(selectedGuide);
+
+                            // Show confirmation to user
+                            JOptionPane.showMessageDialog(BookingView,
+                                "Guide selected: " + selectedGuide.getGuideName(),
+                                "Guide Confirmation",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        }
                     }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(BookingView,
+                        "Error loading guides: " + ex.getMessage(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
                 }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(BookingView,
-                    "Error loading guides: " + ex.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
+            } else {
+                // Existing vehicle type handling code...
+                List<BookingData.VehicleInfo> cars = bookingDao.getAvailableVehiclesByType("Car");
+                List<BookingData.VehicleInfo> jeeps = bookingDao.getAvailableVehiclesByType("Jeep");
+                List<BookingData.VehicleInfo> taxis = bookingDao.getAvailableVehiclesByType("Taxi");
+
+                BookingView.populateCarTab(cars);
+                BookingView.populateJeepTab(jeeps);
+                BookingView.populateTaxiTab(taxis);
+
+                // Select the appropriate tab based on vehicle type
+                switch (vehicleType) {
+                    case "Car":
+                        BookingView.getTabbedPane().setSelectedIndex(0);
+                        break;
+                    case "Jeep":
+                        BookingView.getTabbedPane().setSelectedIndex(1);
+                        break;
+                    case "Taxi":
+                        BookingView.getTabbedPane().setSelectedIndex(2);
+                        break;
+                }
+
+                // Load vehicles for the combo box
+                loadVehiclesByType(vehicleType);
             }
-        } else {
-            // Existing vehicle type handling code...
-            List<BookingData.VehicleInfo> cars = bookingDao.getAvailableVehiclesByType("Car");
-            List<BookingData.VehicleInfo> jeeps = bookingDao.getAvailableVehiclesByType("Jeep");
-            List<BookingData.VehicleInfo> taxis = bookingDao.getAvailableVehiclesByType("Taxi");
-
-            BookingView.populateCarTab(cars);
-            BookingView.populateJeepTab(jeeps);
-            BookingView.populateTaxiTab(taxis);
-
-            // Select the appropriate tab based on vehicle type
-            switch (vehicleType) {
-                case "Car":
-                    BookingView.getTabbedPane().setSelectedIndex(0);
-                    break;
-                case "Jeep":
-                    BookingView.getTabbedPane().setSelectedIndex(1);
-                    break;
-                case "Taxi":
-                    BookingView.getTabbedPane().setSelectedIndex(2);
-                    break;
-            }
-
-            // Load vehicles for the combo box
-            loadVehiclesByType(vehicleType);
         }
     }
-}
-
-
-
     
     // Book Button Listener
     class BookButtonListener implements ActionListener {
@@ -295,50 +295,93 @@ public class TravellerBookingController {
         }
     }
     
-    // Booking Details Listener
+    // FIXED Booking Details Listener
     class BookingDetailsListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            List<BookingData> userBookings = bookingDao.getBookingsByTravellerId(currentTravellerId);
+            List<BookingData> bookings = bookingDao.getBookingsByTravellerId(currentTravellerId);
             
-            if (userBookings.isEmpty()) {
+            if (bookings.isEmpty()) {
                 JOptionPane.showMessageDialog(BookingView, 
                     "No bookings found for your account.", 
                     "Booking Details", 
                     JOptionPane.INFORMATION_MESSAGE);
             } else {
-                StringBuilder bookingDetails = new StringBuilder();
-                bookingDetails.append("Your Bookings:\n\n");
-                
-                for (BookingData booking : userBookings) {
-                    bookingDetails.append("Booking ID: ").append(booking.getBookingId()).append("\n");
-                    bookingDetails.append("Vehicle Type: ").append(booking.getVehicleType()).append("\n");
-                    bookingDetails.append("From: ").append(booking.getPickupAddress()).append("\n");
-                    bookingDetails.append("To: ").append(booking.getDropAddress()).append("\n");
-                    bookingDetails.append("Departure: ").append(booking.getDepartureDateTime()).append("\n");
-                    bookingDetails.append("Return: ").append(booking.getReturnDateTime()).append("\n");
-                    bookingDetails.append("Passengers: ").append(booking.getPassengerCount()).append("\n");
-                    bookingDetails.append("Payment: ").append(booking.getPaymentMethod()).append("\n");
+                // Show selection dialog if multiple bookings
+                if (bookings.size() > 1) {
+                    BookingData selected = (BookingData) JOptionPane.showInputDialog(
+                        BookingView,
+                        "Select a booking to view details:",
+                        "Your Bookings",
+                        JOptionPane.PLAIN_MESSAGE,
+                        null,
+                        bookings.toArray(),
+                        bookings.get(0));
                     
-                    if (booking.getVehicleNumber() != null) {
-                        bookingDetails.append("Vehicle: ").append(booking.getVehicleNumber()).append("\n");
+                    if (selected != null) {
+                        showBookingDetails(selected);
                     }
-                    if (booking.getDriverName() != null) {
-                        bookingDetails.append("Driver: ").append(booking.getDriverName()).append("\n");
-                    }
-                    
-                    bookingDetails.append("------------------------\n\n");
+                } else {
+                    // Show details for the single booking
+                    showBookingDetails(bookings.get(0));
                 }
-                
-                JOptionPane.showMessageDialog(BookingView, 
-                    bookingDetails.toString(), 
-                    "Your Booking Details", 
-                    JOptionPane.INFORMATION_MESSAGE);
             }
         }
+        
+        private void showBookingDetails(BookingData booking) {
+            // FIXED: Use the correct constructor without Frame parameter
+            BookingDetailsPopup popup = new BookingDetailsPopup(BookingView, booking);
+            
+            popup.addCancelButtonListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    int confirm = JOptionPane.showConfirmDialog(
+                        popup,
+                        "Are you sure you want to cancel this booking?",
+                        "Confirm Cancellation",
+                        JOptionPane.YES_NO_OPTION);
+                    
+                    if (confirm == JOptionPane.YES_OPTION) {
+                        if (bookingDao.deleteBooking(booking.getBookingId())) {
+                            JOptionPane.showMessageDialog(
+                                popup,
+                                "Booking has been cancelled successfully.",
+                                "Cancellation Successful",
+                                JOptionPane.INFORMATION_MESSAGE);
+                            popup.dispose();
+                        } else {
+                            JOptionPane.showMessageDialog(
+                                popup,
+                                "Failed to cancel booking. Please try again.",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                }
+            });
+            
+            popup.addPrintButtonListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(
+                        popup,
+                        "Print functionality will be implemented soon.",
+                        "Print Receipt",
+                        JOptionPane.INFORMATION_MESSAGE);
+                }
+            });
+            
+            popup.addCloseButtonListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    popup.dispose();
+                }
+            });
+            
+            // FIXED: Use setVisible instead of showDialog
+            popup.setVisible(true);
+        }
     }
-    
-    
     
     //    Dashboard Navigation
     class DashboardNav implements MouseListener {

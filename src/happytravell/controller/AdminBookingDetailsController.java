@@ -606,7 +606,19 @@ private void populateData() {
     public BookingData getBookingData() {
         return bookingData;
     }
-}
+
+        void addCancelButtonListener(ActionListener actionListener) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        void addPrintButtonListener(ActionListener actionListener) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        void addCloseButtonListener(ActionListener actionListener) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+    }
     public static class BookingCardListener implements MouseListener {
     private final AdminBookingDetailsController controller;
     private BookingData booking;

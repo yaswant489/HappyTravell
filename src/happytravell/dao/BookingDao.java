@@ -386,4 +386,26 @@ public class BookingDao {
             e.printStackTrace();
         }
     }
+    
+    public boolean deleteBooking(int bookingId) {
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    
+    try {
+        conn = mySql.openConnection();
+        stmt = conn.prepareStatement("DELETE FROM bookings WHERE booking_ID = ?");
+        stmt.setInt(1, bookingId);
+        
+        int rowsAffected = stmt.executeUpdate();
+        return rowsAffected > 0;
+        
+    } catch (SQLException e) {
+        System.err.println("Error deleting booking: " + e.getMessage());
+        e.printStackTrace();
+    } finally {
+        closeResources(null, stmt, conn);
+    }
+    
+    return false;
+}
 }
