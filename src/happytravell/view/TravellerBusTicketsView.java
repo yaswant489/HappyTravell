@@ -14,14 +14,17 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -701,14 +704,24 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
 
     
     
+    
 
-    public void addBookButtonListener(ActionListener listener) {
+    
+    
+
+
+    public JLabel getBusImageLabel() {
+        return busImageLabel;
+    }
+    
+    
+    
+
+    public void BuyNowButtonListener(ActionListener listener) {
         buyNowButton.addActionListener(listener);
     }
 
-//    public void addBookingDetailsButtonListener(ActionListener listener) {
-//        bookingDetailsButton.addActionListener(listener);
-//    }
+
 
     public void DashboardNavigation(java.awt.event.MouseListener listener) {
         dashboardLabel.addMouseListener(listener);
@@ -761,15 +774,34 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
     
     
     
-    public JComboBox getVehiclesNumberComboBox(){
+    public JComboBox getBusNumberComboBox(){
         return busNumberComboBox;
     }
     
-    
-   
-    public JTextField getPickUpAddressTextField() {
+    public JTextField getNameTextField() {
         return phoneNumberTextField;
     }
+    public JTextField getPhoneNumberTextField() {
+        return phoneNumberTextField;
+    }
+    
+   
+    public JTextField getPickupAddressTextField() {
+        return phoneNumberTextField;
+    }
+    
+    public JTextField getSelectedSeatsTextField() {
+        return selectedSeatsTextField;
+    }
+    
+    public JTextField getBookedSeatsTextField() {
+        return bookedSeatsTextField;
+    }
+    
+    public JTextField getAvailableTextField() {
+        return availableSeatsTextField;
+    }
+    
     
     public JTextField getDropAddressTextField() {
         return dropAddressTextField;

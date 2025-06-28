@@ -312,4 +312,38 @@ public class VehiclesDao {
             rs.getBytes("vehicles_image")    
         );
     }
+    
+ 
+    
+    
+    public VehiclesData getVehicleByNumber(String vehicleNumber) {
+    Connection conn = mySql.openConnection();
+    String sql = "SELECT * FROM vehicle WHERE vehicle_number = ? AND is_active = true";
+    
+    try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setString(1, vehicleNumber);
+        
+        try (ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
+                return extractVehicleFromResultSet(rs);
+            }
+        }
+    } catch (SQLException e) {
+        System.err.println("Error getting vehicle by number: " + e.getMessage());
+        e.printStackTrace();
+    } finally {
+        try {
+            if (conn != null && !conn.isClosed()) {
+                conn.close();
+            }
+        } catch (SQLException e) {
+            System.err.println("Error closing connection: " + e.getMessage());
+        }
+    }
+    return null;
 }
+
+
+}
+
+
