@@ -150,10 +150,10 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
         dropAddressTextField = new javax.swing.JTextField();
         departureSpinner = new javax.swing.JSpinner();
         returnSpinner = new javax.swing.JSpinner();
-        vehiclesNumberComboBox = new javax.swing.JComboBox<>();
+        busNumberComboBox = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        bookingDetailsButton = new javax.swing.JButton();
-        bookButton = new javax.swing.JButton();
+        myTicketsButton = new javax.swing.JButton();
+        buyNowButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -190,11 +190,11 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
+        busImageLabel = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        availableSeatsTextField = new javax.swing.JTextField();
+        selectedSeatsTextField = new javax.swing.JTextField();
+        bookedSeatsTextField = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -263,32 +263,32 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
         returnSpinner.setFocusCycleRoot(true);
         placePanel.add(returnSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 250, 25));
 
-        vehiclesNumberComboBox.setBackground(new java.awt.Color(248, 219, 164));
-        vehiclesNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bus Number", " ", " ", " " }));
-        vehiclesNumberComboBox.setToolTipText("");
-        vehiclesNumberComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        vehiclesNumberComboBox.addActionListener(new java.awt.event.ActionListener() {
+        busNumberComboBox.setBackground(new java.awt.Color(248, 219, 164));
+        busNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bus Number", " ", " ", " " }));
+        busNumberComboBox.setToolTipText("");
+        busNumberComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        busNumberComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehiclesNumberComboBoxActionPerformed(evt);
+                busNumberComboBoxActionPerformed(evt);
             }
         });
-        placePanel.add(vehiclesNumberComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 250, 25));
+        placePanel.add(busNumberComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 250, 25));
         placePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 10, 20));
 
-        bookingDetailsButton.setBackground(new java.awt.Color(171, 106, 32));
-        bookingDetailsButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        bookingDetailsButton.setText("My Tickets");
-        bookingDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+        myTicketsButton.setBackground(new java.awt.Color(171, 106, 32));
+        myTicketsButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        myTicketsButton.setText("My Tickets");
+        myTicketsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookingDetailsButtonActionPerformed(evt);
+                myTicketsButtonActionPerformed(evt);
             }
         });
-        placePanel.add(bookingDetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 160, -1));
+        placePanel.add(myTicketsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 160, -1));
 
-        bookButton.setBackground(new java.awt.Color(171, 106, 32));
-        bookButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        bookButton.setText("Buy Now");
-        placePanel.add(bookButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 100, -1));
+        buyNowButton.setBackground(new java.awt.Color(171, 106, 32));
+        buyNowButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buyNowButton.setText("Buy Now");
+        placePanel.add(buyNowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 100, -1));
 
         jLabel3.setText("Pickup Address");
         placePanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, -1));
@@ -443,24 +443,24 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
         jLabel37.setText("B4");
         placePanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 20, 20));
 
-        jLabel38.setText("bus img");
-        placePanel.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 240, 140));
+        busImageLabel.setText("bus img");
+        placePanel.add(busImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 240, 140));
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel39.setText("Selected");
         placePanel.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, 20));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setForeground(new java.awt.Color(0, 153, 51));
-        placePanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 20, -1));
+        availableSeatsTextField.setBackground(new java.awt.Color(0, 0, 0));
+        availableSeatsTextField.setForeground(new java.awt.Color(0, 153, 51));
+        placePanel.add(availableSeatsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 20, -1));
 
-        jTextField2.setBackground(new java.awt.Color(0, 153, 51));
-        jTextField2.setForeground(new java.awt.Color(0, 153, 51));
-        placePanel.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 20, -1));
+        selectedSeatsTextField.setBackground(new java.awt.Color(0, 153, 51));
+        selectedSeatsTextField.setForeground(new java.awt.Color(0, 153, 51));
+        placePanel.add(selectedSeatsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 20, -1));
 
-        jTextField3.setBackground(new java.awt.Color(204, 0, 0));
-        jTextField3.setForeground(new java.awt.Color(0, 153, 51));
-        placePanel.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 20, -1));
+        bookedSeatsTextField.setBackground(new java.awt.Color(204, 0, 0));
+        bookedSeatsTextField.setForeground(new java.awt.Color(0, 153, 51));
+        placePanel.add(bookedSeatsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 20, -1));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel40.setText("Booked");
@@ -559,13 +559,13 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void vehiclesNumberComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehiclesNumberComboBoxActionPerformed
+    private void busNumberComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busNumberComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_vehiclesNumberComboBoxActionPerformed
+    }//GEN-LAST:event_busNumberComboBoxActionPerformed
 
-    private void bookingDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingDetailsButtonActionPerformed
+    private void myTicketsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myTicketsButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bookingDetailsButtonActionPerformed
+    }//GEN-LAST:event_myTicketsButtonActionPerformed
 
     private void dropAddressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropAddressTextFieldActionPerformed
         // TODO add your handling code here:
@@ -624,12 +624,15 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DashDetailsPanel;
     private javax.swing.JPanel TravelerDetailsPanel;
-    private javax.swing.JButton bookButton;
-    private javax.swing.JButton bookingDetailsButton;
+    private javax.swing.JTextField availableSeatsTextField;
+    private javax.swing.JTextField bookedSeatsTextField;
     private javax.swing.JLabel bookingIcon;
     private javax.swing.JLabel bookingLabel;
+    private javax.swing.JLabel busImageLabel;
+    private javax.swing.JComboBox<String> busNumberComboBox;
     private javax.swing.JLabel busTicketIcon;
     private javax.swing.JLabel busTicketsLabel;
+    private javax.swing.JButton buyNowButton;
     private javax.swing.JLabel dashboardIcon;
     private javax.swing.JLabel dashboardLabel;
     private javax.swing.JSpinner departureSpinner;
@@ -666,7 +669,6 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
@@ -678,13 +680,11 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel logOutLabel;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JLabel logoutIcon;
+    private javax.swing.JButton myTicketsButton;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JTextField phoneNumberTextField;
     private javax.swing.JTextField pickupAddressTextField1;
@@ -694,16 +694,16 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
     private javax.swing.JSpinner returnSpinner;
     private javax.swing.JLabel routeIcon;
     private javax.swing.JLabel routeLabel;
+    private javax.swing.JTextField selectedSeatsTextField;
     private javax.swing.JLabel vehiclesDetailsLabel;
     private javax.swing.JLabel vehiclesIcon;
-    private javax.swing.JComboBox<String> vehiclesNumberComboBox;
     // End of variables declaration//GEN-END:variables
 
     
     
 
     public void addBookButtonListener(ActionListener listener) {
-        bookButton.addActionListener(listener);
+        buyNowButton.addActionListener(listener);
     }
 
 //    public void addBookingDetailsButtonListener(ActionListener listener) {
@@ -762,7 +762,7 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
     
     
     public JComboBox getVehiclesNumberComboBox(){
-        return vehiclesNumberComboBox;
+        return busNumberComboBox;
     }
     
     
@@ -783,7 +783,92 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
         return departureSpinner;
     }
     
-   
+    // Add these methods to your view class
+    public JLabel getSeatA1() {
+        return jLabel23; 
+    }
+    public JLabel getSeatA2() { 
+        return jLabel8; 
+    }
+    public JLabel getSeatA3() {
+        return jLabel11; 
+    }
+    public JLabel getSeatA4() {
+        return jLabel17;
+    }
+    public JLabel getSeatA5() { 
+        return jLabel12;
+    }
+    public JLabel getSeatA6() {
+        return jLabel18;
+    }
+    public JLabel getSeatA7() {
+        return jLabel13; 
+    }
+    public JLabel getSeatA8() { 
+        return jLabel19; 
+    }
+    public JLabel getSeatA9() { 
+        return jLabel14;
+    }
+    public JLabel getSeatA10() { 
+        return jLabel20; 
+    }
+    public JLabel getSeatA11() { 
+        return jLabel15; 
+    }
+    public JLabel getSeatA12() { 
+        return jLabel21; 
+    }
+    public JLabel getSeatA13() { 
+        return jLabel16; 
+    }
+    public JLabel getSeatA14() {
+        return jLabel22;
+    }
+
+    public JLabel getSeatB1() { 
+        return jLabel25;
+    }
+    public JLabel getSeatB2() {
+        return jLabel24;
+    }
+    public JLabel getSeatB3() {
+        return jLabel26;
+    }
+    public JLabel getSeatB4() { 
+        return jLabel37; 
+    }
+    public JLabel getSeatB5() {
+        return jLabel27;
+    }
+    public JLabel getSeatB6() { 
+        return jLabel36;
+    }
+    public JLabel getSeatB7() {
+        return jLabel28;
+    }
+    public JLabel getSeatB8() {
+        return jLabel35; 
+    }
+    public JLabel getSeatB9() { 
+        return jLabel29;
+    }
+    public JLabel getSeatB10() { 
+        return jLabel34; 
+    }
+    public JLabel getSeatB11() { 
+        return jLabel30; 
+    }
+    public JLabel getSeatB12() { 
+        return jLabel33;
+    }
+    public JLabel getSeatB13() { 
+        return jLabel31; 
+    }
+    public JLabel getSeatB14() {
+        return jLabel32; 
+    }
 
 }
 

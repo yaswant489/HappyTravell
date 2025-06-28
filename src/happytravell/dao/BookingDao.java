@@ -408,4 +408,84 @@ public class BookingDao {
     
     return false;
 }
+    
+    
+    
+    
+    // Add these methods to BookingDao.java
+
+// Check seat availability for a specific bus and date
+private static final String CHECK_SEAT_AVAILABILITY = 
+    "SELECT seat_number FROM booked_seats WHERE vehicle_number = ? AND travel_date = ?";
+
+public boolean isSeatAvailable(String vehicleNumber, String travelDate, String seatNumber) {
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    
+    try {
+        conn = mySql.openConnection();
+        stmt = conn.prepareStatement(CHECK_SEAT_AVAILABILITY);
+        stmt.setString(1, vehicleNumber);
+        stmt.setString(2, travelDate);
+        
+        rs = stmt.executeQuery();
+        while (rs.next()) {
+            if (rs.getString("seat_number").equals(seatNumber)) {
+                return false; // Seat is already booked
+            }
+        }
+        return true; // Seat is available
+        
+    } catch (SQLException e) {
+        System.err.println("Error checking seat availability: " + e.getMessage());
+        return false;
+    } finally {
+        closeResources(rs, stmt, conn);
+    }
+}
+
+// Method to book seats
+private static final String BOOK_SEATS = 
+    "INSERT INTO booked_seats (booking_id, vehicle_number, travel_date, seat_number) VALUES (?, ?, ?, ?)";
+
+public boolean bookSeats(int bookingId, String vehicleNumber, String travelDate, List<String> seats) {
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    
+    try {
+        conn = mySql.openConnection();
+        conn.setAutoCommit(false); // Start transaction
+        
+        stmt = conn.prepareStatement(BOOK_SEATS);
+        
+        for (String seat : seats) {
+            stmt.setInt(1, bookingId);
+            stmt.setString(2, vehicleNumber);
+            stmt.setString(3, travelDate);
+            stmt.setString(4, seat);
+            stmt.addBatch();
+        }
+        
+        int[] results = stmt.executeBatch();
+        conn.commit();
+        
+        for (int result : results) {
+            if (result <= 0) return false;
+        }
+        return true;
+        
+    } catch (SQLException e) {
+        try {
+            if (conn != null) conn.rollback();
+        } catch (SQLException ex) {
+            System.err.println("Error rolling back transaction: " + ex.getMessage());
+        }
+        System.err.println("Error booking seats: " + e.getMessage());
+        return false;
+    } finally {
+        closeResources(null, stmt, conn);
+    }
+}
+    
 }
