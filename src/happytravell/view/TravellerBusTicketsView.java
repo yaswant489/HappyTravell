@@ -720,7 +720,14 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
     public void BuyNowButtonListener(ActionListener listener) {
         buyNowButton.addActionListener(listener);
     }
+    
+    public void MyTicketsListener(ActionListener listener) {
+        myTicketsButton.addActionListener(listener);
+    }
 
+//    public JButton getMyTicketsButton(){
+//        return myTicketsButton;
+//    }
 
 
     public void DashboardNavigation(java.awt.event.MouseListener listener) {
@@ -901,6 +908,20 @@ public class TravellerBusTicketsView extends javax.swing.JFrame {
     public JLabel getSeatB14() {
         return jLabel32; 
     }
+
+    
+   public JButton getMyTicketsButton(){
+    return myTicketsButton;
+}
+
+public void MyTicketsButtonListener(ActionListener listener) {
+    myTicketsButton.addActionListener(listener);
+}
+//
+//// Add this to your AdminBusTicketsView class to connect the button
+//public void setMyTicketsButtonListener(ActionListener listener) {
+//    
+//}
 
 }
 

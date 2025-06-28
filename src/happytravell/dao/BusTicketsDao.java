@@ -401,4 +401,47 @@ public boolean updateSeatStatus(String vehicleNumber, String seatNumber, String 
         mysql.closeConnection(conn);
     }
 }
+
+
+public List<BusTicketsData> getTicketsByTravellerId(int travellerId) {
+    initializeTables();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    List<BusTicketsData> tickets = new ArrayList<>();
+    
+    try {
+        conn = mysql.openConnection();
+        // Note: You'll need to add a traveller_id column to your bus_Tickets table
+        // or find another way to associate tickets with travelers
+        stmt = conn.prepareStatement("SELECT * FROM " + BUS_TICKETS_TABLE + " WHERE traveller_id = ?");
+        stmt.setInt(1, travellerId);
+        rs = stmt.executeQuery();
+        
+        while (rs.next()) {
+            BusTicketsData ticket = new BusTicketsData(
+                rs.getString("name"),
+                rs.getString("phone_number"),
+                rs.getString("bus_number"),
+                rs.getString("pickup_address"),
+                rs.getString("drop_address"),
+                rs.getTimestamp("departure_date_time"),
+                rs.getTimestamp("return_date_time"),
+                rs.getString("travel_date"),
+                rs.getString("seat_number")
+            );
+            ticket.setId(rs.getInt("id"));
+            tickets.add(ticket);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        closeResources(rs, stmt);
+        mysql.closeConnection(conn);
+    }
+    
+    return tickets;
+}
+
+
 }

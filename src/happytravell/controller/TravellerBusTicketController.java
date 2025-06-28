@@ -6,6 +6,7 @@ import happytravell.dao.VehiclesDao;
 import happytravell.model.BookingData;
 import happytravell.model.BusTicketsData;
 import happytravell.model.VehiclesData;
+import happytravell.popup.TicketsPopup;
 import happytravell.view.LoginPageView;
 import happytravell.view.TravellerBookingView;
 import happytravell.view.TravellerBusTicketsView;
@@ -75,8 +76,67 @@ public class TravellerBusTicketController {
         
         // Add action listener for Buy Now button
         this.busTicketsView.BuyNowButtonListener(new BuyNowListener());
+        
+        this.busTicketsView.MyTicketsButtonListener(new MyTicketsListener());
     }
+    
+//    public void MyTicketsButtonListener(ActionListener listener) {
+//    busTicketsView.getMyTicketsButton().addActionListener(listener);
+//    }
 
+    
+   class MyTicketsListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            System.out.println("Current Traveller ID: " + currentTravellerId); // Debug line
+            
+            List<BusTicketsData> tickets = busTicketsDao.getTicketsByTravellerId(currentTravellerId);
+            
+            System.out.println("Number of tickets found: " + tickets.size()); // Debug line
+            for (BusTicketsData ticket : tickets) {
+                System.out.println("Ticket: " + ticket.getName() + " - " + ticket.getBusNumber());
+            }
+            
+            TicketsPopup.showTicketsPopup(tickets);
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(busTicketsView, 
+                "Error loading tickets: " + ex.getMessage(), 
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }
+}
+
+    
+//    public void handleMyTicketsButtonClick() {
+//    try {
+//        // Option 1: Show all tickets (admin view)
+//        BusTicketsDao ticketsDao = new BusTicketsDao();
+//        List<BusTicketsData> allTickets = ticketsDao.getAllBusTickets();
+//        TicketsPopup.showTicketsPopup(allTickets);
+//        
+//        // Option 2: Show tickets for specific traveller (if you have traveller context)
+//        // TicketsPopup.showTicketsPopupForTraveller(travellerId);
+//        
+//    } catch (Exception e) {
+//        JOptionPane.showMessageDialog(
+//            null,
+//            "Error loading tickets: " + e.getMessage(),
+//            "Error",
+//            JOptionPane.ERROR_MESSAGE
+//        );
+//        e.printStackTrace();
+//    }
+//}
+
+    
+    
+    
+    
+    
     private void populateBusNumbers() {
         try {
             List<VehiclesData> buses = vehiclesDao.getVehiclesByType("Bus");
