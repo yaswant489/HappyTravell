@@ -317,6 +317,7 @@ public class AdminDashboardController {
                 AdminReviewsDetailsView reviewView = new AdminReviewsDetailsView();
                 AdminReviewsDetailsController reviewsController = new AdminReviewsDetailsController(reviewView);
                 reviewsController.open();
+                close();
         }
     }  
 

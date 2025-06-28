@@ -4,6 +4,7 @@
  */
 package happytravell.controller;
 
+import happytravell.popup.TravelerReviewPopup;
 import happytravell.view.AdminBusTicketsView;
 import happytravell.view.AdminPlacesView;
 import happytravell.view.AdminReviewsDetailsView;
@@ -23,6 +24,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import happytravell.popup.TravelerReviewPopup;
 
 
 /**
@@ -31,11 +34,14 @@ import javax.swing.JOptionPane;
  */
 public class TravellerDashboardController {
     private TravellerdashboardView travellerdashboardView = new TravellerdashboardView();
-
+    private String currentTravellerName;
+    private String currentTravellerEmail;
     private int currentTravellerId;
     public TravellerDashboardController(TravellerdashboardView travellerdashboardView, int travellerId){
-        this.travellerdashboardView = travellerdashboardView;
+            this.travellerdashboardView = travellerdashboardView;
         this.currentTravellerId = travellerId;
+        this.currentTravellerName = "User" + travellerId;
+        this.currentTravellerEmail = "User" + travellerId + "User@.email";
         this.travellerdashboardView.PlacesNavigation(new PlacesNav());
         this.travellerdashboardView.ReviewsNavigation(new ReviewsNav());
         this.travellerdashboardView.BookingNavigation(new TravellerDashboardController.BookingNav(travellerdashboardView.getBookinglabel())); 
@@ -361,14 +367,27 @@ public class TravellerDashboardController {
  
     
 //  Review Navigation
-    class ReviewsNav implements ActionListener {
+  class ReviewsNav implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        showTravelerReviewPopup();
+    }
+}
+
+private void showTravelerReviewPopup() {
+    SwingUtilities.invokeLater(new Runnable() {
         @Override
-        public void actionPerformed(ActionEvent e) {
-                AdminReviewsDetailsView reviewView = new AdminReviewsDetailsView();
-                AdminReviewsDetailsController reviewsController = new AdminReviewsDetailsController(reviewView);
-                reviewsController.open();
+        public void run() {
+            TravelerReviewPopup popup = new TravelerReviewPopup(
+                currentTravellerId,
+                "Traveller " + currentTravellerId,  // Default name
+                "traveller" + currentTravellerId + "@example.com"  // Default email
+            );
+        
+            popup.setVisible(true);
         }
-    }  
+    });
+}
 
    
    

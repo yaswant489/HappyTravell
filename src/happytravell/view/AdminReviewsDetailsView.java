@@ -9,6 +9,8 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 
 
@@ -378,4 +380,10 @@ public class AdminReviewsDetailsView extends javax.swing.JFrame {
     public JButton getBackButton(){
     return backButton;
     }
+    public JPanel getTravelerDetailsPanel() {
+    return TravelerDetailsPanel;
+    }
+    public JScrollPane getScrollPane() {
+    return scrollPane;
+}
 }

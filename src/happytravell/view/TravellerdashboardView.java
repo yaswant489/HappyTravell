@@ -9,6 +9,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.JButton;
+import happytravell.popup.TravelerReviewPopup;
 
 /**
  *
@@ -515,4 +519,7 @@ public class TravellerdashboardView extends javax.swing.JFrame {
     public JLabel getLogOutlabel(){
         return logOutLabel;
     }
+    public JPanel getTravelerDetailsPanel() {
+    return TravelerDetailsPanel; 
+}
 }
