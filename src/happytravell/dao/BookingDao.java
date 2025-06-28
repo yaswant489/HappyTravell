@@ -408,4 +408,43 @@ public class BookingDao {
     
     return false;
 }
+    
+    
+    
+    
+    // Add these methods to BookingDao.java
+
+// Check seat availability for a specific bus and date
+private static final String CHECK_SEAT_AVAILABILITY = 
+    "SELECT seat_number FROM booked_seats WHERE vehicle_number = ? AND travel_date = ?";
+
+public boolean isSeatAvailable(String vehicleNumber, String travelDate, String seatNumber) {
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    
+    try {
+        conn = mySql.openConnection();
+        stmt = conn.prepareStatement(CHECK_SEAT_AVAILABILITY);
+        stmt.setString(1, vehicleNumber);
+        stmt.setString(2, travelDate);
+        
+        rs = stmt.executeQuery();
+        while (rs.next()) {
+            if (rs.getString("seat_number").equals(seatNumber)) {
+                return false; // Seat is already booked
+            }
+        }
+        return true; // Seat is available
+        
+    } catch (SQLException e) {
+        System.err.println("Error checking seat availability: " + e.getMessage());
+        return false;
+    } finally {
+        closeResources(rs, stmt, conn);
+    }
+}
+
+
+    
 }
