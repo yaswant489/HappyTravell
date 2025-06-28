@@ -31,13 +31,12 @@ public class TravellerBusTicketController {
         this.busTicketsView = busTicketsView;
 
         // Attach all the navigation listeners
-        this.busTicketsView.DashboardNavigation(new DashboardNav(busTicketsView.getDashboardlabel()));
-        this.busTicketsView.BookingNavigation(new BookingNav(busTicketsView.getBookinglabel()));
-        this.busTicketsView.RouteNavigation(new RouteNav(busTicketsView.getRoutelabel()));
-        this.busTicketsView.BusTicketsNavigation(new BusTicketsNav(busTicketsView.getBusTicketslabel()));
-        this.busTicketsView.VehiclesDetailsNavigation(new VehiclesDetailsNav(busTicketsView.getVehiclesDetailslabel()));
-        this.busTicketsView.ProfileNavigation(new ProfileNav(busTicketsView.getProfilelabel()));
-        this.busTicketsView.LogOutNavigation(new LogOutNav(busTicketsView.getLogOutlabel()));
+        this.busTicketsView.DashboardNavigation(new DashboardNav(busTicketsView.getDashboardLabel()));
+        this.busTicketsView.BookingNavigation(new BookingNav(busTicketsView.getBusDetailsLabel()));
+        this.busTicketsView.RouteNavigation(new RouteNav(busTicketsView.getRouteDetailsLabel()));
+        this.busTicketsView.VehiclesDetailsNavigation(new VehiclesDetailsNav(busTicketsView.getVehiclesDetailsLabel()));
+        this.busTicketsView.ProfileNavigation(new ProfileNav(busTicketsView.getProfileLabel()));
+        this.busTicketsView.LogOutNavigation(new LogOutNav(busTicketsView.getLogOutLabel()));
     }
 
     public void open() {
@@ -153,37 +152,7 @@ public class TravellerBusTicketController {
         }
     }
 
-    //  Bus Ticket Navigation
-    class BusTicketsNav implements MouseListener {
-        private final JLabel busTicketsLabel;
-
-        public BusTicketsNav(JLabel label) {
-            this.busTicketsLabel = label;
-        }
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            // Already on this page, do nothing
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {}
-
-        @Override
-        public void mouseReleased(MouseEvent e) {}
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            busTicketsLabel.setForeground(Color.WHITE);
-            busTicketsLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            busTicketsLabel.setForeground(Color.BLACK);
-            busTicketsLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        }
-    }
+    
 
     //  Vehicles Details Navigation
     class VehiclesDetailsNav implements MouseListener {
