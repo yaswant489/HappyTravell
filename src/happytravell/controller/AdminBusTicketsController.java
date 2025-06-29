@@ -4,6 +4,8 @@
  */
 package happytravell.controller;
 
+import happytravell.dao.BusTicketsDao;
+import happytravell.model.BusTicketsData;
 import happytravell.view.AdminBookingDetailsView;
 import happytravell.view.AdminBusTicketsView;
 import happytravell.view.AdminProfileView;
@@ -15,6 +17,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -25,15 +28,20 @@ import javax.swing.JOptionPane;
 public class AdminBusTicketsController {
     private AdminBusTicketsView TicketsView;
     private int currentAdminId;
+    private BusTicketsDao busTicketsDao;
     public AdminBusTicketsController(AdminBusTicketsView adminBusTicketsView, int adminId) {
         this.TicketsView = adminBusTicketsView;
         this.currentAdminId = adminId;
+        this.busTicketsDao = new BusTicketsDao(); 
         this.TicketsView.DashboardNavigation(new AdminBusTicketsController.DashboardNav(adminBusTicketsView.getDashboardlabel()));
         this.TicketsView.BookingDetailsNavigation(new AdminBusTicketsController.BookingDetailsNav(adminBusTicketsView.getBookingDetailslabel()));
         this.TicketsView.RouteDetailsNavigation(new AdminBusTicketsController.RouteDetailsNav(adminBusTicketsView.getRouteDetailslabel()));
         this.TicketsView.VehiclesDetailsNavigation(new AdminBusTicketsController.VehiclesDetailsNav(adminBusTicketsView.getVehiclesDetailslabel()));
         this.TicketsView.ProfileNavigation(new AdminBusTicketsController.ProfileNav(adminBusTicketsView.getProfilelabel()));
         this.TicketsView.LogOutNavigation(new AdminBusTicketsController.LogOutNav(adminBusTicketsView.getLogOutlabel()));
+        
+        loadBusTickets();
+       
     }
     public void open(){
     this.TicketsView.setVisible(true);
@@ -41,6 +49,17 @@ public class AdminBusTicketsController {
     public void close(){
     this.TicketsView.dispose();
     }
+    
+    // Add this method to load tickets
+public void loadBusTickets() {
+    try {
+        List<BusTicketsData> tickets = busTicketsDao.getAllBusTickets();
+        TicketsView.displayBusTickets(tickets);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(TicketsView, "Error loading bus tickets: " + e.getMessage(), 
+            "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
 
 //    Dashboard Navigation
     class DashboardNav implements MouseListener{

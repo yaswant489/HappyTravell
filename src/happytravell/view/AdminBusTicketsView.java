@@ -5,20 +5,32 @@
 package happytravell.view;
 
 import happytravell.UI.AdminBookingDetailsCardPanel;
+import happytravell.UI.AdminBusTicketsCardPanel;
 import happytravell.controller.AdminBookingDetailsController;
+import happytravell.controller.AdminBusTicketsController;
+import happytravell.dao.BusTicketsDao;
 import happytravell.dao.TravellerDao;
 import happytravell.model.BookingData;
+import happytravell.model.BusTicketsData;
 import happytravell.model.TravellerData;
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 /**
@@ -365,5 +377,39 @@ public class AdminBusTicketsView extends javax.swing.JFrame {
     public JLabel getLogOutlabel(){
         return logOutLabel;
     } 
+    
+  
+//     Add these methods to the class
+public void displayBusTickets(List<BusTicketsData> tickets) {
+    JPanel contentPanel = (JPanel) scrollPane.getViewport().getView();
+    contentPanel.removeAll();
+    contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+    
+    for (BusTicketsData ticket : tickets) {
+        AdminBusTicketsCardPanel card = new AdminBusTicketsCardPanel(ticket);
+        card.setAlignmentX(Component.LEFT_ALIGNMENT);
+        contentPanel.add(card);
+        contentPanel.add(Box.createRigidArea(new Dimension(0, 15))); // Add spacing between cards
+    }
+    
+    contentPanel.revalidate();
+    contentPanel.repaint();
+}
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+public JPanel getContentPanel() {
+    return jPanel2;
+}
+    
     
 }

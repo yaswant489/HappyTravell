@@ -98,7 +98,7 @@ public class TravellerBusTicketController {
                 System.out.println("Ticket: " + ticket.getName() + " - " + ticket.getBusNumber());
             }
             
-            TicketsPopup.showTicketsPopup(tickets);
+            TicketsPopup.showTicketDetails(tickets);
             
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -410,11 +410,12 @@ public class TravellerBusTicketController {
                         currentDate,
                         seatNumber
                     );
+                    ticket.setTravellerId(currentTravellerId); 
                     
-                    boolean success = busTicketsDao.addBusTicket(ticket);
+                    boolean success = busTicketsDao.addBusTicket(ticket, currentTravellerId);
                     
                     if (success) {
-                        busTicketsDao.updateSeatStatus(currentVehicleNumber, seatNumber, "BOOKED");
+                        busTicketsDao.updateSeatStatusForVehicle(currentVehicleNumber, seatNumber, "BOOKED");
                     } else {
                         allTicketsSuccess = false;
                         failedSeats.add(seatNumber);

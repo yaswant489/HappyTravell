@@ -12,6 +12,7 @@ import java.sql.Timestamp;
 public class BusTicketsData {
    
     private int id;
+    private int travellerId;
     private String name;
     private String phoneNumber;
     private String busNumber;
@@ -43,6 +44,14 @@ public class BusTicketsData {
 
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public int getTravellerId() {
+        return travellerId;
+    }
+
+    public void setTravellerId(int travellerId) {
+        this.travellerId = travellerId;
     }
 
     public String getName() {
